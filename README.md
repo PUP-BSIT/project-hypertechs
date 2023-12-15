@@ -1,6 +1,11 @@
 # Hypertechs™ Project Repository
 
-🌐 Welcome to the Hypertechs™ Project repository! Here, you can find the documents, source code, and resources for our banking web application.
+🚀 Welcome to the Hypertechs™ Project repository! Here, you can find the documents, source code, and resources for our banking web application.
+
+## Apex Bank Web App 
+🌐 [Visit our webhost domain here.](https://apexapp.tech/)
+
+🚧 Under Development: Welcome to the early stages of Apex Bank Web App! Our web domain is actively under development as we strive to bring you an exceptional online experience. Exciting features and improvements are in the works, so stay tuned for updates. We appreciate your patience and look forward to unveiling the full potential of Apex bank **soon.**
 
 ## The Hypertechs™ Team
 
