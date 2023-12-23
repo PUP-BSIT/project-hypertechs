@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --title-size: 2.8em;
+  --nav-size: 1.4em;
+  --super-header-size: 5em;
+  --header-size: 3em;
+  --subheader-size: 1.4em;
+  --text-size: 1.25em;
+  --subtext-size: 1em;
+  --otp-size: 2.5em;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #246af8;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #081023;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0em;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden; /*hides the overflow section */
+  box-sizing: border-box;
+  background-color: var(--background);
+  transition: background-color 0.8s, color 0.8s;
+}
+
+/* otp page grid layout */
+#otp_grid_container {
+  display: grid;
+  grid-template-areas:
+    "header image"
+    "back image"
+    "login image";
+  grid-template-rows: 0.23fr 5% 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+#header_container {
+  grid-area: header;
+  outline: 0px dashed blue;
+}
+
+#back_container {
+  grid-area: back;
+  outline: 0px dashed red;
+}
+
+#otp_container {
+  grid-area: login;
+  outline: 0px dashed green;
+}
+
+#otp_image_container {
+  height: 100vh;
+  grid-area: image;
+  background-color: var(--backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.8s, color 0.8s;
+}
+
+#otp_image_container img {
+  width: 90%;
+}
+
+/* header styling */
+#header_container {
+  padding-left: 3em;
+  padding-right: 3em;
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  justify-content: space-between;
+}
+
+#apex_logo {
+  display: flex;
+  align-items: center;
+}
+
+#apex_logo img {
+  width: 45px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#apex_logo h1 {
+  font-weight: 700;
+  font-size: var(--title-size);
+  background-image: linear-gradient(
+    to right,
+    #034694,
+    #1560bd,
+    #03a8ea,
+    #042c8b
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 5s linear infinite;
+}
+
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* back button styling */
+#back_container {
+  padding-top: 0.4%;
+  padding-left: 3em;
+}
+
+#back_container i {
+  font-size: 20px;
+  margin-right: 0.5em;
+  color: var(--accent);
+}
+
+#back_container a {
+  font-size: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#back_container a:hover {
+  animation: slideLeft 1s infinite;
+  display: flex;
+  align-items: center;
+}
+
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: slideLeft 1s infinite;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* otp text styling */
+#otp_container {
+  padding-left: 3em;
+}
+
+#otp_text {
+  max-width: 90%;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+#otp_container i {
+  font-size: 0.9em;
+  margin-right: 2.5%;
+  color: var(--primary);
+}
+
+#otp_container h1 {
+  text-align: left;
+  padding-top: 0.25em;
+  color: var(--text);
+  font-size: var(--header-size);
+}
+
+#otp_container p {
+  padding-top: 0.75em;
+  color: var(--text);
+  font-size: var(--text-size);
+}
+
+/* otp form styling */
+.otp-form-container {
+  margin-top: 3%;
+  max-width: 90%;
+}
+
+/* otp input fields styling */
+.otp-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.otp-input {
+  margin-bottom: 2em;
+  width: 10%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--otp-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.otp-fields:focus-within label,
+.otp-fields input:focus {
+  color: var(--primary);
+}
+
+.otp-fields input:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+/* otp verify button styling */
+.verify-section {
+  text-align: center;
+}
+
+.verify-button {
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+}
+
+.verify-button:hover {
+  transform: scale(1);
+  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+}
+
+.verify-button:active {
+  transform: scale(0.95);
+}
+
+/* resend code link styling */
+.resend-code {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.resend-code a {
+  color: var(--primary);
+  margin-top: 1.5%;
+  text-decoration: none;
+  position: relative;
+}
+
+.resend-code a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.resend-code a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Light/Dark theme toggle */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 25px;
+  width: 55px;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(30px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
