@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../src/css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Apex Bank – Home</title>
+</head>
+
+<body>
+    <header>
+        <div id="apex_logo">
+            <img src="../../app/assets/img/apex-temp.png" alt="Logo">
+            <h1>Apex Bank</h1>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Get Started</a>
+
+            <div id="toggle_theme">
+                <input type="checkbox" class="checkbox" id="theme_mode" />
+                <label class="label" for="theme_mode" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+        </nav>
+    </header>
+    <div id="home_container">
+        <div class="home-text">
+            <h1>Meet the <span>future<br></span> of banking.</h1>
+            <p>Join us on the path to financial excellence, where every
+                transaction is seamless, and your dreams are our
+                priority. Your journey begins here at Apex Bank: where
+                tomorrow's banking is today.</p>
+            <div class="button-container">
+                <a href="./register.html" id="button_create">Create an account</a>
+                <a href="./login.html" id="button_login">Log In<i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+        </div>
+        <div class="home-image-container">
+            <img src="../../app/assets/img/home-image.png" alt="Home image graphics">
+        </div>
+    </div>
+    <script src="../src/scripts/homepage.js"></script>
+</body>
+
+</html>
