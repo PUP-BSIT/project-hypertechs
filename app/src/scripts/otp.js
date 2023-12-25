@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
   themeToggle.addEventListener("change", toggleTheme);
 });
 
+/* prevents color flickering when loading */
+const theme = localStorage.getItem("theme") || "light";
+document.documentElement.dataset.theme = theme;
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const otpInputs = document.querySelectorAll(".otp-input");
 

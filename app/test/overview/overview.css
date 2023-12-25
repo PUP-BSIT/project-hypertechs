@@ -44,8 +44,8 @@ body {
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
   background-color: var(--background);
-  transition: background-color 0.9s, color 0.9s;
 }
 
 /* positions the sidebar and main section side by side */
@@ -72,7 +72,6 @@ body {
     "config";
   grid-template-rows: 17% 55% 28%;
   grid-row-gap: 1%;
-  transition: background-color 0.9s, color 0.9s;
 }
 
 .apex-logo-container {
@@ -163,7 +162,8 @@ body {
   font-size: 22px;
   position: relative;
   outline: 0px solid blue;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Apply transition to both properties */
+  transition: transform 0.3s ease-in-out, 
+  color 0.3s ease-in-out;
 }
 
 .tab-section::before {

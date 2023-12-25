@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
   themeToggle.addEventListener("change", toggleTheme);
 });
 
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.dataset.theme = theme;
+
 /* script to switch from internal to external transfer form */
 function showInternalTransferForm() {
   document.getElementById("internal-transfer-btn").classList.add("active");

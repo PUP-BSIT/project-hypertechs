@@ -43,7 +43,6 @@ body {
   overflow: hidden; /*hides the invisible section */
   box-sizing: border-box;
   background-color: var(--background);
-  transition: background-color 0.8s, color 0.8s;
 }
 
 /* login page grid layout */
@@ -79,7 +78,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.8s, color 0.8s;
 }
 
 #login_image_container img {
@@ -264,7 +262,9 @@ input::placeholder {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
 }
 
 .login-button:hover {

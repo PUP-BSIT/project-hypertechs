@@ -44,7 +44,6 @@ body {
   overflow-x: hidden; /*hides the overflow section */
   box-sizing: border-box;
   background-color: var(--background);
-  transition: background-color 0.8s, color 0.8s;
 }
 
 /* otp page grid layout */
@@ -81,7 +80,6 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: background-color 0.8s, color 0.8s;
 }
 
 #otp_image_container img {
@@ -261,7 +259,9 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
 }
 
 .verify-button:hover {

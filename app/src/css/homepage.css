@@ -41,7 +41,6 @@ body {
   box-sizing: border-box;
   background-color: var(--background);
   overflow: hidden; /* prevents scrolling */
-  transition: background-color 0.8s, color 0.8s;
 }
 
 /*header styling */
@@ -208,7 +207,9 @@ nav a:hover::before {
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s, box-shadow 0.3s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s, 
+  box-shadow 0.3s ease-in-out, 
+  transform 0.2s;
 }
 
 #button_create {

@@ -44,10 +44,10 @@
 body {
   margin: 0;
   padding: 0;
-  border: 2;
+  border: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
   background-color: var(--background);
-  transition: background-color 0.9s, color 0.9s;
 }
 
 /* positions the sidebar and main section side by side */
@@ -74,7 +74,6 @@ body {
     "config";
   grid-template-rows: 17% 55% 28%;
   grid-row-gap: 1%;
-  transition: background-color 0.9s, color 0.9s;
 }
 
 .apex-logo-container {
@@ -268,7 +267,6 @@ body {
   color: var(--text);
   font-weight: 400;
   font-size: 1.2em;
-  transition: background-color 0.9s, color 0.9s;
 }
 
 /*transfer form general styling*/
@@ -321,12 +319,6 @@ body {
   transition: border-color 0.3s ease-in-out;
 }
 
-.transfer-form-wrapper select::placeholder {
-  letter-spacing: 0.25em;
-  color: var(--text);
-  opacity: 0.25;
-}
-
 .form-group:focus-within label,
 .form-group input:focus,
 .form-group select:focus {
@@ -336,6 +328,11 @@ body {
 .form-group input:focus,
 .form-group select:focus {
   border-bottom: 2px solid var(--primary);
+}
+
+.form-group select option {
+  background-color: var(--backdrop);
+  color: var(--text); /* Set the desired text color for options */
 }
 
 /* forms transition */
@@ -378,7 +375,9 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
 }
 
 .transfer-form-wrapper button:hover {
@@ -433,17 +432,6 @@ body {
 
 #internal-transfer-form {
   display: none;
-}
-
-/* Add a class for the fade effect */
-.fade-in {
-  opacity: 1 !important; 
-  transition: opacity 0.3s ease-in-out;
-}
-
-.apex-transfer-container {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 /* Light/Dark theme toggle */
