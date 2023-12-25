@@ -165,7 +165,7 @@ body {
   font-weight: 500;
   position: relative;
   outline: 0px solid blue;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Apply transition to both properties */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .tab-section::before {
@@ -256,19 +256,11 @@ body {
   border: 0px dashed blueviolet;
 }
 
-.transfer-desc {
-  display: block;
-}
-
-.internal-transfer-desc,
-.external-transfer-desc {
-  display: none;
-}
-
 .internal-transfer-desc,
 .external-transfer-desc {
   border: 0px dashed black;
   margin-top: 1em;
+  display: none;
 }
 
 .internal-transfer-desc h2,
@@ -276,6 +268,7 @@ body {
   color: var(--text);
   font-weight: 400;
   font-size: 1.2em;
+  transition: background-color 0.9s, color 0.9s;
 }
 
 /*transfer form general styling*/
@@ -313,13 +306,63 @@ body {
   opacity: 0.25;
 }
 
+/* Common styles for both light and dark themes */
+.transfer-form-wrapper select {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.transfer-form-wrapper select::placeholder {
+  letter-spacing: 0.25em;
+  color: var(--text);
+  opacity: 0.25;
+}
+
 .form-group:focus-within label,
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   color: var(--accent);
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-bottom: 2px solid var(--primary);
+}
+
+/* forms transition */
+.transfer-form-wrapper {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.show-form {
+  display: block;
+  opacity: 1;
+}
+
+.transfer-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.transfer-buttons #submit {
+  width: 80%;
+}
+
+.transfer-buttons #reset {
+  width: 20%;
+  background-color: #bdd3ff;
+  color: #183d87;
 }
 
 .transfer-form-wrapper button {
@@ -340,7 +383,7 @@ body {
 
 .transfer-form-wrapper button:hover {
   transform: scale(1);
-  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
 .transfer-form-wrapper button:active {
@@ -390,6 +433,17 @@ body {
 
 #internal-transfer-form {
   display: none;
+}
+
+/* Add a class for the fade effect */
+.fade-in {
+  opacity: 1 !important; 
+  transition: opacity 0.3s ease-in-out;
+}
+
+.apex-transfer-container {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Light/Dark theme toggle */

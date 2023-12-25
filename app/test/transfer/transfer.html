@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="internal-transfer-desc">
-                    <h2>Transfer money seamlessly within Apex Bank</h2>
+                    <h2>Transfer money seamlessly within Apex Bank®</h2>
                 </div>
 
                 <div class="external-transfer-desc">
@@ -85,29 +85,35 @@
 
                         <div class="form-group">
                             <label for="transfer-amount">Transfer Amount:</label>
-                            <input type="text" id="transfer-amount" name="transfer-amount" required>
+                            <input type="number" id="transfer-amount" name="transfer-amount" required>
                         </div>
 
                         <div class="form-group">
                             <label for="description">Description (optional):</label>
                             <input type="text" id="description" name="description"></input>
                         </div>
-                        <button type="submit" onclick="confirmInternalTransfer()">Confirm Transfer<span
-                                class="material-icons">send</span></button>
+                        <div class="transfer-buttons">
+                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                                    class="material-icons">send</span></button>
+                            <button type="reset" id="reset">Reset</button>
+                        </div>
                     </form>
                 </div>
 
                 <div class="transfer-form-wrapper" id="external-transfer-form">
                     <form>
-
                         <div class="form-group">
-                            <label for="external-bank-code">Select bank:</label>
-                            <input type="text" id="external-bank-code" name="external-bank-code" required>
+                            <label for="external-bank-code">Recipient bank:</label>
+                            <select id="external-bank-code" name="external-bank-code" required>
+                                <!-- Option for VRZN Bank -->
+                                <option value="" disabled selected>Select a bank</option>
+                                <option value="VRZN">VRZN Bank</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="recipient-account-number">Recipient Account Number:</label>
-                            <input type="text" id="recipient-account-number" name="recipient-account-number" required>
+                            <input type="number" id="recipient-account-number" name="recipient-account-number" required>
                         </div>
 
                         <div class="form-group">
@@ -119,8 +125,11 @@
                             <label for="description">Description (optional):</label>
                             <input type="text" id="description" name="description"></input>
                         </div>
-                        <button type="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
-                                class="material-icons">send</span></button>
+                        <div class="transfer-buttons">
+                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                                    class="material-icons">send</span></button>
+                            <button type="reset" id="reset">Reset</button>
+                        </div>
                     </form>
                 </div>
 
@@ -132,7 +141,7 @@
 
         </div>
     </div>
-    <script src="./transfer.js"></script>
+    <script defer src="./transfer.js"></script>
 </body>
 
 </html>
