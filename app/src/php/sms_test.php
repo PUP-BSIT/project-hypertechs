@@ -4,12 +4,12 @@ ini_set('display_errors', 1);
 
 $ch = curl_init();
 $parameters = array(
-    'apikey' => '',
+    'apikey' => '7dce37931f1bbe6f1dc105d481d83ccf',
     'number' => '09274596753',
-    'message' => 'Hello, this is a message from Apex Bank. Thank you for using our service!',
+    'message' => 'This is another message from Apex Bank. I am testing the SMS endpoint.',
     'sendername' => 'SEMAPHORE'
 );
-curl_setopt($ch, CURLOPT_URL, 'https://semaphore.co/api/v4/messages');
+curl_setopt($ch, CURLOPT_URL, 'https://semaphore.co/api/v4/otp');
 curl_setopt($ch, CURLOPT_POST, 1);
 
 //Send the parameters set above with the request
