@@ -267,6 +267,7 @@ body {
   color: var(--text);
   font-weight: 400;
   font-size: 1.2em;
+  transition: color 0.3s ease-in-out;
 }
 
 /*transfer form general styling*/

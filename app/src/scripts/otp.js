@@ -18,11 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   themeToggle.addEventListener("change", toggleTheme);
 });
 
-/* prevents color flickering when loading */
-const theme = localStorage.getItem("theme") || "light";
-document.documentElement.dataset.theme = theme;
-
-
+/* script for otp form validation */
 document.addEventListener("DOMContentLoaded", function () {
   const otpInputs = document.querySelectorAll(".otp-input");
 
@@ -40,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/* script to automatically proceed to next otp field */
 function moveToNext(currentInput, nextInputId) {
   const maxLength = parseInt(currentInput.maxLength, 10);
   const currentLength = currentInput.value.length;
