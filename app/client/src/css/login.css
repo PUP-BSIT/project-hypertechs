@@ -2,13 +2,13 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 2.8em;
-  --nav-size: 1.4em;
-  --super-header-size: 5em;
-  --header-size: 3em;
-  --subheader-size: 1.4em;
-  --text-size: 1.25em;
-  --subtext-size: 1em;
+  --title-size: 3vw;
+  --header-size: 3vw;
+  --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --subtext-size: 1.2vw;
+  --link: 1vw;
 }
 
 :root[data-theme="light"] {
@@ -40,7 +40,7 @@ body {
   margin: 0em;
   padding: 0;
   height: 100vh;
-  overflow: hidden; /*hides the invisible section */
+  overflow: hidden; 
   box-sizing: border-box;
   background-color: var(--background);
 }
@@ -135,7 +135,6 @@ body {
 
 /* back button styling */
 #back_container {
-  padding-top: 0.4%;
   padding-left: 3em;
 }
 
@@ -180,13 +179,13 @@ body {
 }
 
 #login_container h1 {
-  padding-top: 0.25em;
+  padding-top: 0.1em;
   color: var(--text);
   font-size: var(--header-size);
 }
 
 #login_container p {
-  padding-top: 0.75em;
+  padding-top: 0.5em;
   color: var(--text);
   font-size: var(--text-size);
 }
@@ -252,12 +251,12 @@ input::placeholder {
 }
 
 .login-button {
-  margin-top: 1.75em;
+  margin-top: 1.5em;
   height: 2.5em;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: var(--text-size);
+  font-size: var(--button-size);
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -286,6 +285,7 @@ input::placeholder {
   position: relative;
 }
 
+
 .signup-link a {
   color: var(--primary);
   text-decoration: none;
@@ -311,7 +311,7 @@ input::placeholder {
   transform-origin: left;
 }
 
-/* Light/Dark theme toggle */
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
   padding: 0;
@@ -330,28 +330,28 @@ input::placeholder {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  gap: 1.2em;
+  padding: 6px;
   position: relative;
-  height: 25px;
-  width: 55px;
+  height: 1.6em;
+  width: 3.75em;
   transform: scale(1);
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 20px;
-  width: 20px;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(30px);
+  transform: translateX(33px);
 }
 
 .fa-moon {
