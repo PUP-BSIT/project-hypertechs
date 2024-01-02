@@ -2,11 +2,11 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 2.8em;
-  --nav-size: 1.4em;
+  --title-size: 3.5vw;
+  --nav-size: 1.6vw;
   --super-header-size: 5vw;
-  --header-size: 2.5em;
   --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
 }
 
 :root[data-theme="light"] {
@@ -138,7 +138,6 @@ nav a:hover::before {
 
 .home-text,
 .home-image-container {
-  outline: 0px dotted blue;
   flex-grow: 1;
 }
 
@@ -158,7 +157,6 @@ nav a:hover::before {
 }
 
 .home-text p {
-  outline: 0px dotted blue;
   margin-top: 1.5em;
   max-width: 90%;
   text-align: justify;
@@ -172,31 +170,21 @@ nav a:hover::before {
 }
 
 /* home image styling */
-
 .home-image-container {
   padding: 0;
   margin: 0;
-  outline: 0px dotted blue;
   margin-right: 2em;
   display: flex;
   align-items: center;
-  justify-content: right;
-}
-
-.home-image-container img {
-  outline: 0px dotted blue;
-  max-width: 100%;
-  object-fit: fill;
 }
 
 /* home buttons styling */
 .button-container {
-  outline: 0px dotted blue;
   margin-top: 2em;
   display: flex;
   align-items: center;
   max-width: 100%;
-  font-size: var(--subheader-size);
+  font-size: var(--button-size);
 }
 
 #button_create,
@@ -205,31 +193,32 @@ nav a:hover::before {
   padding: 15px 30px;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: background-color 0.3s, box-shadow 0.3s ease-in-out, transform 0.2s;
 }
 
 #button_create {
   background-color: var(--primary);
-  color: #eff1f5;
+  color: #f2f6ff;
 }
 
 #button_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #bdd3ff;
-  color: #183d87;
+  color: var(--primary);
 }
 
-#button_login i {
-  align-items: center;
-  font-size: 1.1em;
-  margin-top: 0.2em;
-  margin-left: 0.5em;
+#button_login span {
+  margin-left: 0.3em;
+  font-weight: 600;
 }
 
 #button_create:hover,
 #button_login:hover {
   transform: scale(1);
-  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
 #button_create:active,
@@ -237,7 +226,7 @@ nav a:hover::before {
   transform: scale(0.95);
 }
 
-/* Light/Dark theme toggle */
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
   padding: 0;
@@ -256,28 +245,28 @@ nav a:hover::before {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  gap: 1em;
+  padding: 6px;
   position: relative;
-  height: 25px;
-  width: 55px;
+  height: 1.6em;
+  width: 3.75em;
   transform: scale(1);
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 20px;
-  width: 20px;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(30px);
+  transform: translateX(33px);
 }
 
 .fa-moon {
