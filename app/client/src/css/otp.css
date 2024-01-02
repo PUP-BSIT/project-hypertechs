@@ -83,7 +83,7 @@ body {
 }
 
 #otp_image_container img {
-  width: 90%;
+  width: 70%;
 }
 
 /* header styling */
@@ -112,16 +112,16 @@ body {
   font-size: var(--title-size);
   background-image: linear-gradient(
     to right,
-    #034694,
-    #1560bd,
-    #03a8ea,
-    #042c8b
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 5s linear infinite;
+  animation: apexLogoAnimation 3s linear infinite;
 }
 
 @keyframes apexLogoAnimation {

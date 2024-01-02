@@ -81,7 +81,7 @@ body {
 }
 
 #login_image_container img {
-  width: 100%;
+  width: 90%;
 }
 
 /* header styling */
@@ -110,18 +110,17 @@ body {
   font-size: var(--title-size);
   background-image: linear-gradient(
     to right,
-    #034694,
-    #1560bd,
-    #03a8ea,
-    #042c8b
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 5s linear infinite;
+  animation: apexLogoAnimation 3s linear infinite;
 }
-
 @keyframes apexLogoAnimation {
   0% {
     background-position: 0% 50%;

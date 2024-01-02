@@ -104,20 +104,21 @@ body {
   margin-right: 10px;
 }
 
-.apex-logo-container h1 {
-  font-size: var(--sidebar-header);
+#apex_logo h1 {
+  font-weight: 700;
+  font-size: var(--title-size);
   background-image: linear-gradient(
     to right,
-    #034694,
-    #1560bd,
-    #03a8ea,
-    #042c8b
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 5s linear infinite;
+  animation: apexLogoAnimation 3s linear infinite;
 }
 
 @keyframes apexLogoAnimation {
@@ -161,7 +162,7 @@ body {
   padding-left: 2em;
   color: var(--text);
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 400;
   position: relative;
   outline: 0px solid blue;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
