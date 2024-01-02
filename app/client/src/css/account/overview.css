@@ -102,9 +102,8 @@ body {
   margin-right: 10px;
 }
 
-#apex_logo h1 {
-  font-weight: 700;
-  font-size: var(--title-size);
+.apex-logo-container h1 {
+  font-size: var(--sidebar-header);
   background-image: linear-gradient(
     to right,
     #0038a8,
@@ -116,7 +115,7 @@ body {
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 3s linear infinite;
+  animation: apexLogoAnimation 5s linear infinite;
 }
 
 @keyframes apexLogoAnimation {
