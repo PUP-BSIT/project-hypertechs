@@ -454,7 +454,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.4em;
+  gap: 0.5em;
   padding: 4px;
   position: relative;
   height: 1.3vw;
@@ -479,7 +479,7 @@ body {
 }
 
 .fa-moon, .fa-sun {
-  font-size: 0.6em;
+  font-size: 0.55em;
 }
 
 .fa-moon {
