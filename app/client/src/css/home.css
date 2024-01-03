@@ -210,9 +210,11 @@ nav a:hover::before {
   color: var(--primary);
 }
 
-#button_login span {
-  margin-left: 0.3em;
-  font-weight: 600;
+#button_login i {
+  align-items: center;
+  font-size: 1em;
+  margin-top: 0.1em;
+  margin-left: 0.5em;
 }
 
 #button_create:hover,
@@ -245,7 +247,7 @@ nav a:hover::before {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1.2em;
   padding: 6px;
   position: relative;
   height: 1.6em;
