@@ -2,14 +2,13 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 2.8em;
-  --nav-size: 1.4em;
-  --super-header-size: 5em;
-  --header-size: 2.5em;
-  --subheader-size: 1.4em;
-  --sidebar-header: 2.1em;
-  --section-title: 3.75em;
-  --text-size: 1.25em;
+  --header-size: 3vw;
+  --subheader-size: 1.5vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --sidebar-header: 2.2vw;
+  --tab-size: 1.5vw;
+  --section-title: 3.5vw;
 }
 
 :root[data-theme="light"] {
@@ -57,7 +56,7 @@ body {
 
 /* sidebar styling */
 .apex-user-sidebar {
-  width: 18em;
+  width: 19vw;
   top: 0;
   position: sticky;
   height: 100vh;
@@ -72,7 +71,7 @@ body {
     "logo"
     "tab"
     "config";
-  grid-template-rows: 17% 54% 29%;
+  grid-template-rows: 15% 55% 30%;
   grid-row-gap: 1%;
 }
 
@@ -95,11 +94,12 @@ body {
 .apex-logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  padding-left: 12%;
 }
 
 .apex-logo-container img {
-  width: 2.2em;
+  width: 2.1em;
   height: auto;
   margin-right: 10px;
 }
@@ -160,8 +160,8 @@ body {
   padding-bottom: 0.3em;
   padding-left: 2em;
   color: var(--text);
-  font-size: 22px;
-  font-weight: 400;
+  font-size: var(--tab-size);
+  font-weight: 500;
   position: relative;
   outline: 0px solid blue;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -266,7 +266,7 @@ body {
 .external-transfer-desc h2 {
   color: var(--text);
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.3vw;
   transition: color 0.3s ease-in-out;
 }
 
@@ -367,7 +367,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1em;
   height: 2.5em;
   border: none;
   cursor: pointer;
@@ -376,7 +375,9 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
 }
 
 .transfer-form-wrapper button:hover {
@@ -400,7 +401,7 @@ body {
   margin-right: 1.75em;
   font-weight: 600;
   color: var(--text);
-  font-size: var(--subheader-size);
+  font-size: var(--button-size);
   transition: color 0.4s, text-decoration 0.4s;
   position: relative;
 }
@@ -433,12 +434,12 @@ body {
   display: none;
 }
 
-/* Light/Dark theme toggle */
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
-  margin-left: 15%;
   padding: 0;
-  border: 2;
+  border: 0;
+  margin-left: 15%;
   box-sizing: border-box;
 }
 
@@ -453,33 +454,32 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  gap: 0.4em;
+  padding: 4px;
   position: relative;
-  height: 25px;
-  width: 55px;
-  transform: scale(0.8);
+  height: 1.3vw;
+  width: 3vw;
+  transform: scale(1);
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 3px;
-  left: 2px;
-  height: 0.85em;
-  width: 0.85em;
+  top: 0.17vw;
+  left: 3px;
+  height: 0.95vw;
+  width: 0.95vw;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(30px);
+  transform: translateX(1.6vw);
 }
 
-.fa-moon,
-.fa-sun {
-  font-size: 75%;
+.fa-moon, .fa-sun {
+  font-size: 0.6em;
 }
 
 .fa-moon {
