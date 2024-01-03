@@ -71,7 +71,7 @@ body {
     "logo"
     "tab"
     "config";
-  grid-template-rows: 15% 55% 30%;
+  grid-template-rows: 16% 55% 29%;
   grid-row-gap: 1%;
 }
 
@@ -371,7 +371,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: var(--text-size);
+  font-size: var(--button-size);
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -454,7 +454,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.4em;
+  gap: 0.5em;
   padding: 4px;
   position: relative;
   height: 1.3vw;
@@ -466,8 +466,8 @@ body {
   background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 0.17vw;
-  left: 3px;
+  top: 0.16vw;
+  left: 2px;
   height: 0.95vw;
   width: 0.95vw;
   transform: translateX(1px);
@@ -475,11 +475,11 @@ body {
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(1.6vw);
+  transform: translateX(1.65vw);
 }
 
 .fa-moon, .fa-sun {
-  font-size: 0.6em;
+  font-size: 0.55em;
 }
 
 .fa-moon {
