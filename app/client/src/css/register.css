@@ -2,13 +2,12 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 2.8em;
-  --nav-size: 1.4em;
-  --super-header-size: 5em;
-  --header-size: 3em;
-  --subheader-size: 1.4em;
-  --text-size: 1.25em;
-  --subtext-size: 1em;
+  --title-size: 3vw;
+  --header-size: 3vw;
+  --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --subtext-size: 1.2vw;
 }
 
 :root[data-theme="light"] {
@@ -104,7 +103,7 @@ body {
 }
 
 #register_image_container img {
-  width: 90%;
+  width: 95%;
 }
 
 /* header styling */
@@ -133,16 +132,16 @@ body {
   font-size: var(--title-size);
   background-image: linear-gradient(
     to right,
-    #034694,
-    #1560bd,
-    #03a8ea,
-    #042c8b
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 5s linear infinite;
+  animation: apexLogoAnimation 3s linear infinite;
 }
 
 @keyframes apexLogoAnimation {
@@ -310,14 +309,6 @@ form label {
   position: relative;
 }
 
-.form-group #forgot_password {
-  margin-top: -2em;
-  text-align: right;
-  cursor: pointer;
-  color: var(--text);
-  font-size: var(--subtext-size);
-}
-
 /* register button styling */
 
 .register-button {
@@ -325,7 +316,7 @@ form label {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: var(--text-size);
+  font-size: var(--button-size);
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -392,7 +383,7 @@ form label {
   color: var(--primary);
 }
 
-/* Light/Dark theme toggle */
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
   padding: 0;
@@ -411,28 +402,28 @@ form label {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  gap: 1.2em;
+  padding: 6px;
   position: relative;
-  height: 25px;
-  width: 55px;
+  height: 1.6em;
+  width: 3.75em;
   transform: scale(1);
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 2.5px;
-  left: 2px;
-  height: 20px;
-  width: 20px;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(30px);
+  transform: translateX(33px);
 }
 
 .fa-moon {

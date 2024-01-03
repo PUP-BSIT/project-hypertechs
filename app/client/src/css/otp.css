@@ -2,15 +2,13 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 2.8em;
-  --nav-size: 1.4em;
-  --super-header-size: 5em;
-  --header-size: 3em;
-  --subheader-size: 1.4em;
-  --text-size: 1.25em;
-  --subtext-size: 1em;
-  --otp-size: 2.5em;
+  --title-size: 3vw;
+  --header-size: 3.2vw;
+  --button-size: 1.5vw;
+  --text-size: 1.4vw;
+  --otp-size: 2.5vw;
 }
+
 
 :root[data-theme="light"] {
   --text: #0a0c10;
@@ -83,7 +81,7 @@ body {
 }
 
 #otp_image_container img {
-  width: 90%;
+  width: 70%;
 }
 
 /* header styling */
@@ -112,16 +110,16 @@ body {
   font-size: var(--title-size);
   background-image: linear-gradient(
     to right,
-    #034694,
-    #1560bd,
-    #03a8ea,
-    #042c8b
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: apexLogoAnimation 5s linear infinite;
+  animation: apexLogoAnimation 3s linear infinite;
 }
 
 @keyframes apexLogoAnimation {
@@ -304,7 +302,7 @@ body {
   transform-origin: left;
 }
 
-/* Light/Dark theme toggle */
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
   padding: 0;
@@ -323,28 +321,28 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px;
+  gap: 1.2em;
+  padding: 6px;
   position: relative;
-  height: 25px;
-  width: 55px;
+  height: 1.6em;
+  width: 3.75em;
   transform: scale(1);
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 20px;
-  width: 20px;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(30px);
+  transform: translateX(33px);
 }
 
 .fa-moon {

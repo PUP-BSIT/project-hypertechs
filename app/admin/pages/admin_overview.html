@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css">
-    <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="../src/css/admin_overview.css">
+    <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Apex Bank – Account Overview</title>
+    <title>Apex Bank – Admin Overview</title>
 </head>
 
 <body>
@@ -18,18 +18,17 @@
         <div class="apex-user-sidebar">
             <!--apex-logo-layout-->
             <div class="apex-logo-container">
-                <img src="../../assets/img/apex_brand.png" alt="Logo">
+                <img src="../assets/img/apex_brand.png" alt="Logo">
                 <h1>Apex Bank</h1>
             </div>
             <!--apex-tab-layout-->
             <div class="apex-tab-container">
                 <div class="apex-tab-wrapper">
-                    <a href="../account/overview.html" class="tab-section" id="overview"><span
+                    <a href="./admin_overview.html" class="tab-section" id="overview"><span
                             class="material-icons">space_dashboard</span>Overview</a>
-                    <a href="../account/transfer.html" class="tab-section" id="transfer"><span
-                            class="material-icons">payments</span>Transfer</a>
                     <a href="#" class="tab-section" id="transactions"><span
-                            class="material-icons">receipt_long</span>Transactions</a>
+                            class="material-icons">account_balance</span>Transactions</a>
+
                 </div>
             </div>
             <!--apex-config-layout-->
@@ -53,33 +52,12 @@
             </div>
         </div>
 
-        <!-- Main section content goes here -->
-        <div class="apex-overview-section">
-            <div id="apex_overview_header">
-                <div id="overview-heading">
-                    <h1>Hello, <span>Apex User!</span></h1>
-                </div>
-            </div>
-            <div id="apex_overview_summary">
-                <h2>Account Summary</h2>
-                <div id="account_name"></div>
-            </div>
-            <div id="apex_account_balance">
-                <h2>Account Balance</h2>
-                <h1>₱ 25,000.50</h1>
-            </div>
-            <div id="apex_card_info">
-                <h2>Card Info</h2>
-                <p>
-                </p>
-            </div>
-            <div id="apex_recent_transactions">
-                <h2>Recent Transactions</h2>
-
+        <div class="apex-overview-section"> <!-- Main section content goes here -->
+            <div class="overview-greetings">
             </div>
         </div>
     </div>
-    <script src="../../src/scripts/account/overview.js"></script>
+    <script src="../src/scripts/theme.js"></script>
 </body>
 
 </html>
