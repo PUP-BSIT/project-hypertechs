@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --header-size: 3vw;
+  --subheader-size: 1.5vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --sidebar-header: 2.2vw;
+  --tab-size: 1.5vw;
+  --section-title: 3.5vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+  --sidebar: #d7e4fb;
+  --destruct: #b60000;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #2d73fe;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #0b1734;
+  --sidebar: #09132a;
+  --destruct: #b30000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  background-color: var(--background);
+}
+
+/* positions the sidebar and main section side by side */
+.overview-page-container {
+  display: flex;
+}
+
+/* sidebar styling */
+.apex-user-sidebar {
+  width: 19vw;
+  top: 0;
+  position: sticky;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--sidebar);
+}
+
+/* sidebar layout */
+.apex-user-sidebar {
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "tab"
+    "config";
+  grid-template-rows: 16% 55% 29%;
+  grid-row-gap: 1%;
+}
+
+.apex-logo-container {
+  grid-area: logo;
+  border: 0px solid red;
+}
+
+.apex-tab-container {
+  grid-area: tab;
+  border: 0px solid hotpink;
+}
+
+.apex-config-container {
+  grid-area: config;
+  border: 0px solid green;
+}
+
+/* apex-logo-container layout */
+.apex-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 12%;
+}
+
+.apex-logo-container img {
+  width: 2.1em;
+  height: auto;
+  margin-right: 10px;
+}
+
+.apex-logo-container h1 {
+  font-size: var(--sidebar-header);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 5s linear infinite;
+}
+
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* apex-tab-container layout */
+.apex-tab-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.apex-tab-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 0px solid saddlebrown;
+}
+
+.tab-section .material-icons {
+  font-size: 1.2em;
+}
+
+.tab-section {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 2em;
+  color: var(--text);
+  font-weight: 500;
+  font-size: var(--tab-size);
+  position: relative;
+  border: 0px solid blue;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.tab-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-section:hover::before {
+  opacity: 0.5;
+}
+
+.tab-section:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* turns the current tab color to selected color */
+.apex-tab-wrapper #overview {
+  color: var(--primary);
+}
+
+/* removes the theme tab slide effect */
+.apex-tab-wrapper #theme:hover {
+  transform: translateX(0px);
+}
+
+/* modify the color of the logout tab */
+.apex-tab-wrapper #logout {
+  color: var(--destruct);
+}
+
+.apex-tab-wrapper #logout::before {
+  background-color: #ab0000;
+}
+
+.apex-tab-wrapper #logout:hover::before {
+  opacity: 0.2;
+}
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-left: 15%;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 4px;
+  position: relative;
+  height: 1.3vw;
+  width: 3vw;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 0.16vw;
+  left: 2px;
+  height: 0.95vw;
+  width: 0.95vw;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(1.65vw);
+}
+
+.fa-moon,
+.fa-sun {
+  font-size: 0.55em;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
