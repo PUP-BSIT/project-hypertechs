@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Apex Bank – Account Overview</title>
 </head>
@@ -55,30 +56,114 @@
 
         <!-- Main section content goes here -->
         <div class="apex-overview-section">
-            <div id="apex_overview_header">
-                <div id="overview-heading">
-                    <h1>Hello, <span>Apex User!</span></h1>
+            <!-- Heading-->
+            <div id="overview_heading">
+                <h1> Hello, <span>Apex User!</span></h1>
+            </div>
+
+            <!-- Summary and Balance-->
+            <div id="overview_container_one">
+                <div id="overview_summary">
+                    <h2>
+                        <span class="material-icons">person</span>
+                        Account Summary
+                    </h2>
+                    <!--Account Summary Info-->
+                    <div id="summary_content">
+                        <!--Account Image-->
+                        <div id="account_image">
+                            <img src="../../assets/img/acc_profile.png">
+                        </div>
+
+                        <!--Column Container for each info-->
+                        <div id="summary_column_container">
+                            <!--Account Holder Name-->
+                            <div id="account_holder_title">
+                                <h3>Account Holder Name</h3>
+                            </div>
+                            <div id="account_name">
+                                <span>Emmanuel Martinez</span>
+                            </div>
+                        </div>
+
+                        <!--Column Container for each info-->
+                        <div id="summary_column_container">
+                            <!--Account Number-->
+                            <div id="account_number_title">
+                                <h3>Account Number</h3>
+                            </div>
+                            <div id="account_number">
+                                <span>1234567890</span>
+                            </div>
+                        </div>
+
+                        <!--Column Container for each info-->
+                        <div id="summary_column_container">
+                            <!--Account Status-->
+                            <div id="account_access_title">
+                                <h3>Last Access</h3>
+                            </div>
+                            <div id="account_last_access">
+                                <span>01-01-2024</span>
+                            </div>
+                        </div>
+
+                        <!--Column Container for each info-->
+                        <div id="summary_column_container">
+                            <!--Account Status-->
+                            <div id="account_status_title">
+                                <h3>Account Status</h3>
+                            </div>
+                            <div id="account_status">
+                                <span>Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="overview_balance">
+                    <h2>
+                        <span class="material-icons">account_balance_wallet</span>
+                        Total Balance
+                    </h2>
+                    <h3>&#8369 25,355.50</h3>
                 </div>
             </div>
-            <div id="apex_overview_summary">
-                <h2>Account Summary</h2>
-                <div id="account_number"></div>
-                <div id="account_name"></div>
-            </div>
-            <div id="apex_account_balance">
-                <h2>Account Balance</h2>
-                <h1>₱<span id="balance"></span></h1>
-            </div>
-            <div id="apex_card_info">
-                <h2>Card Info</h2>
-                <p>
-                </p>
-            </div>
-            <div id="apex_recent_transactions">
-                <h2>Recent Transactions</h2>
+            <!--Card Info and Recent Transactions-->
+            <div id="overview_container_two">
+                <div id="overview_card_info">
+                    <h2>
+                        <span class="material-icons">credit_card</span>
+                        Card Information
+                    </h2>
+                    <div id="apex_card">
 
+                    </div>
+                    <div id="addtl_card_info">
+
+                    </div>
+                </div>
+                <div id="overview_stats">
+                    <h2>
+                        <span class="material-icons">bar_chart</span>
+                        Stats
+                    </h2>
+                    <div id="stats_content">
+
+                    </div>
+                </div>
+                <div id="overview_recent_transactions">
+                    <h2>
+                        <span class="material-icons">history</span>
+                        Recent Transactions
+                    </h2>
+                    <div id="transactions_content">
+
+                    </div>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
     <script src="../../src/scripts/account/overview.js"></script>
     <script src="../../backend/js/common.js" type="module"></script>
