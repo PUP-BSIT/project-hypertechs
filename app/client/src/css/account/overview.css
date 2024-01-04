@@ -9,7 +9,7 @@
   --text-size: 1.5vw;
   --sidebar-header: 2.2vw;
   --tab-size: 1.5vw;
-  --section-title: 3.3vw;
+  --section-title: 3.5vw;
 }
 
 :root[data-theme="light"] {
@@ -427,7 +427,7 @@ body {
 #addtl_card_info h3 {
   font-weight: 600;
   font-size: 1vw;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
   display: flex;
   align-items: center;
 }
