@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 :root {
   --font-family: "Inter", sans-serif;
@@ -247,7 +248,6 @@ body {
 #overview_heading h1 {
   color: var(--text);
   font-size: var(--section-title);
-
 }
 
 #overview_heading h1 span {
@@ -300,7 +300,7 @@ body {
 #summary_column_container {
   display: flex;
   flex-direction: column;
-  margin-left: 1.8vw;
+  margin-left: 2.2vw;
 }
 
 #summary_column_container h3 {
@@ -321,7 +321,11 @@ body {
   width: 25%;
   border-radius: 10px;
   padding: 1.1em 1.5em;
-  background: linear-gradient(to bottom right, var(--balance-one), var(--balance-two));
+  background: linear-gradient(
+    to bottom right,
+    var(--balance-one),
+    var(--balance-two)
+  );
 }
 
 #overview_balance h2 {
@@ -344,29 +348,138 @@ body {
 
 #apex_card {
   margin-top: 1em;
+  padding: 1.25em;
   height: 25vh;
   border-radius: 10px;
   background-color: var(--primary);
+  color: #e7edfb;
+}
+
+#card_row {
+  display: flex;
+  justify-content: space-between;
+  height: 2.75em;
+}
+
+#card_brand_text h3 {
+  font-size: 1.4vw;
+  font-weight: 500;
+}
+
+#card_brand_logo {
+  text-align: end;
+  width: 3em;
+}
+
+#card_brand_logo img {
+  width: 70%;
+}
+
+#card_chip img {
+  width: 15%;
+}
+
+#card_number h3 {
+  margin-top: 0.25em;
+  font-size: 1.5vw;
+  font-family: "Space Mono", sans-serif;
+  font-weight: 500;
+}
+
+#card_row_two {
+  display: flex;
+  gap: 2em;
+}
+
+#card_row_two h4 {
+  font-size: 1vw;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+#card_row_two span {
+  font-size: 1vw;
+  font-weight: 500;
+  font-family: "Space Mono", sans-serif;
+}
+
+#card_valid, #card_cvv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 #addtl_card_info {
   margin-top: 1.5em;
+  padding: 1em;
   height: 16.5vh;
   border-radius: 10px;
   background-color: var(--backdrop);
 }
 
+#addtl_card_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.1em;
+}
+
+#addtl_card_info h3 {
+  font-weight: 600;
+  font-size: 1vw;
+  margin-bottom: 0.25em;
+  display: flex;
+  align-items: center;
+}
+
+#addtl_card_info span {
+  margin: 0;
+  padding-right: 0.4em;
+  font-size: 1vw;
+}
+
+#card_status_content {
+  color: rgb(0, 160, 0);
+  padding: 0.1em 0.2em;
+  border-radius: 5px;
+  background-color: rgba(1, 182, 1, 0.271);
+}
+
+#card_status_title h4, 
+#card_designation_title h4,
+#card_currency_title h4 {
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+#card_status_content h4, 
+#card_designation_content h4,
+#card_currency_content h4 {
+  font-size: 1vw;
+  font-weight: 600;
+}
+
 /* ----- STATS STYLE ----- */
 #overview_stats {
   margin-top: 1em;
-  width: 25%
+  width: 25%;
 }
 
 #stats_content {
   margin-top: 1em;
+  padding: 1.25em;
   height: 45vh;
   border-radius: 10px;
   background-color: var(--backdrop);
+}
+
+#stats_content h4 {
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+#stats_wrapper {
+  height: 9.5vw;
 }
 
 /* ----- RECENT TRANSACTIONS STYLE ----- */
@@ -374,6 +487,52 @@ body {
   width: 45%;
   padding-top: 1.1em 0em;
   margin-top: 1em;
+}
+
+#recent_transactions_row {
+  display: flex;
+  align-items:flex-end;
+  justify-content: space-between;
+}
+
+#view_all_transactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+#view_all_transactions a {
+  position: relative;
+  text-decoration: none; /* Remove the default underline */
+}
+
+#view_all_transactions a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary); /* Set your desired underline color */
+  transition: width 0.3s ease-in-out, transform 0.9s ease-in-out; /* Set the transition duration and easing function */
+}
+
+#view_all_transactions a:hover::before {
+  width: 100%;
+}
+
+#view_all_transactions a {
+  font-size: 1.2vw;
+  padding-right: 0.25em;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+#view_all_transactions span {
+  font-size: 1.1vw;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #transactions_content {
@@ -403,7 +562,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.6em;
+  gap: 0.7em;
   padding: 4px;
   position: relative;
   height: 1.3vw;

@@ -454,7 +454,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.7em;
   padding: 4px;
   position: relative;
   height: 1.3vw;
@@ -466,7 +466,7 @@ body {
   background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 0.16vw;
+  top: 0.1em;
   left: 2px;
   height: 0.95vw;
   width: 0.95vw;
@@ -478,8 +478,10 @@ body {
   transform: translateX(1.65vw);
 }
 
-.fa-moon, .fa-sun {
-  font-size: 0.55em;
+.fa-moon,
+.fa-sun {
+  margin-top: 1px;
+  font-size: 0.52em;
 }
 
 .fa-moon {
