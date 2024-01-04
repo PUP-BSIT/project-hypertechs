@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css">
+    <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Apex Bank – Transfer</title>
+</head>
+
+<body>
+    <script src="../../src/scripts/preload.js"></script>
+    <div class="transfer-page-container">
+        <!--sidebar layout-->
+        <div class="apex-user-sidebar">
+            <!--apex-logo-layout-->
+            <div class="apex-logo-container">
+                <img src="../../assets/img/apex_brand.png" alt="Logo">
+                <h1>Apex Bank</h1>
+            </div>
+            <!--apex-tab-layout-->
+            <div class="apex-tab-container">
+                <div class="apex-tab-wrapper">
+                    <a href="../account/overview.html" class="tab-section" id="overview"><span
+                            class="material-icons">space_dashboard</span>Overview</a>
+                    <a href="../account/transfer.html" class="tab-section" id="transfer"><span
+                            class="material-icons">payments</span>Transfer</a>
+                    <a href="#" class="tab-section" id="transactions"><span
+                            class="material-icons">receipt_long</span>Transactions</a>
+                </div>
+            </div>
+            <!--apex-config-layout-->
+            <div class="apex-config-container">
+                <div class="apex-tab-wrapper">
+                    <a href="#" class="tab-section" id="theme"><span class="material-icons">contrast</span>Theme
+                        <!--dark/light mode toggle-->
+                        <div id="toggle_theme">
+                            <input type="checkbox" class="checkbox" id="theme_mode" />
+                            <label class="label" for="theme_mode" onclick="toggleTheme()">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                                <div class="ball"></div>
+                            </label>
+                        </div>
+                    </a>
+                    <a href="#" class="tab-section" id="settings"><span
+                            class="material-icons">settings</span>Settings</a>
+                    <a href="#" class="tab-section" id="logout"><span class="material-icons">logout</span>Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main section content goes here -->
+        <div class="apex-transfer-container">
+            <!--transfer form section-->
+            <div class="transfer-form">
+                <!--transfer form heading-->
+                <div id="transfer-heading">
+                    <h1>Transfer Funds</h1>
+                </div>
+                <!--transfer form option (internal and external)-->
+                <div class="transfer-option">
+                    <button id="internal-transfer-btn" onclick="showInternalTransferForm()">Internal Transfer</button>
+                    <button id="external-transfer-btn" onclick="showExternalTransferForm()">External Transfer</button>
+                </div>
+
+                <div class="internal-transfer-desc">
+                    <h2>Transfer money seamlessly within Apex Bank®</h2>
+                </div>
+
+                <div class="external-transfer-desc">
+                    <h2>Transfer money seamlessly to other banks</h2>
+                </div>
+
+                <div class="transfer-form-wrapper" id="internal-transfer-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-account-number">Recipient Account Number:</label>
+                            <input type="text" id="recipient-account-number" name="recipient-account-number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transfer-amount">Transfer Amount:</label>
+                            <input type="number" id="transfer-amount" name="transfer-amount" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description (optional):</label>
+                            <input type="text" id="description" name="description"></input>
+                        </div>
+                        <div class="transfer-buttons">
+                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                                    class="material-icons">send</span></button>
+                            <button type="reset" id="reset">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="transfer-form-wrapper" id="external-transfer-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="external-bank-code">Recipient bank:</label>
+                            <select id="external-bank-code" name="external-bank-code" required>
+                                <!-- Option for VRZN Bank -->
+                                <option value="" disabled selected>Select a bank</option>
+                                <option value="VRZN">VRZN Bank</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient-account-number">Recipient Account Number:</label>
+                            <input type="number" id="recipient-account-number" name="recipient-account-number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transfer-amount">Transfer Amount:</label>
+                            <input type="text" id="transfer-amount" name="transfer-amount" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description (optional):</label>
+                            <input type="text" id="description" name="description"></input>
+                        </div>
+                        <div class="transfer-buttons">
+                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                                    class="material-icons">send</span></button>
+                            <button type="reset" id="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="transfer-side">
+                <!--Transfer right side-->
+            </div>
+
+        </div>
+    </div>
+    <script src="../../src/scripts/account/transfer.js"></script>
+</body>
+
+</html>
