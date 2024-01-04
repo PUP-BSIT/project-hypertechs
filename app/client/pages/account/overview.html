@@ -62,11 +62,12 @@
             </div>
             <div id="apex_overview_summary">
                 <h2>Account Summary</h2>
+                <div id="account_number"></div>
                 <div id="account_name"></div>
             </div>
             <div id="apex_account_balance">
                 <h2>Account Balance</h2>
-                <h1>₱ 25,000.50</h1>
+                <h1>₱<span id="balance"></span></h1>
             </div>
             <div id="apex_card_info">
                 <h2>Card Info</h2>
@@ -80,6 +81,8 @@
         </div>
     </div>
     <script src="../../src/scripts/account/overview.js"></script>
+    <script src="../../backend/js/common.js" type="module"></script>
+    <script src="../../backend/js/customer_info.js" type="module"></script>
 </body>
 
 </html>

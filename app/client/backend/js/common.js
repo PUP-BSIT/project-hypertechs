@@ -1,4 +1,5 @@
 export const BANK_CODE = "goodgghh7788";
+const HOME_URL = "../home.html";
 
 export function sendData(url, data, processData) {
         let statusCode;
@@ -19,6 +20,24 @@ export function sendData(url, data, processData) {
         });
 }
 
+export function logSend(url, data, processData) {
+        let statusCode;
+
+        fetch(url, {
+                method: 'POST',
+                body: data 
+        }).then((response) => {
+                statusCode = response.status;
+                return response.text();
+        }).then((data) => {
+                if (statusCode === 302) {
+                        window.location.href = data.url;
+                        return;
+                }
+                console.log(data);
+        });
+}
+
 export function fetchData(url, processData) {
         let statusCode;
 
@@ -28,6 +47,17 @@ export function fetchData(url, processData) {
         }).then((data) => {
                 data.statusCode = statusCode;
                 processData(data);
+        });
+}
+
+export function logFetch(url, processData) {
+        let statusCode;
+
+        fetch(url).then((response) => {
+                statusCode = response.status;
+                return response.text();
+        }).then((data) => {
+                console.log(data);
         });
 }
 
@@ -126,10 +156,10 @@ export function checkEmployeeSession(start) {
 export function checkCustomerSession(start) {
         let url;
 
-        url = "./api/customer-session.php";
+        url = "../../backend/php/customer-session.php";
         fetchData(url, (data) => {
                 if (!data.success) {
-                        window.location.href = "./index.html";
+                        window.location.href = HOME_URL;
                         return;
                 }
                 start();
