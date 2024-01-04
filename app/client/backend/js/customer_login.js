@@ -32,7 +32,7 @@ function loginCustomer() {
         requestBody = new FormData();
         requestBody.append('account_number', accountNumber);
         requestBody.append('password', password);
-        url = "https://apexapp.tech/api/customer-login.php";
+        url = "../backend/php/customer-login.php";
         sendData(url, requestBody, showLoginFeedback);  
 }
 

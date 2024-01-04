@@ -1,8 +1,6 @@
 <?php
 require "./common.php";
 
-header('Access-Control-Allow-Origin: *');
-
 connect_database();
 $account_number = $_POST["account_number"];
 $password = $_POST["password"];
