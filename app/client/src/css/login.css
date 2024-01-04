@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --title-size: 3vw;
+  --header-size: 3vw;
+  --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --subtext-size: 1.2vw;
+  --link: 1vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #246af8;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #081023;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0em;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; 
+  box-sizing: border-box;
+  background-color: var(--background);
+}
+
+/* login page grid layout */
+#login_grid_container {
+  display: grid;
+  grid-template-areas:
+    "header image"
+    "back image"
+    "login image";
+  grid-template-rows: 0.23fr 5% 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+#header_container {
+  grid-area: header;
+  outline: 0px dashed blue;
+}
+
+#back_container {
+  grid-area: back;
+  outline: 0px dashed red;
+}
+
+#login_container {
+  grid-area: login;
+  outline: 0px dashed green;
+}
+
+#login_image_container {
+  height: 100vh;
+  grid-area: image;
+  background-color: var(--backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login_image_container img {
+  width: 90%;
+}
+
+/* header styling */
+#header_container {
+  padding-left: 3em;
+  padding-right: 3em;
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  justify-content: space-between;
+}
+
+#apex_logo {
+  display: flex;
+  align-items: center;
+}
+
+#apex_logo img {
+  width: 45px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#apex_logo h1 {
+  font-weight: 700;
+  font-size: var(--title-size);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 3s linear infinite;
+}
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* back button styling */
+#back_container {
+  padding-left: 3em;
+}
+
+#back_container i {
+  font-size: 20px;
+  margin-right: 0.5em;
+  color: var(--accent);
+}
+
+#back_container a {
+  font-size: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#back_container a:hover {
+  animation: slideLeft 1s infinite;
+  display: flex;
+  align-items: center;
+}
+
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: slideLeft 1s infinite;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* login text styling */
+#login_container {
+  padding-left: 3em;
+}
+
+#login_container h1 {
+  padding-top: 0.1em;
+  color: var(--text);
+  font-size: var(--header-size);
+}
+
+#login_container p {
+  padding-top: 0.5em;
+  color: var(--text);
+  font-size: var(--text-size);
+}
+
+/* login form styling */
+.login-form-container {
+  outline: 0px dotted blue;
+  max-width: 90%;
+  margin-top: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--subheader-size);
+  transition: color 0.3s ease-in-out;
+}
+
+input {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+input::placeholder {
+  letter-spacing: 0.25em;
+  color: var(--text);
+  opacity: 0.25;
+}
+
+.form-group:focus-within label,
+.form-group input:focus {
+  color: var(--accent);
+}
+
+.form-group input:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+.password-container {
+  position: relative;
+}
+
+.form-group #forgot_password {
+  margin-top: -2em;
+  text-align: right;
+  cursor: pointer;
+  color: var(--text);
+  font-size: var(--subtext-size);
+}
+
+.login-button {
+  margin-top: 1.5em;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--button-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
+}
+
+.login-button:hover {
+  transform: scale(1);
+  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+}
+
+.login-button:active {
+  transform: scale(0.95);
+}
+
+.login-button i {
+  margin-left: 0.5em;
+}
+
+/* signup link styling */
+.signup-link {
+  margin-top: 0.25em;
+  text-align: center;
+  position: relative;
+}
+
+
+.signup-link a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.signup-link a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.signup-link a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  padding: 6px;
+  position: relative;
+  height: 1.6em;
+  width: 3.75em;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(33px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
