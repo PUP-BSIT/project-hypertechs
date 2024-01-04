@@ -92,10 +92,11 @@
                             <input type="text" id="description" name="description"></input>
                         </div>
                         <div class="transfer-buttons">
-                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                            <button type="button" id="submit_fund_transfer" >Confirm Transfer<span
                                     class="material-icons">send</span></button>
                             <button type="reset" id="reset">Clear</button>
                         </div>
+                        <p id="feedback_transfer">&nbsp</p>
                     </form>
                 </div>
 
@@ -125,7 +126,7 @@
                             <input type="text" id="description" name="description"></input>
                         </div>
                         <div class="transfer-buttons">
-                            <button type="submit" id="submit" onclick="confirmExternalTransfer()">Confirm Transfer<span
+                            <button type="button" id="submit_external" >Confirm Transfer<span
                                     class="material-icons">send</span></button>
                             <button type="reset" id="reset">Reset</button>
                         </div>
@@ -142,6 +143,7 @@
     </div>
     <script src="../../src/scripts/account/transfer.js"></script>
     <script src="../../backend/js/common.js" type="module"></script>
+    <script src="../../backend/js/fund_transfer.js" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
