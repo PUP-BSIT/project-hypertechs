@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   themeToggle.addEventListener("change", toggleTheme);
 });
 
-const dbAddress = "https://apexapp.tech/api_apex/register.php";
+const dbAddress = "https://apexapp.tech/api/register.php";
 
 function registerUser() {
   const surname = document.querySelector("#surname").value;
