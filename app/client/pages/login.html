@@ -57,8 +57,9 @@
                         </div>
                         <p id="forgot_password">Forgot Password?</p>
                     </div>
-                    <button type="submit" class="login-button" onclick="redirectToOTP()">Log In<i
+                    <button type="submit" class="login-button" id="login_button">Log In<i
                             class="fa-solid fa-right-to-bracket"></i></button>
+                    <p id="login_feedback">&nbsp</p>
                 </form>
                 <p class="signup-link">No account yet? <a href="../pages/register.html">Sign Up</a></p>
             </div>
@@ -68,6 +69,8 @@
         </div>
     </section>
     <script src="../src/scripts/theme.js"></script>
+    <script src="../backend/js/common.js" type="module"></script>
+    <script src="../backend/js/customer_login.js" type="module"></script>
 </body>
 
 </html>
