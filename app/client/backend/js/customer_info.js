@@ -11,7 +11,7 @@ let ACCOUNT_NUMBER;
 const ID_LOGOUT_BUTTON = "#logout";
 const ID_ACCOUNT_NAME = "#account_name";
 const ID_ACCOUNT_NUMBER = "#account_number";
-const ID_BALANCE = "#balance";
+const ID_BALANCE = "#display_account_balance";
 
 main();
 
