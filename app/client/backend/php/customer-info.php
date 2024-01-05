@@ -20,6 +20,6 @@ $response['data'] = array(
         'balance' => $result[$balance_col]
 );
 $response['success'] = true;
-echo json_encode($response);
 close_database();
+echo json_encode($response);
 ?>

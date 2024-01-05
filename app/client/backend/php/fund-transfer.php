@@ -45,6 +45,6 @@ if (!modify_database($sql_stmt)) {
 http_response_code(302);
 $response['url'] = "$redirect_url" . "?fund_transfer_success=true&" .
         "transaction_id=" . $transaction_id;
-echo json_encode($response);
 close_database();
+echo json_encode($response);
 ?>

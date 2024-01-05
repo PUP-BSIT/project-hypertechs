@@ -13,9 +13,9 @@ if (!$external_bank_url) {
         echo json_encode($response);
         exit;
 }
-close_database();
 $response['bankCode'] = $BANK_CODE;
 $response['externalBankURL'] = $external_bank_url;
 $response['success'] = true;
+close_database();
 echo json_encode($response);
 ?>

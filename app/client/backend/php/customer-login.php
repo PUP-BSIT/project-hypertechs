@@ -18,6 +18,6 @@ if (!does_password_match($account_number, $password)) {
 session_start();
 $_SESSION['account_number'] = $account_number;
 $response['success'] = true;
-echo json_encode($response);
 close_database();
+echo json_encode($response);
 ?>
