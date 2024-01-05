@@ -3,7 +3,7 @@ import {
         clearFeedback,
 } from "./common.js";
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_LOGIN_FEEDBACK = "#login_feedback";
+const ID_LOGIN_FEEDBACK = "#feedback_test";
 const ID_ACCOUNT_NUMBER = "#account_number"; 
 const ID_PASSWORD = "#account_password";
 const ACCOUNT_URL = "./account/overview.html";
