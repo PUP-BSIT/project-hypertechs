@@ -1,12 +1,11 @@
 import {
         postData, getData, isLoggedIn
-} from "/project-hypertechs/app/client/backend/js/common_new.js";
+} from "./common_new.js";
 
 
 const ID_BTN_LOGIN = "#button_login";
-const URL_ACCOUNT = "/project-hypertechs/app/client/pages/account/" +
-        "overview.html";
-const URL_LOGIN = "/project-hypertechs/app/client/pages/login.html";
+const URL_ACCOUNT = "./app/client/pages/account/overview.html";
+const URL_LOGIN = "./app/client/pages/login.html";
 
 main();
 

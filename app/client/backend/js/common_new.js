@@ -106,7 +106,7 @@ export function clearFeedback(area) {
 export async function isLoggedIn() {
         let url, response;
 
-        url = "/project-hypertechs/app/client/backend/php/customer-session.php";
+        url = "/app/client/backend/php/customer-session.php";
         response = await getData(url);
         if (!response.success) return false;
         return true;
@@ -115,15 +115,14 @@ export async function isLoggedIn() {
 export async function saveRequest(url, body) {
         let requestBody, saveURL, response, sessionURL;
 
-        saveURL = "/project-hypertechs/app/client/backend/php/request-save.php";
+        saveURL = "/app/client/backend/php/request-save.php";
         requestBody = new FormData();
         requestBody.append('request_url', url);
         requestBody.append('request_body', formToString(body));
         response = await postData(saveURL, requestBody)
         console.log(response.success);
         if (!response.success) return false;
-        sessionURL = "/project-hypertechs/app/client/backend/php/" + 
-                "otp-session.php"
+        sessionURL = "/app/client/backend/php/otp-session.php"
         requestBody = new FormData();
         requestBody.append('start', true);
         await postData(sessionURL, requestBody);
@@ -134,7 +133,7 @@ export async function saveRequest(url, body) {
 export async function sendRequest() {
         let url, response, data, requestBody;
 
-        url = "/project-hypertechs/app/client/backend/php/" +
+        url = "/app/client/backend/php/" +
                 "request-retrieve.php";
         response = await getData(url);
         console.log(response);
@@ -147,8 +146,7 @@ export async function sendRequest() {
                 requestBody.append(key, data[key]);
         }
         await postData(response.requestURL, requestBody);
-        url = "/project-hypertechs/app/client/backend/php/" +
-                "request-destroy.php";
+        url = "/app/client/backend/php/request-destroy.php";
         await getData(url);
         return true;
 }
