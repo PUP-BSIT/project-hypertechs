@@ -1,4 +1,6 @@
-import { getData } from "./commonNew.js";
+import { 
+        getData, postData, sendRequest 
+} from "./common_new.js";
 
 const ASECOND = 1000;
 const ID_OTP_1 = "#otp1";
@@ -38,11 +40,15 @@ async function checkSession() {
         console.log("checkSession");
         url = "../backend/php/otp-session.php";
         data = await getData(url);
+        console.log(data);
+        if (!data.hasSession) {
+                window.location.href = "./home.html";
+        }
         if (!data.hasExpired) {
                 startVerify();
                 return;
         }
-        destroyOTP();
+        await destroySession("OTPOnly");
         window.location.href="./otp_expired.html";
 }
 
@@ -101,28 +107,38 @@ function verify(data) {
         }); 
 }
 
-function checkOTPInput() {
+async function checkOTPInput() {
         let feedback, OTPInput;
 
-        OTPInput = getOTPInput();
         feedback = document.querySelector(ID_FEEDBACK);
+        OTPInput = getOTPInput();
         console.log(OTPInput, OTP);
+/*
         if(OTPInput !== OTP) {
                 feedback.innerHTML = "OTP is incorrect";
                 return;
         }
+*/
         feedback.innerHTML = "Please wait.";
-        destroyOTP();
+        await destroySession();
         showText("OTP_SUCCESS");
+        await sendRequest();
 }
 
-async function destroyOTP() {
-        let url, requestBody, data; 
+async function destroySession(option) {
+        let url, data, requestBody; 
 
-        console.log("destroyOTP");
+        console.log("destroySession");
         setTimer(0);
-        url = "../backend/php/otp-destroy.php";
-        data = await getData(url);
+        url = "../backend/php/otp-session.php";
+        requestBody = new FormData();
+        if (option === "OTPOnly") {
+                requestBody.append('destroy_otp', true);
+                await postData(url, requestBody);
+                return;
+        }
+        requestBody.append('destroy', true);
+        await postData(url, requestBody);
 }
 
 function getOTPInput() {

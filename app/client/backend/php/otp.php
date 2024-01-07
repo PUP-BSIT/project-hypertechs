@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-$DURATION_SEC = 30;
+$DURATION_SEC = 5;
 
+$_SESSION['otp_session'] = true;
 $response = array();
 if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
         $response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp(); 

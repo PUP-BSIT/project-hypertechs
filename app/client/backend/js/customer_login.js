@@ -1,7 +1,7 @@
-import {
-        sendData,
-        clearFeedback,
-} from "./common.js";
+import { 
+        postData, clearFeedback, saveRequest 
+} from "./common_new.js";
+
 const ID_LOGIN_BUTTON = "#login_button";
 const ID_LOGIN_FEEDBACK = "#feedback_test";
 const ID_ACCOUNT_NUMBER = "#account_number"; 
@@ -17,33 +17,32 @@ function main() {
         btnLogin.addEventListener("click", loginCustomer);
 }
 
-function loginCustomer() {
-        let accountNumber, password, loginFeedback, requestBody, url;
+async function loginCustomer() {
+        let accountNumber, password, loginFeedback, requestBody, url, 
+                data, response, requestURL;
 
         loginFeedback = document.querySelector(ID_LOGIN_FEEDBACK);
-        loginFeedback.innerHTML = "Logging in...";
+        loginFeedback.innerHTML = "Please wait.";
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER).value;
         password = document.querySelector(ID_PASSWORD).value;
         if (!accountNumber || !password) {
-                loginFeedback.innerHTML = "Please fill the blanks";
+                loginFeedback.innerHTML = "Please fill the required fields";
                 clearFeedback(loginFeedback);
                 return;
         }
         requestBody = new FormData();
         requestBody.append('account_number', accountNumber);
         requestBody.append('password', password);
-        url = "../backend/php/customer-login.php";
-        sendData(url, requestBody, showLoginFeedback);  
-}
-
-function showLoginFeedback(data) {
-        let loginFeedback;
-
-        loginFeedback = document.querySelector(ID_LOGIN_FEEDBACK);
+        requestBody.append('redirect_url', ACCOUNT_URL); 
+        console.log(accountNumber);
+        //url = "../backend/php/customer-login.php";
+        url = "../backend/php/customer-login-check.php";
+        data =  await postData(url, requestBody);
         if (!data.success) {
                 loginFeedback.innerHTML = data.errorMessage;
                 clearFeedback(loginFeedback);
                 return;
         }
-        window.location.href = ACCOUNT_URL;
+        requestURL = "../backend/php/customer-login.php";
+        await saveRequest(requestURL, requestBody);
 }

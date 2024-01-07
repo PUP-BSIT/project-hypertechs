@@ -166,3 +166,22 @@ export function checkCustomerSession(start) {
         });
 }
 
+export function saveRequest(url, body) {
+        let origin, requestBody, saveURL;
+
+        saveURL = "../../backend/php/request-save.php";
+        requestBody = new FormData();
+        requestBody.append('request_url', url);
+        requestBody.append('request_body', formToString(body));
+        sendData(saveURL, requestBody)
+}
+
+export function formToString(formData) {
+        let form;
+
+        form = {};
+        formData.forEach((value, key) => {
+                form[key] = value;
+        });
+        return JSON.stringify(form);
+}
