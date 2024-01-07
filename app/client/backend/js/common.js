@@ -1,5 +1,5 @@
 export const BANK_CODE = "goodgghh7788";
-const HOME_URL = "../home.html";
+const HOME_URL = "/project-hypertechs/index.html";
 
 export function sendData(url, data, processData) {
         let statusCode;
