@@ -45,6 +45,6 @@ if (!modify_database($sql_stmt)) {
 }
 $response['fundTransferSuccess'] = true;
 $response['transactionID'] = $transaction_id; 
-close_database();
 echo json_encode($response);
+close_database();
 ?>
