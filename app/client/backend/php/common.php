@@ -1,14 +1,20 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-
 $DB_CONN;
+$BANK_CODE = "APEX";
 
 function connect_database() {
         global $DB_CONN;
+
         $hostname = "127.0.0.1:3306";
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
+/*
+        $hostname = "localhost";
+        $username = "calib";
+        $password = "Hypertechsnumber1";
+        $database = "bank";
+*/
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
@@ -99,6 +105,18 @@ function get_bank_name($bank_code) {
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
         return $data[$bank_name_col];
+}
+
+function get_bank_url($bank_code) {
+        $bank_table = "external_bank";
+        $bank_url_col = "api_url";
+        $bank_code_col = "bank_code";
+        $sql_stmt = "SELECT $bank_url_col FROM $bank_table WHERE
+                 $bank_code_col='$bank_code'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$bank_url_col];
 }
 
 function does_account_exist($account_number) {
