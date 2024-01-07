@@ -10,7 +10,7 @@
 }
 
 :root[data-theme="light"] {
-  --text: #0a0c10;
+  --text: red;
   --background: #e7edfb;
   --primary: #1e51b8;
   --secondary: #7aa2f9;
