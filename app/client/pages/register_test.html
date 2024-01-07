@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../src/css/register.css">
+    <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Apex Bank – Sign Up</title>
+</head>
+
+<body>
+    <script src="../src/scripts/preload.js"></script>
+    <section id="register_grid_container">
+        <div id="header_container">
+            <div id="apex_logo">
+                <img src="../assets/img/apex_brand.png" alt="apex logo">
+                <h1>Apex Bank</h1>
+            </div>
+
+            <nav>
+                <div id="toggle_theme">
+                    <input type="checkbox" class="checkbox" id="theme_mode"/>
+                    <label class="label" for="theme_mode" 
+                        onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </nav>
+        </div>
+        <div id="back_container">
+            <a href="./home.html">
+                <i class=" fa-solid fa-chevron-left"></i></i><span>Back</span>
+            </a>
+        </div>
+        <div id="register_container">
+            <div id="register_text">
+                <h1>Create an account</h1>
+                <p>Fast, simple, and secure banking. Join Apex Bank today.</p>
+            </div>
+            <div class="register-form-container">
+                <form id="register_form" onsubmit="return validateForm()">
+                    <div class="personal-information-section">
+                        <div class="register-heading">
+                            <h2>I. Personal Information</h2>
+                            <p><em>*Required fields</em></p>
+                        </div>
+                        <div class="form-super-group">
+                            <div class="form-group">
+                                <label for="surname" class="surname">Surname
+                                    <span class="asterisk">*</span></label>
+                                <input type="text" id="surname" name="surname" 
+                                required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="middle_name" class="middle_name">
+                                    Middle Name</label>
+                                <input type="text" id="middle_name" 
+                                name="middle_name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="first_name">First Name
+                                <span class="asterisk">*</span></label>
+                            <input type="text" id="first_name" name="first_name" 
+                            required>
+                        </div>
+
+                        <div class="form-super-group">
+                            <div class="form-group">
+                                <label for="suffix" class="suffix">Suffix
+                                </label>
+                                <input type="text" id="suffix" name="suffix">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dob" class="dob">Date of Birth
+                                    <span class="asterisk">*</span></label>
+                                <input type="date" id="dob" name="dob" 
+                                placeholder="dd-mm-yyyy" value=""
+                                    min="1940-01-01" max="2024-01-01" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-information-section">
+                        <div class="register-heading">
+                            <h2>II. Contact Information</h2>
+                            <p><em>*Required fields</em></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="residential_address">Residential Address
+                                <span class="asterisk">*</span></label>
+                            <input id="residential_address" 
+                                name="residential_address" rows="4" required>
+                            </input>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address
+                                <span class="asterisk">*</span></label>
+                            <input type="email" id="email" name="email" 
+                            required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number
+                                <span class="asterisk">*</span></label>
+                            <input type="tel" id="phone_number" 
+                            name="phone_number" required>
+                        </div>
+                    </div>
+
+                    <div class="password-information-section">
+                        <div class="register-heading">
+                            <h2>III. Password Information</h2>
+                            <p><em>*Required fields</em></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password
+                                <span class="asterisk">*</span></label>
+                            <input type="password" id="password"
+                            name="password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password
+                                <span class="asterisk">*</span></label>
+                            <input type="password" id="confirm_password" 
+                            name="confirm_password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="register-button" onclick="registerUser()">Sign Up</button>
+                    <div class="terms-and-policy">
+                        <p for="terms_and_policy">
+                            By clicking the "Register" button, you agree to 
+                            Apex Bank® <span>Terms of Service</span>, 
+                            <span>Privacy Policy</span>, and
+                            <span>Cookie Use</span>.
+                        </p>
+                    </div>
+                </form>
+
+                <p class="login-link">Already have an account? 
+                    <a href="../pages/login.html">Log In</a></p>
+            </div>
+        </div>
+        <div id="register_image_container">
+            <img src="../assets/img/signup.svg">
+        </div>
+    </section>
+    <script src="../src/scripts/theme.js"></script>
+    <script src="../src/scripts/register.js"></script>
+</body>
+
+</html>
