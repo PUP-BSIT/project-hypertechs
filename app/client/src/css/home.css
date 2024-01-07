@@ -228,6 +228,15 @@ nav a:hover::before {
   transform: scale(0.95);
 }
 
+/* login icon animation */
+#button_login i.fa-right-to-bracket {
+  transition: transform 0.3s ease-in-out;
+}
+
+#button_login:hover i.fa-right-to-bracket {
+  transform: translateX(5px);
+}
+
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
