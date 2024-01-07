@@ -2,7 +2,7 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 3.5vw;
+  --title-size: 3.3vw;
   --nav-size: 1.6vw;
   --super-header-size: 5vw;
   --subheader-size: 1.6vw;
@@ -226,6 +226,15 @@ nav a:hover::before {
 #button_create:active,
 #button_login:active {
   transform: scale(0.95);
+}
+
+/* login icon animation */
+#button_login i.fa-right-to-bracket {
+  transition: transform 0.3s ease-in-out;
+}
+
+#button_login:hover i.fa-right-to-bracket {
+  transform: translateX(5px);
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
