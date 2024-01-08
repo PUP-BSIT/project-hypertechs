@@ -2,7 +2,13 @@
 require "./common.php";
 
 connect_database();
+/*
 $account_table = "bank_account_holder";
+$account_number_col = "account_number";
+$name_col = "account_name";
+$balance_col = "balance";
+*/
+$account_table = "account";
 $account_number_col = "account_number";
 $name_col = "account_name";
 $balance_col = "balance";

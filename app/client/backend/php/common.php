@@ -15,7 +15,7 @@ function connect_database() {
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
-        $database = "bank";
+        $database = "apex_bank";
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
@@ -42,7 +42,7 @@ function close_database() {
 }
 
 function get_transaction_data($table, $transaction_id) {
-        $transaction_id_col = "transaction_number";
+        $transaction_id_col = "transaction_id";
         $sql_stmt = "SELECT * FROM $table WHERE
                 $transaction_id_col='$transaction_id';";
         $result = extract_database($sql_stmt);
@@ -54,7 +54,7 @@ function get_transaction_data($table, $transaction_id) {
 function get_account_data($table, $account_number) {
         $account_number_col = "account_number";
         $sql_stmt = "SELECT * FROM $table WHERE
-                $account_number_col=$account_number";
+                $account_number_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -63,10 +63,10 @@ function get_account_data($table, $account_number) {
 
 function get_balance($account_number) {
         $balance_col = "balance";
-        $table = "bank_account_holder";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $balance_col FROM $table WHERE
-                 $account_col=$account_number";
+                 $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -75,10 +75,10 @@ function get_balance($account_number) {
 
 function get_phone_number($account_number) {
         $phone_col = "phone_number";
-        $table = "bank_account_holder";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
-                 $account_col=$account_number";
+                 $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -86,11 +86,11 @@ function get_phone_number($account_number) {
 }
 
 function set_balance($account_number, $new_balance) {
-        $account_table = "bank_account_holder";
+        $account_table = "account";
         $account_col = "account_number";
         $balance_col = "balance";
         $sql_stmt = "UPDATE $account_table SET $balance_col=$new_balance WHERE
-                $account_col=$account_number";
+                $account_col='$account_number'";
         return modify_database($sql_stmt);
 }
 
@@ -133,17 +133,17 @@ function get_bank_url($bank_code) {
 }
 
 function does_account_exist($account_number) {
-        $account_table = "bank_account_holder";
+        $account_table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $account_col FROM $account_table WHERE 
-                $account_col=$account_number";
+                $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 
 function does_employee_exist($employee_number) {
-        $employee_table = "bank_teller";
+        $employee_table = "admin";
         $employee_col = "employee_number";
         $sql_stmt = "SELECT $employee_col FROM $employee_table WHERE 
                 $employee_col=$employee_number";
@@ -162,43 +162,39 @@ function does_bank_exist($bank_code) {
         return true;
 }
 
-function does_ext_transfer_id_exist($transaction_id, $status) {
-        $transaction_table = "external_transfer_send";
-        $transaction_id_col = "transaction_number";
-        $status_col = "status";
+function does_ext_transfer_id_exist($transaction_id) {
+        $transaction_table = "fund_transfer_external_send";
+        $transaction_id_col = "transaction_id";
         $sql_stmt = "SELECT $transaction_id_col FROM $transaction_table WHERE 
-                $transaction_id_col='$transaction_id' AND  
-                $status_col='$status'";
+                $transaction_id_col='$transaction_id'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 
-function does_transfer_id_exist($transaction_id, $status) {
-        $transaction_table = "transfer_send";
-        $transaction_id_col = "transaction_number";
-        $status_col = "status";
+function does_transfer_id_exist($transaction_id) {
+        $transaction_table = "fund_transfer";
+        $transaction_id_col = "transaction_id";
         $sql_stmt = "SELECT $transaction_id_col FROM $transaction_table WHERE 
-                $transaction_id_col='$transaction_id' AND  
-                $status_col='$status'";
+                $transaction_id_col='$transaction_id'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 
 function does_password_match($account_number, $password) {
-        $account_table = "bank_account_holder";
+        $account_table = "account";
         $account_col = "account_number";
         $password_col = "password";
         $sql_stmt = "SELECT $account_col FROM $account_table WHERE
-                $account_col=$account_number AND $password_col='$password'";
+                $account_col='$account_number' AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 
 function does_employee_password_match($employee_number, $password) {
-        $employee_table = "bank_teller";
+        $employee_table = "admin";
         $number_col = "employee_number";
         $password_col = "password";
         $sql_stmt = "SELECT $number_col FROM $employee_table WHERE

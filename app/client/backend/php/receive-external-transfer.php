@@ -2,13 +2,12 @@
 require "./common.php";
 
 connect_database();
-$transfer_table = "external_transfer_receive";
-$amount_col = "amount_received";
-$source_col = "sender_account_number";
-$recipient_col = "account_number";
-$transaction_id_col = "transaction_number";
-$status_col = "status";
-$date_col = "date_received";
+$transfer_table = "fund_transfer_external_receive";
+$amount_col = "amount";
+$source_col = "source";
+$recipient_col = "recipient";
+$transaction_id_col = "transaction_id";
+$date_col = "date";
 $bank_code_col = "bank_code";
 
 $response['fundTransferSuccess'] = false;
@@ -17,7 +16,6 @@ $amount = (float)$_POST['transaction_amount'];
 $source = (int)$_POST['source_account_no'];
 $recipient = (int)$_POST['recipient_account_no'];
 $transaction_id = "TID".time().uniqid();
-$status = "Pending";
 $date = date("Y-m-d");
 if ($recipient == $source) {
         http_response_code(403);
@@ -35,9 +33,9 @@ if (!does_bank_exist($bank_code)) {
         exit();
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
-        $recipient_col, $transaction_id_col, $status_col, $date_col, 
-        $bank_code_col) VALUES ($amount, $source, $recipient, 
-        '$transaction_id', '$status', '$date', '$bank_code')"; 
+        $recipient_col, $transaction_id_col, $date_col, 
+        $bank_code_col) VALUES ($amount, '$source', '$recipient', 
+        '$transaction_id', '$date', '$bank_code')"; 
 if (!modify_database($sql_stmt)) {
         http_response_code(404);
         echo json_encode($response);
