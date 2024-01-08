@@ -3,7 +3,7 @@ import {
 } from "./common_new.js";
 
 const ASECOND = 1000;
-const URL_HOME = "/project-hypertechs/index.html";
+const URL_HOME = "/index.html";
 const ID_OTP_1 = "#otp1";
 const ID_OTP_2 = "#otp2";
 const ID_OTP_3 = "#otp3";

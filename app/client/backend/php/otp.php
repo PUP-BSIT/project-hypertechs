@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 $DURATION_SEC = 5;
 
-$_SESSION['otp_session'] = true;
 $response = array();
 if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
         $response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp(); 
@@ -21,10 +19,11 @@ function get_fake_otp() {
 }
 
 function get_otp() {
+        $phone_number = $_SESSION['phone_number'];
         $ch = curl_init();
         $parameters = array(
                 'apikey' => "7dce37931f1bbe6f1dc105d481d83ccf",
-                'number' => "09550266782",
+                'number' => $phone_number,
                 'message' => "This is a sample message. Your One Time Password is: " . 
                         "{otp}. Thank you for using Apex Bank!"
         );

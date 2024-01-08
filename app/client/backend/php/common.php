@@ -1,20 +1,21 @@
 <?php
 $DB_CONN;
 $BANK_CODE = "APEX";
+$REGISTER_ERROR = "";
 
 function connect_database() {
         global $DB_CONN;
 
+/*
         $hostname = "127.0.0.1:3306";
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
-/*
+*/
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
         $database = "bank";
-*/
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
@@ -195,4 +196,14 @@ function does_employee_password_match($employee_number, $password) {
         return true;
 }
 
+function is_register_valid() {
+        global $REGISTER_ERROR;
+        if (!trim($_POST['first_name']) || !trim($_POST['last_name']) || 
+                !trim($_POST['phone_number']) || !trim($_POST['password'])
+        ) {
+                $REGISTER_ERROR = "Please fill the required fields"; 
+                return false; 
+        }
+        return true;
+}
 ?>

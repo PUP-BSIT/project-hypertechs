@@ -112,22 +112,27 @@ export async function isLoggedIn() {
         return true;
 }
 
-export async function saveRequest(url, body) {
-        let requestBody, saveURL, response, sessionURL;
+export async function saveRequest(requestURL, requestBody) {
+        let data, url, saveURL, response, sessionURL;
 
-        saveURL = "/app/client/backend/php/request-save.php";
-        requestBody = new FormData();
-        requestBody.append('request_url', url);
-        requestBody.append('request_body', formToString(body));
-        response = await postData(saveURL, requestBody)
+        url = "/app/client/backend/php/request-save.php";
+        data = new FormData();
+        data.append('request_url', requestURL);
+        data.append('request_body', formToJSON(requestBody));
+        response = await postData(url, data)
         console.log(response.success);
         if (!response.success) return false;
-        sessionURL = "/app/client/backend/php/otp-session.php"
+        startVerify();
+}
+
+async function startVerify() {
+        let url, requestBody;
+
+        url = "/app/client/backend/php/otp-session.php"
         requestBody = new FormData();
         requestBody.append('start', true);
-        await postData(sessionURL, requestBody);
+        await postData(url, requestBody);
         window.location.href = "./otp_test.html";
-        return true;
 }
 
 export async function sendRequest() {
@@ -156,13 +161,13 @@ function checkValue(value) {
         return Number(value);
 }
 
-export function formToString(formData) {
+export function formToJSON(formData) {
         let form;
 
         form = {};
         formData.forEach((value, key) => {
                 form[key] = value;
         });
-        console.log(form);
+        console.log(JSON.stringify(form));
         return JSON.stringify(form);
 }

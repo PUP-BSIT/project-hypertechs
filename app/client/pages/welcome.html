@@ -1,0 +1,57 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../src/css/otp.css">
+    <title>Apex Bank – Verify</title>
+</head>
+
+<body>
+    <script src="../src/scripts/preload.js"></script>
+    <section id="otp_grid_container">
+        <div id="header_container">
+            <div id="apex_logo">
+                <img src="../assets/img/apex_brand.png" alt="apex logo">
+                <h1>Apex Bank</h1>
+            </div>
+
+            <nav>
+                <div id="toggle_theme">
+                    <input type="checkbox" class="checkbox" id="theme_mode" />
+                    <label class="label" for="theme_mode" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </nav>
+        </div>
+        <div id="back_container">
+            <a href="./login.html">
+                <i class=" fa-solid fa-chevron-left"></i></i><span>Back</span>
+            </a>
+        </div>
+        <div>
+            <h2>Account created successfully</h2>
+            <p>Click start to go to your new account</p>
+            <a href="./account/overview.html">
+                <button type="button">Start</button>
+            </a>
+            <p id="loading_expired" hidden>Please wait.</p>
+        </div>
+        <div id="otp_image_container">
+            <img src="../assets/img/two-fa.svg">
+        </div>
+    </section>
+    <script src="../src/scripts/theme.js"></script>
+    <script src="../backend/js/common.js" type="module"></script>
+    <script src="../backend/js/otp_expired.js" type="module"></script>
+</body>
+
+</html>
