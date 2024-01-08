@@ -33,6 +33,11 @@ if (!deduct_balance($source, $amount)) {
         echo json_encode($response);
         exit;
 }
+if (!add_balance($recipient, $amount)) {
+        http_response_code(404);
+        echo json_encode($response);
+        exit;
+}
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $status_col, $date_col) 
         VALUES ($amount, $source, $recipient, '$transaction_id', '$status', 
