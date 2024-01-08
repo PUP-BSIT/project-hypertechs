@@ -18,6 +18,7 @@ function get_fake_otp() {
 }
 
 function get_otp() {
+        session_start();
         $phone_number = $_SESSION['phone_number'];
         $ch = curl_init();
         $parameters = array(
