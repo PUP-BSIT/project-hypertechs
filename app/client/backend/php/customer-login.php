@@ -18,6 +18,12 @@ if (!does_password_match($account_number, $password)) {
 }
 session_start();
 $_SESSION['account_number'] = $account_number;
+$phone_number = get_phone_number($account_number);
+if (!$phone_number) {
+        echo json_encode($response);
+        exit;
+}
+$_SESSION['phone_number'] = $phone_number;
 http_response_code(302);
 $response['url'] = $redirect_url;
 $response['success'] = true;

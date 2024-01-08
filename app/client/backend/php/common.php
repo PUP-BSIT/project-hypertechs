@@ -73,6 +73,18 @@ function get_balance($account_number) {
         return $data[$balance_col];
 }
 
+function get_phone_number($account_number) {
+        $phone_col = "phone_number";
+        $table = "bank_account_holder";
+        $account_col = "account_number";
+        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+                 $account_col=$account_number";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$phone_col];
+}
+
 function set_balance($account_number, $new_balance) {
         $account_table = "bank_account_holder";
         $account_col = "account_number";
@@ -197,6 +209,7 @@ function does_employee_password_match($employee_number, $password) {
 }
 
 function is_register_valid() {
+        session_start();
         global $REGISTER_ERROR;
         if (!trim($_POST['first_name']) || !trim($_POST['last_name']) || 
                 !trim($_POST['phone_number']) || !trim($_POST['password'])
@@ -204,6 +217,7 @@ function is_register_valid() {
                 $REGISTER_ERROR = "Please fill the required fields"; 
                 return false; 
         }
+        $_SESSION['phone_number'] = $_POST['phone_number'];
         return true;
 }
 ?>
