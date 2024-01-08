@@ -132,7 +132,7 @@ async function startVerify() {
         requestBody = new FormData();
         requestBody.append('start', true);
         await postData(url, requestBody);
-        window.location.href = "./otp_test.html";
+        window.location.href = "/app/client/pages/otp_test.html";
 }
 
 export async function sendRequest() {

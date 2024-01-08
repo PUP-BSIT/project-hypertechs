@@ -16,23 +16,24 @@ $source = (int)$_POST['source_account_no'];
 $recipient = (int)$_POST['recipient_account_no'];
 $transaction_id = "TID" . time() . uniqid ();
 $date = date ("Y-m-d");
+http_response_code(302);
 if ($recipient == $source) {
-        http_response_code(403);
+        $response['url'] = "$redirect_url" . "?error_message=Account number is not valid";
         echo json_encode($response);
         exit;
 }
 if (!does_account_exist($recipient)) {
-        http_response_code(404);
+        $response['url'] = "$redirect_url" . "?error_message=Account does not exist";
         echo json_encode($response);
         exit;
 }
 if (!deduct_balance($source, $amount)) {
-        http_response_code(404);
+        $response['url'] = "$redirect_url" . "?error_message=Internal server error";
         echo json_encode($response);
         exit;
 }
 if (!add_balance($recipient, $amount)) {
-        http_response_code(404);
+        $response['url'] = "$redirect_url" . "?error_message=Internal server error";
         echo json_encode($response);
         exit;
 }
@@ -44,7 +45,6 @@ if (!modify_database($sql_stmt)) {
         echo json_encode($response);
         exit;
 } 
-http_response_code(302);
 $response['url'] = "$redirect_url" . "?fund_transfer_success=true&" .
         "transaction_id=" . $transaction_id;
 close_database();
