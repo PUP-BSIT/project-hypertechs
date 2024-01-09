@@ -37,9 +37,9 @@ async function validateForm() {
     feedback.innerHTML = "Passwords do not match.";
     return;
   }
-  /* if (!isValidated()) {
+  if (!isValidated()) {
     return;
-  } */
+  }
   registerUser();
 }
 
