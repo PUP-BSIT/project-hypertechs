@@ -123,25 +123,10 @@ async function checkOTPInput() {
         }
 
         feedback.innerHTML = "Please wait.";
+        setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");
         await sendRequest();
-}
-
-async function destroyOTPSession(option) {
-        let url, data, requestBody; 
-
-        console.log("destroySession");
-        setTimer(0);
-        url = "../backend/php/otp-session.php";
-        requestBody = new FormData();
-        if (option === "OTPOnly") {
-                requestBody.append('destroy_otp', true);
-                await postData(url, requestBody);
-                return;
-        }
-        requestBody.append('destroy', true);
-        await postData(url, requestBody);
 }
 
 function getOTPInput() {
