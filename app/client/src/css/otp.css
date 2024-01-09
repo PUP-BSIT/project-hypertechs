@@ -9,7 +9,6 @@
   --otp-size: 2.5vw;
 }
 
-
 :root[data-theme="light"] {
   --text: #0a0c10;
   --background: #e7edfb;
@@ -175,7 +174,6 @@ body {
   }
 }
 
-
 /* otp text styling */
 #otp_container {
   padding-left: 3em;
@@ -258,9 +256,7 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
 .verify-button:hover {
@@ -279,6 +275,12 @@ body {
   font-size: 0.5vw;
 }
 
+#get_otp,
+#expired,
+#otp_correct {
+  padding-left: 3em;
+}
+
 /* button styling */
 
 #otp_text button {
@@ -292,9 +294,7 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
 #otp_text button:hover {
@@ -305,8 +305,6 @@ body {
 #otp_text button:active {
   transform: scale(0.95);
 }
-
-
 
 /* resend code link styling */
 .resend-code {
