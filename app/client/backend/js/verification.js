@@ -1,5 +1,5 @@
 import { 
-        getData, postData, sendRequest 
+        getData, postData, sendRequest, destroyOTPSession
 } from "./common_new.js";
 
 const JS_SECOND = 1000;
@@ -51,7 +51,7 @@ async function checkSession() {
                 startVerify();
                 return;
         }
-        await destroySession("OTPOnly");
+        await destroyOTPSession("OTPOnly");
         window.location.href="./otp_expired.html";
 }
 
@@ -123,12 +123,12 @@ async function checkOTPInput() {
         }
 
         feedback.innerHTML = "Please wait.";
-        await destroySession();
+        await destroyOTPSession();
         showText("OTP_SUCCESS");
         await sendRequest();
 }
 
-async function destroySession(option) {
+async function destroyOTPSession(option) {
         let url, data, requestBody; 
 
         console.log("destroySession");
