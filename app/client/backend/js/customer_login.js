@@ -16,7 +16,7 @@ function main() {
         btnLogin.addEventListener("click", validateLoginForm);
 }
 
-function async validateLoginForm() {
+async function validateLoginForm() {
         // Get the input values
         let accountNumber = document.getElementById("account_number").value;
         let accountPassword = document.getElementById("account_password").value;
