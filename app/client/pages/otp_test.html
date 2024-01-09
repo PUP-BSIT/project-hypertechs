@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 
@@ -9,6 +5,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../src/css/otp.css">
+    <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Apex Bank – Verify</title>
 </head>
 
@@ -48,12 +46,18 @@ session_start();
             <div class="otp-form-container">
                 <form action="#" method="post" id="otpVerificationForm">
                     <div class="otp-fields">
-                        <input type="text" class="otp-input" id="otp1" name="otp1" maxlength="1" pattern="[0-9]"  required>
-                        <input type="text" class="otp-input" id="otp2" name="otp2" maxlength="1" pattern="[0-9]"  required>
-                        <input type="text" class="otp-input" id="otp3" name="otp3" maxlength="1" pattern="[0-9]"  required>
-                        <input type="text" class="otp-input" id="otp4" name="otp4" maxlength="1" pattern="[0-9]"  required>
-                        <input type="text" class="otp-input" id="otp5" name="otp5" maxlength="1" pattern="[0-9]"  required>
-                        <input type="text" class="otp-input" id="otp6" name="otp6" maxlength="1" pattern="[0-9]" required>
+                        <input type="text" class="otp-input" id="otp1" name="otp1" maxlength="1" pattern="[0-9]"
+                            required>
+                        <input type="text" class="otp-input" id="otp2" name="otp2" maxlength="1" pattern="[0-9]"
+                            required>
+                        <input type="text" class="otp-input" id="otp3" name="otp3" maxlength="1" pattern="[0-9]"
+                            required>
+                        <input type="text" class="otp-input" id="otp4" name="otp4" maxlength="1" pattern="[0-9]"
+                            required>
+                        <input type="text" class="otp-input" id="otp5" name="otp5" maxlength="1" pattern="[0-9]"
+                            required>
+                        <input type="text" class="otp-input" id="otp6" name="otp6" maxlength="1" pattern="[0-9]"
+                            required>
                     </div>
 
                     <p id="feedback_test">&nbsp</p>
@@ -64,23 +68,29 @@ session_start();
 
                 <p class="resend-code">Didn't receive a code? <a href="#">Resend code</a></p>
 
+            </div>
         </div>
-        </div>
-        <div id="expired">
-            <p>Your OTP has expired.</p>
-            <button id="btn_renew" type="button">Try again</button>
-            <p id="loading_expired" hidden>Please wait.</p>
-        </div>
-        <div id="get_otp">
-            <h2>Identify verification</h2>
-            <p>We will send you OTP, which is valid only for 5 minutes.</p>
-            <p>Click the start button to begin.</p>
-            <button id="btn_start" type="button">Start</button>
-            <p id="loading_get" hidden>Please wait.</p>
-        </div>
-        <div id="otp_correct">
-            <p>Identity verified successfully.</p>     
-            <p>Redirecting...</p>
+        <div id="otp_text">
+            <div id="get_otp"> <!--Get OTP-->
+                <h1><i class="fa-solid fa-shield-halved"></i>Verify your identity</h1>
+                <p>We will send you a <strong>One-Time Password (OTP)</strong> which will be valid for only 5 minutes.
+                    Click the 'Start' button to begin.
+                </p>
+                <button id="btn_start" type="button">Start</button>
+                <p id="loading_get" hidden>Please wait.</p>
+            </div>
+            <div id="expired">
+                <h1><i class="fa-solid fa-circle-exclamation"></i>Your OTP has expired</h1>
+                <p>For security reasons, the OTP is only valid for 5 minutes.
+                    Click the 'Try Again' button to resend an OTP.
+                </p>
+                <button id="btn_renew" type="button">Try again</button>
+                <p id="loading_expired" hidden>Please wait.</p>
+            </div>
+            <div id="otp_correct">
+                <h1><i class="fa-solid fa-circle-check"></i>Identity verified</h1>
+                <p>Your identity has been verified. Redirecting...</p>
+            </div>
         </div>
         <div id="otp_image_container">
             <img src="../assets/img/two-fa.svg">

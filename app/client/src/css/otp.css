@@ -136,34 +136,34 @@ body {
 
 /* back button styling */
 #back_container {
-  padding-top: 0.4%;
   padding-left: 3em;
 }
 
 #back_container i {
-  font-size: 20px;
+  font-size: 1.2vw;
+  margin-top: 0.05em;
   margin-right: 0.5em;
   color: var(--accent);
 }
 
 #back_container a {
-  font-size: 20px;
+  font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
-}
-
-#back_container a:hover {
-  animation: slideLeft 1s infinite;
   display: flex;
   align-items: center;
 }
 
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: slideLeft 1s infinite;
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
 }
 
-@keyframes slideLeft {
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
   0% {
     transform: translateX(0);
   }
@@ -174,6 +174,7 @@ body {
     transform: translateX(0);
   }
 }
+
 
 /* otp text styling */
 #otp_container {
@@ -186,20 +187,20 @@ body {
   text-align: justify;
 }
 
-#otp_container i {
+#otp_text i {
   font-size: 0.9em;
   margin-right: 2.5%;
   color: var(--primary);
 }
 
-#otp_container h1 {
+#otp_text h1 {
   text-align: left;
   padding-top: 0.25em;
   color: var(--text);
   font-size: var(--header-size);
 }
 
-#otp_container p {
+#otp_text p {
   padding-top: 0.75em;
   color: var(--text);
   font-size: var(--text-size);
@@ -218,9 +219,9 @@ body {
 }
 
 .otp-input {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   width: 10%;
-  height: 2.5em;
+  height: 1.75em;
   border: none;
   outline: none;
   background: transparent;
@@ -270,6 +271,42 @@ body {
 .verify-button:active {
   transform: scale(0.95);
 }
+
+/* feedback_test */
+
+#feedback_test {
+  height: auto;
+  font-size: 0.5vw;
+}
+
+/* button styling */
+
+#otp_text button {
+  margin-top: 1em;
+  width: 20%;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, 
+  box-shadow 0.2s ease-in-out, 
+  transform 0.2s;
+}
+
+#otp_text button:hover {
+  transform: scale(1);
+  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+}
+
+#otp_text button:active {
+  transform: scale(0.95);
+}
+
+
 
 /* resend code link styling */
 .resend-code {
