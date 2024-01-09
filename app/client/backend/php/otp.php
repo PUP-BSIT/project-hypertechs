@@ -11,6 +11,7 @@ if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
         return;
 }
 $response['otp'] = $_SESSION['otp'];
+$response['phone'] = $_SESSION['phone_number'];
 $response['time'] = $_SESSION['otp_time'] - time();
 echo json_encode($response);
 

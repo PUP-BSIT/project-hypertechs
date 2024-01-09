@@ -176,7 +176,6 @@ export async function destroyOTPSession(option) {
         let url, data, requestBody;
 
         console.log("destroySession");
-        setTimer(0);
         url = "../backend/php/otp-session.php";
         requestBody = new FormData();
         if (option === "OTPOnly") {
