@@ -39,6 +39,7 @@ body {
   margin: 1.5em;
   padding: 0;
   height: 100vh;
+  overflow: hidden;
   box-sizing: border-box;
   background-color: var(--background);
 }
