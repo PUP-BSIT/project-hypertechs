@@ -40,7 +40,7 @@ body {
   margin: 0em;
   padding: 0;
   height: 100vh;
-  overflow: hidden; 
+  overflow: hidden;
   box-sizing: border-box;
   background-color: var(--background);
 }
@@ -259,9 +259,7 @@ input::placeholder {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
 .login-button:hover {
@@ -290,7 +288,6 @@ input::placeholder {
   text-decoration: none;
   font-weight: bold;
   position: relative;
-  
 }
 
 .signup-link a::before {
@@ -360,4 +357,130 @@ input::placeholder {
 
 .fa-sun {
   color: #042c8b;
+}
+
+svg {
+  width: 90%;
+}
+
+svg#freepik_stories-atm-machine:not(.animated) .animable {
+  opacity: 0;
+}
+
+svg#freepik_stories-atm-machine.animated
+  #freepik--background-simple--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--Shadow--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--Plant--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--Machine--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--trash-bin--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedRight;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--speech-bubble--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-atm-machine.animated #freepik--Character--inject-132 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightSpeedLeft {
+  from {
+    transform: translate3d(-50%, 0, 0) skewX(20deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(-10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lightSpeedRight {
+  from {
+    transform: translate3d(50%, 0, 0) skewX(-20deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(-2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animator-hidden {
+  display: none;
 }
