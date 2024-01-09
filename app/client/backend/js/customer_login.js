@@ -57,24 +57,34 @@ async function loginCustomer() {
   loginFeedback.innerHTML = "Please wait.";
   accountNumber = document.querySelector(ID_ACCOUNT_NUMBER).value;
   password = document.querySelector(ID_PASSWORD).value;
+
   if (!accountNumber || !password) {
     loginFeedback.innerHTML = "Please fill the required fields";
     clearFeedback(loginFeedback);
     return;
   }
+
   requestBody = new FormData();
   requestBody.append("account_number", accountNumber);
   requestBody.append("password", password);
   requestBody.append("redirect_url", ACCOUNT_URL);
-  console.log(accountNumber);
+
   //url = "../backend/php/customer-login.php";
   url = "../backend/php/customer-login-check.php";
   data = await postData(url, requestBody);
+
   if (!data.success) {
     loginFeedback.innerHTML = data.errorMessage;
     clearFeedback(loginFeedback);
     return;
   }
+
+  // Redirect to the specified URL after successful login
+  window.location.href = ACCOUNT_URL;
+
+  // Optionally, you can also use the following line to open the URL in a new tab:
+  // window.open(ACCOUNT_URL, '_blank');
+
   requestURL = "../backend/php/customer-login.php";
   await saveRequest(requestURL, requestBody);
 }
