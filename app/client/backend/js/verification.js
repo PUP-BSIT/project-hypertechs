@@ -2,7 +2,8 @@ import {
         getData, postData, sendRequest 
 } from "./common_new.js";
 
-const ASECOND = 1000;
+const JS_SECOND = 1000;
+const MINUTE = 60;
 const URL_HOME = "/index.html";
 const ID_OTP_1 = "#otp1";
 const ID_OTP_2 = "#otp2";
@@ -14,7 +15,8 @@ const ID_BTN_SUBMIT = "#button_submit";
 const ID_BTN_START = "#btn_start";
 const ID_BTN_RENEW = "#btn_renew";
 const ID_FEEDBACK = "#feedback_test";
-const ID_TIMER = "#timer";
+const ID_TIMER_MINUTE = "#timer_minute";
+const ID_TIMER_SECOND = "#timer_second";
 const ID_EXPIRED = "#expired";
 const ID_VERIFY = "#otp_container";
 const ID_GET_OTP = "#get_otp";
@@ -157,7 +159,7 @@ function getOTPInput() {
 }
 
 function setTimer(remainTime) {
-        let timer;
+        let timerMinute, timerSecond, minute, second;
 
         if (!remainTime) {
                 console.log("Cancelled");
@@ -166,14 +168,31 @@ function setTimer(remainTime) {
                 clearInterval(INTERVAL_ID);
                 return;
         }
-        timer = document.querySelector(ID_TIMER);
-        timer.innerHTML = remainTime;
-        //TIMEOUT_ID = setTimeout(checkSession, remainTime * ASECOND);
-        TIMEOUT_ID = setTimeout(checkSession, remainTime * ASECOND);
+        timerMinute = document.querySelector(ID_TIMER_MINUTE);
+        timerSecond = document.querySelector(ID_TIMER_SECOND);
+        minute = parseInt(remainTime / 60);
+        second = remainTime - (minute * 60); 
+        timerMinute.innerHTML = numToTime(minute);
+        timerSecond.innerHTML = numToTime(second);
+        TIMEOUT_ID = setTimeout(checkSession, remainTime * JS_SECOND);
         INTERVAL_ID = setInterval(() => {
-                if (--timer.innerHTML === 0) clearInterval(INTERVAL_ID);
-        }, ASECOND);
+                //if (--timer.innerHTML === 0) clearInterval(INTERVAL_ID);
+                if (--second === -1) {
+                        second = MINUTE - 1;
+                        --minute;
+                }
+                if (minute === -1) {
+                        clearInterval(INTERVAL_ID);
+                        return;
+                }
+                timerMinute.innerHTML = numToTime(minute);
+                timerSecond.innerHTML = numToTime(second);
+        }, JS_SECOND);
         console.log(TIMEOUT_ID, INTERVAL_ID);
+}
+
+function numToTime(num) {
+        return num.toString().padStart(2, '0');
 }
 
 function showText(textCode) {
