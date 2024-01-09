@@ -3,8 +3,8 @@ session_start();
 $DURATION_SEC = 5 * 60;
 $response = array();
 if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
-        //$response['otp'] = $_SESSION['otp'] = $otp = get_otp();
         $response['otp'] = $_SESSION['otp'] = $otp = get_otp();
+        //$response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp();
         $response['time'] = ($_SESSION['otp_time'] = time() +
                 $DURATION_SEC) - time(); 
         echo json_encode($response);
@@ -12,6 +12,7 @@ if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
 }
 $response['otp'] = $_SESSION['otp'];
 $response['phone'] = $_SESSION['phone_number'];
+//$response['phone'] = "Fuck";
 $response['time'] = $_SESSION['otp_time'] - time();
 echo json_encode($response);
 
