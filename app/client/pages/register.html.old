@@ -32,7 +32,7 @@
             </nav>
         </div>
         <div id="back_container">
-            <a href="./home.html">
+            <a href="/index.html">
                 <i class=" fa-solid fa-chevron-left"></i></i><span>Back</span>
             </a>
         </div>
@@ -42,7 +42,7 @@
                 <p>Fast, simple, and secure banking. Join Apex Bank today.</p>
             </div>
             <div class="register-form-container">
-                <form id="register_form">
+                <form id="register_form" onsubmit="return validateForm()">
                     <div class="personal-information-section">
                         <div class="register-heading">
                             <h2>I. Personal Information</h2>
@@ -138,8 +138,7 @@
                         </div>
                     </div>
 
-                    <p id="feedback_test">&nbsp</p>
-                    <button id="btn_register" type="submit" class="register-button">Sign Up</button>
+                    <button type="submit" class="register-button">Sign Up</button>
                     <div class="terms-and-policy">
                         <p for="terms_and_policy">
                             By clicking the "Register" button, you agree to 
@@ -159,7 +158,7 @@
         </div>
     </section>
     <script src="../src/scripts/theme.js"></script>
-    <script src="../backend/js/registration.js" type="module"></script>
+    <script src="../src/scripts/register.js"></script>
 </body>
 
 </html>
