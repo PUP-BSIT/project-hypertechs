@@ -140,6 +140,7 @@ body {
 
 #back_container i {
   font-size: 1.2vw;
+  margin-top: 0.05em;
   margin-right: 0.5em;
   color: var(--accent);
 }
@@ -148,20 +149,20 @@ body {
   font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
-}
-
-#back_container a:hover {
-  animation: slideLeft 1s infinite;
   display: flex;
   align-items: center;
 }
 
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: slideLeft 1s infinite;
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
 }
 
-@keyframes slideLeft {
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
   0% {
     transform: translateX(0);
   }
