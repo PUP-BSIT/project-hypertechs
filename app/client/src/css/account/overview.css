@@ -276,7 +276,7 @@ body {
 /* ----- ACC SUMMARY STYLE ----- */
 #overview_summary {
   height: 10vw;
-  width: 75%;
+  width: 80%;
   border-radius: 10px;
   padding: 1em 1.5em;
   background-color: var(--backdrop);
@@ -284,7 +284,7 @@ body {
 
 #summary_content {
   display: flex;
-  margin-top: 1.4vw;
+  margin-top: 1.75vw;
 }
 
 #account_image {
@@ -304,7 +304,7 @@ body {
 }
 
 #summary_column_container h3 {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.3em;
   color: var(--primary);
   font-size: 1.2vw;
@@ -314,13 +314,23 @@ body {
   font-size: 1.2vw;
 }
 
+#summary_content h3 {
+  display: flex;
+  align-items: center;
+}
+
+#summary_content .material-icons {
+  margin-right: 0.5em;
+}
+
+
 /* ----- ACC BALANCE STYLE ----- */
 
 #overview_balance {
   height: 10vw;
-  width: 25%;
+  width: 23%;
   border-radius: 10px;
-  padding: 1.1em 1.5em;
+  padding: 1em;
   background: linear-gradient(
     to bottom right,
     var(--balance-one),
@@ -329,12 +339,14 @@ body {
 }
 
 #overview_balance h2 {
+  font-size: 1.5vw;
+  font-weight: 500;
   color: rgb(231, 240, 252);
 }
 
 #overview_balance h3 {
   margin-top: 0.5em;
-  font-size: 2.3vw;
+  font-size: 2vw;
   font-weight: 600;
   color: rgb(231, 240, 252);
 }
@@ -540,6 +552,10 @@ body {
   height: 45vh;
   border-radius: 10px;
   background-color: var(--backdrop);
+}
+
+#logout {
+  cursor: pointer;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

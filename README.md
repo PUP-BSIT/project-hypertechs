@@ -5,6 +5,21 @@
 ## Apex Bank Web App 
 🌐 [Visit our webhost domain here.](https://apexapp.tech/)
 
+
+##  LOGIN SAMPLE:
+
+- Account Number: 189979004670
+
+- Account Password: 12345678
+
+  
+**WARNING: These credentials will send an OTP to a phone number. Hence, if you
+want to access Apex Bank, you will need to register your own credentials
+and enter your phone number to receive the SMS OTP. You can register here:
+https://apexapp.tech/app/client/pages/register.html**
+
+
+
 🚧 Under Development: Welcome to the early stages of Apex Bank Web App! Our web domain is actively under development as we strive to bring you an exceptional online experience. Exciting features and improvements are in the works, so stay tuned for updates. We appreciate your patience and look forward to unveiling the full potential of Apex bank **soon.**
 
 ## The Hypertechs™ Team
