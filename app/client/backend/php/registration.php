@@ -93,7 +93,7 @@ if (!modify_database($sql)) {
 }
 $_SESSION['account_number'] = $account_number;
 close_database();
-//http_response_code(302);
+http_response_code(302);
 $response['url'] = "./welcome.html";
 $response['success'] = true;
 echo json_encode($response);
