@@ -1,4 +1,4 @@
-// JavaScript code to toggle between light and dark themes
+// script to toggle between light and dark themes
 document.addEventListener("DOMContentLoaded", function () {
     const root = document.documentElement;
     const currentTheme = localStorage.getItem("theme") || "light";
