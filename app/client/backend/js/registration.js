@@ -27,21 +27,6 @@ function main() {
 async function validateForm() {
         let url, requestBody, response, feedback;
 
-        feedback = document.querySelector(ID_FEEDBACK);
-        feedback.innerHTML = "Please wait.";
-        requestBody = await getFormData();
-        url = "../backend/php/registration-check.php";
-        response = await postData(url, requestBody);
-        if (!response.success) {
-                feedback.innerHTML = response.errorMessage;
-                clearFeedback(feedback);
-                return;
-        }
-        if (!isPasswordMatched()) {
-        console.log("hello");
-        feedback.innerHTML = "Passwords do not match.";
-        return;
-        }
         if (!isValidated()) {
                 return;
         }
