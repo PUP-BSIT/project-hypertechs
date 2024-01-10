@@ -23,7 +23,7 @@ $birth_table = "account_birthdate";
 $birth_col = "birthdate";
 
 $response['success'] = false;
-$balance = 0.00;
+$balance = 500.00;
 $account_number = "1899" . random_int(12345678, 87654321);
 $phone_number = $_POST['phone_number'];
 $password = $_POST['password'];
