@@ -179,10 +179,10 @@ function isValidPassword(password) {
         if (!/\d/.test(password)) return false;;
 
         // Check for at least one uppercase letter
-        if (!/[A-Z]/.test(password) return false;
+        if (!/[A-Z]/.test(password)) return false;
 
         // Check for at least one lowercase letter
-        if (!/[a-z]/.test(password) return false;
+        if (!/[a-z]/.test(password)) return false;
 
         // Check for at least 8 characters
         if (!password.length >= 8) return false;
