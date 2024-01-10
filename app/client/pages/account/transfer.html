@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Apex Bank – Transfer</title>
 </head>
 
@@ -112,13 +113,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="recipient-account-number">Recipient Account Number:</label>
-                            <input type="number" id="recipient-account-number" name="recipient-account-number" required>
+                            <label for="recipient-account-number-external">Recipient Account Number:</label>
+                            <input type="number" id="recipient-account-number-external" name="recipient-account-number" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="transfer-amount">Transfer Amount:</label>
-                            <input type="text" id="transfer-amount" name="transfer-amount" required>
+                            <label for="transfer-amount-external">Transfer Amount:</label>
+                            <input type="text" id="transfer-amount-external" name="transfer-amount" required>
                         </div>
 
                         <div class="form-group">
@@ -145,6 +146,8 @@
     <script src="../../src/scripts/account/transfer.js"></script>
     <script src="../../backend/js/common.js" type="module"></script>
     <script src="../../backend/js/fund_transfer.js" type="module"></script>
+    <script src="../../backend/js/fund_transfer_external.js" type="module">
+    </script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
