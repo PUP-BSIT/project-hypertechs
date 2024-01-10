@@ -176,17 +176,17 @@ function isValidPhoneNumber(phoneNumber) {
 // Checks if the password meets the following
 function isValidPassword(password) {
         // Check for at least one number
-        const hasNumber = /\d/.test(password);
+        if (!/\d/.test(password)) return false;;
 
         // Check for at least one uppercase letter
-        const hasUppercase = /[A-Z]/.test(password);
+        if (!/[A-Z]/.test(password) return false;
 
         // Check for at least one lowercase letter
-        const hasLowercase = /[a-z]/.test(password);
+        if (!/[a-z]/.test(password) return false;
 
         // Check for at least 8 characters
-        const hasMinLength = password.length >= 8;
+        if (!password.length >= 8) return false;
 
         // Return true if all conditions are met
-        return hasNumber && hasUppercase && hasLowercase && hasMinLength;
+        return true;
 }
