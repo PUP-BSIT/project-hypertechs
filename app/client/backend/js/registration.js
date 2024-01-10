@@ -11,6 +11,9 @@ const ID_PASSWORD = "#password";
 const ID_PASSWORD_CONFIRM = "#confirm_password";
 const ID_BTN_REGISTER = "#btn_register";
 const ID_FEEDBACK = "#feedback_test";
+const ID_ADDRESS = "#residential_address";
+const ID_EMAIL = "#email";
+const ID_BIRTH = "#dob";
 
 main();
 
@@ -24,21 +27,6 @@ function main() {
 async function validateForm() {
         let url, requestBody, response, feedback;
 
-        feedback = document.querySelector(ID_FEEDBACK);
-        feedback.innerHTML = "Please wait.";
-        requestBody = await getFormData();
-        url = "../backend/php/registration-check.php";
-        response = await postData(url, requestBody);
-        if (!response.success) {
-                feedback.innerHTML = response.errorMessage;
-                clearFeedback(feedback);
-                return;
-        }
-        if (!isPasswordMatched()) {
-        console.log("hello");
-        feedback.innerHTML = "Passwords do not match.";
-        return;
-        }
         if (!isValidated()) {
                 return;
         }
@@ -58,17 +46,28 @@ async function registerUser() {
 }
 
 function getFormData() {
-        let phone, password, firstName, lastName, formData;
+        let phone, password, firstName, surname, formData, address, email,
+                suffix, middleName, birth;
 
         phone = document.querySelector(ID_PHONE).value;
         password = document.querySelector(ID_PASSWORD).value;
         firstName = document.querySelector(ID_FIRSTNAME).value;
-        lastName = document.querySelector(ID_LASTNAME).value;
+        surname = document.querySelector(ID_LASTNAME).value;
+        address = document.querySelector(ID_ADDRESS).value;
+        email = document.querySelector(ID_EMAIL).value;
+        suffix = document.querySelector(ID_SUFFIX).value;
+        middleName = document.querySelector(ID_MIDDLENAME).value;
+        birth = document.querySelector(ID_BIRTH).value;
         formData = new FormData();
         formData.append("phone_number", phone);
         formData.append("password", password);
         formData.append("first_name", firstName);
-        formData.append("last_name", lastName);
+        formData.append("surname", surname);
+        formData.append("address", address);
+        formData.append("email", email);
+        formData.append("suffix", suffix);
+        formData.append("middle_name", middleName);
+        formData.append("birth_date", birth);
         return formData;
 }
 

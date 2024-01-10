@@ -5,17 +5,17 @@ $REGISTER_ERROR = "";
 
 function connect_database() {
         global $DB_CONN;
-
+/*
         $hostname = "127.0.0.1:3306";
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
-/*
+*/
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
         $database = "apex_bank";
-*/
+
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
@@ -73,9 +73,35 @@ function get_balance($account_number) {
         return $data[$balance_col];
 }
 
+function get_name($account_number) {
+        $surname_col = "surname";
+        $first_name_col = "first_name";
+        $middle_name_col = "middle_name";
+        $suffix_col = "suffix";
+        $table = "account_name";
+        $account_col = "account_number";
+        $sql_stmt = "SELECT $surname_col, $first_name_col, $middle_name_col, 
+                $suffix_col FROM $table WHERE
+                 $account_col='$account_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        $name = "";
+        if ($data[$middle_name_col] === NULL && $data[$suffix_col] === NULL)
+                return $data[$first_name_col] . " " . $data[$surname_col];
+        if ($data[$middle_name_col] === NULL && $data[$suffix_col] !== NULL)
+                return $data[$first_name_col] . " " . $data[$surname_col] .
+                        " " . $data[$suffix_col];
+        if ($data[$middle_name_col] !== NULL && $data[$suffix_col] === NULL)
+                return $data[$first_name_col] . " " . $data[$middle_name_col]
+                       . " " . $data[$surname_col];
+        return $data[$first_name_col] . " " . $data[$middle_name_col]
+               . " " . $data[$surname_col] . " " . $data[$suffix_col];
+}
+
 function get_phone_number($account_number) {
         $phone_col = "phone_number";
-        $table = "account";
+        $table = "account_contact";
         $account_col = "account_number";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
                  $account_col='$account_number'";

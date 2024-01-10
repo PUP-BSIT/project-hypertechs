@@ -10,14 +10,14 @@ if (isset($_POST['destroy'])) {
         unset($_SESSION['otp_session']);
         unset($_SESSION['otp']);
         unset($_SESSION['otp_time']);
-        $response['otp'] = $_SESSION['otp'];
+        $response['success'] = true;
         echo json_encode($response);
         exit;
 }
 if (isset($_POST['destroy_otp'])) {
         unset($_SESSION['otp']);
         unset($_SESSION['otp_time']);
-        $response['otp'] = $_SESSION['otp'];
+        $response['success'] = true;
         echo json_encode($response);
         exit;
 }
