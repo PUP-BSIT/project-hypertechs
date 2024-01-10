@@ -96,7 +96,7 @@ function get_name($account_number) {
                 return $data[$first_name_col] . " " . $data[$middle_name_col]
                        . " " . $data[$surname_col];
         return $data[$first_name_col] . " " . $data[$middle_name_col]
-               . " " . $data[$surname_col] . " " . $suffix_col;
+               . " " . $data[$surname_col] . " " . $data[$suffix_col];
 }
 
 function get_phone_number($account_number) {
