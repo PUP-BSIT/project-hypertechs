@@ -314,6 +314,16 @@ body {
   font-size: 1.2vw;
 }
 
+#summary_content h3 {
+  display: flex;
+  align-items: center;
+}
+
+#summary_content .material-icons {
+  margin-right: 0.5em;
+}
+
+
 /* ----- ACC BALANCE STYLE ----- */
 
 #overview_balance {
