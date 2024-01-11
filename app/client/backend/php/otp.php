@@ -29,7 +29,7 @@ function get_otp() {
                 'apikey' => "7dce37931f1bbe6f1dc105d481d83ccf",
                 'number' => $phone_number,
                 // 'number' => "09550266782",
-                'message' => "This is a message from Apex Bank." +
+                'message' => "This is a message from Apex Bank." .
                 "Your One Time Password is: " . 
                 "{otp}. This code will be valid for only 5 minutes."
         );
