@@ -271,7 +271,7 @@ body {
   padding-top: 1.25em;
 }
 
-#overview_container_two span {
+#overview_card_info span {
   margin-left: 0.5em;
 }
 
@@ -487,13 +487,37 @@ body {
   background-color: var(--backdrop);
 }
 
+#stats_wrapper {
+  height: 6.25vw;
+}
+
 #stats_content h4 {
   font-weight: 500;
   font-size: 1.1vw;
+  color: var(--primary);
+  margin-bottom: 0.5em;
 }
 
-#stats_wrapper {
-  height: 9.5vw;
+#stats_content h5 {
+  font-size: 2.75vw;
+  font-weight: 600;
+}
+
+#stats_content h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+#stats_week_row {
+  display: flex;
+  align-items: center;
+}
+
+#stats_week_row h6 {
+  font-size: 1.1vw;
+  margin-left: 1em;
 }
 
 /* ----- RECENT TRANSACTIONS STYLE ----- */
