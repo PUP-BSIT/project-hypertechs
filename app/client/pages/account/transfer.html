@@ -90,10 +90,6 @@
                             <input type="number" id="transfer-amount" name="transfer-amount" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="description">Description (optional):</label>
-                            <input type="text" id="description" name="description"></input>
-                        </div>
                         <div class="transfer-buttons">
                             <button type="button" id="submit_fund_transfer" >Confirm Transfer<span
                                     class="material-icons">send</span></button>
@@ -106,7 +102,7 @@
                 <div class="transfer-form-wrapper" id="external-transfer-form">
                     <form>
                         <div class="form-group">
-                            <label for="external-bank-code">Recipient bank:</label>
+                            <label for="external-bank-code">Recipient Bank:</label>
                             <select id="external-bank-code" name="external-bank-code" required>
                                 <!-- Option for VRZN Bank -->
                                 <option value="" disabled selected>Select a bank</option>
@@ -124,10 +120,6 @@
                             <input type="text" id="transfer-amount-external" name="transfer-amount" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="description">Description (optional):</label>
-                            <input type="text" id="description" name="description"></input>
-                        </div>
                         <div class="transfer-buttons">
                             <button type="button" id="submit_external" >Confirm Transfer<span
                                     class="material-icons">send</span></button>
@@ -138,8 +130,16 @@
 
 
             </div>
-            <div class="transfer-side">
-                <!--Transfer right side-->
+            <div class="transfer-side"><!--Transfer right side-->
+                <div id="transfer_mini_account">
+                    <div id="transfer_mini_account_text">
+                        <h3 id="display_mini_account_text">Emmanuel Martinez</h3>
+                        <h4>    Account Holder</h4>
+                    </div>
+                    <div id="transfer_mini_account_image">
+                        <img src="../../assets/img/account_profile.png">
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -148,8 +148,7 @@
     <script src="../../src/scripts/account/transfer.js"></script>
     <script src="../../backend/js/common.js" type="module"></script>
     <script src="../../backend/js/fund_transfer.js" type="module"></script>
-    <script src="../../backend/js/fund_transfer_external.js" type="module">
-    </script>
+    <script src="../../backend/js/fund_transfer_external.js" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
