@@ -122,6 +122,12 @@ function isValidated() {
                 return false; // Prevent form submission
         }
 
+        // Validate email address
+        if (!isValidEmail(emailInput.value)) {
+                showAlert("Please enter a valid email address.");
+                return false; // Prevent form submission
+        }
+
         // Validate phone number
         if (!isValidPhoneNumber(phoneNumberInput.value)) {
                 showAlert("Please enter a valid phone number with 11 digits.");
@@ -143,7 +149,7 @@ function isValidated() {
                 return false; // Prevent form submission
         }
 
-                return true; // Allow form submission
+        return true; // Allow form submission
 }
 
 // Check if an input field is empty or contains only spaces
@@ -188,3 +194,9 @@ function isValidPassword(password) {
         // Return true if all conditions are met
         return true;
 }
+
+function isValidEmail(email) {
+        // Regular expression for validating an Email
+        const emailRegex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,}$/;
+        return emailRegex.test(email);
+    }
