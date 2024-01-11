@@ -412,6 +412,8 @@ body {
   font-size: var(--button-size);
   transition: color 0.4s, text-decoration 0.4s;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .transfer-option button.active,
@@ -436,6 +438,11 @@ body {
 
 .transfer-option #internal-transfer-btn {
   margin-left: 0em;
+}
+
+.transfer-option span {
+  font-size: 1em;
+  margin-right: 0.5em;
 }
 
 #internal-transfer-form {
