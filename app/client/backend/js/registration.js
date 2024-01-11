@@ -1,5 +1,5 @@
 import { 
-        postData, getData, saveRequest, clearFeedback, destroyOTPSession 
+        postData, getData, saveRequest, destroyOTPSession 
 } from "./common_new.js";
 
 const ID_LASTNAME = "#surname";
@@ -10,7 +10,6 @@ const ID_PHONE = "#phone_number";
 const ID_PASSWORD = "#password";
 const ID_PASSWORD_CONFIRM = "#confirm_password";
 const ID_BTN_REGISTER = "#btn_register";
-const ID_FEEDBACK = "#feedback_test";
 const ID_ADDRESS = "#residential_address";
 const ID_EMAIL = "#email";
 const ID_BIRTH = "#dob";
@@ -25,7 +24,7 @@ function main() {
 }
 
 async function validateForm() {
-        let url, requestBody, response, feedback;
+        let url, requestBody, response;
 
         if (!isValidated()) {
                 return;
@@ -35,16 +34,13 @@ async function validateForm() {
 }
 
 async function registerUser() {
-        let url, requestBody, feedback;
+        let url, requestBody;
 
-        feedback = document.querySelector(ID_FEEDBACK);
-        clearFeedback(feedback);
         requestBody = await getFormData();
         url = "../backend/php/registration-check.php";
         await postData(url, requestBody);
         url = "../backend/php/registration.php";
         await saveRequest(url, requestBody);
-        feedback.innerHTML = "Signing up...";
 }
 
 function getFormData() {
@@ -143,7 +139,7 @@ function isValidated() {
 
         // Confirm password match
         if (passwordInput.value !== confirmPasswordInput.value) {
-                showAlert("Passwords do not match.");
+                showAlert("Warning: Passwords do not match.");
                 return false; // Prevent form submission
         }
 

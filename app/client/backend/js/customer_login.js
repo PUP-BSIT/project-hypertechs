@@ -28,7 +28,7 @@ async function validateLoginForm() {
     
         if (!/^1899\d{8}$/.test(accountNumber)) {
             showAlert("Invalid account number. Please enter your 12-digit valid" 
-            + "Apex account number.");
+            + " Apex account number.");
             return;
         }
     
