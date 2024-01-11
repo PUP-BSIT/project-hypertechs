@@ -353,7 +353,8 @@ body {
   gap: 1em;
 }
 
-.transfer-buttons #submit {
+.transfer-buttons #submit_fund_transfer,
+.transfer-buttons #submit_external {
   width: 80%;
 }
 
