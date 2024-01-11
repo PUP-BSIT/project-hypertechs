@@ -46,18 +46,6 @@ function get_admin_data($table, $admin_number) {
         return $data;
 }
 
-function get_balance($admin_number) {
-        $balance_col = "balance";
-        $table = "admin";
-        $admin_col = "admin_number";
-        $sql_stmt = "SELECT $balance_col FROM $table WHERE
-                 $admin_col='$admin_number'";
-        $result = extract_database($sql_stmt);
-        $data = mysqli_fetch_assoc($result);
-        if (!$data) return false;
-        return $data[$balance_col];
-}
-
 function get_phone_number($admin_number) {
         $phone_col = "phone_number";
         $table = "admin";
