@@ -149,12 +149,10 @@ async function checkOTPInput() {
         feedback = document.querySelector(ID_FEEDBACK);
         OTPInput = getOTPInput();
         console.log(OTPInput, OTP);
-/*
         if(OTPInput !== OTP) {
                 feedback.innerHTML = "OTP is incorrect";
                 return;
         }
-*/
         feedback.innerHTML = "Please wait.";
         setTimer(0);
         await destroyOTPSession();
