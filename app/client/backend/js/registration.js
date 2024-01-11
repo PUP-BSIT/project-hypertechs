@@ -39,8 +39,10 @@ async function registerUser() {
 
         feedback = document.querySelector(ID_FEEDBACK);
         clearFeedback(feedback);
-        url = "../backend/php/registration.php";
         requestBody = await getFormData();
+        url = "../backend/php/registration-check.php";
+        await postData(url, requestBody);
+        url = "../backend/php/registration.php";
         await saveRequest(url, requestBody);
         feedback.innerHTML = "Signing up...";
 }
