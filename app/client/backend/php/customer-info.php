@@ -2,6 +2,7 @@
 require "./common.php";
 
 connect_database();
+session_start();
 /*
 $account_table = "bank_account_holder";
 $account_number_col = "account_number";
@@ -14,7 +15,7 @@ $name_col = "account_name";
 $balance_col = "balance";
 
 $response['success'] = false;
-$account_number = $_POST['account_number'];
+$account_number = $_SESSION['account_number'];
 $result = get_account_data($account_table, $account_number);
 if (!$result) {
         echo json_encode($response);
