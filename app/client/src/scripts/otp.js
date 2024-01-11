@@ -1,23 +1,3 @@
-// JavaScript code to toggle between light and dark themes
-document.addEventListener("DOMContentLoaded", function () {
-  const root = document.documentElement;
-  const currentTheme = localStorage.getItem("theme") || "light";
-
-  root.setAttribute("data-theme", currentTheme);
-
-  function toggleTheme() {
-    const newTheme =
-      root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  }
-
-  const themeToggle = document.getElementById("theme_mode");
-  themeToggle.checked = currentTheme === "dark";
-
-  themeToggle.addEventListener("change", toggleTheme);
-});
-
 /* script for otp form validation */
 document.addEventListener("DOMContentLoaded", function () {
   const otpInputs = document.querySelectorAll(".otp-input");
@@ -52,4 +32,30 @@ function moveToNext(currentInput, nextInputId) {
       nextInput.focus();
     }
   }
+}
+
+// verify otp
+function verifyOTP() {
+  // Retrieve the entered OTP
+  // In verifyOTP() function
+  const enteredOTP = document.getElementById("otpVerificationForm").elements;
+  const userOTP =
+    enteredOTP.otp1.value +
+    enteredOTP.otp2.value +
+    enteredOTP.otp3.value +
+    enteredOTP.otp4.value +
+    enteredOTP.otp5.value +
+    enteredOTP.otp6.value;
+
+  console.log("User OTP: " + userOTP);
+  console.log("User Data:", userData);
+  console.log("User OTP in Session:", userData["otp"]); // Add this line
+
+  // Make an AJAX request to verify_otp.php
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/app/client/src/php/verify_otp.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  // Include user data in the request
+  xhr.send("otp=" + userOTP);
 }
