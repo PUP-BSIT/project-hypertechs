@@ -242,4 +242,24 @@ function is_register_valid() {
         $_SESSION['phone_number'] = $_POST['phone_number'];
         return true;
 }
+
+function does_email_exist($email) {
+        $account_table = "account";
+        $email_col = "email";
+        $sql_stmt = "SELECT $email_col FROM $account_table WHERE 
+                $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_phone_number_exist($phone_number) {
+        $account_table = "account";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $phone_number_col FROM $account_table WHERE 
+                $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
 ?>
