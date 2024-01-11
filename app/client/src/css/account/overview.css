@@ -23,6 +23,7 @@
   --destruct: #b60000;
   --balance-one: #0642bb;
   --balance-two: #009dff;
+  --bank-card: #1e51b8;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -35,6 +36,7 @@
   --destruct: #b30000;
   --balance-one: #003399;
   --balance-two: #0095ff;
+  --bank-card: #114fcd;
 }
 
 * {
@@ -362,7 +364,7 @@ body {
   padding: 1.25em;
   height: 25vh;
   border-radius: 10px;
-  background-color: var(--primary);
+  background-color: var(--bank-card);
   color: #e7edfb;
 }
 
