@@ -30,7 +30,7 @@ function get_otp() {
                 'number' => $phone_number,
                 // 'number' => "09550266782",
                 'message' => "This is a message from Apex Bank. " .
-                "Your One Time Password is: " . 
+                "Your One Time Password (OTP) is: " . 
                 "{otp}. This code will be valid for only 5 minutes."
         );
         curl_setopt($ch, CURLOPT_URL, 'https://api.semaphore.co/api/v4/otp');
