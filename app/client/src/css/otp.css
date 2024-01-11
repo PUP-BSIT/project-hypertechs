@@ -310,6 +310,7 @@ body {
 .resend-code {
   margin-top: 2%;
   text-align: center;
+  color: var(--text);
 }
 
 .resend-code a {
