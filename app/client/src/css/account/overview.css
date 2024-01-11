@@ -23,6 +23,7 @@
   --destruct: #b60000;
   --balance-one: #0642bb;
   --balance-two: #009dff;
+  --bank-card: #1e51b8;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -35,6 +36,7 @@
   --destruct: #b30000;
   --balance-one: #003399;
   --balance-two: #0095ff;
+  --bank-card: #114fcd;
 }
 
 * {
@@ -269,7 +271,7 @@ body {
   padding-top: 1.25em;
 }
 
-#overview_container_two span {
+#overview_card_info span {
   margin-left: 0.5em;
 }
 
@@ -300,7 +302,7 @@ body {
 #summary_column_container {
   display: flex;
   flex-direction: column;
-  margin-left: 2.2vw;
+  margin-left: 2.4vw;
 }
 
 #summary_column_container h3 {
@@ -322,7 +324,6 @@ body {
 #summary_content .material-icons {
   margin-right: 0.5em;
 }
-
 
 /* ----- ACC BALANCE STYLE ----- */
 
@@ -363,7 +364,7 @@ body {
   padding: 1.25em;
   height: 25vh;
   border-radius: 10px;
-  background-color: var(--primary);
+  background-color: var(--bank-card);
   color: #e7edfb;
 }
 
@@ -415,7 +416,8 @@ body {
   font-family: "Space Mono", sans-serif;
 }
 
-#card_valid, #card_cvv {
+#card_valid,
+#card_cvv {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -457,14 +459,14 @@ body {
   background-color: rgba(1, 182, 1, 0.271);
 }
 
-#card_status_title h4, 
+#card_status_title h4,
 #card_designation_title h4,
 #card_currency_title h4 {
   font-size: 1vw;
   font-weight: 500;
 }
 
-#card_status_content h4, 
+#card_status_content h4,
 #card_designation_content h4,
 #card_currency_content h4 {
   font-size: 1vw;
@@ -485,13 +487,37 @@ body {
   background-color: var(--backdrop);
 }
 
+#stats_wrapper {
+  height: 6.25vw;
+}
+
 #stats_content h4 {
   font-weight: 500;
   font-size: 1.1vw;
+  color: var(--primary);
+  margin-bottom: 0.5em;
 }
 
-#stats_wrapper {
-  height: 9.5vw;
+#stats_content h5 {
+  font-size: 2.75vw;
+  font-weight: 600;
+}
+
+#stats_content h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+#stats_week_row {
+  display: flex;
+  align-items: center;
+}
+
+#stats_week_row h6 {
+  font-size: 1.1vw;
+  margin-left: 1em;
 }
 
 /* ----- RECENT TRANSACTIONS STYLE ----- */
@@ -503,7 +529,7 @@ body {
 
 #recent_transactions_row {
   display: flex;
-  align-items:flex-end;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
@@ -520,18 +546,21 @@ body {
 }
 
 #view_all_transactions a::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 0;
+  width: 92%;
   height: 2px;
+  background-color: var(--primary);
   bottom: 0;
-  left: 0;
-  background-color: var(--primary); /* Set your desired underline color */
-  transition: width 0.3s ease-in-out, transform 0.9s ease-in-out; /* Set the transition duration and easing function */
+  left: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
 }
 
 #view_all_transactions a:hover::before {
-  width: 100%;
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 #view_all_transactions a {
@@ -547,11 +576,44 @@ body {
   margin-right: 0;
 }
 
+/* transactions table */
+
 #transactions_content {
   margin-top: 1em;
   height: 45vh;
   border-radius: 10px;
   background-color: var(--backdrop);
+  padding: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+
+#account_name_heading {
+  width: 45%;
+}
+
+th {
+  padding-left: 10px;
+  font-size: 1.1vw;
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary);
+  padding-bottom: 0.75em;
+  box-sizing: content-box;
+}
+
+th i {
+  font-size: 0.8em;
+  margin-right: 0.25em;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
 }
 
 #logout {
