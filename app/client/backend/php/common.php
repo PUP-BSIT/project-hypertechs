@@ -78,7 +78,7 @@ function get_name($account_number) {
         $first_name_col = "first_name";
         $middle_name_col = "middle_name";
         $suffix_col = "suffix";
-        $table = "account_name";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $surname_col, $first_name_col, $middle_name_col, 
                 $suffix_col FROM $table WHERE
@@ -101,7 +101,7 @@ function get_name($account_number) {
 
 function get_phone_number($account_number) {
         $phone_col = "phone_number";
-        $table = "account_contact";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
                  $account_col='$account_number'";

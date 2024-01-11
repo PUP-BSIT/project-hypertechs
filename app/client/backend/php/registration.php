@@ -20,7 +20,7 @@ $middle_name_col = "middle_name";
 $suffix_col = "suffix";
 
 $birth_table = "account_birthdate";
-$birth_col = "birthdate";
+$birth_col = "birth_date";
 
 $response['success'] = false;
 $balance = 500.00;
@@ -38,53 +38,26 @@ $suffix = $_POST['suffix'];
 $sql = "INSERT INTO $account_table(
         $account_number_col, 
         $password_col, 
-        $balance_col
-) VALUES(
-        '$account_number', 
-        '$password',
-        $balance
-)";
-if (!modify_database($sql)) {
-        echo json_encode($response);
-        exit;
-}
-$sql = "INSERT INTO $name_table(
-        $account_number_col, 
+        $balance_col,
         $surname_col, 
         $first_name_col, 
         $middle_name_col,
-        $suffix_col
-) VALUES(
-        '$account_number', 
-        '$surname', 
-        '$first_name',
-        '$middle_name',
-        '$suffix'
-)";
-if (!modify_database($sql)) {
-        echo json_encode($response);
-        exit;
-}
-$sql = "INSERT INTO $contact_table(
-        $account_number_col, 
+        $suffix_col,
         $phone_number_col, 
         $address_col, 
-        $email_col
-) VALUES(
-        '$account_number', 
-        '$phone_number', 
-        '$address',
-        '$email'
-)";
-if (!modify_database($sql)) {
-        echo json_encode($response);
-        exit;
-}
-$sql = "INSERT INTO $birth_table(
-        $account_number_col, 
+        $email_col,
         $birth_col
 ) VALUES(
         '$account_number', 
+        '$password',
+        $balance,
+        '$surname', 
+        '$first_name',
+        '$middle_name',
+        '$suffix',
+        '$phone_number', 
+        '$address',
+        '$email',
         '$birth'
 )";
 if (!modify_database($sql)) {
