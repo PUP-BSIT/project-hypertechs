@@ -1,6 +1,6 @@
 import { 
-        postData, getData, showFeedback, getExtBankUrl, genErrorMessage,
-        isLoggedIn, clearFeedback, saveRequest 
+        postData, getData, getExtBankUrl, genErrorMessage,
+        isLoggedIn, saveRequest 
 } from "./common_new.js";
 
 let ACCOUNT_NUMBER;
@@ -8,12 +8,11 @@ const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
-const ID_FEEDBACK = "#feedback_transfer";
 
 main();
 
 async function main() {
-        let url, loggedIn, btnTransfer, transferFeedback, chkExternal, 
+        let url, loggedIn, btnTransfer, chkExternal, 
                 bankSelect, response;
 
         loggedIn = await isLoggedIn();
@@ -29,24 +28,29 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, feedback;
+                requestBody, redirectURL;
         
         redirectURL = "./account/result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
-        feedback = document.querySelector(ID_FEEDBACK);
         console.log(source, recipient);
         if (recipient === source) {
-                feedback.innerHTML = "Account number is not valid";
-                clearFeedback(feedback);
+                alert("Invalid account number.");
                 return;
         }
         if (!recipient || !amount) {
-                feedback.innerHTML = "Please fill the required fields";
-                clearFeedback(feedback);
+                alert("Please fill out all the required fields.");
                 return;
-        } 
+        }
+        if (!/^\d{12}$/.test(recipient)) {
+                alert("Account number should contain exactly 12 digits.");
+                return;
+        }
+        if (!/^\d{1,6}$/.test(amount)) {
+                alert("Amount should be limited to six digits only.");
+                return;
+        }
         requestBody = new FormData();
         url = "../backend/php/fund-transfer.php";
         requestBody.append('redirect_url', redirectURL); 
