@@ -79,6 +79,17 @@ function does_password_match($admin_number, $password) {
         return true;
 }
 
+//for checking if acc id exist if account holder will deposit thru admin/bankteller
+function does_acc_id_exist($client_number) {
+        $client_table = "client";
+        $client_col = "client_number";
+        $sql_stmt = "SELECT $client_col FROM $client_table WHERE 
+                $client_col='$client_number'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
 function is_register_valid() {
         session_start();
         global $REGISTER_ERROR;
