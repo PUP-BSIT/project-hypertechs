@@ -2,7 +2,7 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-  --title-size: 3.5vw;
+  --title-size: 3.2vw;
   --nav-size: 1.6vw;
   --super-header-size: 5vw;
   --subheader-size: 1.6vw;
@@ -39,6 +39,7 @@ body {
   margin: 1.5em;
   padding: 0;
   height: 100vh;
+  overflow: hidden;
   box-sizing: border-box;
   background-color: var(--background);
 }
@@ -104,7 +105,8 @@ nav a {
   text-decoration: none;
   color: var(--text);
   font-size: var(--nav-size);
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+  transform 0.3s ease-in-out;
 }
 
 nav a::before {
@@ -194,10 +196,14 @@ nav a:hover::before {
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s ease-in-out, transform 0.2s;
 }
 
 #button_create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary);
   color: #f2f6ff;
 }
@@ -208,6 +214,13 @@ nav a:hover::before {
   justify-content: center;
   background-color: #bdd3ff;
   color: var(--primary);
+}
+
+#button_create i {
+  align-items: center;
+  font-size: 0.75em;
+  margin-top: 0.1em;
+  margin-left: 0.8em;
 }
 
 #button_login i {
@@ -226,6 +239,15 @@ nav a:hover::before {
 #button_create:active,
 #button_login:active {
   transform: scale(0.95);
+}
+
+/* login icon animation */
+#button_login i.fa-right-to-bracket {
+  transition: transform 0.3s ease-in-out;
+}
+
+#button_login:hover i.fa-right-to-bracket {
+  transform: translateX(5px);
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

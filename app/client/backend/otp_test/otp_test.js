@@ -1,6 +1,7 @@
 main();
 
 function main() {
+        console.log("main");
         let startButton, otpTest, expired;
 
         startButton = document.querySelector("#btn_test");
@@ -97,11 +98,11 @@ function testOTP(data) {
         feedback.innerHTML = "";
         btnSubmit = document.querySelector("#btn_submit");
         btnSubmit.addEventListener("click", () => {
-                console.log(Number(otpInput.value), otp);
                 if(Number(otpInput.value) !== otp) {
                         feedback.innerHTML = "OTP is invalid";
                         return;
                 }
+                console.log(timeoutID, intervalID);
                 clearTimeout(timeoutID);
                 clearInterval(intervalID);
                 result = document.querySelector("#result");
@@ -113,12 +114,12 @@ function testOTP(data) {
 }
 
 function destroyOTP(next) {
-        console.log("redirecto");
+        console.log("destroyOTP");
         let url, requestBody; 
 
         url = "./otp-destroy.php";
         fetch(url).then((response) => response.json()).then((data) => {
                 console.log(data);
-                next();
+                setTimeout(next);
         });
 }

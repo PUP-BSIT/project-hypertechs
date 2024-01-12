@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../src/css/home.css">
-    <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
+    <link rel="stylesheet" type="text/css" 
+        href="./app/client/src/css/home.css">
+    <link rel="icon" href="./app/admin/assets/img/apex_brand.png" 
+        type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Apex Bank – Home</title>
 </head>
-
 <body>
-    <script src="../src/scripts/preload.js"></script>
+    <script src="./app/client/src/scripts/preload.js"></script>
     <!--Home Section-->
     <section id="home">
         <!--Header Container-->
         <header>
             <div id="apex_logo">
-                <img src="../assets/img/apex_brand.png" alt="apex logo">
+                <img src="./app/admin/assets/img/apex_brand.png" 
+                alt="apex logo">
                 <h1>Apex Bank</h1>
             </div>
 
@@ -48,9 +50,10 @@
                     priority. Your journey begins here at Apex Bank: where
                     tomorrow's banking is today.</p>
                 <div class="button-container">
-                    <a href="./register.html" id="button_create">
-                        Create an account</a>
-                    <a href="./login.html" id="button_login">
+                    <a href="./app/client/pages/register.html" 
+                        id="button_create">
+                        Create an account <i class="fa-solid fa-user-plus"></i></a>
+                    <a id="button_login">
                         Log In<i class="fa-solid fa-right-to-bracket"></i></a>
                 </div>
             </div>
@@ -795,7 +798,8 @@
             </div>
         </div>
     </section>
-    <script src="../src/scripts/theme.js"></script>
+    <script src="./app/client/src/scripts/theme.js"></script>
+    <script src="./app/client/backend/js/front.js" type="module"></script>
 </body>
 
 </html>

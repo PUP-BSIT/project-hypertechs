@@ -353,7 +353,8 @@ body {
   gap: 1em;
 }
 
-.transfer-buttons #submit {
+.transfer-buttons #submit_fund_transfer,
+.transfer-buttons #submit_external {
   width: 80%;
 }
 
@@ -376,12 +377,13 @@ body {
   color: #e1e9fa;
   background-color: var(--primary);
   transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+    box-shadow 0.3s ease-in-out, 
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden; 
 }
 
 .transfer-form-wrapper button:hover {
-  transform: scale(1);
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
@@ -392,6 +394,12 @@ body {
 .transfer-form-wrapper button span {
   margin-left: 0.5em;
   font-size: 1em;
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.transfer-form-wrapper button:hover span {
+  transform: translateX(7px); 
 }
 
 .transfer-option button {
@@ -404,6 +412,8 @@ body {
   font-size: var(--button-size);
   transition: color 0.4s, text-decoration 0.4s;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .transfer-option button.active,
@@ -430,8 +440,44 @@ body {
   margin-left: 0em;
 }
 
+.transfer-option span {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
 #internal-transfer-form {
   display: none;
+}
+
+/* --------------- TRANSFER SIDE ------------*/
+#transfer_mini_account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+}
+
+#transfer_mini_account_text {
+  text-align: end;
+}
+
+#transfer_mini_account_text h3 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+#transfer_mini_account_text h4 {
+  font-size: 1.25vw;
+  font-weight: 400;
+}
+
+#transfer_mini_account_image {
+  width: 12%;
+  margin-left: 1.25em;
+}
+
+#transfer_mini_account_image img {
+  width: 100%;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

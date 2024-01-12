@@ -1,77 +1,61 @@
 import { 
-        sendData, fetchData, showFeedback, getExtBankUrl, genErrorMessage,
-        checkCustomerSession, BANK_CODE, clearFeedback
-} from "./common.js";
+        postData, getData, getExtBankUrl, genErrorMessage,
+        isLoggedIn, saveRequest 
+} from "./common_new.js";
 
 let ACCOUNT_NUMBER;
+const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
-const ID_FEEDBACK = "#feedback_transfer";
 
 main();
 
-function main() {
-        checkCustomerSession(startOperation, ACCOUNT_NUMBER);
-}
+async function main() {
+        let url, loggedIn, btnTransfer, chkExternal, 
+                bankSelect, response;
 
-function startOperation() {
-        let btnTransfer, transferFeedback, chkExternal, bankSelect;
-
-        fetchData("../../backend/php/customer-session.php", setAccountNumber);
-}
-
-function setAccountNumber(data) {
-        ACCOUNT_NUMBER = data.accountNumber;
-        setupSendButton();
-}
-
-function setupSendButton() {
-        let btnTransfer;
-
+        loggedIn = await isLoggedIn();
+        if (!loggedIn) {
+                window.location.href = URL_HOME;
+        }
+        url = "../../backend/php/customer-session.php"; 
+        response = await getData(url);
+        ACCOUNT_NUMBER = response.accountNumber;
         btnTransfer = document.querySelector(ID_TRANSFER_BUTTON);
         btnTransfer.addEventListener("click", requestTransfer);
 }
 
-function requestTransfer() {
+async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, feedback;
+                requestBody, redirectURL;
         
-        redirectURL = "./result.php";
+        redirectURL = "./account/result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
-        feedback = document.querySelector(ID_FEEDBACK);
         console.log(source, recipient);
         if (recipient === source) {
-                feedback.innerHTML = "Account number is not valid";
-                clearFeedback(feedback);
+                alert("Invalid account number.");
                 return;
         }
         if (!recipient || !amount) {
-                feedback.innerHTML = "Please fill the required fields";
-                clearFeedback(feedback);
+                alert("Please fill out all the required fields.");
                 return;
-        } 
+        }
+        if (!/^\d{12}$/.test(recipient)) {
+                alert("Account number should contain exactly 12 digits.");
+                return;
+        }
+        if (!/^\d{1,6}$/.test(amount)) {
+                alert("Amount should be limited to six digits only.");
+                return;
+        }
         requestBody = new FormData();
-        url = "../../backend/php/fund-transfer.php";
+        url = "../backend/php/fund-transfer.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
-        sendData(url, requestBody, showTransferFeedback);
-}
-
-function showTransferFeedback(data) {
-        if (!data) return;
-        let message;
-        console.log(data);
-
-        if (!data.fundTransferSuccess) {
-                message = genErrorMessage(data.statusCode);
-                window.location.href = "./result.php?error_message=" +
-                        message;
-                return;
-        }
-        return;
+        await saveRequest(url, requestBody);
 }
