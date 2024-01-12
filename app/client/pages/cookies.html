@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="terms_services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Your Banking System</title>
+</head>
+
+<body>
+    <div id="back_container">
+        <a href="register.html">
+            <i class=" fa-solid fa-chevron-left"></i></i><span>Back</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Cookie Use</h1>
+            <p>Apex Bank's uses cookies to ensure you have the best browsing experience on our banking system. By using our site, you
+            acknowledge that you have read and understood our Cookie Policy.</p>
+
+        <h3>1. What Are Cookies?</h3>
+
+        <p>Cookies are small pieces of data stored on your device that help us improve your experience on our Platform.
+        </p>
+
+        <h3>2. Types of Cookies</h3>
+
+        <p>We use both session and persistent cookies. Session cookies are temporary and are deleted when you close your
+            browser. Persistent cookies remain on your device for a longer period.</p>
+
+        <h3>3. How We Use Cookies</h3>
+
+        <p>Cookies help us analyze usage patterns, provide personalized content, and improve our services. We do not use
+            cookies for any purpose other than those stated in this policy.</p>
+
+        <h3>4. Third-Party Cookies</h3>
+
+        <p>Some third-party services integrated into our Platform may also use cookies. We have no control over these
+            cookies.</p>
+
+        <h3>5. Managing Cookies</h3>
+
+        <p>You can manage cookies through your browser settings. However, disabling certain cookies may affect your
+            experience on the Platform..</p>
+
+        <h3>6. Updates to Cookie Policy</h3>
+
+        <p>We may update our Cookie Policy from time to time. You will be notified of any changes, and continued use of
+            the Platform after changes are posted constitutes your acceptance of the modified policy.</p>
+    </div>
+    <div id="cookie-notification">
+        <div>
+            <button id="accept-button">Accept All</button>
+            <button id="reject-button">Reject All</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cookieNotification = document.getElementById("cookie-notification");
+            const acceptButton = document.getElementById("accept-button");
+            const rejectButton = document.getElementById("reject-button");
+            const backToMainLink = document.getElementById("back-to-main");
+
+            acceptButton.addEventListener("click", function () {
+                // Set cookies or perform necessary actions on accepting cookies
+                hideCookieNotification();
+            });
+
+            rejectButton.addEventListener("click", function () {
+                // Perform actions on rejecting cookies
+                hideCookieNotification();
+            });
+
+            document.getElementById('cookie-policy-link').addEventListener('click', function () {
+                var cookiePolicySection = document.getElementById('cookie-policy-section');
+                if (cookiePolicySection.style.display === 'none' || cookiePolicySection.style.display === '') {
+                    cookiePolicySection.style.display = 'block';
+                } else {
+                    cookiePolicySection.style.display = 'none';
+                }
+            });
+
+            backToMainLink.addEventListener('click', function () {
+                var cookiePolicySection = document.getElementById('cookie-policy-section');
+                cookiePolicySection.style.display = 'none';
+            });
+
+            function hideCookieNotification() {
+                cookieNotification.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
