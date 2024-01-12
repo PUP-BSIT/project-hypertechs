@@ -90,7 +90,7 @@ export function clearFeedback(area) {
 export async function saveRequest(requestURL, requestBody) {
   let data, url, saveURL, response, sessionURL;
 
-  url = "/client_test_a/backend/php/request-save.php";
+  url = "/app/admin/backend/php/request-save.php";
   data = new FormData();
   data.append("request_url", requestURL);
   data.append("request_body", formToJSON(requestBody));
@@ -103,17 +103,17 @@ export async function saveRequest(requestURL, requestBody) {
 async function startVerify() {
   let url, requestBody;
 
-  url = "/client_test_a/backend/php/otp-session.php";
+  url = "/app/admin/backend/php/otp-session.php";
   requestBody = new FormData();
   requestBody.append("start", true);
   await postData(url, requestBody);
-  window.location.href = "/client_test_a/pages/otp_test.html";
+  window.location.href = "/app/admin/pages/otp_test.html";
 }
 
 export async function sendRequest() {
   let url, response, data, requestBody;
 
-  url = "/client_test_a/backend/php/" + "request-retrieve.php";
+  url = "/app/admin/backend/php/" + "request-retrieve.php";
   response = await getData(url);
   console.log(response);
   if (!response.success) return false;
@@ -125,7 +125,7 @@ export async function sendRequest() {
     requestBody.append(key, data[key]);
   }
   await postData(response.requestURL, requestBody);
-  url = "/client_test_a/backend/php/request-destroy.php";
+  url = "/app/admin/backend/php/request-destroy.php";
   await getData(url);
   return true;
 }
