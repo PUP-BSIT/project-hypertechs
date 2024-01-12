@@ -26,6 +26,15 @@ CREATE TABLE `account` (
   `account_number` varchar(50) NOT NULL,
   `balance` decimal(10,2) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
+  `surname` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `suffix` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(320) DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `creation_date` date DEFAULT NULL,
   PRIMARY KEY (`account_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,108 +46,9 @@ CREATE TABLE `account` (
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
 INSERT INTO `account` VALUES
-('189914853141',250.00,'1231'),
-('189915978603',250.00,'12345678'),
-('189940836937',0.00,'13123'),
-('189964979249',0.00,'132123'),
-('189968227395',0.00,'Calibserrano1-');
+('189948313647',266.00,'Password1-','Bonifacio','Andres','','','09111111111','Taguig','user@domain.tld','1999-12-31',NULL),
+('189967205428',734.00,'Password1-','Serrano','Calib','','','09111111111','Taguig','user@domain.tld','2001-12-13',NULL);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `account_birthdate`
---
-
-DROP TABLE IF EXISTS `account_birthdate`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `account_birthdate` (
-  `account_number` varchar(50) NOT NULL,
-  `birthdate` date DEFAULT NULL,
-  PRIMARY KEY (`account_number`),
-  CONSTRAINT `account_birthdate_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`),
-  CONSTRAINT `account_birthdate_ibfk_2` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `account_birthdate`
---
-
-LOCK TABLES `account_birthdate` WRITE;
-/*!40000 ALTER TABLE `account_birthdate` DISABLE KEYS */;
-INSERT INTO `account_birthdate` VALUES
-('189914853141','2023-12-31'),
-('189915978603','2023-12-31'),
-('189964979249','2023-12-31'),
-('189968227395','2001-12-13');
-/*!40000 ALTER TABLE `account_birthdate` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `account_contact`
---
-
-DROP TABLE IF EXISTS `account_contact`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `account_contact` (
-  `account_number` varchar(50) NOT NULL,
-  `phone_number` varchar(20) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `email` varchar(320) DEFAULT NULL,
-  PRIMARY KEY (`account_number`),
-  CONSTRAINT `account_contact_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`),
-  CONSTRAINT `account_contact_ibfk_2` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`),
-  CONSTRAINT `account_contact_ibfk_3` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `account_contact`
---
-
-LOCK TABLES `account_contact` WRITE;
-/*!40000 ALTER TABLE `account_contact` DISABLE KEYS */;
-INSERT INTO `account_contact` VALUES
-('189914853141','123123','qweqw','qweqw'),
-('189915978603','0912','Address','email'),
-('189964979249','','qwrqw','qrqw'),
-('189968227395','09550266782','Taguig','calib@tuta.io');
-/*!40000 ALTER TABLE `account_contact` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `account_name`
---
-
-DROP TABLE IF EXISTS `account_name`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `account_name` (
-  `account_number` varchar(50) NOT NULL,
-  `surname` varchar(50) DEFAULT NULL,
-  `first_name` varchar(50) DEFAULT NULL,
-  `middle_name` varchar(50) DEFAULT NULL,
-  `suffix` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`account_number`),
-  CONSTRAINT `account_name_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`),
-  CONSTRAINT `account_name_ibfk_2` FOREIGN KEY (`account_number`) REFERENCES `account` (`account_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `account_name`
---
-
-LOCK TABLES `account_name` WRITE;
-/*!40000 ALTER TABLE `account_name` DISABLE KEYS */;
-INSERT INTO `account_name` VALUES
-('189914853141','Afsaf','asfasfa','asafas','qweqew'),
-('189915978603','Surname','First','Middle','Suffix'),
-('189964979249','qwrqr','qwrqw','qwrqw','qrqwr'),
-('189968227395','Serrano','Calib','','');
-/*!40000 ALTER TABLE `account_name` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -226,7 +136,7 @@ CREATE TABLE `fund_transfer` (
 LOCK TABLES `fund_transfer` WRITE;
 /*!40000 ALTER TABLE `fund_transfer` DISABLE KEYS */;
 INSERT INTO `fund_transfer` VALUES
-('TID1704895615659ea47ff08aa','189915978603','189914853141','2024-01-10',250.00);
+('TID1704979591659fec8724bac','189948313647','189967205428','2024-01-11',234.00);
 /*!40000 ALTER TABLE `fund_transfer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-10 23:44:57
+-- Dump completed on 2024-01-11 21:31:40

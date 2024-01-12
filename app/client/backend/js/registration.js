@@ -34,11 +34,15 @@ async function validateForm() {
 }
 
 async function registerUser() {
-        let url, requestBody;
+        let url, requestBody, response;
 
-        requestBody = await getFormData();
+        requestBody = getFormData();
         url = "../backend/php/registration-check.php";
-        await postData(url, requestBody);
+        response = await postData(url, requestBody);
+        if (!response.success) {
+                alert(response.errorMessage);
+                return;
+        }
         url = "../backend/php/registration.php";
         await saveRequest(url, requestBody);
 }
