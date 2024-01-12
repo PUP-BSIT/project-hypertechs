@@ -291,18 +291,11 @@ form label {
 }
 
 .form-group input::placeholder {
-  font-size: 1.05vw;
-  color: var(--text);
+  letter-spacing: 0.25em;
+  color: var(--secondary);
   opacity: 0.5;
 }
 
-.form-group #password_format {
-  color: var(--text);
-  font-size: 1.1vw;
-  transition: color 0.3s ease-in-out;
-}
-
-.form-group:focus-within #password_format,
 .form-group:focus-within label,
 .form-group input:focus {
   color: var(--accent);
@@ -440,7 +433,7 @@ form label {
 }
 
 svg {
-  width: 70%;
+  width: 80%;
 }
 
 svg#freepik_stories-e-wallet:not(.animated) .animable {
