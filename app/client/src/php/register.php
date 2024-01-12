@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
-    $conn = mysqli_connect("127.0.0.1:3306", "u754510873_apex_user", "tTKja:5~Kw", "u754510873_apex_DB");
+    $conn = mysqli_connect("127.0.0.1:3306", "u754510873_apex_user", "Hypertechsnumber1", "u754510873_apex_DB");
     
     // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

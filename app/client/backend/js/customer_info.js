@@ -11,7 +11,7 @@ let ACCOUNT_NUMBER;
 const ID_LOGOUT_BUTTON = "#logout";
 const ID_ACCOUNT_NAME = "#account_name";
 const ID_ACCOUNT_NUMBER = "#account_number";
-const ID_BALANCE = "#balance";
+const ID_BALANCE = "#display_account_balance";
 
 main();
 
@@ -21,7 +21,7 @@ function main() {
 }
 
 function startOperation() {
-        let btnLogOut, accountName, accountNumber, balance, url;
+        let accountName, accountNumber, balance, url;
 
         
         accountName = document.querySelector(ID_ACCOUNT_NAME);
@@ -30,8 +30,6 @@ function startOperation() {
         accountName.innerHTML = "Loading...";
         accountNumber.innerHTML = "Loading...";
         balance.innerHTML = "Loading...";
-        btnLogOut = document.querySelector(ID_LOGOUT_BUTTON);
-        btnLogOut.addEventListener("click", logOut);
         url = "../../backend/php/customer-session.php";
         fetchData(url, setAccountNumber);
 }
@@ -55,8 +53,8 @@ function getCustomerInfo() {
         sendData(url, requestBody, showCustomerData);
 }
 function showCustomerData(data) {
-        if (!data.success) return;
         console.log(data);
+        if (!data.success) return;
         let accountName, accountNumber, balance;
 
         accountName = document.querySelector(ID_ACCOUNT_NAME);
@@ -66,15 +64,3 @@ function showCustomerData(data) {
         accountNumber.innerHTML = data.data.accountNumber;
         balance.innerHTML = strToNum(data.data.balance); 
 }
-
-function logOut() {
-        let url;
-
-        url = "./api/customer-logout.php";
-        fetchData(url, processLogOut);
-}
-
-function processLogOut(data) {
-        checkCustomerSession();
-}
-

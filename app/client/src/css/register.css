@@ -103,7 +103,7 @@ body {
 }
 
 #register_image_container img {
-  width: 95%;
+  width: 80%;
 }
 
 /* header styling */
@@ -158,34 +158,34 @@ body {
 
 /* back button styling */
 #back_container {
-  padding-top: 0.4%;
   padding-left: 3em;
 }
 
 #back_container i {
-  font-size: 20px;
+  font-size: 1.2vw;
+  margin-top: 0.05em;
   margin-right: 0.5em;
   color: var(--accent);
 }
 
 #back_container a {
-  font-size: 20px;
+  font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
-}
-
-#back_container a:hover {
-  animation: slideLeft 1s infinite;
   display: flex;
   align-items: center;
 }
 
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: slideLeft 1s infinite;
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
 }
 
-@keyframes slideLeft {
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
   0% {
     transform: translateX(0);
   }
@@ -291,11 +291,18 @@ form label {
 }
 
 .form-group input::placeholder {
-  letter-spacing: 0.25em;
-  color: var(--secondary);
+  font-size: 1.05vw;
+  color: var(--text);
   opacity: 0.5;
 }
 
+.form-group #password_format {
+  color: var(--text);
+  font-size: 1.1vw;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-group:focus-within #password_format,
 .form-group:focus-within label,
 .form-group input:focus {
   color: var(--accent);
@@ -320,9 +327,7 @@ form label {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
 .register-button:hover {
@@ -432,4 +437,548 @@ form label {
 
 .fa-sun {
   color: #042c8b;
+}
+
+svg {
+  width: 70%;
+}
+
+svg#freepik_stories-e-wallet:not(.animated) .animable {
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--Floor--inject-72 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #el7u2drgjm70u {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #elvjdgujn9gsi {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.14285714285714285s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elnz5j1wvru2 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.2857142857142857s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #eltn21xzjbe5 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.42857142857142855s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #els3nnptzuhvc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.5714285714285714s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrsus4jln9v {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.7142857142857142s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el6w4rymccyd {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.8571428571428571s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--Wallet--inject-72 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--Coins--inject-72 {
+  animation: 0.6s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #elx12uxwluf9 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #elxc8pd2g8j8b {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.007246376811594203s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elmtchprmcg0l {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.014492753623188406s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elryqp39bztfs {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.021739130434782608s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el50aizsrk9vy {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.028985507246376812s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elwgqlzcrnoyp {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.036231884057971016s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el1oxe0lmgf5p {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.043478260869565216s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrfzx7tn7k9 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.050724637681159424s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elzq4ytmdqf6 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.057971014492753624s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhnzcvt50wd {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.06521739130434782s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrculu1c85db {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.07246376811594203s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elqxuhuqax5ch {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.07971014492753624s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhj2gngy1f {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.08695652173913043s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elt3qlbivb9a {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.09420289855072464s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elifv4101787m {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.10144927536231885s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elnjy9npnzsi9 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.10869565217391304s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elqxx4hc103vq {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.11594202898550725s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elqivqi7r8jr {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.12318840579710146s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elebofnuqq22 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.13043478260869565s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el7owyk9dkkfb {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.13768115942028986s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #ele8r3qx3whto {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.14492753623188406s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elxdh6s6d1pzm {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.15217391304347827s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elgxnnxvyfoe {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.15942028985507248s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #ely0fe24uctu {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.16666666666666666s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhxrv4zmzgsr {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.17391304347826086s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elfxoqz2ygcjb {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.18115942028985507s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elymf5bmqkud {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.18840579710144928s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrsqjghumq5 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.1956521739130435s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elfd9ge6d2dq {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2028985507246377s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhnr49jxxren {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.21014492753623187s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrogtbvigm4 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.21739130434782608s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elyh7crh6x8n {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2246376811594203s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el2hkrrg46uu8 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2318840579710145s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elqlxob7mqju {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2391304347826087s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elmzfx3wb4yf {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2463768115942029s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elzgm78rvwgvg {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2536231884057971s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elezpqau9l0zi {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2608695652173913s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elcjgdhwe9iw9 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.26811594202898553s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhdaduwdoh8k {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2753623188405797s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el5rxwypelshc {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2826086956521739s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #ellancdww08u {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2898550724637681s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elm5w0hp2fddr {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.2971014492753623s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el11z5sjyi7guk {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.30434782608695654s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el92vndnj8oi {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.3115942028985507s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el3rzx9jrx7si {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.31884057971014496s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elehh4i4tvh29 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.32608695652173914s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #eldfdv7dl6ihi {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.3333333333333333s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elwi64g171brs {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.34057971014492755s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elpquj0fjdwgk {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.34782608695652173s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el7e8gfwisf9w {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.35507246376811596s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el6gqt591jq56 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.36231884057971014s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elpbilbp4i14g {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.3695652173913044s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #eld51nm9bjdxh {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.37681159420289856s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el2xs7835dkog {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.38405797101449274s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el3rg41w927st {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.391304347826087s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el27g1q9aaar4 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.39855072463768115s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elhort2ix56il {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4057971014492754s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el3793y3rozgf {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.41304347826086957s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elj3n2xgssfd {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.42028985507246375s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elrxyqps5cin {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.427536231884058s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el9fpsdhy1h1f {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.43478260869565216s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elq0z694erj5 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4420289855072464s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elde7u00dpt9q {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4492753623188406s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elkwsj9nixs6l {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4565217391304348s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elppu3m9shu6r {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.463768115942029s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elkf5oc9xikws {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.47101449275362317s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #el3fqepq4pob1 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4782608695652174s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elu46an6bjm6 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4855072463768116s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #elks7kjx57y9g {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0.4927536231884058s;
+  opacity: 0;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--Device--inject-72 {
+  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--speech-bubble--inject-72 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-e-wallet.animated #freepik--Character--inject-72 {
+  animation: 0.6s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+
+.animator-hidden {
+  display: none;
 }
