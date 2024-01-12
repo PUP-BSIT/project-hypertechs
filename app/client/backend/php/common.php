@@ -78,7 +78,7 @@ function get_name($account_number) {
         $first_name_col = "first_name";
         $middle_name_col = "middle_name";
         $suffix_col = "suffix";
-        $table = "account_name";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $surname_col, $first_name_col, $middle_name_col, 
                 $suffix_col FROM $table WHERE
@@ -101,7 +101,7 @@ function get_name($account_number) {
 
 function get_phone_number($account_number) {
         $phone_col = "phone_number";
-        $table = "account_contact";
+        $table = "account";
         $account_col = "account_number";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
                  $account_col='$account_number'";
@@ -240,6 +240,26 @@ function is_register_valid() {
                 return false; 
         }
         $_SESSION['phone_number'] = $_POST['phone_number'];
+        return true;
+}
+
+function does_email_exist($email) {
+        $account_table = "account";
+        $email_col = "email";
+        $sql_stmt = "SELECT $email_col FROM $account_table WHERE 
+                $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_phone_number_exist($phone_number) {
+        $account_table = "account";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $phone_number_col FROM $account_table WHERE 
+                $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 ?>
