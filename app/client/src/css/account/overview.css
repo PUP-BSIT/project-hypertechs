@@ -302,7 +302,7 @@ body {
 #summary_column_container {
   display: flex;
   flex-direction: column;
-  margin-left: 2vw;
+  margin-left: 1.5vw;
 }
 
 #summary_column_container h3 {

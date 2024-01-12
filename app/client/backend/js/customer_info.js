@@ -60,7 +60,7 @@ function showCustomerData(data) {
         accountName = document.querySelector(ID_ACCOUNT_NAME);
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
         balance = document.querySelector(ID_BALANCE); 
-        accountName.innerHTML = data.data.name.toUpperCase();;
+        accountName.innerHTML = data.data.name;
         accountNumber.innerHTML = data.data.accountNumber;
         balance.innerHTML = strToNum(data.data.balance); 
 }
