@@ -302,7 +302,7 @@ body {
 #summary_column_container {
   display: flex;
   flex-direction: column;
-  margin-left: 2.4vw;
+  margin-left: 2vw;
 }
 
 #summary_column_container h3 {
@@ -315,6 +315,11 @@ body {
 #summary_column_container span {
   font-size: 1.2vw;
 }
+
+#summary_column_container #account_number #display_account_number {
+  font-size: 1.2vw;
+}
+
 
 #summary_content h3 {
   display: flex;
