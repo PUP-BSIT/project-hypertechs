@@ -1,9 +1,8 @@
 import { 
-        postData, clearFeedback, saveRequest, destroyOTPSession 
+        postData, saveRequest, destroyOTPSession 
 } from "./common_new.js";
 
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_LOGIN_FEEDBACK = "#feedback_test";
 const ID_ACCOUNT_NUMBER = "#account_number";
 const ID_PASSWORD = "#account_password";
 const ACCOUNT_URL = "./account/overview.html";
@@ -17,46 +16,41 @@ function main() {
 }
 
 async function validateLoginForm() {
-        // Get the input values
-        let accountNumber = document.getElementById("account_number").value;
-        let accountPassword = document.getElementById("account_password").value;
-
-        // Validate account number
+        let accountNumber, accountPassword;
+    
+        accountNumber = document.getElementById("account_number").value;
+        accountPassword = document.getElementById("account_password").value;
+        
+        if (!accountNumber || !accountPassword) {
+            showAlert("Please fill all the required fields.");
+            return;
+        }
+    
         if (!/^1899\d{8}$/.test(accountNumber)) {
-        showFeedback("Invalid account number. Please enter a valid " + 
-                "account number.");
-        return;
+            showAlert("Invalid account number. Please enter your 12-digit valid" 
+            + " Apex account number.");
+            return;
         }
-
-        // Validate password
-        if (!/^[0-9A-Za-z]{8}$/.test(accountPassword)) {
-                showFeedback("Invalid password. Please enter a valid " + 
-                        "password with at least 8 characters.");
-                return;
+    
+        if(!isPasswordValid(accountPassword)) {
+            showAlert("Invalid password. Please enter a valid password.");
+            return;
         }
+    
         await destroyOTPSession();
         loginCustomer();
-}
-
-function showFeedback(message) {
-        // Display the feedback message
-        let feedback = document.getElementById("feedback_test");
-        feedback.innerHTML = message;
-}
+    }
+    
+    function showAlert(message) {
+        window.alert(message);
+    }
 
 async function loginCustomer() {
-        let accountNumber, password, loginFeedback, requestBody, url, data,
+        let accountNumber, password, requestBody, url, data,
                 response, requestURL;
 
-        loginFeedback = document.querySelector(ID_LOGIN_FEEDBACK);
-        loginFeedback.innerHTML = "Please wait.";
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER).value;
         password = document.querySelector(ID_PASSWORD).value;
-        if (!accountNumber || !password) {
-                loginFeedback.innerHTML = "Please fill the required fields";
-                clearFeedback(loginFeedback);
-                return;
-        }
         requestBody = new FormData();
         requestBody.append("account_number", accountNumber);
         requestBody.append("password", password);
@@ -66,10 +60,26 @@ async function loginCustomer() {
         url = "../backend/php/customer-login-check.php";
         data = await postData(url, requestBody);
         if (!data.success) {
-                loginFeedback.innerHTML = data.errorMessage;
-                clearFeedback(loginFeedback);
+                showAlert(data.errorMessage);
                 return;
         }
         requestURL = "../backend/php/customer-login.php";
         await saveRequest(requestURL, requestBody);
+}
+
+function isPasswordValid(password) {
+        // Check for at least one number
+        if (!/\d/.test(password)) return false;;
+
+        // Check for at least one uppercase letter
+        if (!/[A-Z]/.test(password)) return false;
+
+        // Check for at least one lowercase letter
+        if (!/[a-z]/.test(password)) return false;
+
+        // Check for at least 8 characters
+        if (!password.length >= 8) return false;
+
+        // Return true if all conditions are met
+        return true;
 }

@@ -7,12 +7,13 @@ $account_number = $_POST["account_number"];
 $password = $_POST["password"];
 $response['success'] = false;
 if (!does_account_exist($account_number)) {
-        $response['errorMessage'] = "Account not found";
+        $response['errorMessage'] = "Account not found. Please check your" .
+        "account number.";
         echo json_encode($response);
         exit;
 }
 if (!does_password_match($account_number, $password)) {
-        $response['errorMessage'] = "Password is incorrect";
+        $response['errorMessage'] = "You entered an incorrect password.";
         echo json_encode($response);
         exit;
 }

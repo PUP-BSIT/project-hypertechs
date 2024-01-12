@@ -1,5 +1,5 @@
 import { 
-        postData, getData, saveRequest, clearFeedback, destroyOTPSession 
+        postData, getData, saveRequest, destroyOTPSession 
 } from "./common_new.js";
 
 const ID_LASTNAME = "#surname";
@@ -10,7 +10,9 @@ const ID_PHONE = "#phone_number";
 const ID_PASSWORD = "#password";
 const ID_PASSWORD_CONFIRM = "#confirm_password";
 const ID_BTN_REGISTER = "#btn_register";
-const ID_FEEDBACK = "#feedback_test";
+const ID_ADDRESS = "#residential_address";
+const ID_EMAIL = "#email";
+const ID_BIRTH = "#dob";
 
 main();
 
@@ -22,23 +24,8 @@ function main() {
 }
 
 async function validateForm() {
-        let url, requestBody, response, feedback;
+        let url, requestBody, response;
 
-        feedback = document.querySelector(ID_FEEDBACK);
-        feedback.innerHTML = "Please wait.";
-        requestBody = await getFormData();
-        url = "../backend/php/registration-check.php";
-        response = await postData(url, requestBody);
-        if (!response.success) {
-                feedback.innerHTML = response.errorMessage;
-                clearFeedback(feedback);
-                return;
-        }
-        if (!isPasswordMatched()) {
-        console.log("hello");
-        feedback.innerHTML = "Passwords do not match.";
-        return;
-        }
         if (!isValidated()) {
                 return;
         }
@@ -47,28 +34,38 @@ async function validateForm() {
 }
 
 async function registerUser() {
-        let url, requestBody, feedback;
+        let url, requestBody;
 
-        feedback = document.querySelector(ID_FEEDBACK);
-        clearFeedback(feedback);
-        url = "../backend/php/registration.php";
         requestBody = await getFormData();
+        url = "../backend/php/registration-check.php";
+        await postData(url, requestBody);
+        url = "../backend/php/registration.php";
         await saveRequest(url, requestBody);
-        feedback.innerHTML = "Signing up...";
 }
 
 function getFormData() {
-        let phone, password, firstName, lastName, formData;
+        let phone, password, firstName, surname, formData, address, email,
+                suffix, middleName, birth;
 
         phone = document.querySelector(ID_PHONE).value;
         password = document.querySelector(ID_PASSWORD).value;
         firstName = document.querySelector(ID_FIRSTNAME).value;
-        lastName = document.querySelector(ID_LASTNAME).value;
+        surname = document.querySelector(ID_LASTNAME).value;
+        address = document.querySelector(ID_ADDRESS).value;
+        email = document.querySelector(ID_EMAIL).value;
+        suffix = document.querySelector(ID_SUFFIX).value;
+        middleName = document.querySelector(ID_MIDDLENAME).value;
+        birth = document.querySelector(ID_BIRTH).value;
         formData = new FormData();
         formData.append("phone_number", phone);
         formData.append("password", password);
         formData.append("first_name", firstName);
-        formData.append("last_name", lastName);
+        formData.append("surname", surname);
+        formData.append("address", address);
+        formData.append("email", email);
+        formData.append("suffix", suffix);
+        formData.append("middle_name", middleName);
+        formData.append("birth_date", birth);
         return formData;
 }
 
@@ -125,6 +122,12 @@ function isValidated() {
                 return false; // Prevent form submission
         }
 
+        // Validate email address
+        if (!isValidEmail(emailInput.value)) {
+                showAlert("Please enter a valid email address.");
+                return false; // Prevent form submission
+        }
+
         // Validate phone number
         if (!isValidPhoneNumber(phoneNumberInput.value)) {
                 showAlert("Please enter a valid phone number with 11 digits.");
@@ -142,11 +145,11 @@ function isValidated() {
 
         // Confirm password match
         if (passwordInput.value !== confirmPasswordInput.value) {
-                showAlert("Passwords do not match.");
+                showAlert("Warning: Passwords do not match.");
                 return false; // Prevent form submission
         }
 
-                return true; // Allow form submission
+        return true; // Allow form submission
 }
 
 // Check if an input field is empty or contains only spaces
@@ -177,17 +180,23 @@ function isValidPhoneNumber(phoneNumber) {
 // Checks if the password meets the following
 function isValidPassword(password) {
         // Check for at least one number
-        const hasNumber = /\d/.test(password);
+        if (!/\d/.test(password)) return false;;
 
         // Check for at least one uppercase letter
-        const hasUppercase = /[A-Z]/.test(password);
+        if (!/[A-Z]/.test(password)) return false;
 
         // Check for at least one lowercase letter
-        const hasLowercase = /[a-z]/.test(password);
+        if (!/[a-z]/.test(password)) return false;
 
         // Check for at least 8 characters
-        const hasMinLength = password.length >= 8;
+        if (!password.length >= 8) return false;
 
         // Return true if all conditions are met
-        return hasNumber && hasUppercase && hasLowercase && hasMinLength;
+        return true;
 }
+
+function isValidEmail(email) {
+        // Regular expression for validating an Email
+        const emailRegex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,}$/;
+        return emailRegex.test(email);
+    }

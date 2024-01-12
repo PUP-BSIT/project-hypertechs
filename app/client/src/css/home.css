@@ -201,6 +201,9 @@ nav a:hover::before {
 }
 
 #button_create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary);
   color: #f2f6ff;
 }
@@ -211,6 +214,13 @@ nav a:hover::before {
   justify-content: center;
   background-color: #bdd3ff;
   color: var(--primary);
+}
+
+#button_create i {
+  align-items: center;
+  font-size: 0.75em;
+  margin-top: 0.1em;
+  margin-left: 0.8em;
 }
 
 #button_login i {
