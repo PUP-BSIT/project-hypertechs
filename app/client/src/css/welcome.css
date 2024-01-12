@@ -198,6 +198,10 @@ body {
   font-size: var(--header-size);
 }
 
+#welcome_text span {
+  color: var(--primary);
+}
+
 #welcome_text p {
   padding-top: 0.75em;
   color: var(--text);
