@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="terms_services.css">
+    <link rel="stylesheet" href="../src/css/policy_cookies.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Your Banking System</title>
 </head>
@@ -50,49 +50,6 @@
         <p>We may update our Cookie Policy from time to time. You will be notified of any changes, and continued use of
             the Platform after changes are posted constitutes your acceptance of the modified policy.</p>
     </div>
-    <div id="cookie-notification">
-        <div>
-            <button id="accept-button">Accept All</button>
-            <button id="reject-button">Reject All</button>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cookieNotification = document.getElementById("cookie-notification");
-            const acceptButton = document.getElementById("accept-button");
-            const rejectButton = document.getElementById("reject-button");
-            const backToMainLink = document.getElementById("back-to-main");
-
-            acceptButton.addEventListener("click", function () {
-                // Set cookies or perform necessary actions on accepting cookies
-                hideCookieNotification();
-            });
-
-            rejectButton.addEventListener("click", function () {
-                // Perform actions on rejecting cookies
-                hideCookieNotification();
-            });
-
-            document.getElementById('cookie-policy-link').addEventListener('click', function () {
-                var cookiePolicySection = document.getElementById('cookie-policy-section');
-                if (cookiePolicySection.style.display === 'none' || cookiePolicySection.style.display === '') {
-                    cookiePolicySection.style.display = 'block';
-                } else {
-                    cookiePolicySection.style.display = 'none';
-                }
-            });
-
-            backToMainLink.addEventListener('click', function () {
-                var cookiePolicySection = document.getElementById('cookie-policy-section');
-                cookiePolicySection.style.display = 'none';
-            });
-
-            function hideCookieNotification() {
-                cookieNotification.style.display = "none";
-            }
-        });
-    </script>
 </body>
 
 </html>
