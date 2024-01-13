@@ -9,8 +9,8 @@ import {
 
 let ACCOUNT_NUMBER;
 const ID_LOGOUT_BUTTON = "#logout";
-const ID_ACCOUNT_NAME = "#account_name";
-const ID_ACCOUNT_NUMBER = "#account_number";
+const ID_ACCOUNT_NAME = "#display_account_holder";
+const ID_ACCOUNT_NUMBER = "#display_account_number";
 const ID_BALANCE = "#display_account_balance";
 
 main();
@@ -60,7 +60,7 @@ function showCustomerData(data) {
         accountName = document.querySelector(ID_ACCOUNT_NAME);
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
         balance = document.querySelector(ID_BALANCE); 
-        accountName.innerHTML = data.data.name.toUpperCase();;
+        accountName.innerHTML = data.data.name;
         accountNumber.innerHTML = data.data.accountNumber;
         balance.innerHTML = strToNum(data.data.balance); 
 }

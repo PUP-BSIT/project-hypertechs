@@ -11,7 +11,7 @@ export async function postData(url, requestBody) {
         statusCode = await response.status;
         data = await response.json();
         if (statusCode === 302) {
-                setTimeout(() => {window.location.href = data.url;}, 5000); 
+                setTimeout(() => {window.location.href = data.url;}, 4000); 
                 return;
         }
         data.statusCode = statusCode;
