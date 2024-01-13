@@ -406,6 +406,7 @@ body {
   border: none;
   cursor: pointer;
   margin-right: 1.75em;
+  padding-bottom: 0.25em;
   font-weight: 600;
   color: var(--text);
   font-size: var(--button-size);
