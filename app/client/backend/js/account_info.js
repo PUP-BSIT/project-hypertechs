@@ -20,7 +20,7 @@ async function main() {
                 window.location.href = HOME_URL;
                 return;
         }
-        url = "../backend/php/customer-session.php";
+        url = "/app/client/backend/php/customer-session.php";
         response = await getData(url);
         if (!response.success) {
                 return;
@@ -32,7 +32,7 @@ async function main() {
 async function getCustomerInfo() {
         let sessionAccount, url, requestBody, response;
 
-        url = "../backend/php/customer-info.php";
+        url = "/app/client/backend/php/customer-info.php";
         sessionAccount = ACCOUNT_NUMBER;
         requestBody = new FormData();
         requestBody.append('account_number', sessionAccount);
@@ -42,16 +42,14 @@ async function getCustomerInfo() {
 }
 
 function showCustomerData(data) {
-        let accountName, accountNumber, balance, firstName;
+        let accountName, accountNumber, balance, firstName, name;
 
         firstName = document.querySelector(ID_FIRST_NAME);
         firstName.innerHTML = data.data.firstName;
-/*
         accountName = document.querySelector(ID_ACCOUNT_NAME);
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
         balance = document.querySelector(ID_BALANCE); 
         accountName.innerHTML = data.data.name.toUpperCase();;
         accountNumber.innerHTML = data.data.accountNumber;
         balance.innerHTML = strToNum(data.data.balance); 
-*/
 }
