@@ -10,8 +10,9 @@ export async function postData(url, requestBody) {
         });
         statusCode = await response.status;
         data = await response.json();
+        console.log(data);
         if (statusCode === 302) {
-                setTimeout(() => {window.location.href = data.url;}, 5000); 
+                setTimeout(() => {window.location.href = data.url;}, 4000); 
                 return;
         }
         data.statusCode = statusCode;
@@ -132,7 +133,7 @@ async function startVerify() {
         requestBody = new FormData();
         requestBody.append('start', true);
         await postData(url, requestBody);
-        window.location.href = "/app/client/pages/otp_test.html";
+        window.location.href = "/app/client/pages/verify.html";
 }
 
 export async function sendRequest() {

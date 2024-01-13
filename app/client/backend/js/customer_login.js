@@ -3,7 +3,7 @@ import {
 } from "./common_new.js";
 
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_ACCOUNT_NUMBER = "#account_number";
+const ID_EMAIL = "#account_email";
 const ID_PASSWORD = "#account_password";
 const ACCOUNT_URL = "./account/overview.html";
 
@@ -16,22 +16,15 @@ function main() {
 }
 
 async function validateLoginForm() {
-        let accountNumber, accountPassword;
+        let accountEmail, accountPassword;
     
-        accountNumber = document.getElementById("account_number").value;
-        accountPassword = document.getElementById("account_password").value;
+        accountEmail = document.querySelector(ID_EMAIL).value;
+        accountPassword = document.querySelector(ID_PASSWORD).value;
         
-        if (!accountNumber || !accountPassword) {
+        if (!accountEmail || !accountPassword) {
             showAlert("Please fill all the required fields.");
             return;
         }
-    
-        if (!/^1899\d{8}$/.test(accountNumber)) {
-            showAlert("Invalid account number. Please enter your 12-digit valid" 
-            + " Apex account number.");
-            return;
-        }
-    
         if(!isPasswordValid(accountPassword)) {
             showAlert("Invalid password. Please enter a valid password.");
             return;
@@ -39,23 +32,23 @@ async function validateLoginForm() {
     
         await destroyOTPSession();
         loginCustomer();
-    }
+}
     
-    function showAlert(message) {
+function showAlert(message) {
         window.alert(message);
-    }
+}
 
 async function loginCustomer() {
-        let accountNumber, password, requestBody, url, data,
+        let accountEmail, password, requestBody, url, data,
                 response, requestURL;
 
-        accountNumber = document.querySelector(ID_ACCOUNT_NUMBER).value;
+        accountEmail = document.querySelector(ID_EMAIL).value;
         password = document.querySelector(ID_PASSWORD).value;
         requestBody = new FormData();
-        requestBody.append("account_number", accountNumber);
+        requestBody.append("email", accountEmail);
         requestBody.append("password", password);
         requestBody.append("redirect_url", ACCOUNT_URL);
-        console.log(accountNumber);
+        console.log(accountEmail);
         //url = "../backend/php/customer-login.php";
         url = "../backend/php/customer-login-check.php";
         data = await postData(url, requestBody);

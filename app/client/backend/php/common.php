@@ -99,16 +99,28 @@ function get_name($account_number) {
                . " " . $data[$surname_col] . " " . $data[$suffix_col];
 }
 
-function get_phone_number($account_number) {
+function get_phone_number($email) {
         $phone_col = "phone_number";
         $table = "account";
-        $account_col = "account_number";
+        $email_col = "email";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
-                 $account_col='$account_number'";
+                 $email_col='$email'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
         return $data[$phone_col];
+}
+
+function get_account_number($email) {
+        $account_col = "account_number";
+        $table = "account";
+        $email_col = "email";
+        $sql_stmt = "SELECT $account_col FROM $table WHERE
+                 $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$account_col];
 }
 
 function set_balance($account_number, $new_balance) {
@@ -208,12 +220,12 @@ function does_transfer_id_exist($transaction_id) {
         return true;
 }
 
-function does_password_match($account_number, $password) {
+function does_password_match($email, $password) {
         $account_table = "account";
-        $account_col = "account_number";
+        $email_col = "email";
         $password_col = "password";
-        $sql_stmt = "SELECT $account_col FROM $account_table WHERE
-                $account_col='$account_number' AND $password_col='$password'";
+        $sql_stmt = "SELECT $email_col FROM $account_table WHERE
+                $email_col='$email' AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;

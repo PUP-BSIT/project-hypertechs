@@ -23,14 +23,16 @@ const ID_GET_OTP = "#get_otp";
 const ID_OTP_CORRECT = "#otp_correct";
 const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
+const ID_CODE_RESEND = "#resend_code";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
 
 main();
 
-function main() {
-        let startButton, otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6;
+async function main() {
+        let startButton, otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6,
+                codeResend;
 
         console.log("main");
         showText();
@@ -68,6 +70,13 @@ function main() {
                         moveToNext(input);
                 });
         });
+        codeResend = document.querySelector(ID_CODE_RESEND);
+        codeResend.addEventListener("click", resendCode); 
+}
+
+async function resendCode() {
+        await destroyOTPSession("OTPOnly");
+        window.location.href = "./verify.html";
 }
 
 async function checkSession() {

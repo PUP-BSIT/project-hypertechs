@@ -308,7 +308,8 @@ body {
 
 /* resend code link styling */
 .resend-code {
-  margin-top: 2%;
+  margin-top: 3%;
+  font-size: 1.3vw;
   text-align: center;
   color: var(--text);
 }
