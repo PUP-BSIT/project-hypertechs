@@ -12,18 +12,34 @@ $date_col = "date";
 $response['fundTransferSuccess'] = false;
 $redirect_url = $_POST['redirect_url'];
 $amount = (float)$_POST['transaction_amount'];
-$source = (int)$_POST['source_account_no'];
-$recipient = (int)$_POST['recipient_account_no'];
+$source = $_POST['source_account_no'];
+$recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . time() . uniqid ();
 $date = date ("Y-m-d");
+$balance = get_balance($source);
+if (!$balance) {
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=Internal server error");
+        exit;
+}
+if ($amount > $balance) {
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=The set amount exceeds account balance");
+        exit;
+}
+
 if ($recipient == $source) {
-        header("Location: " . "$redirect_url" . "?error_message=Account number is not valid");
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=The account number is not valid");
         exit;
 }
 if (!does_account_exist($recipient)) {
         close_database();
         header("Location: " . "$redirect_url" . 
-                "?error_message=Account does not exist");
+                "?error_message=The account does not exist");
         exit;
 }
 if (!deduct_balance($source, $amount)) {
