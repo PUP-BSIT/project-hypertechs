@@ -45,7 +45,7 @@ body {
   background-color: var(--background);
 }
 
-/* login page grid layout */
+/* forgot password page grid layout */
 #forgot_pass_grid_container {
   display: grid;
   grid-template-areas:
@@ -170,7 +170,7 @@ body {
   }
 }
 
-/* login text styling */
+/* forgot password text styling */
 #forgot_pass_container {
   padding-left: 3em;
 }
@@ -193,7 +193,7 @@ body {
   font-size: var(--text-size);
 }
 
-/* login form styling */
+/* forgot pass form styling */
 .forgot-pass-form-container {
   max-width: 90%;
   margin-top: 2em;
