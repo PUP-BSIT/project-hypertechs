@@ -76,7 +76,7 @@ async function main() {
 
 async function resendCode() {
         await destroyOTPSession("OTPOnly");
-        window.location.href = "./otp_test.html";
+        window.location.href = "./verify.html";
 }
 
 async function checkSession() {
