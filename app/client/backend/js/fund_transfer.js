@@ -30,7 +30,7 @@ async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
                 requestBody, redirectURL;
         
-        redirectURL = "./account/result.php";
+        redirectURL = "/app/client/pages/account/result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
