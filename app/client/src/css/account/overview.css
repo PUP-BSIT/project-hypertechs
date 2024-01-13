@@ -25,6 +25,7 @@
   --balance-two: #009dff;
   --bank-card: #1e51b8;
   --active: #007a00;
+  --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -39,6 +40,7 @@
   --balance-two: #0095ff;
   --bank-card: #114fcd;
   --active: #00c500;
+  --ball: #2d73fe;
 }
 
 * {
@@ -656,7 +658,7 @@ td {
 }
 
 .label .ball {
-  background-color: var(--primary);
+  background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
   top: 0.1em;

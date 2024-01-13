@@ -20,6 +20,7 @@
   --backdrop: #d7e4fb;
   --sidebar: #d7e4fb;
   --destruct: #b60000;
+  --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -30,6 +31,7 @@
   --backdrop: #081023;
   --sidebar: #09132a;
   --destruct: #b30000;
+  --ball: #2d73fe;
 }
 
 * {
@@ -509,7 +511,7 @@ body {
 }
 
 .label .ball {
-  background-color: var(--primary);
+  background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
   top: 0.1em;
