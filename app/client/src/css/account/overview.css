@@ -24,6 +24,7 @@
   --balance-one: #0642bb;
   --balance-two: #009dff;
   --bank-card: #1e51b8;
+  --active: #007a00;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -37,6 +38,7 @@
   --balance-one: #003399;
   --balance-two: #0095ff;
   --bank-card: #114fcd;
+  --active: #00c500;
 }
 
 * {
@@ -326,7 +328,6 @@ body {
 }
 
 /* ----- ACC BALANCE STYLE ----- */
-
 #overview_balance {
   height: 10vw;
   width: 23%;
@@ -362,7 +363,7 @@ body {
 #apex_card {
   margin-top: 1em;
   padding: 1.25em;
-  height: 25vh;
+  height: 24vh;
   border-radius: 10px;
   background-color: var(--bank-card);
   color: #e7edfb;
@@ -427,7 +428,7 @@ body {
 #addtl_card_info {
   margin-top: 1.5em;
   padding: 1em;
-  height: 16.5vh;
+  height: 17.5vh;
   border-radius: 10px;
   background-color: var(--backdrop);
 }
@@ -435,13 +436,13 @@ body {
 #addtl_card_row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.2em;
 }
 
 #addtl_card_info h3 {
   font-weight: 600;
   font-size: 1vw;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
   display: flex;
   align-items: center;
 }
@@ -453,7 +454,7 @@ body {
 }
 
 #card_status_content {
-  color: rgb(0, 160, 0);
+  color: var(--active);
   padding: 0.1em 0.2em;
   border-radius: 5px;
   background-color: rgba(1, 182, 1, 0.271);
@@ -488,7 +489,7 @@ body {
 }
 
 #stats_wrapper {
-  height: 6.25vw;
+  height: 5vw;
 }
 
 #stats_content h4 {
@@ -498,9 +499,15 @@ body {
   margin-bottom: 0.5em;
 }
 
-#stats_content h5 {
-  font-size: 2.75vw;
-  font-weight: 600;
+#stats_week h5 {
+  font-size: 2.4vw;
+  font-weight: 500;
+}
+
+#stats_average h5,
+#stats_received h5 {
+  font-size: 1.5vw;
+  font-weight: 500;
 }
 
 #stats_content h6 {
@@ -516,7 +523,7 @@ body {
 }
 
 #stats_week_row h6 {
-  font-size: 1.1vw;
+  font-size: 1vw;
   margin-left: 1em;
 }
 
