@@ -294,7 +294,7 @@ body {
 }
 
 #account_image {
-  width: 7%;
+  width: 6.5%;
   border: 0px solid red;
 }
 
@@ -662,7 +662,7 @@ td {
   border-radius: 50%;
   position: absolute;
   top: 0.1em;
-  left: 2px;
+  left: 3px;
   height: 0.95vw;
   width: 0.95vw;
   transform: translateX(1px);
