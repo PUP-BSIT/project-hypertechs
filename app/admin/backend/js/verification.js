@@ -26,18 +26,67 @@ const ID_GET_OTP = "#get_otp";
 const ID_OTP_CORRECT = "#otp_correct";
 const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
+const ID_CODE_RESEND = "#resend_code";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
 
 main();
 
-function main() {
-  let startButton, otpTest, expired;
+async function main() {
+  let startButton,
+    otpTest,
+    expired,
+    otp1,
+    otp2,
+    otp3,
+    otp4,
+    otp5,
+    otp6,
+    codeResend;
 
   console.log("main");
   showText();
   checkSession();
+  otp1 = document.querySelector(ID_OTP_1);
+  otp2 = document.querySelector(ID_OTP_2);
+  otp3 = document.querySelector(ID_OTP_3);
+  otp4 = document.querySelector(ID_OTP_4);
+  otp5 = document.querySelector(ID_OTP_5);
+  otp6 = document.querySelector(ID_OTP_6);
+  otp1.addEventListener("input", () => {
+    moveToNext(otp1, "otp2");
+  });
+  otp2.addEventListener("input", () => {
+    moveToNext(otp2, "otp3");
+  });
+  otp3.addEventListener("input", () => {
+    moveToNext(otp3, "otp4");
+  });
+  otp4.addEventListener("input", () => {
+    moveToNext(otp4, "otp5");
+  });
+  otp5.addEventListener("input", () => {
+    moveToNext(otp5, "otp6");
+  });
+  const otpInputs = document.querySelectorAll(".otp-input");
+  otpInputs.forEach(function (input) {
+    input.addEventListener("input", function (e) {
+      const onlyNumbers = /^\d+$/;
+
+      if (!onlyNumbers.test(e.data)) {
+        input.value = input.value.replace(/\D/g, "");
+      }
+      moveToNext(input);
+    });
+  });
+  codeResend = document.querySelector(ID_CODE_RESEND);
+  codeResend.addEventListener("click", resendCode);
+}
+
+async function resendCode() {
+  await destroyOTPSession("OTPOnly");
+  window.location.href = "./verify.html";
 }
 
 async function checkSession() {
@@ -129,12 +178,10 @@ async function checkOTPInput() {
   feedback = document.querySelector(ID_FEEDBACK);
   OTPInput = getOTPInput();
   console.log(OTPInput, OTP);
-
   if (OTPInput !== OTP) {
     feedback.innerHTML = "OTP is incorrect";
     return;
   }
-
   feedback.innerHTML = "Please wait.";
   setTimer(0);
   await destroyOTPSession();
@@ -222,5 +269,24 @@ function showText(textCode) {
         expiredOTP.hidden =
         successOTP.hidden =
           true;
+  }
+}
+
+function moveToNext(currentInput, nextInputId) {
+  const maxLength = parseInt(currentInput.maxLength, 10);
+  const currentLength = currentInput.value.length;
+  const inputValue = currentInput.value.trim();
+
+  const containsOnlyNumbers = /^\d+$/.test(inputValue);
+
+  if (
+    currentLength === maxLength &&
+    inputValue !== "" &&
+    containsOnlyNumbers
+  ) {
+    const nextInput = document.getElementById(nextInputId);
+    if (nextInput) {
+      nextInput.focus();
+    }
   }
 }
