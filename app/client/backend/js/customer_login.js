@@ -5,7 +5,7 @@ import {
 const ID_LOGIN_BUTTON = "#login_button";
 const ID_EMAIL = "#account_email";
 const ID_PASSWORD = "#account_password";
-const ACCOUNT_URL = "./account/overview.html";
+const ACCOUNT_URL = "/app/client/pages/account/overview.html";
 
 main();
 

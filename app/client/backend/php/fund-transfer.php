@@ -9,44 +9,61 @@ $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
 
-$response['fundTransferSuccess'] = false;
 $redirect_url = $_POST['redirect_url'];
 $amount = (float)$_POST['transaction_amount'];
-$source = (int)$_POST['source_account_no'];
-$recipient = (int)$_POST['recipient_account_no'];
-$transaction_id = "TID" . time() . uniqid ();
+$source = $_POST['source_account_no'];
+$recipient = $_POST['recipient_account_no'];
+$transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date ("Y-m-d");
-http_response_code(302);
+$balance = get_balance($source);
+if (!$balance) {
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=Internal server error");
+        exit;
+}
+if ($amount > $balance) {
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=The set amount exceeds account balance");
+        exit;
+}
+
 if ($recipient == $source) {
-        $response['url'] = "$redirect_url" . "?error_message=Account number is not valid";
-        echo json_encode($response);
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=The account number is not valid");
         exit;
 }
 if (!does_account_exist($recipient)) {
-        $response['url'] = "$redirect_url" . "?error_message=Account does not exist";
-        echo json_encode($response);
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=The account does not exist");
         exit;
 }
 if (!deduct_balance($source, $amount)) {
-        $response['url'] = "$redirect_url" . "?error_message=Internal server error";
-        echo json_encode($response);
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=Internal server error");
         exit;
 }
 if (!add_balance($recipient, $amount)) {
-        $response['url'] = "$redirect_url" . "?error_message=Internal server error";
-        echo json_encode($response);
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=Internal server error");
         exit;
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col) 
         VALUES ($amount, '$source', '$recipient', '$transaction_id', '$date')"; 
 if (!modify_database($sql_stmt)) {
-        http_response_code(403);
-        echo json_encode($response);
+        close_database();
+        header("Location: " . "$redirect_url" . 
+                "?error_message=Internal server error");
         exit;
 } 
-$response['url'] = "$redirect_url" . "?fund_transfer_success=true&" .
-        "transaction_id=" . $transaction_id;
 close_database();
-echo json_encode($response);
+header("Location: " . "$redirect_url" . "?fund_transfer_success=true&" .
+        "transaction_id=" . $transaction_id);
+exit;
 ?>

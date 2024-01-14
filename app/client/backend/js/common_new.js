@@ -2,34 +2,55 @@ export const BANK_CODE = "goodgghh7788";
 const HOME_URL = "../home.html";
 
 export async function postData(url, requestBody) {
-        let statusCode, response, data ;
+        let statusCode, response, data, redirected, redirectURL;
 
         response = await fetch(url, {
                 method: 'POST',
                 body: requestBody 
         });
-        statusCode = await response.status;
-        data = await response.json();
-        console.log(data);
-        if (statusCode === 302) {
-                setTimeout(() => {window.location.href = data.url;}, 4000); 
+        redirected = await response.redirected;
+        if (redirected) {
+                setTimeout(async () => {
+                        redirectURL = await response.url;
+                        window.location.href = redirectURL;
+                }, 4000);
                 return;
         }
-        data.statusCode = statusCode;
+        data = await response.json();
+        return data;
+}
+
+export async function postDataOTP(url, requestBody) {
+        let statusCode, response, data, redirected, redirectURL;
+
+        response = await fetch(url, {
+                method: 'POST',
+                body: requestBody 
+        });
+        redirected = await response.redirected;
+        if (redirected) {
+                setTimeout(async () => {
+                        redirectURL = await response.url;
+                        window.location.replace(redirectURL); 
+                }, 4000);
+                return;
+        }
+        data = await response.json();
         return data;
 }
 
 export async function getData(url) {
-        let statusCode, response, data ;
+        let statusCode, response, data, redirected;
 
         response = await fetch(url);
-        statusCode = await response.status;
-        data = await response.json();
-        if (statusCode === 302) {
-                window.location.href = data.url;
+        redirected = await response.redirected;
+        if (redirected) {
+                setTimeout(async () => {
+                        window.location.href = await response.url;
+                }, 4000);
                 return;
-        }
-        data.statusCode = statusCode;
+        }       
+        data = await response.json();
         return data;
 }
 
@@ -151,7 +172,7 @@ export async function sendRequest() {
         for (let key in data) {
                 requestBody.append(key, data[key]);
         }
-        await postData(response.requestURL, requestBody);
+        await postDataOTP(response.requestURL, requestBody);
         url = "/app/client/backend/php/request-destroy.php";
         await getData(url);
         return true;
