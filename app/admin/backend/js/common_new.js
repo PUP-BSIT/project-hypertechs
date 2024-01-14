@@ -10,8 +10,11 @@ export async function postData(url, requestBody) {
   });
   statusCode = await response.status;
   data = await response.json();
+  console.log(data);
   if (statusCode === 302) {
-    window.location.href = data.url;
+    setTimeout(() => {
+      window.location.href = data.url;
+    }, 4000);
     return;
   }
   data.statusCode = statusCode;
@@ -87,6 +90,15 @@ export function clearFeedback(area) {
   }, 3000);
 }
 
+export async function isLoggedIn() {
+  let url, response;
+
+  url = "/app/admin/backend/php/admin-session.php";
+  response = await getData(url);
+  if (!response.success) return false;
+  return true;
+}
+
 export async function saveRequest(requestURL, requestBody) {
   let data, url, saveURL, response, sessionURL;
 
@@ -107,7 +119,7 @@ async function startVerify() {
   requestBody = new FormData();
   requestBody.append("start", true);
   await postData(url, requestBody);
-  window.location.href = "/app/admin/pages/otp_test.html";
+  window.location.href = "/app/admin/pages/verify.html";
 }
 
 export async function sendRequest() {
@@ -128,11 +140,6 @@ export async function sendRequest() {
   url = "/app/admin/backend/php/request-destroy.php";
   await getData(url);
   return true;
-}
-
-function checkValue(value) {
-  if (isNaN(value)) return value;
-  return Number(value);
 }
 
 export function formToJSON(formData) {
