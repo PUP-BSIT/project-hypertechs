@@ -391,8 +391,9 @@ body {
 }
 
 svg {
-  width: 95%;
+  width: 100%;
 }
+
 svg#freepik_stories-privacy-policy:not(.animated) .animable {
   opacity: 0;
 }
