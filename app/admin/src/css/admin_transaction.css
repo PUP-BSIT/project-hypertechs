@@ -50,7 +50,7 @@ body {
 }
 
 /* positions the sidebar and main section side by side */
-.transfer-page-container {
+.transaction-page-container {
   display: flex;
 }
 
@@ -184,7 +184,7 @@ body {
 }
 
 /* turns the current tab color to selected color */
-.apex-tab-wrapper #transfer {
+.apex-tab-wrapper #transactions {
   color: var(--primary);
 }
 
@@ -206,8 +206,8 @@ body {
   opacity: 0.2;
 }
 
-/*transfer main page */
-.apex-transfer-container {
+/*transaction main page */
+.apex-transaction-container {
   flex: 1;
   display: grid;
   grid-template-areas: "form side";
@@ -219,67 +219,67 @@ body {
   grid-template-columns: 60% 40%;
 }
 
-.transfer-form {
+.transaction-form {
   grid-area: form;
   margin-right: 1em;
   border: 0px dashed green;
 }
 
-.transfer-side {
+.transaction-side {
   grid-area: side;
   margin-left: 1em;
   border: 0px dashed blueviolet;
 }
 
-/*transfer heading */
-#transfer-heading {
+/*transaction heading */
+#transaction-heading {
   border: 0px dashed orange;
 }
 
-#transfer-heading h1 {
+#transaction-heading h1 {
   padding-bottom: 0.25em;
   color: var(--primary);
   font-size: var(--section-title);
   border: 0px dashed blueviolet;
 }
 
-/*transfer option styling */
-.transfer-option {
+/*transaction option styling */
+.transaction-option {
   display: flex;
   border: 0px dashed blueviolet;
 }
 
-.internal-transfer-desc,
-.external-transfer-desc {
+.deposit-desc,
+.withdraw-desc {
   border: 0px dashed black;
   margin-top: 1em;
   display: none;
 }
 
-.internal-transfer-desc h2,
-.external-transfer-desc h2 {
+.deposit-desc h2,
+.withdraw-desc h2 {
   color: var(--text);
   font-weight: 400;
   font-size: 1.3vw;
   transition: color 0.3s ease-in-out;
 }
 
-/*transfer form general styling*/
-.transfer-form-wrapper form {
+/*transaction form general styling*/
+.transaction-form-wrapper form {
   display: flex;
   flex-direction: column;
   padding-top: 2em;
   border: 0px dashed blue;
 }
 
-.transfer-form-wrapper form label {
+.transaction-form-wrapper form label {
   font-weight: 600;
   color: var(--text);
   font-size: var(--subheader-size);
   transition: color 0.3s ease-in-out;
 }
 
-.transfer-form-wrapper input {
+.transaction-form-wrapper input {
   margin-bottom: 2em;
   width: 100%;
   height: 2.5em;
@@ -293,14 +293,14 @@ body {
   transition: border-color 0.3s ease-in-out;
 }
 
-.transfer-form-wrapper input::placeholder {
+.transaction-form-wrapper input::placeholder {
   letter-spacing: 0.25em;
   color: var(--text);
   opacity: 0.25;
 }
 
 /* Common styles for both light and dark themes */
-.transfer-form-wrapper select {
+.transaction-form-wrapper select {
   margin-bottom: 2em;
   width: 100%;
   height: 2.5em;
@@ -331,7 +331,7 @@ body {
 }
 
 /* forms transition */
-.transfer-form-wrapper {
+.transaction-form-wrapper {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -342,22 +342,22 @@ body {
   opacity: 1;
 }
 
-.transfer-buttons {
+.transaction-buttons {
   display: flex;
   gap: 1em;
 }
 
-.transfer-buttons #submit {
+.transaction-buttons #submit {
   width: 80%;
 }
 
-.transfer-buttons #reset {
+.transaction-buttons #reset {
   width: 20%;
   background-color: #bdd3ff;
   color: #183d87;
 }
 
-.transfer-form-wrapper button {
+.transaction-form-wrapper button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -372,21 +372,21 @@ body {
   transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
-.transfer-form-wrapper button:hover {
+.transaction-form-wrapper button:hover {
   transform: scale(1);
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.transfer-form-wrapper button:active {
+.transaction-form-wrapper button:active {
   transform: scale(0.95);
 }
 
-.transfer-form-wrapper button span {
+.transaction-form-wrapper button span {
   margin-left: 0.5em;
   font-size: 1em;
 }
 
-.transfer-option button {
+.transaction-option button {
   background: none;
   border: none;
   cursor: pointer;
@@ -398,12 +398,12 @@ body {
   position: relative;
 }
 
-.transfer-option button.active,
-.transfer-option button:hover {
+.transaction-option button.active,
+.transaction-option button:hover {
   color: var(--primary);
 }
 
-.transfer-option button::before {
+.transaction-option button::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -414,15 +414,15 @@ body {
   transition: width 0.4s;
 }
 
-.transfer-option button.active::before {
+.transaction-option button.active::before {
   width: 100%;
 }
 
-.transfer-option #internal-transfer-btn {
+.transaction-option #internal-transaction-btn {
   margin-left: 0em;
 }
 
-#internal-transfer-form {
+#internal-transaction-form {
   display: none;
 }
 
