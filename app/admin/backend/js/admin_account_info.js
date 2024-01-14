@@ -10,7 +10,7 @@ const HOME_URL = "/index.html";
 main();
 
 async function main() {
-  let response, loggedIn, adminName, adminNumber, balance, url;
+  let response, loggedIn, adminName, adminNumber, url;
 
   loggedIn = await isLoggedIn();
   if (!loggedIn) {

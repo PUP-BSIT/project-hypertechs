@@ -1,4 +1,3 @@
-export const BANK_CODE = "goodgghh7788";
 const HOME_URL = "../home.html";
 
 export async function postData(url, requestBody) {
