@@ -10,10 +10,8 @@ export async function postData(url, requestBody) {
         });
         redirected = await response.redirected;
         if (redirected) {
-                setTimeout(async () => {
-                        redirectURL = await response.url;
-                        window.location.href = redirectURL;
-                }, 4000);
+                redirectURL = await response.url;
+                window.location.href = redirectURL;
                 return;
         }
         data = await response.json();
@@ -198,7 +196,7 @@ export async function destroyOTPSession(option) {
         let url, data, requestBody;
 
         console.log("destroySession");
-        url = "../backend/php/otp-session.php";
+        url = "/app/client/backend/php/otp-session.php";
         requestBody = new FormData();
         if (option === "OTPOnly") {
                 requestBody.append('destroy_otp', true);

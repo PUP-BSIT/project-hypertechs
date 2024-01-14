@@ -99,12 +99,24 @@ function get_name($account_number) {
                . " " . $data[$surname_col] . " " . $data[$suffix_col];
 }
 
-function get_phone_number($email) {
+function get_phone_number_via_email($email) {
         $phone_col = "phone_number";
         $table = "account";
         $email_col = "email";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
                  $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$phone_col];
+}
+
+function get_phone_number($account_number) {
+        $phone_col = "phone_number";
+        $table = "account";
+        $account_col = "account_number";
+        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+                 $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;

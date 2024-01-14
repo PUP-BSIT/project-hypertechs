@@ -25,7 +25,6 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $bank_code = $_POST['recipient_bank_code'];
-// $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date ("Y-m-d");
 $balance = get_balance($source);
 if (!$balance) {
