@@ -141,6 +141,11 @@ export async function sendRequest() {
   return true;
 }
 
+function checkValue(value) {
+  if (isNaN(value)) return value;
+  return Number(value);
+}
+
 export function formToJSON(formData) {
   let form;
 

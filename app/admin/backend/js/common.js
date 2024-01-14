@@ -147,7 +147,7 @@ export function checkAdminSession(start) {
 }
 
 export function saveRequest(url, body) {
-  let requestBody, saveURL;
+  let origin, requestBody, saveURL;
 
   saveURL = "../../backend/php/request-save.php";
   requestBody = new FormData();

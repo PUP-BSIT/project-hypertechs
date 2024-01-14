@@ -36,6 +36,7 @@ function close_database() {
         mysqli_close($DB_CONN);
 }
 
+
 function get_admin_data($table, $admin_number) {
         $admin_number_col = "admin_number";
         $sql_stmt = "SELECT * FROM $table WHERE
@@ -46,16 +47,73 @@ function get_admin_data($table, $admin_number) {
         return $data;
 }
 
-function get_phone_number($admin_number) {
-        $phone_col = "phone_number";
+function get_balance($admin_number) {
+        $balance_col = "balance";
         $table = "admin";
         $admin_col = "admin_number";
-        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+        $sql_stmt = "SELECT $balance_col FROM $table WHERE
                  $admin_col='$admin_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
+        return $data[$balance_col];
+}
+
+function get_name($admin_number) {
+        $surname_col = "surname";
+        $first_name_col = "first_name";
+        $middle_name_col = "middle_name";
+        $suffix_col = "suffix";
+        $table = "admin";
+        $admin_col = "admin_number";
+        $sql_stmt = "SELECT $surname_col, $first_name_col, $middle_name_col, 
+                $suffix_col FROM $table WHERE
+                 $admin_col='$admin_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        $name = "";
+        if ($data[$middle_name_col] === NULL && $data[$suffix_col] === NULL)
+                return $data[$first_name_col] . " " . $data[$surname_col];
+        if ($data[$middle_name_col] === NULL && $data[$suffix_col] !== NULL)
+                return $data[$first_name_col] . " " . $data[$surname_col] .
+                        " " . $data[$suffix_col];
+        if ($data[$middle_name_col] !== NULL && $data[$suffix_col] === NULL)
+                return $data[$first_name_col] . " " . $data[$middle_name_col]
+                       . " " . $data[$surname_col];
+        return $data[$first_name_col] . " " . $data[$middle_name_col]
+               . " " . $data[$surname_col] . " " . $data[$suffix_col];
+}
+
+function get_phone_number($email) {
+        $phone_col = "phone_number";
+        $table = "admin";
+        $email_col = "email";
+        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+                 $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
         return $data[$phone_col];
+}
+
+function get_admin_number($email) {
+        $admin_col = "admin_number";
+        $table = "admin";
+        $email_col = "email";
+        $sql_stmt = "SELECT $admin_col FROM $table WHERE
+                 $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$admin_col];
+}
+
+function add_balance($admin_number, $amount) {
+        $balance = get_balance($admin_number);
+        if (!$balance) return false;
+        $new_balance = $balance + $amount; 
+        return set_balance($admin_number, $new_balance); 
 }
 
 function does_admin_exist($admin_number) {
@@ -68,23 +126,12 @@ function does_admin_exist($admin_number) {
         return true;
 }
 
-function does_password_match($admin_number, $password) {
+function does_password_match($email, $password) {
         $admin_table = "admin";
-        $admin_col = "admin_number";
+        $email_col = "email";
         $password_col = "password";
-        $sql_stmt = "SELECT $admin_col FROM $admin_table WHERE
-                $admin_col='$admin_number' AND $password_col='$password'";
-        $result = extract_database($sql_stmt);
-        if (!mysqli_fetch_assoc($result)) return false;
-        return true;
-}
-
-//for checking if acc id exist if account holder will deposit thru admin/bankteller
-function does_acc_id_exist($client_number) {
-        $client_table = "client";
-        $client_col = "client_number";
-        $sql_stmt = "SELECT $client_col FROM $client_table WHERE 
-                $client_col='$client_number'";
+        $sql_stmt = "SELECT $email_col FROM $admin_table WHERE
+                $email_col='$email' AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
@@ -100,6 +147,26 @@ function is_register_valid() {
                 return false; 
         }
         $_SESSION['phone_number'] = $_POST['phone_number'];
+        return true;
+}
+
+function does_email_exist($email) {
+        $admin_table = "admin";
+        $email_col = "email";
+        $sql_stmt = "SELECT $email_col FROM $admin_table WHERE 
+                $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_phone_number_exist($phone_number) {
+        $admin_table = "admin";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $phone_number_col FROM $admin_table WHERE 
+                $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
 ?>

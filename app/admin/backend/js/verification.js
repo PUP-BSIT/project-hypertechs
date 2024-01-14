@@ -75,6 +75,7 @@ async function main() {
       const onlyNumbers = /^\d+$/;
 
       if (!onlyNumbers.test(e.data)) {
+        // Remove non-numeric characters
         input.value = input.value.replace(/\D/g, "");
       }
       moveToNext(input);
@@ -221,6 +222,7 @@ function setTimer(remainTime) {
   timerSecond.innerHTML = numToTime(second);
   TIMEOUT_ID = setTimeout(checkSession, remainTime * JS_SECOND);
   INTERVAL_ID = setInterval(() => {
+    //if (--timer.innerHTML === 0) clearInterval(INTERVAL_ID);
     if (--second === -1) {
       second = MINUTE - 1;
       --minute;
@@ -271,12 +273,15 @@ function showText(textCode) {
           true;
   }
 }
+/* script for otp form validation */
 
+/* script to automatically proceed to next otp field */
 function moveToNext(currentInput, nextInputId) {
   const maxLength = parseInt(currentInput.maxLength, 10);
   const currentLength = currentInput.value.length;
   const inputValue = currentInput.value.trim();
 
+  // Validate if the input contains only numbers
   const containsOnlyNumbers = /^\d+$/.test(inputValue);
 
   if (
