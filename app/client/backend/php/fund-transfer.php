@@ -9,12 +9,11 @@ $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
 
-$response['fundTransferSuccess'] = false;
 $redirect_url = $_POST['redirect_url'];
 $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
-$transaction_id = "TID" . time() . uniqid ();
+$transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date ("Y-m-d");
 $balance = get_balance($source);
 if (!$balance) {
