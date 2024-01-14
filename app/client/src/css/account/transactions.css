@@ -21,8 +21,7 @@
   --backdrop: #d7e4fb;
   --sidebar: #d7e4fb;
   --destruct: #b60000;
-  --balance-one: #0642bb;
-  --balance-two: #009dff;
+  --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -33,8 +32,7 @@
   --backdrop: #0b1734;
   --sidebar: #09132a;
   --destruct: #b30000;
-  --balance-one: #003399;
-  --balance-two: #0095ff;
+  --ball: #2d73fe;
 }
 
 * {
@@ -264,11 +262,11 @@ body {
 }
 
 .label .ball {
-  background-color: var(--primary);
+  background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
   top: 0.1em;
-  left: 2px;
+  left: 3px;
   height: 0.95vw;
   width: 0.95vw;
   transform: translateX(1px);

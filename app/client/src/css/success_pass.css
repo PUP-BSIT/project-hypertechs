@@ -43,8 +43,8 @@ body {
   background-color: var(--background);
 }
 
-/* otp page grid layout */
-#otp_grid_container {
+/* reset success page grid layout */
+#reset_success_grid_container {
   display: grid;
   grid-template-areas:
     "header image"
@@ -64,12 +64,12 @@ body {
   outline: 0px dashed red;
 }
 
-#otp_container {
+#reset_container {
   grid-area: login;
   outline: 0px dashed green;
 }
 
-#otp_image_container {
+#reset_success_image_container {
   height: 100vh;
   grid-area: image;
   background-color: var(--backdrop);
@@ -79,7 +79,7 @@ body {
   overflow: hidden;
 }
 
-#otp_image_container img {
+#reset_success_image_container img {
   width: 70%;
 }
 
@@ -174,118 +174,48 @@ body {
   }
 }
 
-/* otp text styling */
-#otp_container {
+/* reset success text styling */
+#reset_container {
   padding-left: 3em;
 }
 
-#otp_text {
+#reset_text {
   max-width: 90%;
   line-height: 1.5;
   text-align: justify;
 }
 
-#otp_text i {
+#reset_text i {
   font-size: 0.9em;
   margin-right: 2.5%;
   color: var(--primary);
 }
 
-#otp_text h1 {
+#reset_text h1 {
   text-align: left;
   padding-top: 0.25em;
   color: var(--text);
   font-size: var(--header-size);
 }
 
-#otp_text p {
+#reset_text span {
+  color: var(--primary);
+}
+
+#reset_text p {
   padding-top: 0.75em;
   color: var(--text);
   font-size: var(--text-size);
 }
 
-/* otp form styling */
-.otp-form-container {
-  margin-top: 3%;
-  max-width: 90%;
-}
-
-/* otp input fields styling */
-.otp-fields {
-  display: flex;
-  justify-content: space-between;
-}
-
-.otp-input {
-  margin-bottom: 1.5em;
-  width: 10%;
-  height: 1.75em;
-  border: none;
-  outline: none;
-  background: transparent;
-  text-align: center;
-  font-weight: 700;
-  font-size: var(--otp-size);
-  color: var(--text);
-  caret-color: var(--text);
-  border-bottom: 2px solid var(--text);
-  transition: border-color 0.3s ease-in-out;
-}
-
-.otp-fields:focus-within label,
-.otp-fields input:focus {
+#display_user_welcome {
   color: var(--primary);
-}
-
-.otp-fields input:focus {
-  border-bottom: 2px solid var(--primary);
-}
-
-/* otp verify button styling */
-.verify-section {
-  text-align: center;
-}
-
-.verify-button {
-  width: 100%;
-  height: 2.5em;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: var(--text-size);
-  border-radius: 10px;
-  color: #e1e9fa;
-  background-color: var(--primary);
-  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
-}
-
-.verify-button:hover {
-  transform: scale(1);
-  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
-}
-
-.verify-button:active {
-  transform: scale(0.95);
-}
-
-/* feedback_test */
-
-#feedback_test {
-  height: auto;
-  font-size: 0.5vw;
-}
-
-#get_otp,
-#expired,
-#otp_correct {
-  padding-left: 3em;
 }
 
 /* button styling */
-
-#otp_text button {
-  margin-top: 1em;
-  width: 20%;
+#reset_text button {
+  margin-top: 1.5em;
+  width: 30%;
   height: 2.5em;
   border: none;
   cursor: pointer;
@@ -297,46 +227,13 @@ body {
   transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
-#otp_text button:hover {
+#reset_text button:hover {
   transform: scale(1);
   box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
 }
 
-#otp_text button:active {
+#reset_text button:active {
   transform: scale(0.95);
-}
-
-/* resend code link styling */
-.resend-code {
-  margin-top: 3%;
-  font-size: 1.3vw;
-  text-align: center;
-  color: var(--text);
-}
-
-.resend-code a {
-  color: var(--primary);
-  margin-top: 1.5%;
-  text-decoration: none;
-  position: relative;
-}
-
-.resend-code a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: var(--primary);
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.resend-code a:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
@@ -393,38 +290,43 @@ body {
 svg {
   width: 95%;
 }
-svg#freepik_stories-privacy-policy:not(.animated) .animable {
+
+svg#freepik_stories-done:not(.animated) .animable {
   opacity: 0;
 }
-svg#freepik_stories-privacy-policy.animated
-  #freepik--background-simple--inject-30 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0s;
-}
-svg#freepik_stories-privacy-policy.animated #freepik--Shadow--inject-30 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
-  animation-delay: 0s;
-}
-svg#freepik_stories-privacy-policy.animated #freepik--Device--inject-30 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-svg#freepik_stories-privacy-policy.animated #freepik--Document--inject-30 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
-  animation-delay: 0s;
-}
-svg#freepik_stories-privacy-policy.animated #freepik--Character--inject-30 {
+svg#freepik_stories-done.animated #freepik--Shadow--inject-126 {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
   animation-delay: 0s;
 }
-@keyframes slideLeft {
+svg#freepik_stories-done.animated #freepik--Sheet--inject-126 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-done.animated #freepik--Plant--inject-126 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-done.animated #freepik--speech-bubble--inject-126 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft,
+    1.5s Infinite linear wind;
+  animation-delay: 0s, 1s;
+}
+svg#freepik_stories-done.animated #freepik--Character--inject-126 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+svg#freepik_stories-done.animated #freepik--Desk--inject-126 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+@keyframes slideUp {
   0% {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: inherit;
   }
 }
 @keyframes lightSpeedLeft {
@@ -444,6 +346,17 @@ svg#freepik_stories-privacy-policy.animated #freepik--Character--inject-30 {
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes wind {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
 @keyframes zoomOut {
   0% {
     opacity: 0;
@@ -452,26 +365,6 @@ svg#freepik_stories-privacy-policy.animated #freepik--Character--inject-30 {
   100% {
     opacity: 1;
     transform: scale(1);
-  }
-}
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: inherit;
   }
 }
 .animator-hidden {
