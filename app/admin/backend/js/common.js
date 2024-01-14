@@ -1,4 +1,3 @@
-export const BANK_CODE = "goodgghh7788";
 const HOME_URL = "/index.html";
 
 export function sendData(url, data, processData) {
@@ -98,25 +97,6 @@ export function strToNum(number) {
   });
 }
 
-export function getExtBankUrl(bankCode) {
-  let url;
-
-  switch (bankCode) {
-    case "greenaabb1122":
-      url =
-        "http://localhost/greenbank/api/" + "receive-external-transfer.php";
-      break;
-    case "newccdd3344":
-      url = "http://localhost/newbank/api/" + "receive-external-transfer.php";
-      break;
-    case "happyeeff5566":
-      url =
-        "http://localhost/happybank/api/" + "receive-external-transfer.php";
-      break;
-  }
-  return url;
-}
-
 export function genErrorMessage(statusCode) {
   let message;
 
@@ -153,19 +133,6 @@ export function clearFeedback(area) {
   }, 3000);
 }
 
-export function checkEmployeeSession(start) {
-  let url;
-
-  url = "./api/employee-session.php";
-  fetchData(url, (data) => {
-    if (!data.success) {
-      window.location.href = "./index.html";
-      return;
-    }
-    start();
-  });
-}
-
 export function checkAdminSession(start) {
   let url;
 
@@ -180,7 +147,7 @@ export function checkAdminSession(start) {
 }
 
 export function saveRequest(url, body) {
-  let origin, requestBody, saveURL;
+  let requestBody, saveURL;
 
   saveURL = "../../backend/php/request-save.php";
   requestBody = new FormData();
