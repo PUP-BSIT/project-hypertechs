@@ -12,6 +12,25 @@ export async function postData(url, requestBody) {
         if (redirected) {
                 setTimeout(async () => {
                         redirectURL = await response.url;
+                        window.location.href = redirectURL;
+                }, 4000);
+                return;
+        }
+        data = await response.json();
+        return data;
+}
+
+export async function postDataOTP(url, requestBody) {
+        let statusCode, response, data, redirected, redirectURL;
+
+        response = await fetch(url, {
+                method: 'POST',
+                body: requestBody 
+        });
+        redirected = await response.redirected;
+        if (redirected) {
+                setTimeout(async () => {
+                        redirectURL = await response.url;
                         window.location.replace(redirectURL); 
                 }, 4000);
                 return;
@@ -153,7 +172,7 @@ export async function sendRequest() {
         for (let key in data) {
                 requestBody.append(key, data[key]);
         }
-        await postData(response.requestURL, requestBody);
+        await postDataOTP(response.requestURL, requestBody);
         url = "/app/client/backend/php/request-destroy.php";
         await getData(url);
         return true;
