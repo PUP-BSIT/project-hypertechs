@@ -106,13 +106,7 @@ body {
 
 .apex-logo-container h1 {
   font-size: var(--sidebar-header);
-  background-image: linear-gradient(
-    to right,
-    #0038a8,
-    #246af8,
-    #0084ff,
-    #1f5cd6
-  );
+  background-image: linear-gradient(to right, #0038a8, #246af8, #0084ff, #1f5cd6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -210,6 +204,23 @@ body {
 
 .apex-tab-wrapper #logout:hover::before {
   opacity: 0.2;
+}
+
+.bank-teller-id {
+  color: dimgray;
+  display: block;
+}
+
+#transaction-container {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0px 0px 30px;
+  padding: 20px 0px 20px 20px;
+  color: #1e51b8;
+  border: solid 1px;
+  border-color: darkgray;
+  border-radius: 5px;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
