@@ -65,13 +65,55 @@
         <div id="overview-container">
           <h1>Hello, <span id="bank-teller">Apex User!</span></h1>
           <span class="bank-teller-id">Bank Teller ID: <span>123456789</span></span>
+          <!--Transaction Conatiners-->
           <div class="transaction-container">
-            <div id="all-transaction">Hello</div>
-            <div id="successful-transaction">Hi</div>
-            <div id="pending-transaction">Testing</div>
-            <div id="unsuccessful-transaction">Test</div>
+            <div id="all-transaction">
+              <img
+                id="receipt-style"
+                src="../assets/img/receipt_transaction.svg"
+                alt="receipt"
+              />
+              <!--All transaction container content-->
+              <div>
+                <p id="all-transaction-text">All Transactions</p>
+                <p id="all-transaction-number">1234</p>
+              </div>
+            </div>
+            <!-- Successful transaction container content -->
+            <div id="successful-transaction">
+              <img
+                id="success-style"
+                src="../assets/img/check_success.svg"
+                alt="success"
+              />
+              <div>
+                <p id="success-transaction-text">Successful Transactions</p>
+                <p id="success-transaction-number">0613</p>
+              </div>
+            </div>
+            <!-- Pending transaction container content -->
+            <div id="pending-transaction">
+              <img id="pending-style" src="../assets/img/pending.svg" alt="pending" />
+              <div>
+                <p id="pending-transaction-text">Pending Transactions</p>
+                <p id="pending-transaction-number">0807</p>
+              </div>
+            </div>
+            <!-- Unsuccessful transaction container content -->
+            <div id="unsuccessful-transaction">
+              <img
+                id="unsuccessful-style"
+                src="../assets/img/unsuccessful.svg"
+                alt="unsuccess"
+              />
+              <div>
+                <p id="unsuccessful-transaction-text">Unsuccessful Transactions</p>
+                <p id="unsuccessful-transaction-number">1103</p>
+              </div>
+            </div>
+          </div>
+          <div class="recent-transaction-style"><p>Recent Transactions</p></div>
         </div>
-        <div class="recent-transaction-style">Recent Transaction</div>
       </div>
     </div>
     <script src="../src/scripts/theme.js"></script>

@@ -285,7 +285,88 @@ body {
   font-size: 30px;
   font-weight: bold;
 }
+/*----- All Transaction Container Style -----*/
+/*Size of receipt icon*/
+#receipt-style {
+  margin: 25px 15px;
+  height: 50px;
+}
 
+#all-transaction-text {
+  font-size: 15px;
+  color: white;
+  margin: 20px 5px;
+  font-weight: bold;
+}
+
+#all-transaction-number {
+  font-size: 35px;
+  color: white;
+  margin: -15px 5px;
+}
+
+/*----- Successful Transaction Container Style -----*/
+
+#success-style {
+  margin: 20px 15px;
+  height: 60px;
+}
+
+#success-transaction-text {
+  width: 18px;
+  font-size: 12px;
+  color: white;
+  margin: 15px -10px;
+  font-weight: bold;
+}
+
+#success-transaction-number {
+  font-size: 35px;
+  color: white;
+  margin: -15px -10px;
+}
+
+/*----- Pending Transaction Container Style -----*/
+
+#pending-style {
+  margin: 20px 15px;
+  height: 60px;
+}
+
+#pending-transaction-text {
+  width: 18px;
+  font-size: 12px;
+  color: white;
+  margin: 15px -10px;
+  font-weight: bold;
+}
+
+#pending-transaction-number {
+  font-size: 35px;
+  color: white;
+  margin: -15px -10px;
+}
+
+/*----- Unsuccessful Transaction Container Style -----*/
+
+#unsuccessful-style {
+  margin: 20px 15px;
+  height: 60px;
+}
+
+#unsuccessful-transaction-text {
+  width: 18px;
+  font-size: 12px;
+  color: white;
+  margin: 15px -10px;
+  font-weight: bold;
+}
+
+#unsuccessful-transaction-number {
+  font-size: 35px;
+  color: white;
+  margin: -15px -10px;
+}
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
   margin: 0;
