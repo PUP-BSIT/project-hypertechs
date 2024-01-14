@@ -39,7 +39,7 @@ async function getAdminInfo() {
 }
 
 function showAdminData(data) {
-  let adminName, adminNumber, balance, firstName, name;
+  let adminName, adminNumber, firstName, name;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   firstName.innerHTML = data.data.firstName;
