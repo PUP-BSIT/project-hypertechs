@@ -158,7 +158,7 @@ function get_bank_name($bank_code) {
         return $data[$bank_name_col];
 }
 
-function get_bank_url($bank_code) {
+function get_bank_api_url($bank_code) {
         $bank_table = "external_bank";
         $bank_url_col = "api_url";
         $bank_code_col = "bank_code";
