@@ -1,10 +1,9 @@
-import {
-        sendData,
-        clearFeedback,
-} from "./common.js";
+import { 
+        postData, saveRequest, destroyOTPSession 
+} from "./common_new.js";
+
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_LOGIN_FEEDBACK = "#login_feedback";
-const ID_ACCOUNT_NUMBER = "#account_number"; 
+const ID_EMAIL = "#account_email";
 const ID_PASSWORD = "#account_password";
 const ACCOUNT_URL = "./account/overview.html";
 
@@ -12,38 +11,68 @@ main();
 
 function main() {
         let btnLogin, loginFeedback;
-
         btnLogin = document.querySelector(ID_LOGIN_BUTTON);
-        btnLogin.addEventListener("click", loginCustomer);
+        btnLogin.addEventListener("click", validateLoginForm);
 }
 
-function loginCustomer() {
-        let accountNumber, password, loginFeedback, requestBody, url;
+async function validateLoginForm() {
+        let accountEmail, accountPassword;
+    
+        accountEmail = document.querySelector(ID_EMAIL).value;
+        accountPassword = document.querySelector(ID_PASSWORD).value;
+        
+        if (!accountEmail || !accountPassword) {
+            showAlert("Please fill all the required fields.");
+            return;
+        }
+        if(!isPasswordValid(accountPassword)) {
+            showAlert("Invalid password. Please enter a valid password.");
+            return;
+        }
+    
+        await destroyOTPSession();
+        loginCustomer();
+}
+    
+function showAlert(message) {
+        window.alert(message);
+}
 
-        loginFeedback = document.querySelector(ID_LOGIN_FEEDBACK);
-        loginFeedback.innerHTML = "Logging in...";
-        accountNumber = document.querySelector(ID_ACCOUNT_NUMBER).value;
+async function loginCustomer() {
+        let accountEmail, password, requestBody, url, data,
+                response, requestURL;
+
+        accountEmail = document.querySelector(ID_EMAIL).value;
         password = document.querySelector(ID_PASSWORD).value;
-        if (!accountNumber || !password) {
-                loginFeedback.innerHTML = "Please fill the blanks";
-                clearFeedback(loginFeedback);
+        requestBody = new FormData();
+        requestBody.append("email", accountEmail);
+        requestBody.append("password", password);
+        requestBody.append("redirect_url", ACCOUNT_URL);
+        console.log(accountEmail);
+        //url = "../backend/php/customer-login.php";
+        url = "../backend/php/customer-login-check.php";
+        data = await postData(url, requestBody);
+        if (!data.success) {
+                showAlert(data.errorMessage);
                 return;
         }
-        requestBody = new FormData();
-        requestBody.append('account_number', accountNumber);
-        requestBody.append('password', password);
-        url = "https://apexapp.tech/api/customer-login.php";
-        sendData(url, requestBody, showLoginFeedback);  
+        requestURL = "../backend/php/customer-login.php";
+        await saveRequest(requestURL, requestBody);
 }
 
-function showLoginFeedback(data) {
-        let loginFeedback;
+function isPasswordValid(password) {
+        // Check for at least one number
+        if (!/\d/.test(password)) return false;;
 
-        loginFeedback = document.querySelector(ID_LOGIN_FEEDBACK);
-        if (!data.success) {
-                loginFeedback.innerHTML = data.errorMessage;
-                clearFeedback(loginFeedback);
-                return;
-        }
-        window.location.href = ACCOUNT_URL;
+        // Check for at least one uppercase letter
+        if (!/[A-Z]/.test(password)) return false;
+
+        // Check for at least one lowercase letter
+        if (!/[a-z]/.test(password)) return false;
+
+        // Check for at least 8 characters
+        if (!password.length >= 8) return false;
+
+        // Return true if all conditions are met
+        return true;
 }

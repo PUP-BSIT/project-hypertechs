@@ -9,7 +9,6 @@
   --otp-size: 2.5vw;
 }
 
-
 :root[data-theme="light"] {
   --text: #0a0c10;
   --background: #e7edfb;
@@ -45,7 +44,7 @@ body {
 }
 
 /* otp page grid layout */
-#otp_grid_container {
+#welcome_grid_container {
   display: grid;
   grid-template-areas:
     "header image"
@@ -65,7 +64,7 @@ body {
   outline: 0px dashed red;
 }
 
-#otp_container {
+#welcome_container {
   grid-area: login;
   outline: 0px dashed green;
 }
@@ -136,34 +135,34 @@ body {
 
 /* back button styling */
 #back_container {
-  padding-top: 0.4%;
   padding-left: 3em;
 }
 
 #back_container i {
-  font-size: 20px;
+  font-size: 1.2vw;
+  margin-top: 0.05em;
   margin-right: 0.5em;
   color: var(--accent);
 }
 
 #back_container a {
-  font-size: 20px;
+  font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
-}
-
-#back_container a:hover {
-  animation: slideLeft 1s infinite;
   display: flex;
   align-items: center;
 }
 
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: slideLeft 1s infinite;
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
 }
 
-@keyframes slideLeft {
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
   0% {
     transform: translateX(0);
   }
@@ -176,79 +175,47 @@ body {
 }
 
 /* otp text styling */
-#otp_container {
+#welcome_container {
   padding-left: 3em;
 }
 
-#otp_text {
+#welcome_text {
   max-width: 90%;
   line-height: 1.5;
   text-align: justify;
 }
 
-#otp_container i {
+#welcome_text i {
   font-size: 0.9em;
   margin-right: 2.5%;
   color: var(--primary);
 }
 
-#otp_container h1 {
+#welcome_text h1 {
   text-align: left;
   padding-top: 0.25em;
   color: var(--text);
   font-size: var(--header-size);
 }
 
-#otp_container p {
+#welcome_text span {
+  color: var(--primary);
+}
+
+#welcome_text p {
   padding-top: 0.75em;
   color: var(--text);
   font-size: var(--text-size);
 }
 
-/* otp form styling */
-.otp-form-container {
-  margin-top: 3%;
-  max-width: 90%;
-}
-
-/* otp input fields styling */
-.otp-fields {
-  display: flex;
-  justify-content: space-between;
-}
-
-.otp-input {
-  margin-bottom: 2em;
-  width: 10%;
-  height: 2.5em;
-  border: none;
-  outline: none;
-  background: transparent;
-  text-align: center;
-  font-weight: 700;
-  font-size: var(--otp-size);
-  color: var(--text);
-  caret-color: var(--text);
-  border-bottom: 2px solid var(--text);
-  transition: border-color 0.3s ease-in-out;
-}
-
-.otp-fields:focus-within label,
-.otp-fields input:focus {
+#display_user_welcome {
   color: var(--primary);
 }
 
-.otp-fields input:focus {
-  border-bottom: 2px solid var(--primary);
-}
-
-/* otp verify button styling */
-.verify-section {
-  text-align: center;
-}
-
-.verify-button {
-  width: 100%;
+/* button styling */
+#welcome_text button {
+  margin-top: 1.5em;
+  width: 30%;
   height: 2.5em;
   border: none;
   cursor: pointer;
@@ -257,49 +224,16 @@ body {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
-.verify-button:hover {
+#welcome_text button:hover {
   transform: scale(1);
   box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
 }
 
-.verify-button:active {
+#welcome_text button:active {
   transform: scale(0.95);
-}
-
-/* resend code link styling */
-.resend-code {
-  margin-top: 2%;
-  text-align: center;
-}
-
-.resend-code a {
-  color: var(--primary);
-  margin-top: 1.5%;
-  text-decoration: none;
-  position: relative;
-}
-
-.resend-code a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: var(--primary);
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.resend-code a:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
@@ -351,4 +285,113 @@ body {
 
 .fa-sun {
   color: #042c8b;
+}
+
+svg {
+  width: 80%;
+}
+
+svg#freepik_stories-holding-the-arrow:not(.animated) .animable {
+  opacity: 0;
+}
+
+svg#freepik_stories-holding-the-arrow.animated
+  #freepik--background-simple--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated #freepik--Shadow--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated #freepik--Plant--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated
+  #freepik--speech-bubble-2--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated
+  #freepik--speech-bubble-1--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated
+  #freepik--character-1--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-holding-the-arrow.animated
+  #freepik--character-2--inject-255 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+
+@keyframes lightSpeedLeft {
+  from {
+    transform: translate3d(-50%, 0, 0) skewX(20deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(-10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animator-hidden {
+  display: none;
 }

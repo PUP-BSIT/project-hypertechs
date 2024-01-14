@@ -40,7 +40,7 @@ body {
   margin: 0em;
   padding: 0;
   height: 100vh;
-  overflow: hidden; 
+  overflow: hidden;
   box-sizing: border-box;
   background-color: var(--background);
 }
@@ -139,29 +139,30 @@ body {
 }
 
 #back_container i {
-  font-size: 20px;
+  font-size: 1.2vw;
+  margin-top: 0.05em;
   margin-right: 0.5em;
   color: var(--accent);
 }
 
 #back_container a {
-  font-size: 20px;
+  font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
-}
-
-#back_container a:hover {
-  animation: slideLeft 1s infinite;
   display: flex;
   align-items: center;
 }
 
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: slideLeft 1s infinite;
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
 }
 
-@keyframes slideLeft {
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
   0% {
     transform: translateX(0);
   }
@@ -224,7 +225,6 @@ input {
 }
 
 input::placeholder {
-  letter-spacing: 0.25em;
   color: var(--text);
   opacity: 0.25;
 }
@@ -242,13 +242,29 @@ input::placeholder {
   position: relative;
 }
 
-.form-group #forgot_password {
-  margin-top: -2em;
-  text-align: right;
-  cursor: pointer;
-  color: var(--text);
-  font-size: var(--subtext-size);
+.password-container #account_password {
+  margin-bottom: 0.5em;
 }
+
+/* forgot password styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-group #forgot_password {
+  text-decoration: none;
+  font-size: 1.2vw;
+  color: var(--text);
+  align-self: flex-end;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-group #forgot_password:hover {
+  color: var(--primary);
+}
+
 
 .login-button {
   margin-top: 1.5em;
@@ -260,9 +276,7 @@ input::placeholder {
   border-radius: 10px;
   color: #e1e9fa;
   background-color: var(--primary);
-  transition: background-color 0.3s, 
-  box-shadow 0.2s ease-in-out, 
-  transform 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
 }
 
 .login-button:hover {
@@ -275,7 +289,7 @@ input::placeholder {
 }
 
 .login-button i {
-  margin-left: 0.5em;
+  margin-left: 0.75em;
 }
 
 /* signup link styling */
@@ -283,8 +297,8 @@ input::placeholder {
   margin-top: 0.25em;
   text-align: center;
   position: relative;
+  font-size: 1vw;
 }
-
 
 .signup-link a {
   color: var(--primary);
@@ -360,4 +374,79 @@ input::placeholder {
 
 .fa-sun {
   color: #042c8b;
+}
+
+svg {
+  width: 95%;
+}
+
+svg#freepik_stories-atm-machine:not(.animated) .animable {
+  opacity: 0;
+}
+svg#freepik_stories-atm-machine.animated #freepik--Shadow--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-atm-machine.animated #freepik--Plant--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-atm-machine.animated #freepik--Machine--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-atm-machine.animated #freepik--trash-bin--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-atm-machine.animated #freepik--speech-bubble--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-atm-machine.animated #freepik--Character--inject-87 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animator-hidden {
+  display: none;
 }

@@ -1,25 +1,16 @@
 <?php
 require "./common.php";
-
-header('Access-Control-Allow-Origin: *');
-
-connect_database();
-$account_number = $_POST["account_number"];
-$password = $_POST["password"];
-$response['success'] = false;
-if (!does_account_exist($account_number)) {
-        $response['errorMessage'] = "Account not found";
-        echo json_encode($response);
-        exit;
-}
-if (!does_password_match($account_number, $password)) {
-        $response['errorMessage'] = "Password is incorrect";
-        echo json_encode($response);
-        exit;
-}
 session_start();
+connect_database();
+$email = $_POST["email"];
+$password = $_POST["password"];
+$redirect_url = $_POST['redirect_url'];
+$account_number = get_account_number($email);
 $_SESSION['account_number'] = $account_number;
+http_response_code(302);
+$response['url'] = $redirect_url;
 $response['success'] = true;
-echo json_encode($response);
 close_database();
+echo json_encode($response);
+exit;
 ?>
