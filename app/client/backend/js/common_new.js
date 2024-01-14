@@ -2,7 +2,7 @@ export const BANK_CODE = "goodgghh7788";
 const HOME_URL = "../home.html";
 
 export async function postData(url, requestBody) {
-        let statusCode, response, data, redirected;
+        let statusCode, response, data, redirected, redirectURL;
 
         response = await fetch(url, {
                 method: 'POST',
@@ -11,7 +11,8 @@ export async function postData(url, requestBody) {
         redirected = await response.redirected;
         if (redirected) {
                 setTimeout(async () => {
-                        window.location.href = await response.url;
+                        redirectURL = await response.url;
+                        window.location.replace(redirectURL); 
                 }, 4000);
                 return;
         }

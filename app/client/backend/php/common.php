@@ -123,6 +123,30 @@ function get_account_number($email) {
         return $data[$account_col];
 }
 
+function get_account_number_via_phone($phone_number) {
+        $account_col = "account_number";
+        $table = "account";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $account_col FROM $table WHERE
+                 $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$account_col];
+}
+
+function get_password($account_number) {
+        $account_col = "account_number";
+        $table = "account";
+        $password_col = "password";
+        $sql_stmt = "SELECT $password_col FROM $table WHERE
+                 $account_col='$account_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$password_col];
+}
+
 function set_balance($account_number, $new_balance) {
         $account_table = "account";
         $account_col = "account_number";
@@ -274,4 +298,14 @@ function does_phone_number_exist($phone_number) {
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
+
+function change_pass_via_phone($phone_number, $password) {
+        $account_table = "account";
+        $password_col = "password";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "UPDATE $account_table SET $password_col='$password' WHERE
+                $phone_number_col='$phone_number'";
+        return modify_database($sql_stmt);
+}
+
 ?>
