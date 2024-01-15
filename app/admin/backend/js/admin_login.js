@@ -1,7 +1,7 @@
 import { postData, saveRequest, destroyOTPSession } from "./common_new.js";
 
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_ADMIN_NUMBER = "#admin_number";
+const ID_EMAIL = "#admin_email";
 const ID_PASSWORD = "#admin_password";
 const ADMIN_URL = "./admin_account/overview.html";
 
@@ -14,24 +14,15 @@ function main() {
 }
 
 async function validateLoginForm() {
-  let adminNumber, adminPassword;
+  let adminEmail, adminPassword;
 
-  adminNumber = document.getElementById("admin_number").value;
-  adminPassword = document.getElementById("admin_password").value;
+  adminEmail = document.querySelector(ID_EMAIL).value;
+  adminPassword = document.querySelector(ID_PASSWORD).value;
 
-  if (!adminNumber || !adminPassword) {
+  if (!adminEmail || !adminPassword) {
     showAlert("Please fill all the required fields.");
     return;
   }
-
-  if (!/^1899\d{8}$/.test(adminNumber)) {
-    showAlert(
-      "Invalid admin number. Please enter your 12-digit valid" +
-        " Apex admin number."
-    );
-    return;
-  }
-
   if (!isPasswordValid(adminPassword)) {
     showAlert("Invalid password. Please enter a valid password.");
     return;
@@ -46,16 +37,16 @@ function showAlert(message) {
 }
 
 async function loginAdmin() {
-  let adminNumber, password, requestBody, url, data, response, requestURL;
+  let adminEmail, password, requestBody, url, data, response, requestURL;
 
-  adminNumber = document.querySelector(ID_ADMIN_NUMBER).value;
+  adminEmail = document.querySelector(ID_EMAIL).value;
   password = document.querySelector(ID_PASSWORD).value;
   requestBody = new FormData();
-  requestBody.append("admin_number", adminNumber);
+  requestBody.append("email", adminEmail);
   requestBody.append("password", password);
   requestBody.append("redirect_url", ADMIN_URL);
-  console.log(adminNumber);
-
+  console.log(adminEmail);
+  //url = "../backend/php/admin-login.php";
   url = "../backend/php/admin-login-check.php";
   data = await postData(url, requestBody);
   if (!data.success) {

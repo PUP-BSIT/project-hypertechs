@@ -1,129 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../src/css/admin_overview.css"
+    />
+    <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Apex Bank – Admin Overview</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css">
-    <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Apex Bank – Account Overview</title>
-</head>
-
-<body>
+  <body>
     <script src="../../src/scripts/preload.js"></script>
     <div class="overview-page-container">
-        <!--sidebar layout-->
-        <div class="apex-user-sidebar">
-            <!--apex-logo-layout-->
-            <div class="apex-logo-container">
-                <img src="../../assets/img/apex_brand.png" alt="Logo">
-                <h1>Apex Bank</h1>
-            </div>
-            <!--apex-tab-layout-->
-            <div class="apex-tab-container">
-                <div class="apex-tab-wrapper">
-                    <a href="./overview.html" class="tab-section" id="overview"><span
-                            class="material-icons">space_dashboard</span>Overview</a>
-                    <a href="./transfer.html" class="tab-section" id="transfer"><span
-                            class="material-icons">payments</span>Transfer</a>
-                    <a href="./transactions.html" class="tab-section" id="transactions"><span
-                            class="material-icons">receipt_long</span>Transactions</a>
-                </div>
-            </div>
-            <!--apex-config-layout-->
-            <div class="apex-config-container">
-                <div class="apex-tab-wrapper">
-                    <a href="#" class="tab-section" id="theme"><span class="material-icons">contrast</span>Theme
-                        <!--dark/light mode toggle-->
-                        <div id="toggle_theme">
-                            <input type="checkbox" class="checkbox" id="theme_mode" />
-                            <label class="label" for="theme_mode" onclick="toggleTheme()">
-                                <i class="fas fa-moon"></i>
-                                <i class="fas fa-sun"></i>
-                                <div class="ball"></div>
-                            </label>
-                        </div>
-                    </a>
-                    <a href="#" class="tab-section" id="settings"><span
-                            class="material-icons">settings</span>Settings</a>
-                    <a class="tab-section" id="logout"><span class="material-icons">logout</span>Log Out</a>
-                </div>
-            </div>
+      <!--sidebar layout-->
+      <div class="apex-user-sidebar">
+        <!--apex-logo-layout-->
+        <div class="apex-logo-container">
+          <img src="../../assets/img/apex_brand.png" alt="Logo" />
+          <h1>Apex Bank</h1>
         </div>
-
-        <!-- Main section content goes here -->
-        <div class="apex-overview-section">
-            <!-- Heading-->
-            <div id="overview_heading">
-                <h1> Hello, <span id="apex_user_name">Apex Admin!</span></h1>
-            </div>
-
-            <!-- Summary and Balance-->
-            <div id="overview_container_one">
-                <div id="overview_summary">
-                    <h2>
-                        <span class="material-icons">person</span>
-                        Account Summary
-                    </h2>
-                    <!--Account Summary Info-->
-                    <div id="summary_content">
-                        <!--Account Image-->
-                        <div id="admin_image">
-                            <img src="../../assets/img/acc_profile.png">
-                        </div>
-
-                        <!--Column Container for each info-->
-                        <div id="summary_column_container">
-                            <!--Account Holder Name-->
-                            <div id="account_holder_title">
-                                <h3>Admin Name</h3>
-                            </div>
-                            <div id="admin_name">
-                                <span id="display_account_holder">Emmanuel Martinez</span>
-                            </div>
-                        </div>
-
-                        <!--Column Container for each info-->
-                        <div id="summary_column_container">
-                            <!--Account Number-->
-                            <div id="account_number_title">
-                                <h3>Admin Number</h3>
-                            </div>
-                            <div id="admin_number">
-                                <span id="display_account_number">1234567890</span>
-                            </div>
-                        </div>
-
-                        <!--Column Container for each info-->
-                        <div id="summary_column_container">
-                            <!--Account Status-->
-                            <div id="account_access_title">
-                                <h3>Last Verified Access</h3>
-                            </div>
-                            <div id="account_last_access">
-                                <span id="display_access_date">01-01-2024</span>
-                                <span id="display_access_time">12:59 PM</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
-            </div>
-
-            
-
+        <!--apex-tab-layout-->
+        <div class="apex-tab-container">
+          <div class="apex-tab-wrapper">
+            <a href="./admin_overview.html" class="tab-section" id="overview"
+              ><span class="material-icons">space_dashboard</span>Overview</a
+            >
+            <a
+              href="./admin_transaction.html"
+              class="tab-section"
+              id="transactions"
+              ><span class="material-icons">account_balance</span
+              >Transactions</a
+            >
+          </div>
         </div>
-    </div>
+        <!--apex-config-layout-->
+        <div class="apex-config-container">
+          <div class="apex-tab-wrapper">
+            <a href="#" class="tab-section" id="theme"
+              ><span class="material-icons">contrast</span>Theme
+              <!--dark/light mode toggle-->
+              <div id="toggle_theme">
+                <input type="checkbox" class="checkbox" id="theme_mode" />
+                <label class="label" for="theme_mode" onclick="toggleTheme()">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                  <div class="ball"></div>
+                </label>
+              </div>
+            </a>
+            <a href="#" class="tab-section" id="settings"
+              ><span class="material-icons">settings</span>Settings</a
+            >
+            <a href="#" class="tab-section" id="logout"
+              ><span class="material-icons">logout</span>Log Out</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main section goes here-->
+      <div class="overview-page-container">
+        <!-- Header greetings -->
+        <div id="overview-container">
+          <h1>Hello, <span id="admin_first_name">Apex User!</span></h1>
+          <span id ="bank-teller-id"
+            >Bank Teller ID: <span id ="admin_number">123456789</span></span
+          >
+          <!--Transaction Conatiners-->
+          <div class="transaction-container">
+            <div id="all-transaction">
+              <img
+                id="receipt-style"
+                src="../../assets/img/receipt_transaction.svg"
+                alt="receipt"
+              />
+              <!--All transaction container content-->
+              <div>
+                <p id="all-transaction-text">All Transactions</p>
+                <p id="all-transaction-number">1234</p>
+              </div>
+            </div>
+            <!-- Successful transaction container content -->
+            <div id="successful-transaction">
+              <img
+                id="success-style"
+                src="../../assets/img/check_success.svg"
+                alt="success"
+              />
+              <div>
+                <p id="success-transaction-text">Successful Transactions</p>
+                <p id="success-transaction-number">0613</p>
+              </div>
+            </div>
+            <!-- Pending transaction container content -->
+            <div id="pending-transaction">
+              <img
+                id="pending-style"
+                src="../../assets/img/pending.svg"
+                alt="pending"
+              />
+              <div>
+                <p id="pending-transaction-text">Pending Transactions</p>
+                <p id="pending-transaction-number">0807</p>
+              </div>
+            </div>
+            <!-- Unsuccessful transaction container content -->
+            <div id="unsuccessful-transaction">
+              <img
+                id="unsuccessful-style"
+                src="../../assets/img/unsuccessful.svg"
+                alt="unsuccess"
+              />
+              <div>
+                <p id="unsuccessful-transaction-text">
+                  Unsuccessful Transactions
+                </p>
+                <p id="unsuccessful-transaction-number">1103</p>
+              </div>
+            </div>
+          </div>
+          <div class="recent-transaction-style">
+            <p>Recent Transactions</p>
+            <!-- Recent Transaction Table -->
+            <div id="table-margin">
+              <table class="table-style">
+                <tr>
+                  <td>Date</td>
+                  <td>Account Name</td>
+                  <td>Type</td>
+                  <td>Amount</td>
+                </tr>
+                <tr>
+                  <td>01-21-2023</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Pending</td>
+                  <td>50,000</td>
+                </tr>
+                <tr>
+                  <td>01-21-2023</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Pending</td>
+                  <td>50,000</td>
+                </tr>
+                <tr>
+                  <td>01-21-2023</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Pending</td>
+                  <td>50,000</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="../../src/scripts/theme.js"></script>
-    <script src="../../src/scripts/account/overview.js"></script>
-    <script src="../../backend/js/common.js" type="module"></script>
-    <script src="../../backend/js/admin_info.js" type="module"></script>
+    <script src="../../backend/js/admin_account_info.js" type="module"></script>
     <script src="../../backend/js/admin_logout.js" type="module"></script>
 </body>
-
+  </body>
 </html>
