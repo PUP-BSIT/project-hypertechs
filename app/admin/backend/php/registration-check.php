@@ -15,7 +15,7 @@ if(does_phone_number_exist($_POST['phone_number'])) {
         echo json_encode($response);
         exit;
 }
-$_SESSION['otp_phone'] = $_POST['phone_number'];
+$_SESSION['phone_number'] = $_POST['phone_number'];
 $response['success'] = true;
 close_database();
 echo json_encode($response);

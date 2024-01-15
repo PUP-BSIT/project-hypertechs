@@ -62,9 +62,8 @@ if (!modify_database($sql)) {
 }
 $_SESSION['admin_id'] = $admin_id;
 close_database();
-$redirect_url = "/app/admin/pages/welcome.html";
 http_response_code(302);
-$response['location'] = $redirect_url;
+$response['url'] = "./welcome.html";
+$response['success'] = true;
 echo json_encode($response);
-exit;
 ?>
