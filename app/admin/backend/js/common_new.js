@@ -1,7 +1,7 @@
 const HOME_URL = "../home.html";
 
 export async function postData(url, requestBody) {
-  let statusCode, response, data;
+  let statusCode, response, data, redirected, redirectURL;
 
   response = await fetch(url, {
     method: "POST",
@@ -9,28 +9,26 @@ export async function postData(url, requestBody) {
   });
   statusCode = await response.status;
   data = await response.json();
-  console.log(data);
   if (statusCode === 302) {
-    setTimeout(() => {
-      window.location.href = data.url;
-    }, 4000);
+    redirectURL = data.location;
+    window.location.href = redirectURL;
     return;
   }
-  data.statusCode = statusCode;
   return data;
 }
 
 export async function getData(url) {
-  let statusCode, response, data;
+  let statusCode, response, data, redirected;
 
   response = await fetch(url);
   statusCode = await response.status;
   data = await response.json();
   if (statusCode === 302) {
-    window.location.href = data.url;
+    setTimeout(async () => {
+      window.location.href = data.location;
+    }, 4000);
     return;
   }
-  data.statusCode = statusCode;
   return data;
 }
 
