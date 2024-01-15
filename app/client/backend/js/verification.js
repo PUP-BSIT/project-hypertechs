@@ -161,6 +161,7 @@ async function checkOTPInput() {
                 alert("You have entered an incorrect OTP. Please try again.");
                 return;
         }
+        feedback.innerHTML = "Please wait...";
         setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");
