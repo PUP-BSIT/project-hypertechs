@@ -7,7 +7,7 @@ $params_complete = $_POST['redirect_url'] !== '' &&
         $_POST['recipient_account_no'] !== '';
 if (!$params_complete) {
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" .
+        $response['location'] = "http://localhost/app/client/pages/" .
                 "account/fund_transfer_result.php?error_message=There is some missing parameters";
 
         echo json_encode($response);
@@ -20,7 +20,7 @@ $recipient = $_POST['recipient_account_no'];
 if (!does_account_exist($source)) {
         close_database();
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" .
+        $response['location'] = "http://localhost/app/client/pages/" .
                 "account/fund_transfer_result.php?error_message=Account not found";
 
         echo json_encode($response);
@@ -30,7 +30,7 @@ $phone_number = get_phone_number($source);
 if (!$phone_number) {
         close_database();
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" . 
+        $response['location'] = "http://localhost/app/client/pages/" . 
                 "account/fund_transfer_result.php?error_message=Internal server error";
         echo json_encode($response);
         exit;
@@ -42,14 +42,14 @@ $request_body = array(
         'recipient_account_no' => $recipient
 );
 $query = array(
-        'request_url' => "https://apexapp.tech/app/client/backend/php/" .
+        'request_url' => "http://localhost/app/client/backend/php/" .
                 "fund-transfer.php",
         'request_body' => json_encode($request_body),
         'phone_number' => $phone_number
 );
 close_database();
 http_response_code(302);
-$response['location'] = "https://apexapp.tech/app/client/backend/api/" .
+$response['location'] = "http://localhost/app/client/backend/api/" .
         "request.php?" . http_build_query($query); 
 echo json_encode($response);
 ?>
