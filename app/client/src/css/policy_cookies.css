@@ -48,18 +48,18 @@ a:hover {
     text-decoration: none; /* Remove underline on hover */
 }
 /* back button styling */
-#back_container {
+#back_button {
     padding-left: 3em;
   }
   
-  #back_container i {
+  #back_button i {
     font-size: 1.2vw;
     margin-top: 0.05em;
     margin-right: 0.5em;
     color: var(--accent);
   }
   
-  #back_container a {
+  #back_button a {
     font-size: 1.4vw;
     color: var(--accent);
     text-decoration: none;
@@ -67,11 +67,11 @@ a:hover {
     align-items: center;
   }
   
-  #back_container a:hover {
+  #back_button a:hover {
     animation: backSlideLeft 1s infinite;
   }
   
-  #back_container a:hover i,
-  #back_container a:hover span {
+  #back_button a:hover i,
+  #back_button a:hover span {
     animation: backSlideLeft 1s infinite;
   }
