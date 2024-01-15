@@ -1,5 +1,5 @@
 import { 
-        getData, postData, sendRequest, destroyOTPSession, clearFeedback
+        getData, postData, sendRequest, destroyOTPSession
 } from "./common_new.js";
 
 const JS_SECOND = 1000;
@@ -14,7 +14,6 @@ const ID_OTP_6 = "#otp6";
 const ID_BTN_SUBMIT = "#button_submit";
 const ID_BTN_START = "#btn_start";
 const ID_BTN_RENEW = "#btn_renew";
-const ID_FEEDBACK = "#feedback_test";
 const ID_TIMER_MINUTE = "#timer_minute";
 const ID_TIMER_SECOND = "#timer_second";
 const ID_EXPIRED = "#expired";
@@ -93,7 +92,7 @@ async function resendCode() {
 }
 
 async function checkSession() {
-        let url, startButton, otpTest, expired, feedback, data;
+        let url, startButton, otpTest, expired, data;
 
         console.log("checkSession");
         url = "../backend/php/otp-session.php";
@@ -112,36 +111,29 @@ async function checkSession() {
 }
 
 function startVerify() {
-        let feedback, btnStart;
+        let btnStart;
 
         console.log("start");
         showText("OTP_GET");
-        feedback = document.querySelector(ID_LOADING_GET);
-        feedback.hidden = true;
 }
 
 function renewOTP() {
-        let expired, btnStart, feedback;
+        let expired, btnStart;
 
         console.log("renewOTP");
         showText("OTP_EXPIRED");
-        feedback = document.querySelector(ID_LOADING_EXPIRED);
-        feedback.hidden = true;
         btnStart = document.querySelector(ID_BTN_RENEW);
         btnStart.addEventListener("click", (event) => {
                 event.stopPropagation();
                 console.log("Hello");
-                feedback.hidden = false;
                 getOTP();
         });
 }
 
 async function getOTP() {
-        let url, data, OTPInput, feedback;
+        let url, data, OTPInput;
 
         console.log("getOTP");
-        feedback = document.querySelector(ID_FEEDBACK);
-        feedback.innerHTML = "&nbsp";
         url = "../backend/php/otp.php";
         data = await getData(url);
         console.log(data);
@@ -152,16 +144,14 @@ async function getOTP() {
 }
 
 async function checkOTPInput() {
-        let feedback, OTPInput;
+        let OTPInput;
 
-        feedback = document.querySelector(ID_FEEDBACK);
         OTPInput = getOTPInput();
         console.log(OTPInput, OTP);
         if(OTPInput !== OTP) {
                 alert("You have entered an incorrect OTP. Please try again.");
                 return;
         }
-        feedback.innerHTML = "Please wait...";
         setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");
