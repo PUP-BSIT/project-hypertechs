@@ -11,7 +11,7 @@ body {
     --otp-size: 2.5vw;
 }
 
-.cookie-use {
+.container {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
@@ -48,18 +48,18 @@ a:hover {
     text-decoration: none; /* Remove underline on hover */
 }
 /* back button styling */
-#back_button {
+#back_container {
     padding-left: 3em;
   }
   
-  #back_button i {
+  #back_container i {
     font-size: 1.2vw;
     margin-top: 0.05em;
     margin-right: 0.5em;
     color: var(--accent);
   }
   
-  #back_button a {
+  #back_container a {
     font-size: 1.4vw;
     color: var(--accent);
     text-decoration: none;
@@ -67,11 +67,11 @@ a:hover {
     align-items: center;
   }
   
-  #back_button a:hover {
+  #back_container a:hover {
     animation: backSlideLeft 1s infinite;
   }
   
-  #back_button a:hover i,
-  #back_button a:hover span {
+  #back_container a:hover i,
+  #back_container a:hover span {
     animation: backSlideLeft 1s infinite;
   }
