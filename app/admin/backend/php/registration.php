@@ -29,7 +29,7 @@ $surname = $_POST['surname'];
 $first_name = $_POST['first_name'];
 $middle_name = $_POST['middle_name'];
 $birth = $_POST['birth_date'];
-$address = $_POST['address'];
+// $address = $_POST['address'];
 $email = $_POST['email'];
 $suffix = $_POST['suffix'];
 
@@ -41,7 +41,6 @@ $sql = "INSERT INTO $admin_table(
         $middle_name_col,
         $suffix_col,
         $phone_number_col, 
-        $address_col, 
         $email_col,
         $birth_col
 ) VALUES(
@@ -52,7 +51,6 @@ $sql = "INSERT INTO $admin_table(
         '$middle_name',
         '$suffix',
         '$phone_number', 
-        '$address',
         '$email',
         '$birth'
 )";
