@@ -157,32 +157,6 @@ async function getOTP() {
   OTPInput = getOTPInput();
 }
 
-function verify(data) {
-  let otp,
-    remainingTime,
-    otpTest,
-    expired,
-    OTPInput,
-    btnSubmit,
-    otpReveal,
-    time,
-    intervalID,
-    timeoutID,
-    redirectURL,
-    feedback;
-
-  console.log("verify");
-  console.log(data);
-  showText("OTP_VERIFY");
-  OTP = data.otp;
-  setTimer(data.time);
-  OTPInput = getOTPInput();
-  btnSubmit = document.querySelector(ID_BTN_SUBMIT);
-  btnSubmit.addEventListener("click", () => {
-    checkOTPInput();
-  });
-}
-
 async function checkOTPInput() {
   let feedback, OTPInput;
 
