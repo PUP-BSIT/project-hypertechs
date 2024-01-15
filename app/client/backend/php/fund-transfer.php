@@ -18,18 +18,18 @@ $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date("Y-m-d");
 $time = date("h:i");
 $balance = get_balance($source);
+$redirect_error = "/app/client/pages/account/fund_transfer_result.php";
 if (!$balance) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
-                "?error_message=Internal server error";
+        $response['location'] = $redirect_error .  "?error_message=Internal server error";
         echo json_encode($response);
         exit;
 }
 if ($amount > $balance) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error .
                 "?error_message=The set amount exceeds account balance";
         echo json_encode($response);
 
@@ -39,7 +39,7 @@ if ($amount > $balance) {
 if ($recipient == $source) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error .
                 "?error_message=The account number is not valid";
         echo json_encode($response);
         exit;
@@ -47,7 +47,7 @@ if ($recipient == $source) {
 if (!does_account_exist($recipient)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error .
                 "?error_message=The account does not exist";
         echo json_encode($response);
 
@@ -56,7 +56,7 @@ if (!does_account_exist($recipient)) {
 if (!deduct_balance($source, $amount)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error .
                 "?error_message=Internal server error";
         echo json_encode($response);
 
@@ -65,7 +65,7 @@ if (!deduct_balance($source, $amount)) {
 if (!add_balance($recipient, $amount)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error .
                 "?error_message=Internal server error";
         echo json_encode($response);
 
@@ -78,7 +78,7 @@ $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col,
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
 
