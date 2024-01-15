@@ -34,8 +34,7 @@ let OTP;
 main();
 
 async function main() {
-  let startButton,
-    otpTest,
+  let otpTest,
     expired,
     otp1,
     otp2,
@@ -43,7 +42,10 @@ async function main() {
     otp4,
     otp5,
     otp6,
-    codeResend;
+    codeResend,
+    btnGet,
+    btnVerify,
+    btnRetry;
 
   console.log("main");
   showText();
@@ -83,6 +85,18 @@ async function main() {
   });
   codeResend = document.querySelector(ID_CODE_RESEND);
   codeResend.addEventListener("click", resendCode);
+  btnGet = document.querySelector(ID_BTN_START);
+  btnGet.addEventListener("click", () => {
+    getOTP();
+  });
+  btnVerify = document.querySelector(ID_BTN_SUBMIT);
+  btnVerify.addEventListener("click", () => {
+    checkOTPInput();
+  });
+  btnRetry = document.querySelector(ID_BTN_RENEW);
+  btnRetry.addEventListener("click", () => {
+    getOTP();
+  });
 }
 
 async function resendCode() {
