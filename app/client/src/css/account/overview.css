@@ -24,7 +24,7 @@
   --balance-one: #0642bb;
   --balance-two: #009dff;
   --bank-card: #1e51b8;
-  --active: #007a00;
+  --active: #000897;
   --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
@@ -39,7 +39,7 @@
   --balance-one: #003399;
   --balance-two: #0095ff;
   --bank-card: #114fcd;
-  --active: #00c500;
+  --active: #2d73fe;
   --ball: #2d73fe;
 }
 
@@ -438,13 +438,13 @@ body {
 #addtl_card_row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.25em;
 }
 
 #addtl_card_info h3 {
   font-weight: 600;
   font-size: 1vw;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   display: flex;
   align-items: center;
 }
@@ -459,7 +459,7 @@ body {
   color: var(--active);
   padding: 0.1em 0.2em;
   border-radius: 5px;
-  background-color: rgba(1, 182, 1, 0.271);
+  background-color: rgba(0, 77, 244, 0.331);
 }
 
 #card_status_title h4,
