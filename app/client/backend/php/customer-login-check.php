@@ -7,8 +7,8 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $response['success'] = false;
 if (!does_email_exist($email)) {
-        $response['errorMessage'] = "Account not found. Please check your" .
-        "account number.";
+        $response['errorMessage'] = "Account not found. Please check your " .
+        "account email.";
         echo json_encode($response);
         exit;
 }
