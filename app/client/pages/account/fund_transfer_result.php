@@ -33,6 +33,7 @@
         </div>
 <?php
 // -----------------------------------------
+date_default_timezone_set('Asia/Manila');
 require "../../backend/php/common.php";
 connect_database();
 if (isset($_GET['error_message'])) {
