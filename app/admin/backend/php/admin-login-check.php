@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $response['success'] = false;
 if (!does_email_exist($email)) {
         $response['errorMessage'] = "Account not found. Please check your" .
-        "admin number.";
+        "admin email.";
         echo json_encode($response);
         exit;
 }
@@ -22,7 +22,8 @@ if (!$phone_number) {
         echo json_encode($response);
         exit;
 }
-$_SESSION['phone_number'] = $phone_number;
+//$_SESSION['phone_number'] = $phone_number;
+$_SESSION['otp_phone'] = $phone_number;
 $response['phone'] = $phone_number;
 $response['success'] = true;
 close_database();
