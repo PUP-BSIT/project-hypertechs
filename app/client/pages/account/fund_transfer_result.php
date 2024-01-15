@@ -36,13 +36,13 @@
 require "../../backend/php/common.php";
 connect_database();
 if (isset($_GET['error_message'])) {
-        $error_message = $_GET['error_message'];
+        $error_message = htmlspecialchars($_GET['error_message']);
         echo <<<EOT
         <div id="tranfer_message_text">
             <div id="transfer_failed"> <!--Get OTP-->
                 <h1><i class="fa-solid fa-circle-xmark"></i>Transfer Failed</h1>
-                <p>{htmlspecialchars($error_message)}</p>
-                <button id="btn_try" type="button">Try Again</button>
+                <p>$error_message</p>
+                <button id="btn_try" onclick="history.back()" type="button">Try Again</button>
                 <p id="loading_get" hidden><!--Please wait. --></p>
             </div>
         </div>
