@@ -270,11 +270,6 @@ body {
 
 /* feedback_test */
 
-#feedback_test {
-  height: auto;
-  font-size: 0.5vw;
-}
-
 #get_otp,
 #expired,
 #otp_correct {

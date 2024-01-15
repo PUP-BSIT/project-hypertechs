@@ -1,6 +1,7 @@
 import { 
-        getData, postData, sendRequest, destroyOTPSession, clearFeedback
-} from "./common_new.js";
+        getData, postData, sendRequest, destroyOTPSession, clearFeedback,
+        postDataOTP
+} from "/app/client/backend/js/common_new.js";
 
 const JS_SECOND = 1000;
 const MINUTE = 60;
@@ -96,7 +97,7 @@ async function checkSession() {
         let url, startButton, otpTest, expired, feedback, data;
 
         console.log("checkSession");
-        url = "../backend/php/otp-session.php";
+        url = "/app/client/backend/php/otp-session.php";
         data = await getData(url);
         console.log(data);
         if (!data.hasSession) {
@@ -142,7 +143,7 @@ async function getOTP() {
         console.log("getOTP");
         feedback = document.querySelector(ID_FEEDBACK);
         feedback.innerHTML = "&nbsp";
-        url = "../backend/php/otp.php";
+        url = "/app/client/backend/php/otp.php";
         data = await getData(url);
         console.log(data);
         showText("OTP_VERIFY");
@@ -166,7 +167,30 @@ async function checkOTPInput() {
         setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");
-        await sendRequest();
+        sendTransfer();
+}
+
+async function sendTransfer() {
+        let url, requestBody, source, recipient, amount, redirectURL, 
+                transferType, bankCode;
+        
+        requestBody = new FormData();
+        source = document.querySelector("#php_source").value; 
+        recipient = document.querySelector("#php_recipient").value; 
+        amount = document.querySelector("#php_amount").value; 
+        redirectURL = document.querySelector("#php_redirect_url").value; 
+        transferType = document.querySelector("#php_transfer_type").value;
+        url = "/app/client/backend/php/fund-transfer.php";
+        if (transferType === "EXTERNAL") {
+                url = "/app/client/backend/php/fund-transfer-external.php";
+                bankCode = document.querySelector("#php_bank_code").value;
+                requestBody.append('recipient_bank_code', bankCode);
+        }
+        requestBody.append('transaction_amount', amount);
+        requestBody.append('source_account_no', source);
+        requestBody.append('recipient_account_no', recipient);
+        requestBody.append('redirect_url', redirectURL);
+        await postDataOTP(url, requestBody);        
 }
 
 function getOTPInput() {

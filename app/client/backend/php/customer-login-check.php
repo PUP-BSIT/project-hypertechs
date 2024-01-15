@@ -17,7 +17,7 @@ if (!does_password_match($email, $password)) {
         echo json_encode($response);
         exit;
 }
-$phone_number = get_phone_number($email);
+$phone_number = get_phone_number_via_email($email);
 if (!$phone_number) {
         echo json_encode($response);
         exit;

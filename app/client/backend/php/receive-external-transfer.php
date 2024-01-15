@@ -10,39 +10,52 @@ $transaction_id_col = "transaction_id";
 $date_col = "date";
 $bank_code_col = "bank_code";
 
-$response['fundTransferSuccess'] = false;
+$parameters_complete = isset($_POST['source_bank_code']) && 
+        isset($_POST['transaction_amount']) && 
+        isset($_POST['source_account_no']) && 
+        isset($_POST['recipient_account_no']);
+if (!$parameters_complete) {
+        close_database();
+        http_response_code(403);
+        exit;
+}
 $bank_code = $_POST['source_bank_code'];
 $amount = (float)$_POST['transaction_amount'];
-$source = (int)$_POST['source_account_no'];
-$recipient = (int)$_POST['recipient_account_no'];
-$transaction_id = "TID".time().uniqid();
+$source = $_POST['source_account_no'];
+$recipient = $_POST['recipient_account_no'];
+$transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date("Y-m-d");
 if ($recipient == $source) {
+        close_database();
         http_response_code(403);
-        echo json_encode($response);
         exit;
 }
 if (!does_account_exist($recipient)) {
+        close_database();
         http_response_code(404);
-        echo json_encode($response);
         exit();                
 }
 if (!does_bank_exist($bank_code)) {
+        close_database();
         http_response_code(403);
-        echo json_encode($response);
         exit();
+}
+if (!add_balance($recipient, $amount)) {
+        close_database();
+        http_response_code(403);
+        exit;
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col, 
         $bank_code_col) VALUES ($amount, '$source', '$recipient', 
         '$transaction_id', '$date', '$bank_code')"; 
 if (!modify_database($sql_stmt)) {
+        close_database();
         http_response_code(404);
-        echo json_encode($response);
         exit(); 
 }
-$response['fundTransferSuccess'] = true;
-$response['transactionID'] = $transaction_id; 
-echo json_encode($response);
 close_database();
+$response['fund_transfer_success'] = true;
+$response['transaction_id'] = $transaction_id; 
+echo json_encode($response);
 ?>
