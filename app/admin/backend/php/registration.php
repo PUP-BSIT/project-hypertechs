@@ -4,7 +4,7 @@ session_start();
 connect_database();
 
 $admin_table = "admin";
-$admin_number_col = "admin_number";
+$admin_id_col = "admin_id";
 $password_col = "password";
 
 $contact_table = "admin_contact";
@@ -22,7 +22,7 @@ $birth_table = "admin_birthdate";
 $birth_col = "birth_date";
 
 $response['success'] = false;
-$admin_number = "1899" . random_int(12345678, 87654321);
+$admin_id = "1899" . random_int(12345678, 87654321);
 $phone_number = $_POST['phone_number'];
 $password = $_POST['password'];
 $surname = $_POST['surname'];
@@ -34,7 +34,7 @@ $email = $_POST['email'];
 $suffix = $_POST['suffix'];
 
 $sql = "INSERT INTO $admin_table(
-        $admin_number_col, 
+        $admin_id_col, 
         $password_col, 
         $surname_col, 
         $first_name_col, 
@@ -45,7 +45,7 @@ $sql = "INSERT INTO $admin_table(
         $email_col,
         $birth_col
 ) VALUES(
-        '$admin_number', 
+        '$admin_id', 
         '$password',
         '$surname', 
         '$first_name',
@@ -60,7 +60,7 @@ if (!modify_database($sql)) {
         echo json_encode($response);
         exit;
 }
-$_SESSION['admin_number'] = $admin_number;
+$_SESSION['admin_id'] = $admin_id;
 close_database();
 http_response_code(302);
 $response['url'] = "./welcome.html";

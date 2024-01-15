@@ -1,11 +1,11 @@
 <?php
 session_start();
 $response['success'] = false;
-if (!isset($_SESSION['admin_number'])) {
+if (!isset($_SESSION['admin_id'])) {
         echo json_encode($response);
         exit;
 }
-$response['adminNumber'] = $_SESSION['admin_number'];
+$response['adminId'] = $_SESSION['admin_id'];
 $response['success'] = true;
 echo json_encode($response);
 ?>

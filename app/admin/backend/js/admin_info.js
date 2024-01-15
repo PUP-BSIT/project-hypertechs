@@ -7,10 +7,10 @@ import {
   logFetch,
 } from "./common.js";
 
-let ADMIN_NUMBER;
+let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
 const ID_ADMIN_NAME = "#display_admin_holder";
-const ID_ADMIN_NUMBER = "#display_admin_number";
+const ID_ADMIN_NUMBER = "#display_admin_id";
 const ID_BALANCE = "#display_admin_balance";
 
 main();
@@ -21,24 +21,24 @@ function main() {
 }
 
 function startOperation() {
-  let adminName, adminNumber, balance, url;
+  let adminName, adminId, balance, url;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
-  adminNumber = document.querySelector(ID_ADMIN_NUMBER);
+  adminId = document.querySelector(ID_ADMIN_NUMBER);
   balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = "Loading...";
-  adminNumber.innerHTML = "Loading...";
+  adminId.innerHTML = "Loading...";
   balance.innerHTML = "Loading...";
   url = "../../backend/php/admin-session.php";
-  fetchData(url, setAdminNumber);
+  fetchData(url, setadminId);
 }
 
-function setAdminNumber(data) {
+function setadminId(data) {
   if (!data.success) {
     console.log(data);
     return;
   }
-  ADMIN_NUMBER = data.adminNumber;
+  ADMIN_NUMBER = data.adminId;
   getAdminInfo();
 }
 
@@ -46,7 +46,7 @@ function getAdminInfo() {
   let sessionadmin, url, requestBody;
 
   url = "../../backend/php/admin-info.php";
-  sessionadmin = ADMIN_NUMBER;
+  sessionadmin = ADMIN_ID;
   requestBody = new FormData();
   requestBody.append("admin_number", sessionadmin);
   sendData(url, requestBody, showAdminData);
@@ -54,12 +54,12 @@ function getAdminInfo() {
 function showAdminData(data) {
   console.log(data);
   if (!data.success) return;
-  let adminName, adminNumber, balance;
+  let adminName, adminId, balance;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
-  adminNumber = document.querySelector(ID_ADMIN_NUMBER);
+  adminId = document.querySelector(ID_ADMIN_NUMBER);
   balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = data.data.name;
-  adminNumber.innerHTML = data.data.adminNumber;
+  adminId.innerHTML = data.data.adminId;
   balance.innerHTML = strToNum(data.data.balance);
 }
