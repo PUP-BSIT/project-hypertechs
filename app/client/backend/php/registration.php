@@ -27,9 +27,9 @@ $balance = 500.00;
 $account_number = "1899" . random_int(12345678, 87654321);
 $phone_number = $_POST['phone_number'];
 $password = $_POST['password'];
-$surname = $_POST['surname'];
-$first_name = $_POST['first_name'];
-$middle_name = $_POST['middle_name'];
+$surname = trim($_POST['surname']);
+$first_name = trim($_POST['first_name']);
+$middle_name = trim($_POST['middle_name']);
 $birth = $_POST['birth_date'];
 $address = $_POST['address'];
 $email = $_POST['email'];
@@ -67,6 +67,8 @@ if (!modify_database($sql)) {
 $_SESSION['account_number'] = $account_number;
 close_database();
 $redirect_url = "/app/client/pages/welcome.html";
-header("Location: $redirect_url");
+http_response_code(302);
+$response['location'] = $redirect_url;
+echo json_encode($response);
 exit;
 ?>
