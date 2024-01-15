@@ -29,10 +29,11 @@ $bank_code = $_POST['recipient_bank_code'];
 $date = date("Y-m-d");
 $time = date("h:i");
 $balance = get_balance($source);
+$redirect_error = "/app/client/pages/account/fund_transfer_result.php";
 if (!$balance) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
 
@@ -41,7 +42,7 @@ if (!$balance) {
 if ($amount > $balance) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=The set amount exceeds account balance";
         echo json_encode($response);
 
@@ -51,18 +52,23 @@ if ($amount > $balance) {
 if ($recipient == $source) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=The account number is not valid";
         echo json_encode($response);
 
         exit;
 }
 //$bank_api_url = get_bank_api_url($bank_code);
-$bank_api_url = "http://localhost/app/client/backend/php/receive-external-transfer.php";
+/*
+$bank_api_url = "http://localhost/app/client/backend/php/" . 
+        "receive-external-transfer.php";
+*/
+$bank_api_url = "https://apexapp.tech/app/client/backend/php/" . 
+        "receive-external-transfer.php";
 if (!$bank_api_url) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
 
@@ -80,7 +86,7 @@ if (isset($response['status_code']) && $response['status_code'] != 200) {
         close_database();
         $error_message = get_error_message($response['status_code']);
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=$error_message";
         echo json_encode($response);
 
@@ -89,7 +95,7 @@ if (isset($response['status_code']) && $response['status_code'] != 200) {
 if (!deduct_balance($source, $amount)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
         exit;
@@ -102,7 +108,7 @@ $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col,
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);
-        $response['location'] = $redirect_url . 
+        $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
 
