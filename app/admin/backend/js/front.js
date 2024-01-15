@@ -1,7 +1,7 @@
 import { postData, getData, isLoggedIn } from "./common_new.js";
 
 const ID_BTN_LOGIN = "#button_login";
-const URL_ADMIN_ACCOUNT = "./app/admin/pages/admin_account/overview.html";
+const URL_ACCOUNT = "./app/admin/pages/admin_account/overview.html";
 const URL_LOGIN = "./app/admin/pages/login.html";
 
 main();
@@ -19,7 +19,7 @@ async function checkSession() {
   loggedIn = await isLoggedIn();
   console.log(loggedIn);
   if (loggedIn) {
-    window.location.href = URL_ADMIN_ACCOUNT;
+    window.location.href = URL_ACCOUNT;
     return;
   }
   window.location.href = URL_LOGIN;

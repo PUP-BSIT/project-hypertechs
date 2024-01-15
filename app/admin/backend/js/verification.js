@@ -34,7 +34,8 @@ let OTP;
 main();
 
 async function main() {
-  let otpTest,
+  let startButton,
+    otpTest,
     expired,
     otp1,
     otp2,
@@ -42,10 +43,7 @@ async function main() {
     otp4,
     otp5,
     otp6,
-    codeResend,
-    btnGet,
-    btnVerify,
-    btnRetry;
+    codeResend;
 
   console.log("main");
   showText();
@@ -85,28 +83,15 @@ async function main() {
   });
   codeResend = document.querySelector(ID_CODE_RESEND);
   codeResend.addEventListener("click", resendCode);
-  btnGet = document.querySelector(ID_BTN_START);
-  btnGet.addEventListener("click", () => {
-    getOTP();
-  });
-  btnVerify = document.querySelector(ID_BTN_SUBMIT);
-  btnVerify.addEventListener("click", () => {
-    checkOTPInput();
-  });
-  btnRetry = document.querySelector(ID_BTN_RENEW);
-  btnRetry.addEventListener("click", () => {
-    getOTP();
-  });
 }
 
 async function resendCode() {
-  setTimer(0);
   await destroyOTPSession("OTPOnly");
-  showText("OTP_GET");
+  window.location.href = "./verify.html";
 }
 
 async function checkSession() {
-  let url, startButton, otpTest, expired, data;
+  let url, startButton, otpTest, expired, feedback, data;
 
   console.log("checkSession");
   url = "../backend/php/otp-session.php";
@@ -119,42 +104,73 @@ async function checkSession() {
     startVerify();
     return;
   }
-  setTimer(0);
   await destroyOTPSession("OTPOnly");
-  showText("OTP_EXPIRED");
+  window.location.href = "./otp_expired.html";
 }
 
 function startVerify() {
-  let btnStart;
+  let feedback, btnStart;
 
   console.log("start");
   showText("OTP_GET");
+  feedback = document.querySelector(ID_LOADING_GET);
+  feedback.hidden = true;
+  btnStart = document.querySelector(ID_BTN_START);
+  btnStart.addEventListener("click", () => {
+    feedback.hidden = false;
+    getOTP();
+  });
 }
 
 function renewOTP() {
-  let expired, btnStart;
+  let expired, btnStart, feedback;
 
   console.log("renewOTP");
   showText("OTP_EXPIRED");
+  feedback = document.querySelector(ID_LOADING_EXPIRED);
+  feedback.hidden = true;
   btnStart = document.querySelector(ID_BTN_RENEW);
   btnStart.addEventListener("click", (event) => {
     event.stopPropagation();
     console.log("Hello");
+    feedback.hidden = false;
     getOTP();
   });
 }
 
 async function getOTP() {
-  let url, data, OTPInput;
-
   console.log("getOTP");
+  let url, data;
+
   url = "../backend/php/otp.php";
   data = await getData(url);
+  verify(data);
+}
+
+function verify(data) {
+  let otp,
+    remainingTime,
+    otpTest,
+    expired,
+    OTPInput,
+    btnSubmit,
+    otpReveal,
+    time,
+    intervalID,
+    timeoutID,
+    redirectURL,
+    feedback;
+
+  console.log("verify");
   console.log(data);
   showText("OTP_VERIFY");
   OTP = data.otp;
   setTimer(data.time);
   OTPInput = getOTPInput();
+  btnSubmit = document.querySelector(ID_BTN_SUBMIT);
+  btnSubmit.addEventListener("click", () => {
+    checkOTPInput();
+  });
 }
 
 async function checkOTPInput() {
