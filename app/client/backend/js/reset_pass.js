@@ -20,22 +20,41 @@ async function changePassword() {
 
         password = document.querySelector(ID_PASSWORD).value; 
         passwordConfirm = document.querySelector(ID_PASSWORD_CONFIRM).value; 
-        if (password !== passwordConfirm) {
-                alert("Passwords does not match");
+
+        // Validate password
+        if (!validatePassword(password)) {
+                alert("Password must be at least 8 characters, " +
+                        "containing at least one uppercase letter, " +
+                        "one lowercase letter, and a digit.");
                 return;
         }
+
+        if (password !== passwordConfirm) {
+                alert("Passwords do not match");
+                return;
+        }
+
         requestBody = new FormData();
         requestBody.append('password', password);
         url = "/app/client/backend/php/forgot-pass.php";
         response = await postData(url, requestBody);
+
         if (response.expired) {
                 alert(response.errorMessage);
                 window.location.href = "/index.html";
                 return;
         }
+
         if (!response.success) {
                 alert(response.errorMessage);
                 return;
         }
+
         window.location.href = "/app/client/pages/success_pass.html";        
+}
+
+function validatePassword(password) {
+        // Password must be at least 8 characters, containing at least one uppercase letter, one lowercase letter, and a digit.
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        return passwordRegex.test(password);
 }
