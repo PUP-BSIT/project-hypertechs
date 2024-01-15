@@ -268,7 +268,10 @@ body {
   transform: scale(0.95);
 }
 
-/* feedback_test */
+#otp_text #otp_countdown {
+  font-weight: 600;
+  color: var(--primary);
+}
 
 #get_otp,
 #expired,
