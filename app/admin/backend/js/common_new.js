@@ -114,7 +114,7 @@ export async function saveRequest(requestURL, requestBody) {
 async function startVerify() {
   let url, requestBody;
 
-  url = "/app/admin/backend/php/otp-session.php";
+  url = "../php/otp-session.php";
   requestBody = new FormData();
   requestBody.append("start", true);
   await postData(url, requestBody);
