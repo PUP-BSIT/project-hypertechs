@@ -67,6 +67,8 @@ if (!modify_database($sql)) {
 $_SESSION['account_number'] = $account_number;
 close_database();
 $redirect_url = "/app/client/pages/welcome.html";
-header("Location: $redirect_url");
+http_response_code(302);
+$response['location'] = $redirect_url;
+echo json_encode($response);
 exit;
 ?>
