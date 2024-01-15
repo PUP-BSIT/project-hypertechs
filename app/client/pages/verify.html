@@ -41,7 +41,7 @@
                 <p>We've sent you a secure, <strong>One-Time Password (OTP)</strong> to verify your
                     identity. Enter the six-digit code
                     below to complete the process.</p>
-                <p>Remaining time: <span id="timer_minute"></span>:<span id="timer_second"></span></p>
+                <p id="otp_countdown">Remaining time: <span id="timer_minute"></span>:<span id="timer_second"></span></p>
             </div>
             <div class="otp-form-container">
                 <form action="#" method="post" id="otpVerificationForm">
@@ -59,7 +59,6 @@
                         <input type="text" class="otp-input" id="otp6" name="otp6" maxlength="1" pattern="[0-9]"
                             required>
                     </div>
-                    <p id="feedback_test">&nbsp</p>
 
                     <div class="verify-section">
                         <button type="button" id="button_submit" class="verify-button">Submit</button>
