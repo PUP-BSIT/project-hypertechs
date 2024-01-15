@@ -47,6 +47,7 @@ function showAdminData(data) {
   adminNumber = document.querySelector(ID_ADMIN_NUMBER);
 
   //if (!adminName || !adminNumber || !balance) return;
+  if (!adminNumber) return;
   //adminName.innerHTML = data.data.name.toUpperCase();
   adminNumber.innerHTML = data.data.adminNumber;
 }
