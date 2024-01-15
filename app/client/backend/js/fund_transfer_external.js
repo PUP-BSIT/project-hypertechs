@@ -1,94 +1,60 @@
-import {
-        sendData,
-        fetchData,
-        showFeedback,
-        getExtBankUrl,
-        genErrorMessage,
-        checkCustomerSession,
-} from "./common.js";
+import { 
+        postData, getData, getExtBankUrl, genErrorMessage,
+        isLoggedIn, saveRequest 
+} from "./common_new.js";
 
 let ACCOUNT_NUMBER;
-const ID_SELECT_BANK = "#external-bank-code";
-const ID_TRANSFER_BUTTON = "#submit_external";
-const ID_AMOUNT = "#transfer-amount-external";
+const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number-external";
+const ID_AMOUNT = "#transfer-amount-external";
+const ID_BANK_CODE= "#external-bank-code";
+const ID_TRANSFER_BUTTON = "#submit_external";
 
 main();
 
-function main() {
-        checkCustomerSession(startOperation);
-}
+async function main() {
+        let url, loggedIn, btnTransfer, chkExternal, 
+                bankSelect, response;
 
-function startOperation() {
-        let btnTransfer, transferFeedback, chkExternal, bankSelect;
-
-        fetchData("../../backend/php/customer-session.php", setAccountNumber);
-}
-
-function setAccountNumber(data) {
-        let btnTransfer, url, requestBody;
-
-        ACCOUNT_NUMBER = data.accountNumber;
+        loggedIn = await isLoggedIn();
+        if (!loggedIn) {
+                window.location.href = URL_HOME;
+        }
+        url = "../../backend/php/customer-session.php"; 
+        response = await getData(url);
+        ACCOUNT_NUMBER = response.accountNumber;
         btnTransfer = document.querySelector(ID_TRANSFER_BUTTON);
         btnTransfer.addEventListener("click", requestTransfer);
 }
 
-function requestTransfer() {
-        let amount, recipient, source, url, requestBody, redirectURL,
-                message, bankCode, externalBankCode;
-
-        console.log("WOKRS");
+async function requestTransfer() {
+        let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
+                requestBody, redirectURL;
+        
+        redirectURL = "/app/client/pages/account/fund_transfer_result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
-        externalBankCode = document.querySelector(ID_SELECT_BANK).value;
-        if (recipient === source) return;
-        if (!recipient && !amount) return;
-        if (!externalBankCode) return;
-        url = "../../backend/php/bank-info.php";
+        bankCode = document.querySelector(ID_BANK_CODE).value;
+        console.log(source, recipient);
+        if (recipient === source) {
+                alert("Invalid account number.");
+                return;
+        }
+        if (!recipient || !amount || !bankCode) {
+                alert("Please fill out all the required fields.");
+                return;
+        }
+        if (!/^\d{1,6}$/.test(amount)) {
+                alert("Amount should be limited to six digits only.");
+                return;
+        }
         requestBody = new FormData();
-        requestBody.append('recipient_bank_code', externalBankCode);  
-        sendData(url, requestBody, requestExternal);
-
-        function requestExternal(data) {
-                if (!data.success) return;
-                url = data.externalBankURL;
-                bankCode = data.bankCode;
-                requestBody.delete('recipient_bank_code');  
-                requestBody.append('transaction_amount', amount);
-                requestBody.append('source_account_no', source);
-                requestBody.append('source_bank_code', bankCode);
-                requestBody.append('recipient_account_no', recipient);
-                console.log(requestBody, url);
-                return;
-                sendData(url, requestBody, requestInternal);
-        }
-
-        function requestInternal(data) {
-                if (!data.fundTransferSuccess) {
-                        showTransferFeedback(data);
-                        return;
-                }
-                redirectURL = "./external_result.php";
-                requestBody.append('redirect_url', redirectURL);
-                //requestBody.append('transaction_id', data.transactionID);
-                requestBody.append('recipient_bank_code', externalBankCode);
-                requestBody.delete('source_bank_code'); 
-                url = "../../backend/php/fund-transfer-external.php";
-                sendData(url, requestBody, showTransferFeedback); 
-        }
-}
-
-function showTransferFeedback(data) {
-        if (!data) return;
-        let message;
-        console.log(data);
-
-        if (!data.fundTransferSuccess) {
-                message = genErrorMessage(data.statusCode);
-                window.location.href = "./result.php?error_message=" +
-                        message;
-                return;
-        }
-        return;
+        url = "/app/client/backend/api/fund-transfer-external.php";
+        requestBody.append('redirect_url', redirectURL); 
+        requestBody.append('transaction_amount', amount);
+        requestBody.append('source_account_no', source);
+        requestBody.append('recipient_account_no', recipient);
+        requestBody.append('recipient_bank_code', bankCode);
+        await postData(url, requestBody);
 }

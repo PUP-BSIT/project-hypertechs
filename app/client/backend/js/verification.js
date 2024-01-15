@@ -1,5 +1,5 @@
 import { 
-        getData, postData, sendRequest, destroyOTPSession
+        getData, postData, sendRequest, destroyOTPSession, clearFeedback
 } from "./common_new.js";
 
 const JS_SECOND = 1000;
@@ -23,14 +23,16 @@ const ID_GET_OTP = "#get_otp";
 const ID_OTP_CORRECT = "#otp_correct";
 const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
+const ID_CODE_RESEND = "#resend_code";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
 
 main();
 
-function main() {
-        let startButton, otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6;
+async function main() {
+        let otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6,
+                codeResend, btnGet, btnVerify, btnRetry;
 
         console.log("main");
         showText();
@@ -68,6 +70,26 @@ function main() {
                         moveToNext(input);
                 });
         });
+        codeResend = document.querySelector(ID_CODE_RESEND);
+        codeResend.addEventListener("click", resendCode); 
+        btnGet = document.querySelector(ID_BTN_START);
+        btnGet.addEventListener("click", () => {
+                getOTP();
+        });
+        btnVerify = document.querySelector(ID_BTN_SUBMIT);
+        btnVerify.addEventListener("click", () => {
+                checkOTPInput(); 
+        }); 
+        btnRetry = document.querySelector(ID_BTN_RENEW);
+        btnRetry.addEventListener("click", () => {
+                getOTP(); 
+        }); 
+}
+
+async function resendCode() {
+        setTimer(0);
+        await destroyOTPSession("OTPOnly");
+        showText("OTP_GET");
 }
 
 async function checkSession() {
@@ -84,8 +106,9 @@ async function checkSession() {
                 startVerify();
                 return;
         }
+        setTimer(0);
         await destroyOTPSession("OTPOnly");
-        window.location.href="./otp_expired.html";
+        showText("OTP_EXPIRED");
 }
 
 function startVerify() {
@@ -95,11 +118,6 @@ function startVerify() {
         showText("OTP_GET");
         feedback = document.querySelector(ID_LOADING_GET);
         feedback.hidden = true;
-        btnStart = document.querySelector(ID_BTN_START);
-        btnStart.addEventListener("click", () => {
-                feedback.hidden = false;
-                getOTP();
-        });
 }
 
 function renewOTP() {
@@ -119,28 +137,18 @@ function renewOTP() {
 }
 
 async function getOTP() {
-        console.log("getOTP");
-        let url, data;
+        let url, data, OTPInput, feedback;
 
+        console.log("getOTP");
+        feedback = document.querySelector(ID_FEEDBACK);
+        feedback.innerHTML = "&nbsp";
         url = "../backend/php/otp.php";
         data = await getData(url);
-        verify(data);
-}
-
-function verify(data) {
-        let otp, remainingTime, otpTest, expired, OTPInput, btnSubmit, 
-                otpReveal, time, intervalID, timeoutID, redirectURL, feedback;
-
-        console.log("verify");
         console.log(data);
         showText("OTP_VERIFY");
         OTP = data.otp;
         setTimer(data.time);
         OTPInput = getOTPInput();
-        btnSubmit = document.querySelector(ID_BTN_SUBMIT);
-        btnSubmit.addEventListener("click", () => {
-                checkOTPInput(); 
-        }); 
 }
 
 async function checkOTPInput() {
@@ -151,6 +159,7 @@ async function checkOTPInput() {
         console.log(OTPInput, OTP);
         if(OTPInput !== OTP) {
                 feedback.innerHTML = "OTP is incorrect";
+                clearFeedback(feedback);
                 return;
         }
         feedback.innerHTML = "Please wait.";

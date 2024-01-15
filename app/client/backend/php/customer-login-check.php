@@ -3,26 +3,26 @@ require "./common.php";
 
 session_start();
 connect_database();
-$account_number = $_POST["account_number"];
+$email = $_POST["email"];
 $password = $_POST["password"];
 $response['success'] = false;
-if (!does_account_exist($account_number)) {
+if (!does_email_exist($email)) {
         $response['errorMessage'] = "Account not found. Please check your" .
         "account number.";
         echo json_encode($response);
         exit;
 }
-if (!does_password_match($account_number, $password)) {
+if (!does_password_match($email, $password)) {
         $response['errorMessage'] = "You entered an incorrect password.";
         echo json_encode($response);
         exit;
 }
-$phone_number = get_phone_number($account_number);
+$phone_number = get_phone_number_via_email($email);
 if (!$phone_number) {
         echo json_encode($response);
         exit;
 }
-$_SESSION['phone_number'] = $phone_number;
+$_SESSION['otp_phone'] = $phone_number;
 $response['phone'] = $phone_number;
 $response['success'] = true;
 close_database();

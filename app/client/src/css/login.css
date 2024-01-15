@@ -242,13 +242,29 @@ input::placeholder {
   position: relative;
 }
 
-.form-group #forgot_password {
-  margin-top: -2em;
-  text-align: right;
-  cursor: pointer;
-  color: var(--text);
-  font-size: var(--subtext-size);
+.password-container #account_password {
+  margin-bottom: 0.5em;
 }
+
+/* forgot password styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-group #forgot_password {
+  text-decoration: none;
+  font-size: 1.2vw;
+  color: var(--text);
+  align-self: flex-end;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-group #forgot_password:hover {
+  color: var(--primary);
+}
+
 
 .login-button {
   margin-top: 1.5em;
