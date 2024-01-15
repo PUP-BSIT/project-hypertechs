@@ -92,8 +92,9 @@
                             <label for="transfer-amount">
                                 <span class="material-icons">payments</span>
                                 Transfer Amount:</label>
-                            <input type="number" id="transfer-amount" name="transfer-amount" required pattern="\d{1,6}"
-                                placeholder="Enter amount (up to six digits only)">
+                            <input type="text" id="transfer-amount" name="transfer-amount" required pattern="^\d{1,6}(\.\d{2})?$" 
+                                placeholder="Enter amount (up to six whole digits only)">
+                         
                         </div>
 
                         <div class="form-group">
@@ -140,7 +141,8 @@
                                 <span class="material-icons">payment</span>
                                 Transfer Amount:</label>
                             <input type="number" id="transfer-amount-external" name="transfer-amount" required
-                                placeholder="Enter amount (up to six digits only)">
+                                pattern="^\d{1,6}(\.\d{2})?$"
+                                placeholder="Enter amount (up to six whole digits only)">
                         </div>
 
                         <div class="transfer-buttons">
