@@ -43,8 +43,8 @@ function close_database() {
 
 function get_transaction_data($table, $transaction_id) {
         $transaction_id_col = "transaction_id";
-        $sql_stmt = "SELECT * FROM $table WHERE
-                $transaction_id_col='$transaction_id';";
+        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%H:%i %p') AS timef FROM 
+                $table WHERE $transaction_id_col='$transaction_id';";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -88,15 +88,20 @@ function get_name($account_number) {
         if (!$data) return false;
         $name = "";
         if ($data[$middle_name_col] === NULL && $data[$suffix_col] === NULL)
-                return $data[$first_name_col] . " " . $data[$surname_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$surname_col];
         if ($data[$middle_name_col] === NULL && $data[$suffix_col] !== NULL)
-                return $data[$first_name_col] . " " . $data[$surname_col] .
-                        " " . $data[$suffix_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$surname_col] . " " . 
+                        $data[$suffix_col];
         if ($data[$middle_name_col] !== NULL && $data[$suffix_col] === NULL)
-                return $data[$first_name_col] . " " . $data[$middle_name_col]
-                       . " " . $data[$surname_col];
-        return $data[$first_name_col] . " " . $data[$middle_name_col]
-               . " " . $data[$surname_col] . " " . $data[$suffix_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$middle_name_col] . " " . 
+                        $data[$surname_col];
+        return $data[$first_name_col] . " " . 
+                $data[$middle_name_col] . " " . 
+                $data[$surname_col] . " " . 
+                $data[$suffix_col];
 }
 
 function get_phone_number_via_email($email) {
@@ -318,6 +323,10 @@ function change_pass_via_phone($phone_number, $password) {
         $sql_stmt = "UPDATE $account_table SET $password_col='$password' WHERE
                 $phone_number_col='$phone_number'";
         return modify_database($sql_stmt);
+}
+
+function clear_spaces($string) {
+        return str_replace(' ', '', $string);
 }
 
 ?>

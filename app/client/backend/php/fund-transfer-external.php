@@ -8,6 +8,7 @@ $source_col = "source";
 $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
+$time_col = "time";
 
 $parameters_complete = isset($_POST['redirect_url']) && 
         isset($_POST['transaction_amount']) && 
@@ -25,7 +26,8 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $bank_code = $_POST['recipient_bank_code'];
-$date = date ("Y-m-d");
+$date = date("Y-m-d");
+$time = date("h:i");
 $balance = get_balance($source);
 if (!$balance) {
         close_database();
@@ -94,9 +96,9 @@ if (!deduct_balance($source, $amount)) {
 }
 $transaction_id = $response['transaction_id'];
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
-        $recipient_col, $transaction_id_col, $date_col) 
+        $recipient_col, $transaction_id_col, $date_col, $time_col) 
         VALUES ($amount, '$source', '$recipient', 
-        '$transaction_id', '$date')"; 
+        '$transaction_id', '$date', '$time')"; 
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);
