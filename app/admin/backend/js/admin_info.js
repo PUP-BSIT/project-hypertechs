@@ -38,7 +38,7 @@ function setadminId(data) {
     console.log(data);
     return;
   }
-  ADMIN_NUMBER = data.adminId;
+  ADMIN_ID = data.adminId;
   getAdminInfo();
 }
 
@@ -48,18 +48,18 @@ function getAdminInfo() {
   url = "../../backend/php/admin-info.php";
   sessionadmin = ADMIN_ID;
   requestBody = new FormData();
-  requestBody.append("admin_number", sessionadmin);
+  requestBody.append("admin_id", sessionadmin);
   sendData(url, requestBody, showAdminData);
 }
 function showAdminData(data) {
   console.log(data);
   if (!data.success) return;
-  let adminName, adminId, balance;
+  let adminName, adminId;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
-  balance = document.querySelector(ID_BALANCE);
+  //balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = data.data.name;
   adminId.innerHTML = data.data.adminId;
-  balance.innerHTML = strToNum(data.data.balance);
+  //balance.innerHTML = strToNum(data.data.balance);
 }
