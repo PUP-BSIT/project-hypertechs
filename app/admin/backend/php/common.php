@@ -37,38 +37,38 @@ function close_database() {
 }
 
 
-function get_admin_data($table, $admin_number) {
-        $admin_number_col = "admin_number";
+function get_admin_data($table, $admin_id) {
+        $admin_id_col = "admin_id";
         $sql_stmt = "SELECT * FROM $table WHERE
-                $admin_number_col='$admin_number'";
+                $admin_id_col='$admin_id'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
         return $data;
 }
 
-function get_balance($admin_number) {
+function get_balance($admin_id) {
         $balance_col = "balance";
         $table = "admin";
-        $admin_col = "admin_number";
+        $admin_col = "admin_id";
         $sql_stmt = "SELECT $balance_col FROM $table WHERE
-                 $admin_col='$admin_number'";
+                 $admin_col='$admin_id'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
         return $data[$balance_col];
 }
 
-function get_name($admin_number) {
+function get_name($admin_id) {
         $surname_col = "surname";
         $first_name_col = "first_name";
         $middle_name_col = "middle_name";
         $suffix_col = "suffix";
         $table = "admin";
-        $admin_col = "admin_number";
+        $admin_col = "admin_id";
         $sql_stmt = "SELECT $surname_col, $first_name_col, $middle_name_col, 
                 $suffix_col FROM $table WHERE
-                 $admin_col='$admin_number'";
+                 $admin_col='$admin_id'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -97,8 +97,8 @@ function get_phone_number($email) {
         return $data[$phone_col];
 }
 
-function get_admin_number($email) {
-        $admin_col = "admin_number";
+function get_admin_id($email) {
+        $admin_col = "admin_id";
         $table = "admin";
         $email_col = "email";
         $sql_stmt = "SELECT $admin_col FROM $table WHERE
@@ -109,18 +109,18 @@ function get_admin_number($email) {
         return $data[$admin_col];
 }
 
-function add_balance($admin_number, $amount) {
-        $balance = get_balance($admin_number);
+function add_balance($admin_id, $amount) {
+        $balance = get_balance($admin_id);
         if (!$balance) return false;
         $new_balance = $balance + $amount; 
-        return set_balance($admin_number, $new_balance); 
+        return set_balance($admin_id, $new_balance); 
 }
 
-function does_admin_exist($admin_number) {
+function does_admin_exist($admin_id) {
         $admin_table = "admin";
-        $admin_col = "admin_number";
+        $admin_col = "admin_id";
         $sql_stmt = "SELECT $admin_col FROM $admin_table WHERE 
-                $admin_col='$admin_number'";
+                $admin_col='$admin_id'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
