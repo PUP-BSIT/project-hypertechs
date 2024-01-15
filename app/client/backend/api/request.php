@@ -7,5 +7,5 @@ $_SESSION['request_url'] = $request_url;
 $_SESSION['request_body'] = $request_body;
 $_SESSION['otp_session'] = true;
 $_SESSION['otp_phone'] = $phone_number;
-header("Location: http://localhost/app/client/pages/verify.html");
+header("Location: https://apexapp.tech/app/client/pages/verify.html");
 ?>
