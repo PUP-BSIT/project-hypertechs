@@ -33,17 +33,20 @@
         </div>
 <?php
 // -----------------------------------------
+ini_set('date.timezone', 'Asia/Manila');
 require "../../backend/php/common.php";
 connect_database();
 if (isset($_GET['error_message'])) {
         $error_message = htmlspecialchars($_GET['error_message']);
         echo <<<EOT
-        <div id="tranfer_message_text">
-            <div id="transfer_failed"> <!--Get OTP-->
-                <h1><i class="fa-solid fa-circle-xmark"></i>Transfer Failed</h1>
-                <p>$error_message</p>
-                <button id="btn_try" onclick="history.back()" type="button">Try Again</button>
-                <p id="loading_get" hidden><!--Please wait. --></p>
+        <div id="transfer_message_container">
+            <div id="tranfer_message_text">
+                <div id="transfer_failed"> <!--Get OTP-->
+                    <h1><i class="fa-solid fa-circle-xmark"></i>Transfer Failed</h1>
+                    <p>$error_message</p>
+                    <button id="btn_try" onclick="history.back()" type="button">Try Again</button>
+                    <p id="loading_get" hidden><!--Please wait. --></p>
+                </div>
             </div>
         </div>
 
@@ -52,14 +55,16 @@ EOT;
 }
 if (!isset($_GET['fund_transfer_success']) || !isset($_GET['transaction_id'])) {
         echo <<<EOT
-        <div id="tranfer_message_text">
-            <div id="transfer_failed"> <!--Get OTP-->
-                <h1><i class="fa-solid fa-circle-xmark"></i>
-                   Something went wrong.
-                </h1>
-                <p>Internal server error</p>
-                <button id="btn_try" type="button">Try Again</button>
-                <p id="loading_get" hidden><!--Please wait. --></p>
+        <div id="transfer_message_container">
+            <div id="tranfer_message_text">
+                <div id="transfer_failed"> <!--Get OTP-->
+                    <h1><i class="fa-solid fa-circle-xmark"></i>
+                    Something went wrong.
+                    </h1>
+                    <p>Internal server error</p>
+                    <button id="btn_try" type="button">Try Again</button>
+                    <p id="loading_get" hidden><!--Please wait. --></p>
+                </div>
             </div>
         </div>
 
@@ -75,14 +80,16 @@ if (!$data) {
 }
 if (!$data) {
         echo <<<EOT
-        <div id="tranfer_message_text">
-            <div id="transfer_failed"> <!--Get OTP-->
-                <h1><i class="fa-solid fa-circle-xmark"></i>
-                   Something went wrong.
-                </h1>
-                <p>The transaction ID was not found in our server</p>
-                <button id="btn_try" type="button">Try Again</button>
-                <p id="loading_get" hidden><!--Please wait. --></p>
+        <div id="transfer_message_container">
+            <div id="tranfer_message_text">
+                <div id="transfer_failed"> <!--Get OTP-->
+                    <h1><i class="fa-solid fa-circle-xmark"></i>
+                    Something went wrong.
+                    </h1>
+                    <p>The transaction ID was not found in our server</p>
+                    <button id="btn_try" type="button">Try Again</button>
+                    <p id="loading_get" hidden><!--Please wait. --></p>
+                </div>
             </div>
         </div>
 
@@ -114,8 +121,8 @@ echo <<<EOT
                         Your money has been successfully transferred to
                         <strong>
                             <span id="display_transfer_msg_recipient">
-                                $recipient_name 
-                            </span>.
+                                $recipient_name. 
+                            </span>
                         </strong>
                         Thank you for choosing Apex Bank services!
                     </p>
