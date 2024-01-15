@@ -52,10 +52,10 @@ async function requestTransfer() {
                 return;
         }
         requestBody = new FormData();
-        url = "../backend/php/fund-transfer.php";
+        url = "/app/client/backend/api/fund-transfer.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
-        await saveRequest(url, requestBody);
+        await postData(url, requestBody);
 }

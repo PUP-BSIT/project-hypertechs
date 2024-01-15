@@ -50,11 +50,11 @@ async function requestTransfer() {
                 return;
         }
         requestBody = new FormData();
-        url = "/app/client/backend/php/fund-transfer-external.php";
+        url = "/app/client/backend/api/fund-transfer-external.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('recipient_bank_code', bankCode);
-        await saveRequest(url, requestBody);
+        await postData(url, requestBody);
 }

@@ -1,6 +1,7 @@
 import { 
-        getData, postData, sendRequest, destroyOTPSession
-} from "./common_new.js";
+        getData, postData, sendRequest, destroyOTPSession, clearFeedback,
+        postDataOTP
+} from "/app/client/backend/js/common_new.js";
 
 const JS_SECOND = 1000;
 const MINUTE = 60;
@@ -14,6 +15,7 @@ const ID_OTP_6 = "#otp6";
 const ID_BTN_SUBMIT = "#button_submit";
 const ID_BTN_START = "#btn_start";
 const ID_BTN_RENEW = "#btn_renew";
+const ID_FEEDBACK = "#feedback_test";
 const ID_TIMER_MINUTE = "#timer_minute";
 const ID_TIMER_SECOND = "#timer_second";
 const ID_EXPIRED = "#expired";
@@ -92,10 +94,10 @@ async function resendCode() {
 }
 
 async function checkSession() {
-        let url, startButton, otpTest, expired, data;
+        let url, startButton, otpTest, expired, feedback, data;
 
         console.log("checkSession");
-        url = "../backend/php/otp-session.php";
+        url = "/app/client/backend/php/otp-session.php";
         data = await getData(url);
         console.log(data);
         if (!data.hasSession) {
@@ -111,30 +113,37 @@ async function checkSession() {
 }
 
 function startVerify() {
-        let btnStart;
+        let feedback, btnStart;
 
         console.log("start");
         showText("OTP_GET");
+        feedback = document.querySelector(ID_LOADING_GET);
+        feedback.hidden = true;
 }
 
 function renewOTP() {
-        let expired, btnStart;
+        let expired, btnStart, feedback;
 
         console.log("renewOTP");
         showText("OTP_EXPIRED");
+        feedback = document.querySelector(ID_LOADING_EXPIRED);
+        feedback.hidden = true;
         btnStart = document.querySelector(ID_BTN_RENEW);
         btnStart.addEventListener("click", (event) => {
                 event.stopPropagation();
                 console.log("Hello");
+                feedback.hidden = false;
                 getOTP();
         });
 }
 
 async function getOTP() {
-        let url, data, OTPInput;
+        let url, data, OTPInput, feedback;
 
         console.log("getOTP");
-        url = "../backend/php/otp.php";
+        feedback = document.querySelector(ID_FEEDBACK);
+        feedback.innerHTML = "&nbsp";
+        url = "/app/client/backend/php/otp.php";
         data = await getData(url);
         console.log(data);
         showText("OTP_VERIFY");
@@ -144,18 +153,44 @@ async function getOTP() {
 }
 
 async function checkOTPInput() {
-        let OTPInput;
+        let feedback, OTPInput;
 
+        feedback = document.querySelector(ID_FEEDBACK);
         OTPInput = getOTPInput();
         console.log(OTPInput, OTP);
         if(OTPInput !== OTP) {
-                alert("You have entered an incorrect OTP. Please try again.");
+                feedback.innerHTML = "OTP is incorrect";
+                clearFeedback(feedback);
                 return;
         }
+        feedback.innerHTML = "Please wait.";
         setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");
-        await sendRequest();
+        sendTransfer();
+}
+
+async function sendTransfer() {
+        let url, requestBody, source, recipient, amount, redirectURL, 
+                transferType, bankCode;
+        
+        requestBody = new FormData();
+        source = document.querySelector("#php_source").value; 
+        recipient = document.querySelector("#php_recipient").value; 
+        amount = document.querySelector("#php_amount").value; 
+        redirectURL = document.querySelector("#php_redirect_url").value; 
+        transferType = document.querySelector("#php_transfer_type").value;
+        url = "/app/client/backend/php/fund-transfer.php";
+        if (transferType === "EXTERNAL") {
+                url = "/app/client/backend/php/fund-transfer-external.php";
+                bankCode = document.querySelector("#php_bank_code").value;
+                requestBody.append('recipient_bank_code', bankCode);
+        }
+        requestBody.append('transaction_amount', amount);
+        requestBody.append('source_account_no', source);
+        requestBody.append('recipient_account_no', recipient);
+        requestBody.append('redirect_url', redirectURL);
+        await postDataOTP(url, requestBody);        
 }
 
 function getOTPInput() {

@@ -10,6 +10,7 @@ if (isset($_POST['destroy'])) {
         unset($_SESSION['otp_session']);
         unset($_SESSION['otp']);
         unset($_SESSION['otp_time']);
+        unset($_SESSION['otp_phone']);
         $response['success'] = true;
         echo json_encode($response);
         exit;
