@@ -169,4 +169,17 @@ function does_phone_number_exist($phone_number) {
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
+
+function get_admin_id_via_phone($phone_number) {
+        $account_col = "admin_id";
+        $table = "admin";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $account_col FROM $table WHERE
+                 $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$account_col];
+}
+
 ?>
