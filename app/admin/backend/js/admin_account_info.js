@@ -3,8 +3,8 @@ import { postData, getData, isLoggedIn, strToNum } from "./common_new.js";
 let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
 //const ID_ADMIN_NAME = "#admin_name";
-const ID_ADMIN_NUMBER = "#admin_id";
-const ID_FIRST_NAME = "#admin_first_name";
+const ID_ADMIN_NUMBER = "#display_admin_id";
+const ID_FIRST_NAME = "#display_admin_name";
 const HOME_URL = "/index.html";
 const ID_MINI_NAME = "#display_mini_admin_text";
 
