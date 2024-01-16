@@ -48,7 +48,7 @@ function showAdminData(data) {
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   //balance = document.querySelector(ID_BALANCE);
   // if (firstName) {
-  //   firstName.innerHTML = data.data.firstName + "!";
+  firstName.innerHTML = data.data.firstName;
   // }
   // if (miniName) {
   //   miniName.innerHTML = data.data.name;
