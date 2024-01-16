@@ -99,8 +99,14 @@ $transaction_id = htmlspecialchars($data['transaction_id']);
 $amount = htmlspecialchars($data['amount']);
 
 $dateTimeString = $data['date'] . ' ' . $data['timef'];
-$dateTimeManila = new DateTime($dateTimeString, new DateTimeZone('UTC'));
-$dateTimeManila->setTimezone(new DateTimeZone('Asia/Manila'));
+
+// Create a DateTime object in UTC timezone
+$dateTimeUTC = new DateTime($dateTimeString, new DateTimeZone('UTC'));
+
+// Set the desired timezone (Asia/Manila)
+$timezoneManila = new DateTimeZone('Asia/Manila');
+$dateTimeManila = clone $dateTimeUTC; // Create a copy
+$dateTimeManila->setTimezone($timezoneManila);
 
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 
