@@ -170,16 +170,51 @@ function does_phone_number_exist($phone_number) {
         return true;
 }
 
+function get_phone_number_via_email($email) {
+        $phone_col = "phone_number";
+        $table = "admin";
+        $email_col = "email";
+        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+                 $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$phone_col];
+}
+
 function get_admin_id_via_phone($phone_number) {
-        $account_col = "admin_id";
+        $admin_col = "admin_id";
         $table = "admin";
         $phone_number_col = "phone_number";
-        $sql_stmt = "SELECT $account_col FROM $table WHERE
+        $sql_stmt = "SELECT $admin_col FROM $table WHERE
                  $phone_number_col='$phone_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
-        return $data[$account_col];
+        return $data[$admin_col];
+}
+
+function does_phone_number_exist($phone_number) {
+        $admin_table = "admin";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $phone_number_col FROM $admin_table WHERE 
+                $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function change_pass_via_phone($phone_number, $password) {
+        $admin_table = "admin";
+        $password_col = "password";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "UPDATE $admin_table SET $password_col='$password' WHERE
+                $phone_number_col='$phone_number'";
+        return modify_database($sql_stmt);
+}
+
+function clear_spaces($string) {
+        return str_replace(' ', '', $string);
 }
 
 ?>
