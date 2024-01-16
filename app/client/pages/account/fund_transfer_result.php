@@ -126,7 +126,7 @@ echo <<<EOT
                                 $recipient_name.
                             </span>
                         </strong>
-                        Thank you for choosing Apex Bank!
+                        Thank you for using Apex Bank!
                     </p>
                     <div id="transfer_message_details">
                         <h3 id="trans_id_heading">
