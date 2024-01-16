@@ -98,8 +98,14 @@ EOT;
 }
 $transaction_id = htmlspecialchars($data['transaction_id']);
 $amount = htmlspecialchars($data['amount']);
-$date = htmlspecialchars($data['date']);
-$time = htmlspecialchars($data['timef']);
+
+$dateTimeString = $data['date'] . ' ' . $data['timef'];
+$dateTimeUTC = new DateTime($dateTimeString, new DateTimeZone('UTC'));
+
+// Convert UTC time to Asia/Manila timezone
+$dateTimeManila = clone $dateTimeUTC;
+$dateTimeManila->setTimezone(new DateTimeZone('Asia/Manila'));
+
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 
 echo <<<EOT
@@ -121,7 +127,7 @@ echo <<<EOT
                         Your money has been successfully transferred to
                         <strong>
                             <span id="display_transfer_msg_recipient">
-                                $recipient_name . "."; 
+                                $recipient_name.
                             </span>
                         </strong>
                         Thank you for choosing Apex Bank!
