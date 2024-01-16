@@ -38,7 +38,9 @@ async function main() {
         showText();
         checkSession(); 
         btnBack = document.querySelector(ID_BTN_BACK);
-        btnBack.addEventListener("click", history.back);
+        btnBack.addEventListener("click", () => {
+                history.back()
+        });
         otp1 = document.querySelector(ID_OTP_1);
         otp2 = document.querySelector(ID_OTP_2);
         otp3 = document.querySelector(ID_OTP_3);
