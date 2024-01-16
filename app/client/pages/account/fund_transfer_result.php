@@ -142,7 +142,7 @@ echo <<<EOT
                         <h3 id="transfer_date_heading">
                             <i class="far fa-calendar-alt"></i>Transfer Date:
                             <span id="display_transfer_date">
-                                {$dateTimeManila->format('Y-m-d H:i:s')}
+                                {$dateTimeManila->format('Y-m-d h:i:s A')}
                                 </span>
                         </h3>
                         <h3 id="transfer_type_heading">
