@@ -102,10 +102,6 @@ body {
   justify-content: center;
 }
 
-#register_image_container img {
-  width: 80%;
-}
-
 /* header styling */
 #header_container {
   padding-left: 3em;
@@ -154,6 +150,11 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+#apex_logo sup {
+  font-size: 1.5vw;
+  font-weight: 500;
 }
 
 /* back button styling */
@@ -376,7 +377,8 @@ form label {
   text-align: center;
 }
 
-.terms-and-policy span {
+.terms-and-policy a {
+  text-decoration: none;
   cursor: pointer;
   color: var(--primary);
 }
@@ -433,545 +435,222 @@ form label {
 }
 
 svg {
-  width: 80%;
+  width: 100%;
 }
 
-svg#freepik_stories-e-wallet:not(.animated) .animable {
+svg#freepik_stories-team:not(.animated) .animable {
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #freepik--Floor--inject-72 {
+svg#freepik_stories-team.animated #freepik--background-simple--inject-81 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+svg#freepik_stories-team.animated #freepik--Floor--inject-81 {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
   animation-delay: 0s;
 }
-
-svg#freepik_stories-e-wallet.animated #el7u2drgjm70u {
+svg#freepik_stories-team.animated #freepik--character-1--inject-81 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+svg#freepik_stories-team.animated #freepik--character-3--inject-81 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+svg#freepik_stories-team.animated #freepik--Desk--inject-81 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) fadeIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-team.animated #freepik--character-2--inject-81 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-team.animated #elp6hn97glawf {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
   animation-delay: 0s;
 }
-
-svg#freepik_stories-e-wallet.animated #elvjdgujn9gsi {
+svg#freepik_stories-team.animated #el0zmcctdj8vn {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.14285714285714285s;
+  animation-delay: 0.034482758620689655s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #elnz5j1wvru2 {
+svg#freepik_stories-team.animated #el86092hwy12y {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.2857142857142857s;
+  animation-delay: 0.06896551724137931s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #eltn21xzjbe5 {
+svg#freepik_stories-team.animated #elb5nee4odavo {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.42857142857142855s;
+  animation-delay: 0.10344827586206896s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #els3nnptzuhvc {
+svg#freepik_stories-team.animated #elb7zykysjr8b {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.5714285714285714s;
+  animation-delay: 0.13793103448275862s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #elrsus4jln9v {
+svg#freepik_stories-team.animated #elrb5fngogq9f {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.7142857142857142s;
+  animation-delay: 0.1724137931034483s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #el6w4rymccyd {
+svg#freepik_stories-team.animated #elrndnmqj050c {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
-  animation-delay: 0.8571428571428571s;
+  animation-delay: 0.20689655172413793s;
   opacity: 0;
 }
-
-svg#freepik_stories-e-wallet.animated #freepik--Wallet--inject-72 {
+svg#freepik_stories-team.animated #eloogg7r7chbs {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.24137931034482757s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el2zjxporfdq2 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.27586206896551724s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el5ifrl2oacv {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.3103448275862069s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #ellgaof5r6fzg {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.3448275862068966s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el304hkyte12h {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.3793103448275862s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elqe21kfi6a3n {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.41379310344827586s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #eld4uiyrfbvcq {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.4482758620689655s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elmcpy6dn4qb {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.48275862068965514s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elyhkc2n1tzll {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.5172413793103449s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elf0oexbe031 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.5517241379310345s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elbl4b9ybyzad {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.5862068965517241s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elp0ppb14gyy {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.6206896551724138s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el20x8zajgglj {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.6551724137931034s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elx223t3oqjha {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.6896551724137931s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elxqzrzyz7pe {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.7241379310344828s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elfzwl3wm4w85 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.7586206896551724s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el6f0cm3hq9n {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.7931034482758621s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elxgjouxj1858 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.8275862068965517s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elhi6ji1zv4lv {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.8620689655172413s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #eljmtztgrok3 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.896551724137931s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #elv44g5e314h {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.9310344827586207s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #el00bhqfurdcq3t {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0.9655172413793103s;
+  opacity: 0;
+}
+svg#freepik_stories-team.animated #freepik--Charts--inject-81 {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
   animation-delay: 0s;
 }
-
-svg#freepik_stories-e-wallet.animated #freepik--Coins--inject-72 {
-  animation: 0.6s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-e-wallet.animated #elx12uxwluf9 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-e-wallet.animated #elxc8pd2g8j8b {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.007246376811594203s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elmtchprmcg0l {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.014492753623188406s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elryqp39bztfs {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.021739130434782608s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el50aizsrk9vy {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.028985507246376812s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elwgqlzcrnoyp {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.036231884057971016s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el1oxe0lmgf5p {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.043478260869565216s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elrfzx7tn7k9 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.050724637681159424s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elzq4ytmdqf6 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.057971014492753624s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhnzcvt50wd {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.06521739130434782s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elrculu1c85db {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.07246376811594203s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elqxuhuqax5ch {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.07971014492753624s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhj2gngy1f {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.08695652173913043s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elt3qlbivb9a {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.09420289855072464s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elifv4101787m {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.10144927536231885s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elnjy9npnzsi9 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.10869565217391304s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elqxx4hc103vq {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.11594202898550725s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elqivqi7r8jr {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.12318840579710146s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elebofnuqq22 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.13043478260869565s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el7owyk9dkkfb {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.13768115942028986s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #ele8r3qx3whto {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.14492753623188406s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elxdh6s6d1pzm {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.15217391304347827s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elgxnnxvyfoe {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.15942028985507248s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #ely0fe24uctu {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.16666666666666666s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhxrv4zmzgsr {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.17391304347826086s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elfxoqz2ygcjb {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.18115942028985507s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elymf5bmqkud {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.18840579710144928s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elrsqjghumq5 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.1956521739130435s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elfd9ge6d2dq {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2028985507246377s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhnr49jxxren {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.21014492753623187s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elrogtbvigm4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.21739130434782608s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elyh7crh6x8n {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2246376811594203s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el2hkrrg46uu8 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2318840579710145s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elqlxob7mqju {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2391304347826087s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elmzfx3wb4yf {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2463768115942029s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elzgm78rvwgvg {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2536231884057971s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elezpqau9l0zi {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2608695652173913s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elcjgdhwe9iw9 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.26811594202898553s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhdaduwdoh8k {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2753623188405797s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el5rxwypelshc {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2826086956521739s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #ellancdww08u {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2898550724637681s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elm5w0hp2fddr {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.2971014492753623s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el11z5sjyi7guk {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.30434782608695654s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el92vndnj8oi {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.3115942028985507s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el3rzx9jrx7si {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.31884057971014496s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elehh4i4tvh29 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.32608695652173914s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #eldfdv7dl6ihi {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.3333333333333333s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elwi64g171brs {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.34057971014492755s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elpquj0fjdwgk {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.34782608695652173s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el7e8gfwisf9w {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.35507246376811596s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el6gqt591jq56 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.36231884057971014s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elpbilbp4i14g {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.3695652173913044s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #eld51nm9bjdxh {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.37681159420289856s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el2xs7835dkog {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.38405797101449274s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el3rg41w927st {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.391304347826087s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el27g1q9aaar4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.39855072463768115s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elhort2ix56il {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4057971014492754s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el3793y3rozgf {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.41304347826086957s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elj3n2xgssfd {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.42028985507246375s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elrxyqps5cin {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.427536231884058s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el9fpsdhy1h1f {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.43478260869565216s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elq0z694erj5 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4420289855072464s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elde7u00dpt9q {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4492753623188406s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elkwsj9nixs6l {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4565217391304348s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elppu3m9shu6r {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.463768115942029s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elkf5oc9xikws {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.47101449275362317s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #el3fqepq4pob1 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4782608695652174s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elu46an6bjm6 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4855072463768116s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #elks7kjx57y9g {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.4927536231884058s;
-  opacity: 0;
-}
-
-svg#freepik_stories-e-wallet.animated #freepik--Device--inject-72 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-e-wallet.animated #freepik--speech-bubble--inject-72 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-e-wallet.animated #freepik--Character--inject-72 {
-  animation: 0.6s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
-  animation-delay: 0s;
-}
-
-@keyframes slideLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 @keyframes zoomOut {
   0% {
     opacity: 0;
     transform: scale(1.5);
   }
-
   100% {
     opacity: 1;
     transform: scale(1);
   }
 }
-
-@keyframes slideDown {
+@keyframes slideLeft {
   0% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateX(-30px);
   }
-
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
-
-@keyframes slideUp {
+@keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(30px);
   }
-
   100% {
     opacity: 1;
-    transform: inherit;
   }
 }
-
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .animator-hidden {
   display: none;
 }

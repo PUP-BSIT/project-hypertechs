@@ -23,6 +23,9 @@
   --destruct: #b60000;
   --balance-one: #0642bb;
   --balance-two: #009dff;
+  --bank-card: #1e51b8;
+  --active: #000897;
+  --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -35,6 +38,9 @@
   --destruct: #b30000;
   --balance-one: #003399;
   --balance-two: #0095ff;
+  --bank-card: #114fcd;
+  --active: #2d73fe;
+  --ball: #2d73fe;
 }
 
 * {
@@ -254,41 +260,69 @@ body {
   color: var(--primary);
 }
 
+#logout {
+  cursor: pointer;
+}
+
 /* ----- CONTAINER STYLE ----- */
 #overview_container_one {
   display: flex;
   max-width: 100%;
   gap: 2%;
   padding-top: 1.25em;
+  border: 0px dashed blue;
 }
 
 #overview_container_two {
-  display: flex;
   max-width: 100%;
-  gap: 2%;
-  padding-top: 1.25em;
+  padding-top: 2em;
+  border: 0px dashed orangered;
 }
 
-#overview_container_two span {
+#overview_container_three {
+  max-width: 100%;
+  padding-top: 2em;
+  border: 0px dashed orangered;
+}
+
+#overview_container_two h1,
+#overview_container_three h1 {
+  font-size: 1.5vw;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+#overview_container_two i,
+#overview_container_three i {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+#overview_card_info span {
   margin-left: 0.5em;
 }
 
 /* ----- ACC SUMMARY STYLE ----- */
 #overview_summary {
-  height: 10vw;
-  width: 75%;
+  height: 8vw;
+  width: 70%;
   border-radius: 10px;
   padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
   background-color: var(--backdrop);
 }
 
 #summary_content {
   display: flex;
-  margin-top: 1.4vw;
+  align-items: center;
+  margin-top: 0vw;
 }
 
 #admin_image {
-  width: 7%;
+  width: 9%;
   border: 0px solid red;
 }
 
@@ -300,12 +334,12 @@ body {
 #summary_column_container {
   display: flex;
   flex-direction: column;
-  margin-left: 2.2vw;
+  margin-left: 2.75vw;
 }
 
 #summary_column_container h3 {
-  font-weight: 500;
-  margin-bottom: 0.3em;
+  font-weight: 600;
+  margin-bottom: 0.4em;
   color: var(--primary);
   font-size: 1.2vw;
 }
@@ -314,13 +348,21 @@ body {
   font-size: 1.2vw;
 }
 
-/* ----- ACC BALANCE STYLE ----- */
+#summary_content h3 {
+  display: flex;
+  align-items: center;
+}
 
-#overview_balance {
-  height: 10vw;
-  width: 25%;
+#summary_content .material-icons {
+  margin-right: 0.5em;
+}
+
+/* ----- ACC BALANCE STYLE ----- */
+#overview_cash_drawer {
+  height: 8vw;
+  width: 30%;
   border-radius: 10px;
-  padding: 1.1em 1.5em;
+  padding: 1em;
   background: linear-gradient(
     to bottom right,
     var(--balance-one),
@@ -328,220 +370,91 @@ body {
   );
 }
 
-#overview_balance h2 {
-  color: rgb(231, 240, 252);
-}
-
-#overview_balance h3 {
-  margin-top: 0.5em;
-  font-size: 2.3vw;
-  font-weight: 600;
-  color: rgb(231, 240, 252);
-}
-
-/* ----- CARD INFO STYLE ----- */
-#overview_card_info {
-  width: 30%;
-  padding-top: 1.1em 0em;
-  margin-top: 1em;
-}
-
-#apex_card {
-  margin-top: 1em;
-  padding: 1.25em;
-  height: 25vh;
-  border-radius: 10px;
-  background-color: var(--primary);
-  color: #e7edfb;
-}
-
-#card_row {
-  display: flex;
-  justify-content: space-between;
-  height: 2.75em;
-}
-
-#card_brand_text h3 {
-  font-size: 1.4vw;
-  font-weight: 500;
-}
-
-#card_brand_logo {
-  text-align: end;
-  width: 3em;
-}
-
-#card_brand_logo img {
-  width: 70%;
-}
-
-#card_chip img {
-  width: 13%;
-}
-
-#card_number h3 {
-  margin-top: 0.25em;
+#overview_cash_drawer h2 {
   font-size: 1.5vw;
-  font-family: "Space Mono", sans-serif;
   font-weight: 500;
+  color: rgb(231, 240, 252);
 }
 
-#card_row_two {
-  display: flex;
-  gap: 2em;
-}
-
-#card_row_two h4 {
-  font-size: 1vw;
-  font-weight: 400;
-  opacity: 0.8;
-}
-
-#card_row_two span {
-  font-size: 1vw;
-  font-weight: 500;
-  font-family: "Space Mono", sans-serif;
-}
-
-#card_valid,
-#card_cvv {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#addtl_card_info {
-  margin-top: 1.5em;
-  padding: 1em;
-  height: 16.5vh;
-  border-radius: 10px;
-  background-color: var(--backdrop);
-}
-
-#addtl_card_row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.1em;
-}
-
-#addtl_card_info h3 {
+#overview_cash_drawer h3 {
+  margin-top: 0.5em;
+  font-size: 2vw;
   font-weight: 600;
-  font-size: 1vw;
-  margin-bottom: 0.5em;
-  display: flex;
-  align-items: center;
+  color: rgb(231, 240, 252);
 }
 
-#addtl_card_info span {
-  margin: 0;
-  padding-right: 0.4em;
-  font-size: 1vw;
-}
-
-#card_status_content {
-  color: rgb(0, 160, 0);
-  padding: 0.1em 0.2em;
-  border-radius: 5px;
-  background-color: rgba(1, 182, 1, 0.271);
-}
-
-#card_status_title h4,
-#card_designation_title h4,
-#card_currency_title h4 {
-  font-size: 1vw;
-  font-weight: 500;
-}
-
-#card_status_content h4,
-#card_designation_content h4,
-#card_currency_content h4 {
-  font-size: 1vw;
-  font-weight: 600;
-}
-
-/* ----- STATS STYLE ----- */
-#overview_stats {
-  margin-top: 1em;
-  width: 25%;
-}
-
-#stats_content {
-  margin-top: 1em;
-  padding: 1.25em;
-  height: 45vh;
-  border-radius: 10px;
-  background-color: var(--backdrop);
-}
-
-#stats_content h4 {
-  font-weight: 500;
-  font-size: 1.1vw;
-}
-
-#stats_wrapper {
-  height: 9.5vw;
-}
-
-/* ----- RECENT TRANSACTIONS STYLE ----- */
-#overview_recent_transactions {
-  width: 45%;
-  padding-top: 1.1em 0em;
-  margin-top: 1em;
-}
-
-#recent_transactions_row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-#view_all_transactions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-}
-
-#view_all_transactions a {
-  position: relative;
-  text-decoration: none; /* Remove the default underline */
-}
-
-#view_all_transactions a::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary); /* Set your desired underline color */
-  transition: width 0.3s ease-in-out, transform 0.9s ease-in-out; /* Set the transition duration and easing function */
-}
-
-#view_all_transactions a:hover::before {
+/* ------------ TRANSACTIONS CARDS ------------- */
+#transaction_cards {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2%;
 }
 
-#view_all_transactions a {
-  font-size: 1.2vw;
-  padding-right: 0.25em;
-  text-decoration: none;
+#transaction_cards > div {
+  flex: 1; /*cards take up equal space */
+}
+
+#transaction_cards span {
+  font-size: 4vw;
+  margin-right: 0.35em;
   color: var(--primary);
 }
 
-#view_all_transactions span {
-  font-size: 1.1vw;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-#transactions_content {
-  margin-top: 1em;
-  height: 45vh;
-  border-radius: 10px;
+#all_transactions_card,
+#successful_transactions_card,
+#pending_transactions_card,
+#unsuccessful_transactions_card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  height: 7vw;
+  border-radius: 0.5em;
   background-color: var(--backdrop);
 }
+/*
+#all_transactions_card {
+  background-color: rgb(128, 160, 128);
+}
+
+#successful_transactions_card {
+  background-color: rgb(112, 112, 0);
+}
+
+#pending_transactions_card {
+  background-color: darkred;
+}
+
+#unsuccessful_transactions_card {
+  background-color: rgb(88, 0, 112);
+} */
+
+#transactions_card_text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+#transactions_card_text h2 {
+  font-size: 1.1vw;
+  font-weight: 500;
+}
+
+#transactions_card_text h3 {
+  font-size: 2.25vw;
+  font-weight: 600;
+}
+
+/* ------------ TRANSACTIONS TABLE ------------- */
+#transactions_table {
+  width: 100%;
+  height: 12vw;
+  background-color: var(--backdrop);
+  border-radius: 0.5em;
+}
+
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
@@ -572,11 +485,11 @@ body {
 }
 
 .label .ball {
-  background-color: var(--primary);
+  background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
   top: 0.1em;
-  left: 2px;
+  left: 3px;
   height: 0.95vw;
   width: 0.95vw;
   transform: translateX(1px);
