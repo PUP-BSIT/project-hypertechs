@@ -17,7 +17,6 @@ const ID_OTP_6 = "#otp6";
 const ID_BTN_SUBMIT = "#button_submit";
 const ID_BTN_START = "#btn_start";
 const ID_BTN_RENEW = "#btn_renew";
-const ID_FEEDBACK = "#feedback_test";
 const ID_TIMER_MINUTE = "#timer_minute";
 const ID_TIMER_SECOND = "#timer_second";
 const ID_EXPIRED = "#expired";
@@ -27,6 +26,7 @@ const ID_OTP_CORRECT = "#otp_correct";
 const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
 const ID_CODE_RESEND = "#resend_code";
+const ID_BTN_BACK = "#btn_back";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
@@ -34,8 +34,7 @@ let OTP;
 main();
 
 async function main() {
-  let startButton,
-    otpTest,
+  let otpTest,
     expired,
     otp1,
     otp2,
@@ -43,11 +42,19 @@ async function main() {
     otp4,
     otp5,
     otp6,
-    codeResend;
+    codeResend,
+    btnGet,
+    btnVerify,
+    btnRetry,
+    btnBack;
 
   console.log("main");
   showText();
   checkSession();
+  btnBack = document.querySelector(ID_BTN_BACK);
+  btnBack.addEventListener("click", () => {
+    history.back();
+  });
   otp1 = document.querySelector(ID_OTP_1);
   otp2 = document.querySelector(ID_OTP_2);
   otp3 = document.querySelector(ID_OTP_3);
@@ -83,15 +90,28 @@ async function main() {
   });
   codeResend = document.querySelector(ID_CODE_RESEND);
   codeResend.addEventListener("click", resendCode);
+  btnGet = document.querySelector(ID_BTN_START);
+  btnGet.addEventListener("click", () => {
+    getOTP();
+  });
+  btnVerify = document.querySelector(ID_BTN_SUBMIT);
+  btnVerify.addEventListener("click", () => {
+    checkOTPInput();
+  });
+  btnRetry = document.querySelector(ID_BTN_RENEW);
+  btnRetry.addEventListener("click", () => {
+    getOTP();
+  });
 }
 
 async function resendCode() {
+  setTimer(0);
   await destroyOTPSession("OTPOnly");
-  window.location.href = "./verify.html";
+  showText("OTP_GET");
 }
 
 async function checkSession() {
-  let url, startButton, otpTest, expired, feedback, data;
+  let url, startButton, otpTest, expired, data;
 
   console.log("checkSession");
   url = "../backend/php/otp-session.php";
@@ -104,86 +124,53 @@ async function checkSession() {
     startVerify();
     return;
   }
+  setTimer(0);
   await destroyOTPSession("OTPOnly");
-  window.location.href = "./otp_expired.html";
+  showText("OTP_EXPIRED");
 }
 
 function startVerify() {
-  let feedback, btnStart;
+  let btnStart;
 
   console.log("start");
   showText("OTP_GET");
-  feedback = document.querySelector(ID_LOADING_GET);
-  feedback.hidden = true;
-  btnStart = document.querySelector(ID_BTN_START);
-  btnStart.addEventListener("click", () => {
-    feedback.hidden = false;
-    getOTP();
-  });
 }
 
 function renewOTP() {
-  let expired, btnStart, feedback;
+  let expired, btnStart;
 
   console.log("renewOTP");
   showText("OTP_EXPIRED");
-  feedback = document.querySelector(ID_LOADING_EXPIRED);
-  feedback.hidden = true;
   btnStart = document.querySelector(ID_BTN_RENEW);
   btnStart.addEventListener("click", (event) => {
     event.stopPropagation();
     console.log("Hello");
-    feedback.hidden = false;
     getOTP();
   });
 }
 
 async function getOTP() {
-  console.log("getOTP");
-  let url, data;
+  let url, data, OTPInput;
 
+  console.log("getOTP");
   url = "../backend/php/otp.php";
   data = await getData(url);
-  verify(data);
-}
-
-function verify(data) {
-  let otp,
-    remainingTime,
-    otpTest,
-    expired,
-    OTPInput,
-    btnSubmit,
-    otpReveal,
-    time,
-    intervalID,
-    timeoutID,
-    redirectURL,
-    feedback;
-
-  console.log("verify");
   console.log(data);
   showText("OTP_VERIFY");
   OTP = data.otp;
   setTimer(data.time);
   OTPInput = getOTPInput();
-  btnSubmit = document.querySelector(ID_BTN_SUBMIT);
-  btnSubmit.addEventListener("click", () => {
-    checkOTPInput();
-  });
 }
 
 async function checkOTPInput() {
-  let feedback, OTPInput;
+  let OTPInput;
 
-  feedback = document.querySelector(ID_FEEDBACK);
   OTPInput = getOTPInput();
   console.log(OTPInput, OTP);
   if (OTPInput !== OTP) {
-    feedback.innerHTML = "OTP is incorrect";
+    alert("You have entered an incorrect OTP. Please try again.");
     return;
   }
-  feedback.innerHTML = "Please wait.";
   setTimer(0);
   await destroyOTPSession();
   showText("OTP_SUCCESS");
