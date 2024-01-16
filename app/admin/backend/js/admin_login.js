@@ -37,7 +37,7 @@ function showAlert(message) {
 }
 
 async function loginAdmin() {
-  let adminEmail, password, requestBody, url, data, requestURL;
+  let adminEmail, password, requestBody, url, data, response, requestURL;
 
   adminEmail = document.querySelector(ID_EMAIL).value;
   password = document.querySelector(ID_PASSWORD).value;
@@ -45,26 +45,16 @@ async function loginAdmin() {
   requestBody.append("email", adminEmail);
   requestBody.append("password", password);
   requestBody.append("redirect_url", ADMIN_URL);
-
-  // Use try-catch to handle potential errors during the async operation
-  try {
-    url = "../backend/php/admin-login-check.php";
-    data = await postData(url, requestBody);
-
-    if (!data.success) {
-      showAlert(data.errorMessage);
-      return;
-    }
-
-    // If login is successful, save the request and perform the redirect
-    requestURL = "../backend/php/admin-login.php";
-    await saveRequest(requestURL, requestBody);
-    window.location.href = ADMIN_URL;
-
-  } catch (error) {
-    console.error("Error during login:", error);
-    showAlert("An error occurred during the login process.");
+  console.log(adminEmail);
+  //url = "../backend/php/admin-login.php";
+  url = "../backend/php/admin-login-check.php";
+  data = await postData(url, requestBody);
+  if (!data.success) {
+    showAlert(data.errorMessage);
+    return;
   }
+  requestURL = "../backend/php/admin-login.php";
+  await saveRequest(requestURL, requestBody);
 }
 
 function isPasswordValid(password) {
