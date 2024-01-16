@@ -7,6 +7,7 @@ $admin_table = "admin";
 $admin_id_col = "admin_id";
 $name_col = "admin_name";
 $first_name_col = "first_name";
+$creation_date_col = "creation_date";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];

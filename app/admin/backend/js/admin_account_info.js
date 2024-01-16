@@ -2,7 +2,7 @@ import { postData, getData, isLoggedIn, strToNum } from "./common_new.js";
 
 let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
-const ID_ADMIN_NAME = "#admin_name";
+//const ID_ADMIN_NAME = "#admin_name";
 const ID_ADMIN_NUMBER = "#admin_id";
 const ID_FIRST_NAME = "#admin_first_name";
 const HOME_URL = "/index.html";
@@ -47,14 +47,14 @@ function showAdminData(data) {
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   //balance = document.querySelector(ID_BALANCE);
-  if (firstName) {
-    firstName.innerHTML = data.data.firstName + "!";
-  }
-  if (miniName) {
-    miniName.innerHTML = data.data.name;
-  }
-  if (adminName || adminId) {
-    adminName.innerHTML = data.data.name;
+  // if (firstName) {
+  //   firstName.innerHTML = data.data.firstName + "!";
+  // }
+  // if (miniName) {
+  //   miniName.innerHTML = data.data.name;
+  // }
+  if (adminId) {
+    //adminName.innerHTML = data.data.name;
     adminId.innerHTML = data.data.adminId;
     //balance.innerHTML = strToNum(data.data.balance);
   }
