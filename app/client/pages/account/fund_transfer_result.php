@@ -100,10 +100,7 @@ $transaction_id = htmlspecialchars($data['transaction_id']);
 $amount = htmlspecialchars($data['amount']);
 
 $dateTimeString = $data['date'] . ' ' . $data['timef'];
-$dateTimeUTC = new DateTime($dateTimeString, new DateTimeZone('UTC'));
-
-// Convert UTC time to Asia/Manila timezone
-$dateTimeManila = clone $dateTimeUTC;
+$dateTimeManila = new DateTime($dateTimeString, new DateTimeZone('UTC'));
 $dateTimeManila->setTimezone(new DateTimeZone('Asia/Manila'));
 
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
