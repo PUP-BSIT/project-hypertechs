@@ -11,7 +11,7 @@ let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
 const ID_ADMIN_NAME = "#display_admin_holder";
 const ID_ADMIN_NUMBER = "#display_admin_id";
-const ID_BALANCE = "#display_admin_balance";
+// const ID_BALANCE = "#display_admin_balance";
 
 main();
 
@@ -21,19 +21,19 @@ function main() {
 }
 
 function startOperation() {
-  let adminName, adminId, balance, url;
+  let adminName, adminId, url;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
-  balance = document.querySelector(ID_BALANCE);
+  // balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = "Loading...";
   adminId.innerHTML = "Loading...";
-  balance.innerHTML = "Loading...";
+  // balance.innerHTML = "Loading...";
   url = "../../backend/php/admin-session.php";
-  fetchData(url, setadminId);
+  fetchData(url, setAdminId);
 }
 
-function setadminId(data) {
+function setAdminId(data) {
   if (!data.success) {
     console.log(data);
     return;
@@ -43,23 +43,23 @@ function setadminId(data) {
 }
 
 function getAdminInfo() {
-  let sessionadmin, url, requestBody;
+  let sessionAdmin, url, requestBody;
 
   url = "../../backend/php/admin-info.php";
-  sessionadmin = ADMIN_ID;
+  sessionAdmin = ADMIN_ID;
   requestBody = new FormData();
-  requestBody.append("admin_id", sessionadmin);
+  requestBody.append("admin_id", sessionAdmin);
   sendData(url, requestBody, showAdminData);
 }
 function showAdminData(data) {
   console.log(data);
   if (!data.success) return;
-  let adminName, adminId, balance;
+  let adminName, adminId;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
-  balance = document.querySelector(ID_BALANCE);
+  // balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = data.data.name;
   adminId.innerHTML = data.data.adminId;
-  balance.innerHTML = strToNum(data.data.balance);
+  // balance.innerHTML = strToNum(data.data.balance);
 }
