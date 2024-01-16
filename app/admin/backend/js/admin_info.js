@@ -38,7 +38,7 @@ function setadminId(data) {
     console.log(data);
     return;
   }
-  ADMIN_NUMBER = data.adminId;
+  ADMIN_ID = data.adminId;
   getAdminInfo();
 }
 
@@ -48,7 +48,7 @@ function getAdminInfo() {
   url = "../../backend/php/admin-info.php";
   sessionadmin = ADMIN_ID;
   requestBody = new FormData();
-  requestBody.append("admin_number", sessionadmin);
+  requestBody.append("admin_id", sessionadmin);
   sendData(url, requestBody, showAdminData);
 }
 function showAdminData(data) {
