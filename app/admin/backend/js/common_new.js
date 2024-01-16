@@ -31,6 +31,7 @@ export async function postDataOTP(url, requestBody) {
     setTimeout(async () => {
       redirectURL = data.location;
       window.location.replace(redirectURL);
+      console.log(redirectURL);
     }, 4000);
     return;
   }
