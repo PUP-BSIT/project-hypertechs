@@ -19,6 +19,8 @@ if (!does_password_match($email, $password)) {
 }
 $phone_number = get_phone_number_via_email($email);
 if (!$phone_number) {
+        $response['errorMessage'] = "Your account does not have a " .
+                "phone number.";
         echo json_encode($response);
         exit;
 }
