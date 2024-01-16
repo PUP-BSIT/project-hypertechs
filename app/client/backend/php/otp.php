@@ -3,7 +3,7 @@ session_start();
 $DURATION_SEC = 5 * 60;
 $response = array();
 if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
-        $response['otp'] = $_SESSION['otp'] = $otp = get_otp();
+        $response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp();
 /*
         $response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp();
 */
