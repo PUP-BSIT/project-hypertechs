@@ -46,7 +46,7 @@ async function requestTransfer() {
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
-                alert("Amount should be up to six digits\n" +
+                alert("Amount should be up to six digits " +
                         "with exactly two decimal places.");
                 return;
         }
