@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --header-size: 3vw;
+  --subheader-size: 1.5vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --sidebar-header: 2.2vw;
+  --tab-size: 1.5vw;
+  --section-title: 3.5vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+  --sidebar: #d7e4fb;
+  --destruct: #b60000;
+  --balance-one: #0642bb;
+  --balance-two: #009dff;
+  --bank-card: #1e51b8;
+  --active: #000897;
+  --ball: #cee0ff;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #2d73fe;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #0b1734;
+  --sidebar: #09132a;
+  --destruct: #b30000;
+  --balance-one: #003399;
+  --balance-two: #0095ff;
+  --bank-card: #114fcd;
+  --active: #2d73fe;
+  --ball: #2d73fe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  background-color: var(--background);
+}
+
+/* positions the sidebar and main section side by side */
+.overview-page-container {
+  display: flex;
+}
+
+/* sidebar styling */
+.apex-user-sidebar {
+  width: 19vw;
+  top: 0;
+  position: sticky;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--sidebar);
+}
+
+/* sidebar layout */
+.apex-user-sidebar {
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "tab"
+    "config";
+  grid-template-rows: 16% 55% 29%;
+  grid-row-gap: 1%;
+}
+
+.apex-logo-container {
+  grid-area: logo;
+  border: 0px solid red;
+}
+
+.apex-tab-container {
+  grid-area: tab;
+  border: 0px solid hotpink;
+}
+
+.apex-config-container {
+  grid-area: config;
+  border: 0px solid green;
+}
+
+/* apex-logo-container layout */
+.apex-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 12%;
+}
+
+.apex-logo-container img {
+  width: 2.1em;
+  height: auto;
+  margin-right: 10px;
+}
+
+.apex-logo-container h1 {
+  font-size: var(--sidebar-header);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 5s linear infinite;
+}
+
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* apex-tab-container layout */
+.apex-tab-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.apex-tab-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 0px solid saddlebrown;
+}
+
+.tab-section .material-icons {
+  font-size: 1.2em;
+}
+
+.tab-section {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 2em;
+  color: var(--text);
+  font-weight: 500;
+  font-size: var(--tab-size);
+  position: relative;
+  border: 0px solid blue;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.tab-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-section:hover::before {
+  opacity: 0.5;
+}
+
+.tab-section:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* turns the current tab color to selected color */
+.apex-tab-wrapper #overview {
+  color: var(--primary);
+}
+
+/* removes the theme tab slide effect */
+.apex-tab-wrapper #theme:hover {
+  transform: translateX(0px);
+}
+
+/* modify the color of the logout tab */
+.apex-tab-wrapper #logout {
+  color: var(--destruct);
+}
+
+.apex-tab-wrapper #logout::before {
+  background-color: #ab0000;
+}
+
+.apex-tab-wrapper #logout:hover::before {
+  opacity: 0.2;
+}
+
+/* ---------- OVERVIEW SECTION STYLING ---------- */
+.apex-overview-section {
+  flex: 1;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  padding-left: 3em;
+  padding-right: 3em;
+  color: var(--text);
+  height: 100vh;
+}
+
+.apex-overview-section h2 {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.4vw;
+}
+
+/* H2 ICONS */
+.apex-overview-section span {
+  margin-right: 0.5em;
+}
+
+/* ----- HEADING STYLE ----- */
+#overview_heading {
+  border: 0px dashed blue;
+}
+
+#overview_heading h1 {
+  color: var(--text);
+  font-size: var(--section-title);
+}
+
+#overview_heading h1 span {
+  color: var(--primary);
+}
+
+#logout {
+  cursor: pointer;
+}
+
+/* ----- CONTAINER STYLE ----- */
+#overview_container_one {
+  display: flex;
+  max-width: 100%;
+  gap: 2%;
+  padding-top: 1.25em;
+  border: 0px dashed blue;
+}
+
+#overview_container_two {
+  max-width: 100%;
+  padding-top: 2em;
+  border: 0px dashed orangered;
+}
+
+#overview_container_three {
+  max-width: 100%;
+  padding-top: 2em;
+  border: 0px dashed orangered;
+}
+
+#overview_container_two h1,
+#overview_container_three h1 {
+  font-size: 1.5vw;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+#overview_container_two i,
+#overview_container_three i {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+#overview_card_info span {
+  margin-left: 0.5em;
+}
+
+/* ----- ACC SUMMARY STYLE ----- */
+#overview_summary {
+  height: 8vw;
+  width: 70%;
+  border-radius: 10px;
+  padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
+  background-color: var(--backdrop);
+}
+
+#summary_content {
+  display: flex;
+  align-items: center;
+  margin-top: 0vw;
+}
+
+#admin_image {
+  width: 9%;
+  border: 0px solid red;
+}
+
+#admin_image img {
+  width: 100%;
+}
+
+/* column container for summary */
+#summary_column_container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.75vw;
+}
+
+#summary_column_container h3 {
+  font-weight: 600;
+  margin-bottom: 0.4em;
+  color: var(--primary);
+  font-size: 1.2vw;
+}
+
+#summary_column_container span {
+  font-size: 1.2vw;
+}
+
+#summary_content h3 {
+  display: flex;
+  align-items: center;
+}
+
+#summary_content .material-icons {
+  margin-right: 0.5em;
+}
+
+/* ----- ACC BALANCE STYLE ----- */
+#overview_cash_drawer {
+  height: 8vw;
+  width: 30%;
+  border-radius: 10px;
+  padding: 1em;
+  background: linear-gradient(
+    to bottom right,
+    var(--balance-one),
+    var(--balance-two)
+  );
+}
+
+#overview_cash_drawer h2 {
+  font-size: 1.5vw;
+  font-weight: 500;
+  color: rgb(231, 240, 252);
+}
+
+#overview_cash_drawer h3 {
+  margin-top: 0.5em;
+  font-size: 2vw;
+  font-weight: 600;
+  color: rgb(231, 240, 252);
+}
+
+/* ------------ TRANSACTIONS CARDS ------------- */
+#transaction_cards {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2%;
+}
+
+#transaction_cards > div {
+  flex: 1; /*cards take up equal space */
+}
+
+#transaction_cards span {
+  font-size: 4vw;
+  margin-right: 0.35em;
+  color: var(--primary);
+}
+
+#all_transactions_card,
+#successful_transactions_card,
+#pending_transactions_card,
+#unsuccessful_transactions_card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  height: 7vw;
+  border-radius: 0.5em;
+  background-color: var(--backdrop);
+}
+/*
+#all_transactions_card {
+  background-color: rgb(128, 160, 128);
+}
+
+#successful_transactions_card {
+  background-color: rgb(112, 112, 0);
+}
+
+#pending_transactions_card {
+  background-color: darkred;
+}
+
+#unsuccessful_transactions_card {
+  background-color: rgb(88, 0, 112);
+} */
+
+#transactions_card_text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+#transactions_card_text h2 {
+  font-size: 1.1vw;
+  font-weight: 500;
+}
+
+#transactions_card_text h3 {
+  font-size: 2.25vw;
+  font-weight: 600;
+}
+
+/* ------------ TRANSACTIONS TABLE ------------- */
+#transactions_table {
+  width: 100%;
+  height: 12vw;
+  background-color: var(--backdrop);
+  border-radius: 0.5em;
+}
+
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-left: 15%;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 4px;
+  position: relative;
+  height: 1.3vw;
+  width: 3vw;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--ball);
+  border-radius: 50%;
+  position: absolute;
+  top: 0.1em;
+  left: 3px;
+  height: 0.95vw;
+  width: 0.95vw;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(1.65vw);
+}
+
+.fa-moon,
+.fa-sun {
+  margin-top: 1px;
+  font-size: 0.52em;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
