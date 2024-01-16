@@ -29,9 +29,9 @@ export async function postDataOTP(url, requestBody) {
   data = await response.json();
   if (statusCode === 302) {
     setTimeout(async () => {
+      console.log(redirectURL);
       redirectURL = data.location;
       window.location.replace(redirectURL);
-      console.log(redirectURL);
     }, 4000);
     return;
   }
