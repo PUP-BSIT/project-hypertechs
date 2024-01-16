@@ -98,15 +98,7 @@ EOT;
 $transaction_id = htmlspecialchars($data['transaction_id']);
 $amount = htmlspecialchars($data['amount']);
 
-$dateTimeString = $data['date'] . ' ' . $data['timef'];
-
-// Create a DateTime object in UTC timezone
-$dateTimeUTC = new DateTime($dateTimeString, new DateTimeZone('UTC'));
-
-// Set the desired timezone (Asia/Manila)
-$timezoneManila = new DateTimeZone('Asia/Manila');
-$dateTimeManila = clone $dateTimeUTC; // Create a copy
-$dateTimeManila->setTimezone($timezoneManila);
+$dateTimeManila = new DateTime('now', new DateTimeZone('Asia/Manila'));
 
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 
