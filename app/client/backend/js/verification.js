@@ -93,6 +93,7 @@ async function main() {
 async function resendCode() {
         setTimer(0);
         await destroyOTPSession("OTPOnly");
+        clearOTPInput();
         showText("OTP_GET");
 }
 
@@ -175,6 +176,16 @@ function getOTPInput() {
 
         otp = "" + num1 + num2 + num3 + num4 + num5 + num6
         return Number(otp);
+}
+
+function clearOTPInput() {
+
+        document.querySelector(ID_OTP_1).value = '';
+        document.querySelector(ID_OTP_2).value = '';
+        document.querySelector(ID_OTP_3).value = '';
+        document.querySelector(ID_OTP_4).value = '';
+        document.querySelector(ID_OTP_5).value = '';
+        document.querySelector(ID_OTP_6).value = '';
 }
 
 function setTimer(remainTime) {
