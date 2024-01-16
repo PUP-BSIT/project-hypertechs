@@ -45,7 +45,7 @@ function setAdminId(data) {
 function getAdminInfo() {
   let sessionAdmin, url, requestBody;
 
-  url = "../../php/admin-info.php";
+  url = "../../backend/php/admin-info.php";
   sessionAdmin = ADMIN_ID;
   requestBody = new FormData();
   requestBody.append("admin_id", sessionAdmin);

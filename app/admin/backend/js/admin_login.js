@@ -47,13 +47,13 @@ async function loginAdmin() {
   requestBody.append("redirect_url", ADMIN_URL);
   console.log(adminEmail);
   //url = "../backend/php/admin-login.php";
-  url = "../backend/php/admin-login-check.php";
+  url = "../../backend/php/admin-login-check.php";
   data = await postData(url, requestBody);
   if (!data.success) {
     showAlert(data.errorMessage);
     return;
   }
-  requestURL = "../backend/php/admin-login.php";
+  requestURL = "../../backend/php/admin-login.php";
   await saveRequest(requestURL, requestBody);
 }
 
