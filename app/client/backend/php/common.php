@@ -10,12 +10,14 @@ function connect_database() {
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
+
 /*
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
         $database = "apex_bank";
 */
+
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
