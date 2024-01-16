@@ -45,8 +45,9 @@ async function requestTransfer() {
                 alert("Please fill out all the required fields.");
                 return;
         }
-        if (!/^\d{1,6}$/.test(amount)) {
-                alert("Amount should be limited to six digits only.");
+        if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
+                alert("Amount should be up to six digits " +
+                        "with exactly two decimal places.");
                 return;
         }
         requestBody = new FormData();
