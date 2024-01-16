@@ -121,10 +121,10 @@ echo <<<EOT
                         Your money has been successfully transferred to
                         <strong>
                             <span id="display_transfer_msg_recipient">
-                                $recipient_name. 
+                                $recipient_name . "."; 
                             </span>
                         </strong>
-                        Thank you for choosing Apex Bank services!
+                        Thank you for choosing Apex Bank!
                     </p>
                     <div id="transfer_message_details">
                         <h3 id="trans_id_heading">
