@@ -44,7 +44,7 @@ function showAdminData(data) {
 
   firstName = document.querySelector(ID_FIRST_NAME);
   miniName = document.querySelector(ID_MINI_NAME);
-  adminName = document.querySelector(ID_ADMIN_NAME);
+  //adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   //balance = document.querySelector(ID_BALANCE);
   // if (firstName) {
