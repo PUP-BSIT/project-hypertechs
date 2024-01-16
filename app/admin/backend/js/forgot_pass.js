@@ -1,6 +1,6 @@
 import { postData, getData, saveRequest } from "./common_new.js";
 
-const ID_PHONE_NUMBER = "#account_phone";
+const ID_PHONE_NUMBER = "#admin_phone";
 const ID_SUBMIT = "#forgot_button";
 
 main();
