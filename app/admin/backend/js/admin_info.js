@@ -70,9 +70,7 @@ function showAdminData(data) {
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
   }
-  if (adminName) {
-    adminName.innerHTML = data.data.name;
-  }
+
   if (adminName || adminId) {
     adminName.innerHTML = data.data.name;
     adminId.innerHTML = data.data.adminId;
