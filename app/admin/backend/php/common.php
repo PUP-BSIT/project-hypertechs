@@ -6,10 +6,17 @@ $REGISTER_ERROR = "";
 function connect_database() {
         global $DB_CONN;
 
+/*
         $hostname = "127.0.0.1:3306";
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
+*/
+
+        $hostname = "localhost";
+        $username = "calib";
+        $password = "Hypertechsnumber1";
+        $database = "apex_bank";
 
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
@@ -56,12 +63,12 @@ function get_admin_data($table, $admin_id) {
         return $data;
 }
 
-function get_balance($admin_id) {
+function get_balance($account_number) {
         $balance_col = "balance";
-        $table = "admin";
-        $admin_col = "admin_id";
+        $table = "account";
+        $account_col = "account_number";
         $sql_stmt = "SELECT $balance_col FROM $table WHERE
-                 $admin_col='$admin_id'";
+                 $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -159,27 +166,27 @@ function get_password($admin_id) {
         return $data[$password_col];
 }
 
-function set_balance($admin_id, $new_balance) {
-        $admin_table = "admin";
-        $admin_col = "admin_id";
+function set_balance($account_number, $new_balance) {
+        $account_table = "account";
+        $account_col = "account_number";
         $balance_col = "balance";
-        $sql_stmt = "UPDATE $admin_table SET $balance_col=$new_balance WHERE
-                $admin_col='$admin_id'";
+        $sql_stmt = "UPDATE $account_table SET $balance_col=$new_balance WHERE
+                $account_col='$account_number'";
         return modify_database($sql_stmt);
 }
 
-function add_balance($admin_id, $amount) {
-        $balance = get_balance($admin_id);
+function add_balance($account_number, $amount) {
+        $balance = get_balance($account_number);
         if (!$balance) return false;
         $new_balance = $balance + $amount; 
-        return set_balance($admin_id, $new_balance); 
+        return set_balance($account_number, $new_balance); 
 }
 
-function deduct_balance($admin_id, $amount) {
-        $balance = get_balance($admin_id);
+function deduct_balance($account_number, $amount) {
+        $balance = get_balance($account_number);
         if (!$balance) return false;
         $new_balance = $balance - $amount; 
-        return set_balance($admin_id, $new_balance); 
+        return set_balance($account_number, $new_balance); 
 }
 
 function get_bank_name($bank_code) {
@@ -211,6 +218,16 @@ function does_admin_exist($admin_id) {
         $admin_col = "admin_id";
         $sql_stmt = "SELECT $admin_col FROM $admin_table WHERE 
                 $admin_col='$admin_id'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_account_exist($account_number) {
+        $account_table = "account";
+        $account_col = "account_number";
+        $sql_stmt = "SELECT $account_col FROM $account_table WHERE 
+                $account_col='$account_number'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
