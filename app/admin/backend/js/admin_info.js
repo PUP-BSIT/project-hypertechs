@@ -62,8 +62,20 @@ function showAdminData(data) {
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   // balance = document.querySelector(ID_BALANCE);
-  firstName.innerHTML = data.data.firstName;
-  adminName.innerHTML = data.data.name;
-  adminId.innerHTML = data.data.adminId;
+  // firstName.innerHTML = data.data.firstName;
+  // adminName.innerHTML = data.data.name;
+  // adminId.innerHTML = data.data.adminId;
   // balance.innerHTML = strToNum(data.data.balance);
+
+  if (firstName) {
+    firstName.innerHTML = data.data.firstName + "!";
+  }
+  if (adminName) {
+    adminName.innerHTML = data.data.name;
+  }
+  if (adminName || adminId) {
+    adminName.innerHTML = data.data.name;
+    adminId.innerHTML = data.data.adminId;
+    // balance.innerHTML = strToNum(data.data.balance);
+  }
 }
