@@ -326,211 +326,159 @@ svg {
 svg#freepik_stories-investment-data:not(.animated) .animable {
   opacity: 0;
 }
-
-svg#freepik_stories-investment-data.animated #freepik--Floor--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedRight;
+svg#freepik_stories-investment-data.animated #freepik--Floor--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
   animation-delay: 0s;
 }
-
-svg#freepik_stories-investment-data.animated #freepik--Plant--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--Shadows--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedRight;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--Gears--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--coins-2--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--Arrow--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) fadeIn;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--bar-chart--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.16666666666666666s;
-  opacity: 0;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0.3333333333333333s;
-  opacity: 0;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--pie-charts--inject-4 {
-  animation: 0.5s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--coins-1--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated
-  #freepik--magnifying-glass--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--character--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--Character--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut,
-    1.5s Infinite linear wind;
-  animation-delay: 0s, 1s;
-}
-
-svg#freepik_stories-investment-data.animated #freepik--curve-chart--inject-4 {
-  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
-  animation-delay: 0s;
-}
-
-svg#freepik_stories-investment-data.animated
-  #freepik--speech-bubbles--inject-4 {
+svg#freepik_stories-investment-data.animated #freepik--Plant--inject-7 {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
   animation-delay: 0s;
 }
-
-@keyframes lightSpeedRight {
-  from {
-    transform: translate3d(50%, 0, 0) skewX(-20deg);
-    opacity: 0;
-  }
-
-  60% {
-    transform: skewX(10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: skewX(-2deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+svg#freepik_stories-investment-data.animated #freepik--Shadows--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
 }
-
-@keyframes zoomIn {
+svg#freepik_stories-investment-data.animated #freepik--Gears--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins-2--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Arrow--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--bar-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3333333333333333s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6666666666666666s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-charts--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins-1--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated
+  #freepik--magnifying-glass--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Character--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut,
+    3s Infinite linear wind;
+  animation-delay: 0s, 1s;
+}
+svg#freepik_stories-investment-data.animated #freepik--curve-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated
+  #freepik--speech-bubbles--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+@keyframes slideRight {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: translateX(30px);
   }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes lightSpeedLeft {
-  from {
-    transform: translate3d(-50%, 0, 0) skewX(20deg);
-    opacity: 0;
-  }
-
-  60% {
-    transform: skewX(-10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: skewX(2deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: inherit;
-  }
-}
-
-@keyframes wind {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(1deg);
-  }
-
-  75% {
-    transform: rotate(-1deg);
-  }
-}
-
-@keyframes slideLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
-
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes wind {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
 .animator-hidden {
   display: none;
 }
