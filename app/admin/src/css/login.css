@@ -270,6 +270,16 @@ input::placeholder {
   color: var(--primary);
 }
 
+.form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group span {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
 .login-button {
   margin-top: 1.5em;
   height: 2.5em;

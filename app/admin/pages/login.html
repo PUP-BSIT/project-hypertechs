@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../src/css/login.css">
     <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
     <title>Apex Bank – Admin Login</title>
 </head>
 
@@ -43,13 +44,17 @@
             <div class="login-form-container">
                 <form action="#" method="post" id="login_form">
                     <div class="form-group">
-                        <label for="admin_email">Admin Email</label>
+                        <label for="admin_email">
+                            <span class="material-icons">mail</span>
+                            Admin Email</label>
                         <input type="email" id="admin_email" name="admin_email" required
                             placeholder="Enter your email address">
                     </div>
 
                     <div class="form-group" id="password_group">
-                        <label for="admin_password">Admin Password</label>
+                        <label for="admin_password">
+                            <span class="material-icons">lock</span>
+                            Admin Password</label>
                         <div class="password-container">
                             <input type="password" id="admin_password" name="admin_password" required
                                 placeholder="Enter your admin password">
@@ -59,7 +64,7 @@
                     <button type="button" class="login-button" id="login_button">Log In<i
                             class="fa-solid fa-right-to-bracket"></i></button>
                 </form>
-                <p class="signup-link">Not admin account yet? <a href="../pages/register.html">Create one</a></p>
+                <p class="signup-link">Not admin account yet? <a href="../pages/register.html">Create one.</a></p>
             </div>
         </div>
         <div id="login_image_container">
