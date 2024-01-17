@@ -7,6 +7,7 @@ $amount_col = "amount";
 $source_col = "source";
 $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
+$bank_code_col = "bank_code";
 $date_col = "date";
 $time_col = "time";
 
@@ -107,14 +108,15 @@ if (!deduct_balance($source, $amount)) {
         echo json_encode($response);
         exit;
 }
-/*
-$transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
-*/
 $transaction_id = $api_response['transaction_id'];
+if (!$transaction_id) {
+        $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
+}
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
-        $recipient_col, $transaction_id_col, $date_col, $time_col) 
+        $recipient_col, $transaction_id_col, $date_col, $time_col, 
+        $bank_code_col) 
         VALUES ($amount, '$source', '$recipient', 
-        '$transaction_id', '$date', '$time')"; 
+        '$transaction_id', '$date', '$time', '$bank_code')"; 
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);
