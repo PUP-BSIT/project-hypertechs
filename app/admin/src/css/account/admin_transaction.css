@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 :root {
   --font-family: "Inter", sans-serif;
@@ -21,24 +20,22 @@
   --backdrop: #d7e4fb;
   --sidebar: #d7e4fb;
   --destruct: #b60000;
-  --ball: #cee0ff;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
   --background: #0a0e18;
-  --primary: #2d73fe;
+  --primary: #246af8;
   --secondary: #1d4492;
   --accent: #3a7afb;
-  --backdrop: #0b1734;
+  --backdrop: #081023;
   --sidebar: #09132a;
   --destruct: #b30000;
-  --ball: #2d73fe;
 }
 
 * {
   margin: 0;
   padding: 0;
-  border: 0;
+  border: 2;
   box-sizing: border-box;
   font-family: var(--font-family);
 }
@@ -53,7 +50,7 @@ body {
 }
 
 /* positions the sidebar and main section side by side */
-.transactions-page-container {
+.transaction-page-container {
   display: flex;
 }
 
@@ -80,17 +77,17 @@ body {
 
 .apex-logo-container {
   grid-area: logo;
-  border: 0px solid red;
+  outline: 0px solid red;
 }
 
 .apex-tab-container {
   grid-area: tab;
-  border: 0px solid hotpink;
+  outline: 0px solid hotpink;
 }
 
 .apex-config-container {
   grid-area: config;
-  border: 0px solid green;
+  outline: 0px solid green;
 }
 
 /* apex-logo-container layout */
@@ -147,7 +144,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  border: 0px solid saddlebrown;
+  outline: 0px solid saddlebrown;
 }
 
 .tab-section .material-icons {
@@ -163,10 +160,10 @@ body {
   padding-bottom: 0.3em;
   padding-left: 2em;
   color: var(--text);
-  font-weight: 500;
   font-size: var(--tab-size);
+  font-weight: 500;
   position: relative;
-  border: 0px solid blue;
+  outline: 0px solid blue;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -215,22 +212,277 @@ body {
   opacity: 0.2;
 }
 
-/* ---------- TRANSACTIONS SECTION STYLING ---------- */
-.apex-transactions-section {
+/*transaction main page */
+.apex-transaction-container {
   flex: 1;
+  display: grid;
+  grid-template-areas: "form side";
   padding-top: 2.5em;
   padding-bottom: 2.5em;
   padding-left: 3em;
   padding-right: 3em;
-  color: var(--text);
-  height: 100vh;
+  border: 0px dashed red;
+  grid-template-columns: 50% 50%;
 }
 
-/* ----- HEADING STYLE ----- */
+.transaction-form {
+  grid-area: form;
+  margin-right: 1em;
+  border: 0px dashed green;
+}
 
-#transactions_heading h1 {
+.transaction-side {
+  grid-area: side;
+  margin-left: 1em;
+  border: 0px dashed blueviolet;
+}
+
+/*transaction heading */
+#transaction-heading {
+  border: 0px dashed orange;
+}
+
+#transaction-heading h1 {
+  padding-bottom: 0.25em;
   color: var(--primary);
   font-size: var(--section-title);
+  border: 0px dashed blueviolet;
+}
+
+/*transaction option styling */
+.transaction-option {
+  display: flex;
+  border: 0px dashed blueviolet;
+}
+
+.deposit-desc,
+.withdraw-desc {
+  border: 0px dashed black;
+  margin-top: 1em;
+  display: none;
+}
+
+.deposit-desc h2,
+.withdraw-desc h2 {
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1.3vw;
+  transition: color 0.3s ease-in-out;
+}
+
+/*transaction form general styling*/
+.transaction-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  border: 0px dashed blue;
+}
+
+.transaction-form-wrapper form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--subheader-size);
+  transition: color 0.3s ease-in-out;
+}
+
+.transaction-form-wrapper input {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.transaction-form-wrapper input::placeholder {
+  font-size: 1.25vw;
+  color: var(--text);
+  opacity: 0.25;
+}
+
+/* Common styles for both light and dark themes */
+.transaction-form-wrapper select {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-group:focus-within label,
+.form-group input:focus,
+.form-group select:focus {
+  color: var(--accent);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+.form-group select option {
+  background-color: var(--backdrop);
+  color: var(--text); /* Set the desired text color for options */
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group span {
+  margin-right: 0.5em;
+}
+
+/* forms transition */
+.transaction-form-wrapper {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.show-form {
+  display: block;
+  opacity: 1;
+}
+
+.transaction-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.transaction-buttons #submit {
+  width: 80%;
+}
+
+.transaction-buttons #reset {
+  width: 20%;
+  background-color: #bdd3ff;
+  color: #183d87;
+}
+
+.transaction-form-wrapper button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--button-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+}
+
+.transaction-form-wrapper button:hover {
+  transform: scale(1);
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.transaction-form-wrapper button:active {
+  transform: scale(0.95);
+}
+
+.transaction-form-wrapper button span {
+  margin-left: 0.5em;
+  font-size: 1em;
+}
+
+.transaction-option button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 0.25em;
+  margin-right: 1.75em;
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--button-size);
+  transition: color 0.4s, text-decoration 0.4s;
+  position: relative;
+}
+
+.transaction-option button span {
+  margin-right: 0.5em;
+}
+
+.transaction-option button.active,
+.transaction-option button:hover {
+  color: var(--primary);
+}
+
+.transaction-option button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--primary);
+  transition: width 0.4s;
+}
+
+.transaction-option button.active::before {
+  width: 100%;
+}
+
+.transaction-option #internal-transaction-btn {
+  margin-left: 0em;
+}
+
+#internal-transaction-form {
+  display: none;
+}
+
+/* --------------- TRANSFER SIDE ------------*/
+#transfer_mini_account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+}
+
+#transfer_mini_account_text {
+  text-align: end;
+}
+
+#transfer_mini_account_text h3 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+#transfer_mini_account_text h4 {
+  font-size: 1.25vw;
+  font-weight: 400;
+}
+
+#transfer_mini_account_image {
+  width: 10%;
+  margin-top: 0.5em;
+  margin-left: 1.45em;
+}
+
+#transfer_mini_account_image img {
+  width: 100%;
+}
+
+/* transfer side image */
+#transfer_image_container {
+  width: 100%;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
@@ -262,11 +514,11 @@ body {
 }
 
 .label .ball {
-  background-color: var(--ball);
+  background-color: var(--primary);
   border-radius: 50%;
   position: absolute;
-  top: 0.1em;
-  left: 3px;
+  top: 0.16vw;
+  left: 2px;
   height: 0.95vw;
   width: 0.95vw;
   transform: translateX(1px);
@@ -279,8 +531,7 @@ body {
 
 .fa-moon,
 .fa-sun {
-  margin-top: 1px;
-  font-size: 0.52em;
+  font-size: 0.55em;
 }
 
 .fa-moon {
@@ -289,4 +540,8 @@ body {
 
 .fa-sun {
   color: #042c8b;
+}
+
+svg {
+  width: 100%;
 }
