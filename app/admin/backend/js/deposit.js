@@ -2,9 +2,9 @@ import { postData, getData, isLoggedIn } from "./common_new.js";
 
 let ACCOUNT_NUMBER;
 const URL_HOME = "/index.html";
-const ID_CLIENT = "#account_number";
-const ID_DEPOSIT_AMOUNT = "#deposit_amount";
-const ID_DEPOSIT_BUTTON = "#deposit_button";
+const ID_CLIENT = "#recipient-account-number";
+const ID_DEPOSIT_AMOUNT = "#transfer-amount";
+const ID_DEPOSIT_BUTTON = "#submit";
 
 main();
 
@@ -45,4 +45,14 @@ async function requestDeposit() {
     alert("Amount should be limited to six digits only.");
     return;
   }
+
+  requestBody = new FormData();
+
+  url = "http://localhost/app/client/backend/deposit.php";
+
+  requestBody.append("redirect_url", redirectURL);
+  requestBody.append("transaction_amount", amount);
+  requestBody.append("source_account_no", source);
+  requestBody.append("recipient_account_no", recipient);
+  await postData(url, requestBody);
 }

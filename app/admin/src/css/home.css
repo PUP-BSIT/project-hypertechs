@@ -1,0 +1,484 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --title-size: 3.2vw;
+  --nav-size: 1.6vw;
+  --super-header-size: 5vw;
+  --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #b1caff;
+}
+
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #246af8;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #08193a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 1.5em;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--background);
+}
+
+/*header styling */
+header {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  justify-content: space-between;
+}
+
+#apex_logo {
+  display: flex;
+  align-items: center;
+}
+
+#apex_logo img {
+  width: 45px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#apex_logo h1 {
+  font-weight: 700;
+  font-size: var(--title-size);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 3s linear infinite;
+}
+
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#apex_logo sup {
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  gap: 2.5em;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: var(--nav-size);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+/* home text styling */
+#home_container {
+  height: 80vh;
+  display: flex;
+  margin: 0 auto;
+  outline: 0px solid blue;
+  justify-content: space-between;
+}
+
+.home-text,
+.home-image-container {
+  flex-grow: 1;
+}
+
+.home-text {
+  padding-top: 3em;
+  margin-left: 2em;
+  max-width: 50%;
+}
+
+.home-text h1 {
+  color: var(--text);
+  font-size: var(--super-header-size);
+}
+
+.home-text span {
+  color: var(--primary);
+}
+
+.home-text p {
+  margin-top: 1.5em;
+  max-width: 90%;
+  text-align: justify;
+  line-height: 1.5;
+  color: var(--text);
+  font-size: var(--subheader-size);
+}
+
+.home-desc {
+  font-size: var(--subheader-size);
+}
+
+/* home image styling */
+.home-image-container {
+  padding: 0;
+  margin: 0;
+  margin-right: 2em;
+  padding-bottom: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* home buttons styling */
+.button-container {
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  font-size: var(--button-size);
+}
+
+#button_create,
+#button_login {
+  margin-right: 1.5em;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out, transform 0.2s;
+}
+
+#button_create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: #f2f6ff;
+}
+
+#button_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bdd3ff;
+  color: var(--primary);
+}
+
+#button_create i {
+  align-items: center;
+  font-size: 0.75em;
+  margin-top: 0.1em;
+  margin-left: 0.8em;
+}
+
+#button_login i {
+  align-items: center;
+  font-size: 1em;
+  margin-top: 0.1em;
+  margin-left: 0.5em;
+}
+
+#button_create:hover,
+#button_login:hover {
+  transform: scale(1);
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+#button_create:active,
+#button_login:active {
+  transform: scale(0.95);
+}
+
+/* login icon animation */
+#button_login i.fa-right-to-bracket {
+  transition: transform 0.3s ease-in-out;
+}
+
+#button_login:hover i.fa-right-to-bracket {
+  transform: translateX(5px);
+}
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  padding: 6px;
+  position: relative;
+  height: 1.6em;
+  width: 3.75em;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(33px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
+
+/* Hide scrollbar */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none;
+}
+
+svg {
+  width: 85%;
+}
+
+/* SVG animation */
+svg#freepik_stories-investment-data:not(.animated) .animable {
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--Floor--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Plant--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Shadows--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Gears--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins-2--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Arrow--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--bar-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3333333333333333s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6666666666666666s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--pie-charts--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+svg#freepik_stories-investment-data.animated #freepik--coins-1--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated
+  #freepik--magnifying-glass--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated #freepik--Character--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut,
+    3s Infinite linear wind;
+  animation-delay: 0s, 1s;
+}
+svg#freepik_stories-investment-data.animated #freepik--curve-chart--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+svg#freepik_stories-investment-data.animated
+  #freepik--speech-bubbles--inject-7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes wind {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+.animator-hidden {
+  display: none;
+}

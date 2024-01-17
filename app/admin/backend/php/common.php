@@ -36,6 +36,15 @@ function close_database() {
         mysqli_close($DB_CONN);
 }
 
+function get_transaction_data($table, $transaction_id) {
+        $transaction_id_col = "transaction_id";
+        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%H:%i %p') AS timef FROM 
+                $table WHERE $transaction_id_col='$transaction_id';";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data;
+}
 
 function get_admin_data($table, $admin_id) {
         $admin_id_col = "admin_id";
@@ -74,23 +83,40 @@ function get_name($admin_id) {
         if (!$data) return false;
         $name = "";
         if ($data[$middle_name_col] === NULL && $data[$suffix_col] === NULL)
-                return $data[$first_name_col] . " " . $data[$surname_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$surname_col];
         if ($data[$middle_name_col] === NULL && $data[$suffix_col] !== NULL)
-                return $data[$first_name_col] . " " . $data[$surname_col] .
-                        " " . $data[$suffix_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$surname_col] . " " . 
+                        $data[$suffix_col];
         if ($data[$middle_name_col] !== NULL && $data[$suffix_col] === NULL)
-                return $data[$first_name_col] . " " . $data[$middle_name_col]
-                       . " " . $data[$surname_col];
-        return $data[$first_name_col] . " " . $data[$middle_name_col]
-               . " " . $data[$surname_col] . " " . $data[$suffix_col];
+                return $data[$first_name_col] . " " . 
+                        $data[$middle_name_col] . " " . 
+                        $data[$surname_col];
+        return $data[$first_name_col] . " " . 
+                $data[$middle_name_col] . " " . 
+                $data[$surname_col] . " " . 
+                $data[$suffix_col];
 }
 
-function get_phone_number($email) {
+function get_phone_number_via_email($email) {
         $phone_col = "phone_number";
         $table = "admin";
         $email_col = "email";
         $sql_stmt = "SELECT $phone_col FROM $table WHERE
                  $email_col='$email'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$phone_col];
+}
+
+function get_phone_number($admin_id) {
+        $phone_col = "phone_number";
+        $table = "admin";
+        $admin_col = "admin_id";
+        $sql_stmt = "SELECT $phone_col FROM $table WHERE
+                 $admin_col='$admin_id'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
@@ -109,11 +135,75 @@ function get_admin_id($email) {
         return $data[$admin_col];
 }
 
+function get_admin_id_via_phone($phone_number) {
+        $admin_col = "admin_id";
+        $table = "admin";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "SELECT $admin_col FROM $table WHERE
+                 $phone_number_col='$phone_number'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$admin_col];
+}
+
+function get_password($admin_id) {
+        $admin_col = "admin_id";
+        $table = "admin";
+        $password_col = "password";
+        $sql_stmt = "SELECT $password_col FROM $table WHERE
+                 $admin_col='$admin_id'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$password_col];
+}
+
+function set_balance($admin_id, $new_balance) {
+        $admin_table = "admin";
+        $admin_col = "admin_id";
+        $balance_col = "balance";
+        $sql_stmt = "UPDATE $admin_table SET $balance_col=$new_balance WHERE
+                $admin_col='$admin_id'";
+        return modify_database($sql_stmt);
+}
+
 function add_balance($admin_id, $amount) {
         $balance = get_balance($admin_id);
         if (!$balance) return false;
         $new_balance = $balance + $amount; 
         return set_balance($admin_id, $new_balance); 
+}
+
+function deduct_balance($admin_id, $amount) {
+        $balance = get_balance($admin_id);
+        if (!$balance) return false;
+        $new_balance = $balance - $amount; 
+        return set_balance($admin_id, $new_balance); 
+}
+
+function get_bank_name($bank_code) {
+        $bank_table = "external_bank";
+        $bank_name_col = "bank_name";
+        $bank_code_col = "bank_code";
+        $sql_stmt = "SELECT $bank_name_col FROM $bank_table WHERE
+                 $bank_code_col='$bank_code'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$bank_name_col];
+}
+
+function get_bank_api_url($bank_code) {
+        $bank_table = "external_bank";
+        $bank_url_col = "api_url";
+        $bank_code_col = "bank_code";
+        $sql_stmt = "SELECT $bank_url_col FROM $bank_table WHERE
+                 $bank_code_col='$bank_code'";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        return $data[$bank_url_col];
 }
 
 function does_admin_exist($admin_id) {
@@ -126,12 +216,63 @@ function does_admin_exist($admin_id) {
         return true;
 }
 
+function does_employee_exist($employee_number) {
+        $employee_table = "admin";
+        $employee_col = "employee_number";
+        $sql_stmt = "SELECT $employee_col FROM $employee_table WHERE 
+                $employee_col=$employee_number";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_bank_exist($bank_code) {
+        $bank_table = "external_bank";
+        $bank_code_col = "bank_code";
+        $sql_stmt = "SELECT $bank_code_col FROM $bank_table WHERE 
+                $bank_code_col='$bank_code'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_ext_transfer_id_exist($transaction_id) {
+        $transaction_table = "fund_transfer_external_send";
+        $transaction_id_col = "transaction_id";
+        $sql_stmt = "SELECT $transaction_id_col FROM $transaction_table WHERE 
+                $transaction_id_col='$transaction_id'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_transfer_id_exist($transaction_id) {
+        $transaction_table = "fund_transfer";
+        $transaction_id_col = "transaction_id";
+        $sql_stmt = "SELECT $transaction_id_col FROM $transaction_table WHERE 
+                $transaction_id_col='$transaction_id'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
 function does_password_match($email, $password) {
         $admin_table = "admin";
         $email_col = "email";
         $password_col = "password";
         $sql_stmt = "SELECT $email_col FROM $admin_table WHERE
                 $email_col='$email' AND $password_col='$password'";
+        $result = extract_database($sql_stmt);
+        if (!mysqli_fetch_assoc($result)) return false;
+        return true;
+}
+
+function does_employee_password_match($employee_number, $password) {
+        $employee_table = "admin";
+        $number_col = "employee_number";
+        $password_col = "password";
+        $sql_stmt = "SELECT $number_col FROM $employee_table WHERE
+                $number_col=$employee_number AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
@@ -169,4 +310,18 @@ function does_phone_number_exist($phone_number) {
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
 }
+
+function change_pass_via_phone($phone_number, $password) {
+        $admin_table = "admin";
+        $password_col = "password";
+        $phone_number_col = "phone_number";
+        $sql_stmt = "UPDATE $admin_table SET $password_col='$password' WHERE
+                $phone_number_col='$phone_number'";
+        return modify_database($sql_stmt);
+}
+
+function clear_spaces($string) {
+        return str_replace(' ', '', $string);
+}
+
 ?>

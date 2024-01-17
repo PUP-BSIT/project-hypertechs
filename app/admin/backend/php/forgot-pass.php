@@ -10,7 +10,7 @@ if (isset($_POST['phone_number'])) {
         $_SESSION['forgotpass_phone'] = $_POST['phone_number'];
         $_SESSION['forgotpass_time'] = time() + $DURATION_SEC;
         http_response_code(302);
-        $response['location'] = "/app/client/pages/reset_pass.html";
+        $response['location'] = "/app/admin/pages/reset_pass.html";
         echo json_encode($response);
         exit;
 }
@@ -33,13 +33,13 @@ if (($_SESSION['forgotpass_time'] - time()) < 0) {
 connect_database();
 $password = $_POST['password'];
 $phone_number = $_SESSION['forgotpass_phone'];
-$account_number = get_account_number_via_phone($phone_number);
-if (!$account_number) {
+$admin_id = get_admin_id_via_phone($phone_number);
+if (!$admin_id) {
         close_database();
         echo json_encode($response);
         exit;
 }
-$old_password = get_password($account_number);
+$old_password = get_password($admin_id);
 if (!$old_password) {
         close_database();
         echo json_encode($response);
@@ -57,7 +57,7 @@ if (!change_pass_via_phone($_SESSION['forgotpass_phone'], $password)) {
         echo json_encode($response);
         exit;
 }
-$_SESSION['account_number'] = $account_number;
+$_SESSION['admin_id'] = $admin_id;
 close_database();
 unset($_SESSION['forgotpass_phone']);
 unset($_SESSION['forgotpass_time']);

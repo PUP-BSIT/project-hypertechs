@@ -1,7 +1,8 @@
+export const BANK_CODE = "goodgghh7788";
 const HOME_URL = "../home.html";
 
 export async function postData(url, requestBody) {
-  let statusCode, response, data;
+  let statusCode, response, data, redirected, redirectURL;
 
   response = await fetch(url, {
     method: "POST",
@@ -9,28 +10,46 @@ export async function postData(url, requestBody) {
   });
   statusCode = await response.status;
   data = await response.json();
-  console.log(data);
   if (statusCode === 302) {
-    setTimeout(() => {
-      window.location.href = data.url;
+    redirectURL = data.location;
+    window.location.href = redirectURL;
+    return;
+  }
+  return data;
+}
+
+export async function postDataOTP(url, requestBody) {
+  let statusCode, response, data, redirected, redirectURL;
+
+  response = await fetch(url, {
+    method: "POST",
+    body: requestBody,
+  });
+  statusCode = await response.status;
+  data = await response.json();
+  if (statusCode === 302) {
+    setTimeout(async () => {
+      console.log(redirectURL);
+      redirectURL = data.location;
+      window.location.replace(redirectURL);
     }, 4000);
     return;
   }
-  data.statusCode = statusCode;
   return data;
 }
 
 export async function getData(url) {
-  let statusCode, response, data;
+  let statusCode, response, data, redirected;
 
   response = await fetch(url);
   statusCode = await response.status;
   data = await response.json();
   if (statusCode === 302) {
-    window.location.href = data.url;
+    setTimeout(async () => {
+      window.location.href = data.location;
+    }, 4000);
     return;
   }
-  data.statusCode = statusCode;
   return data;
 }
 
@@ -51,6 +70,25 @@ export function strToNum(number) {
     style: "decimal",
     minimumFractionDigits: 2,
   });
+}
+
+export function getExtBankUrl(bankCode) {
+  let url;
+
+  switch (bankCode) {
+    case "greenaabb1122":
+      url =
+        "http://localhost/greenbank/api/" + "receive-external-transfer.php";
+      break;
+    case "newccdd3344":
+      url = "http://localhost/newbank/api/" + "receive-external-transfer.php";
+      break;
+    case "happyeeff5566":
+      url =
+        "http://localhost/happybank/api/" + "receive-external-transfer.php";
+      break;
+  }
+  return url;
 }
 
 export function genErrorMessage(statusCode) {
@@ -135,7 +173,7 @@ export async function sendRequest() {
   for (let key in data) {
     requestBody.append(key, data[key]);
   }
-  await postData(response.requestURL, requestBody);
+  await postDataOTP(response.requestURL, requestBody);
   url = "/app/admin/backend/php/request-destroy.php";
   await getData(url);
   return true;
@@ -161,7 +199,7 @@ export async function destroyOTPSession(option) {
   let url, data, requestBody;
 
   console.log("destroySession");
-  url = "../backend/php/otp-session.php";
+  url = "/app/admin/backend/php/otp-session.php";
   requestBody = new FormData();
   if (option === "OTPOnly") {
     requestBody.append("destroy_otp", true);

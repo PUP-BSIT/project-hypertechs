@@ -3,7 +3,7 @@ import { postData, saveRequest, destroyOTPSession } from "./common_new.js";
 const ID_LOGIN_BUTTON = "#login_button";
 const ID_EMAIL = "#admin_email";
 const ID_PASSWORD = "#admin_password";
-const ADMIN_URL = "./admin_account/overview.html";
+const ADMIN_URL = "/app/admin/pages/admin_account/admin_overview.html";
 
 main();
 

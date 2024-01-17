@@ -13,7 +13,7 @@ const ID_PHONE = "#phone_number";
 const ID_PASSWORD = "#password";
 const ID_PASSWORD_CONFIRM = "#confirm_password";
 const ID_BTN_REGISTER = "#btn_register";
-const ID_ADDRESS = "#residential_address";
+// const ID_ADDRESS = "#residential_address";
 const ID_EMAIL = "#email";
 const ID_BIRTH = "#dob";
 
@@ -56,7 +56,7 @@ function getFormData() {
     firstName,
     surname,
     formData,
-    address,
+    // address,
     email,
     suffix,
     middleName,
@@ -66,7 +66,7 @@ function getFormData() {
   password = document.querySelector(ID_PASSWORD).value;
   firstName = document.querySelector(ID_FIRSTNAME).value;
   surname = document.querySelector(ID_LASTNAME).value;
-  address = document.querySelector(ID_ADDRESS).value;
+  // address = document.querySelector(ID_ADDRESS).value;
   email = document.querySelector(ID_EMAIL).value;
   suffix = document.querySelector(ID_SUFFIX).value;
   middleName = document.querySelector(ID_MIDDLENAME).value;
@@ -76,7 +76,7 @@ function getFormData() {
   formData.append("password", password);
   formData.append("first_name", firstName);
   formData.append("surname", surname);
-  formData.append("address", address);
+  // formData.append("address", address);
   formData.append("email", email);
   formData.append("suffix", suffix);
   formData.append("middle_name", middleName);
@@ -117,9 +117,9 @@ function isValidated() {
   let surnameInput = document.getElementById("surname");
   let firstNameInput = document.getElementById("first_name");
   let dobInput = document.getElementById("dob");
-  let residentialAddressInput = document.getElementById(
-    "residential_address"
-  );
+  // let residentialAddressInput = document.getElementById(
+  //   "residential_address"
+  // );
   let emailInput = document.getElementById("email");
   let phoneNumberInput = document.getElementById("phone_number");
   let passwordInput = document.getElementById("password");
@@ -130,7 +130,7 @@ function isValidated() {
     isEmpty(surnameInput) ||
     isEmpty(firstNameInput) ||
     isEmpty(dobInput) ||
-    isEmpty(residentialAddressInput) ||
+    // isEmpty(residentialAddressInput) ||
     isEmpty(emailInput) ||
     isEmpty(passwordInput) ||
     isEmpty(confirmPasswordInput)

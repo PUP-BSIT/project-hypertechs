@@ -5,12 +5,11 @@ connect_database();
 $email = $_POST["email"];
 $password = $_POST["password"];
 $redirect_url = $_POST['redirect_url'];
-$admin_number = get_admin_number($email);
-$_SESSION['admin_number'] = $admin_number;
-http_response_code(302);
-$response['url'] = $redirect_url;
-$response['success'] = true;
+$admin_id = get_admin_id($email);
 close_database();
+$_SESSION['admin_id'] = $admin_id;
+http_response_code(302);
+$response['location'] = $redirect_url;
 echo json_encode($response);
 exit;
 ?>

@@ -7,11 +7,12 @@ import {
   logFetch,
 } from "./common.js";
 
-let ADMIN_NUMBER;
+let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
-const ID_ADMIN_NAME = "#display_admin_holder";
-const ID_ADMIN_NUMBER = "#display_admin_number";
-const ID_BALANCE = "#display_admin_balance";
+const ID_ADMIN_NAME = "#display_admin_name";
+const ID_FIRST_NAME = "#admin_first_name";
+const ID_ADMIN_NUMBER = "#display_admin_id";
+// const ID_BALANCE = "#display_admin_balance";//
 
 main();
 
@@ -21,45 +22,58 @@ function main() {
 }
 
 function startOperation() {
-  let adminName, adminNumber, balance, url;
+  let adminName, adminId, url;
 
   adminName = document.querySelector(ID_ADMIN_NAME);
-  adminNumber = document.querySelector(ID_ADMIN_NUMBER);
-  balance = document.querySelector(ID_BALANCE);
+  adminId = document.querySelector(ID_ADMIN_NUMBER);
+  // balance = document.querySelector(ID_BALANCE);
   adminName.innerHTML = "Loading...";
-  adminNumber.innerHTML = "Loading...";
-  balance.innerHTML = "Loading...";
+  adminId.innerHTML = "Loading...";
+  firstName.innerHTML = "Loading...";
+  // balance.innerHTML = "Loading...";
   url = "../../backend/php/admin-session.php";
-  fetchData(url, setAdminNumber);
+  fetchData(url, setAdminId);
 }
 
-function setAdminNumber(data) {
+function setAdminId(data) {
   if (!data.success) {
     console.log(data);
     return;
   }
-  ADMIN_NUMBER = data.adminNumber;
+  ADMIN_ID = data.adminId;
   getAdminInfo();
 }
 
 function getAdminInfo() {
-  let sessionadmin, url, requestBody;
+  let sessionAdmin, url, requestBody;
 
   url = "../../backend/php/admin-info.php";
-  sessionadmin = ADMIN_NUMBER;
+  sessionAdmin = ADMIN_ID;
   requestBody = new FormData();
-  requestBody.append("admin_number", sessionadmin);
+  requestBody.append("admin_id", sessionAdmin);
   sendData(url, requestBody, showAdminData);
 }
 function showAdminData(data) {
   console.log(data);
   if (!data.success) return;
-  let adminName, adminNumber, balance;
+  let adminName, adminId, firstName;
 
+  firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
-  adminNumber = document.querySelector(ID_ADMIN_NUMBER);
-  balance = document.querySelector(ID_BALANCE);
-  adminName.innerHTML = data.data.name;
-  adminNumber.innerHTML = data.data.adminNumber;
-  balance.innerHTML = strToNum(data.data.balance);
+  adminId = document.querySelector(ID_ADMIN_NUMBER);
+  // balance = document.querySelector(ID_BALANCE);
+  // firstName.innerHTML = data.data.firstName;
+  // adminName.innerHTML = data.data.name;
+  // adminId.innerHTML = data.data.adminId;
+  // balance.innerHTML = strToNum(data.data.balance);
+
+  if (firstName) {
+    firstName.innerHTML = data.data.firstName + "!";
+  }
+
+  if (adminName || adminId) {
+    adminName.innerHTML = data.data.name;
+    adminId.innerHTML = data.data.adminId;
+    // balance.innerHTML = strToNum(data.data.balance);
+  }
 }
