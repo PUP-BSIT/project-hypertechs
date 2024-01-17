@@ -204,6 +204,11 @@ body {
   font-size: var(--text-size);
 }
 
+#otp_text #otp_countdown {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 /* otp form styling */
 .otp-form-container {
   margin-top: 3%;
@@ -268,12 +273,6 @@ body {
   transform: scale(0.95);
 }
 
-/* feedback_test */
-
-#feedback_test {
-  height: auto;
-  font-size: 0.5vw;
-}
 
 #get_otp,
 #expired,
@@ -309,8 +308,9 @@ body {
 /* resend code link styling */
 .resend-code {
   color: var(--text);
-  margin-top: 2%;
+  margin-top: 3%;
   text-align: center;
+  font-size: 1.3vw;
 }
 
 .resend-code a {
@@ -318,6 +318,7 @@ body {
   margin-top: 1.5%;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 }
 
 .resend-code a::before {
