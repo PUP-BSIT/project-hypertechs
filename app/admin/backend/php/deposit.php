@@ -4,36 +4,41 @@ require "./common.php";
 connect_database();
 $deposit_table = "deposit";
 $amount_col = "amount";
-$account_holder = "recipient";
+$account_col = "account_number";
+$admin_col = "admin_id";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
+$time_col = "time";
 
-$redirect_url = $_POST['redirect_url'];
-$amount = (float)$_POST['transaction_amount'];
-$recipient = (int)$_POST['recipient_account_no'];
+$amount = (float)$_POST['amount'];
+$account_number = $_POST['account_number'];
+$admin_id = $_POST['admin_id'];
 $transaction_id = "TID" . time() . uniqid ();
-$date = date ("Y-m-d");
-http_response_code(302);
+$date = date("Y-m-d");
+$time = date("h:i");
 
-if (!does_account_exist($recipient)) {
-        $response['url'] = "$redirect_url" . "?error_message=account does not exist";
+$response['success'] = false;
+if (!does_account_exist($account_number)) {
+        $response['errorMessage'] = "Account does not exist";
         echo json_encode($response);
         exit;
 }
 
-if (!add_balance($recipient, $amount)) {
-        $response['url'] = "$redirect_url" . "?error_message=Internal server error";
+if (!add_balance($account_number, $amount)) {
+        $response['errorMessage'] = "Something went wrong";
         echo json_encode($response);
         exit;
 }
-$sql_stmt = "INSERT INTO $deposit_table ($amount_col, $account_holder, $transaction_id_col, $date_col) 
-        VALUES ($amount, '$recipient', '$transaction_id', '$date')"; 
+$sql_stmt = "INSERT INTO $deposit_table ($transaction_id_col, $admin_col, 
+        $amount_col,  $account_col, $date_col, $time_col) 
+        VALUES ('$transaction_id', '$admin_id', $amount, '$account_number',
+        '$date', '$time')"; 
 if (!modify_database($sql_stmt)) {
-        http_response_code(403);
+        $response['errorMessage'] = "Something went wrong";
         echo json_encode($response);
         exit;
 } 
-
 close_database();
+$response['success'] = true;
 echo json_encode($response);
 ?>

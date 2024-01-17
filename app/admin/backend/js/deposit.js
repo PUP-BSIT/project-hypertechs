@@ -2,57 +2,42 @@ import { postData, getData, isLoggedIn } from "./common_new.js";
 
 let ACCOUNT_NUMBER;
 const URL_HOME = "/index.html";
-const ID_CLIENT = "#recipient-account-number";
-const ID_DEPOSIT_AMOUNT = "#transfer-amount";
-const ID_DEPOSIT_BUTTON = "#submit";
+const ID_ACCOUNT = "#deposit_account";
+const ID_AMOUNT = "#deposit_amount";
+const ID_BTN_SUBMIT  = "#deposit_submit";
 
 main();
 
 async function main() {
-  let url, loggedIn, btnDeposit, response;
+        let url, loggedIn, btnDeposit, response;
 
-  loggedIn = await isLoggedIn();
-  if (!loggedIn) {
-    window.location.href = URL_HOME;
-  }
-  url = "../../backend/php/admin-session.php";
-  response = await getData(url);
-  ACCOUNT_NUMBER = response.accountNumber;
-  btnDeposit = document.querySelector(ID_DEPOSIT_BUTTON);
-  btnDeposit.addEventListener("click", requestDeposit);
+        loggedIn = await isLoggedIn();
+        if (!loggedIn) {
+                window.location.href = URL_HOME;
+        }
+        url = "../../backend/php/admin-session.php";
+        response = await getData(url);
+        ACCOUNT_NUMBER = response.adminId;
+        console.log(ACCOUNT_NUMBER);
+        btnDeposit = document.querySelector(ID_BTN_SUBMIT);
+        btnDeposit.addEventListener("click", requestDeposit);
 }
 
 async function requestDeposit() {
-  let amount, recipient, source;
-
-  amount = document.querySelector(ID_DEPOSIT_AMOUNT).value;
-  recipient = document.querySelector(ID_CLIENT).value;
-  source = ACCOUNT_NUMBER;
-  console.log(source, recipient);
-  if (recipient === source) {
-    alert("Invalid account number.");
-    return;
-  }
-  if (!recipient || !amount) {
-    alert("Please fill out all the required fields.");
-    return;
-  }
-  if (!/^\d{12}$/.test(recipient)) {
-    alert("Account number should contain exactly 12 digits.");
-    return;
-  }
-  if (!/^\d{1,6}$/.test(amount)) {
-    alert("Amount should be limited to six digits only.");
-    return;
-  }
-
-  requestBody = new FormData();
-
-  url = "http://localhost/app/client/backend/deposit.php";
-
-  requestBody.append("redirect_url", redirectURL);
-  requestBody.append("transaction_amount", amount);
-  requestBody.append("source_account_no", source);
-  requestBody.append("recipient_account_no", recipient);
-  await postData(url, requestBody);
+        let account, amount, requestBody, url, response;
+       
+        account = document.querySelector(ID_ACCOUNT).value; 
+        amount = document.querySelector(ID_AMOUNT).value; 
+        requestBody = new FormData();
+        requestBody.append('account_number', account);
+        requestBody.append('amount', amount);
+        requestBody.append('admin_id', ACCOUNT_NUMBER);
+        url = "/app/admin/backend/php/deposit.php";
+        response = await postData(url, requestBody);
+        console.log(response);
+        if (!response.success) {
+                alert(response.errorMessage);
+                return;
+        }
+        alert("Deposit successful!");
 }
