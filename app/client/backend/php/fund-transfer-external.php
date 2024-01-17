@@ -91,11 +91,9 @@ $api_response = post_data($bank_api_url, $request_body);
 if (isset($api_response['status_code']) && $api_response['status_code'] != 200) {
         close_database();
         $error_message = get_error_message($response['status_code']);
-/*
         http_response_code(302);
         $response['location'] = $redirect_error . 
                 "?error_message=$error_message";
-*/
         $response['api_response'] = $api_response;
         echo json_encode($response);
 
@@ -110,9 +108,9 @@ if (!deduct_balance($source, $amount)) {
         exit;
 }
 /*
-$transaction_id = $response['transaction_id'];
-*/
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
+*/
+$transaction_id = $api_response['transaction_id'];
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col, $time_col) 
         VALUES ($amount, '$source', '$recipient', 
@@ -123,18 +121,14 @@ if (!modify_database($sql_stmt)) {
         $response['location'] = $redirect_error . 
                 "?error_message=Internal server error";
         echo json_encode($response);
-
         exit;
 } 
 close_database();
-/*
 http_response_code(302);
 $response['location'] = $redirect_url . "?fund_transfer_success=true&" .
         "transaction_id=" . $response['transaction_id'];
-*/
 $response['api_response'] = $api_response;
 echo json_encode($response);
-
 exit;
 
 function post_data($url, $body) {

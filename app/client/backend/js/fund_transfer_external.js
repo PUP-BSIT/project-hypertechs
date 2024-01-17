@@ -32,10 +32,10 @@ async function requestTransfer() {
                 requestBody, redirectURL, data;
         
 /*
-        redirectURL = "https://apexapp.tech/app/client/pages/account/" +
+        redirectURL = "http://localhost/app/client/pages/account/" +
                 "fund_transfer_result.php";
 */
-        redirectURL = "http://localhost/app/client/pages/account/" +
+        redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
@@ -57,22 +57,15 @@ async function requestTransfer() {
         }
         requestBody = new FormData();
 /*
-        url = "https://apexapp.tech/app/client/backend/api/" +
-                "fund-transfer-external.php";
-        url = "https://apexapp.tech/app/client/backend/php/" +
-                "receive-external-transfer.php";
-        url = "https://projectvrzn.online/vrzn-bank/app/database/" + 
-                "receive-external-transfer.php";
-*/
         url = "http://localhost/app/client/backend/api/" +
+                "fund-transfer-external.php";
+*/
+        url = "https://apexapp.tech/app/client/backend/api/" +
                 "fund-transfer-external.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
-/*
-        requestBody.append('ssource_bank_code', "VRZN");
-*/
         requestBody.append('recipient_bank_code', bankCode);
         data = await postData(url, requestBody);
         console.log(data);

@@ -8,10 +8,10 @@ header("Access-Control-Allow-Credentials: true");
 
 connect_database();
 /*
-$redirect_error = "https://apexapp.tech/app/client/pages/account/" .
+$redirect_error = "http://localhost/app/client/pages/account/" .
         "fund_transfer_result.php";
 */
-$redirect_error = "http://localhost/app/client/pages/account/" .
+$redirect_error = "https://apexapp.tech/app/client/pages/account/" .
         "fund_transfer_result.php";
 $params_complete = $_POST['redirect_url'] !== '' &&
         $_POST['transaction_amount'] !== '' &&
@@ -73,10 +73,10 @@ $query = array(
 close_database();
 http_response_code(302);
 /*
-$response['location'] = "https://apexapp.tech/app/client/backend/api/" .
-        "request.php?" . http_build_query($query); 
-*/
 $response['location'] = "http://localhost/app/client/backend/api/request.php?" .
         http_build_query($query); 
+*/
+$response['location'] = "https://apexapp.tech/app/client/backend/api/" .
+        "request.php?" . http_build_query($query); 
 echo json_encode($response);
 ?>
