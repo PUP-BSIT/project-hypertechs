@@ -1,7 +1,7 @@
 import { postData, getData, isLoggedIn } from "./common_new.js";
 
 const ID_BTN_LOGIN = "#button_login";
-const URL_ACCOUNT = "./app/admin/pages/admin_account/overview.html";
+const URL_ACCOUNT = "./app/admin/pages/admin_account/admin_overview.html";
 const URL_LOGIN = "./app/admin/pages/login.html";
 
 main();
