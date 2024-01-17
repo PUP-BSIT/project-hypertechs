@@ -128,7 +128,7 @@ if (!modify_database($sql_stmt)) {
 close_database();
 http_response_code(302);
 $response['location'] = $redirect_url . "?fund_transfer_success=true&" .
-        "transaction_id=" . $response['transaction_id'];
+        "transaction_id=" . $transaction_id;
 $response['api_response'] = $api_response;
 echo json_encode($response);
 exit;
