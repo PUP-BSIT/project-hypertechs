@@ -101,6 +101,9 @@ $amount = htmlspecialchars($data['amount']);
 $dateTimeManila = new DateTime('now', new DateTimeZone('Asia/Manila'));
 
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
+if (!$recipient_name) {
+        $recipient_name = $data['recipient'];
+}
 
 echo <<<EOT
         <div id="transfer_message_container">

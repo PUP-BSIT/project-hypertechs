@@ -1,6 +1,6 @@
 import { 
         postData, getData, getExtBankUrl, genErrorMessage,
-        isLoggedIn, saveRequest 
+        isLoggedIn, saveRequest
 } from "./common_new.js";
 
 let ACCOUNT_NUMBER;
@@ -29,9 +29,14 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL;
+                requestBody, redirectURL, data;
         
-        redirectURL = "/app/client/pages/account/fund_transfer_result.php";
+/*
+        redirectURL = "http://localhost/app/client/pages/account/" +
+                "fund_transfer_result.php";
+*/
+        redirectURL = "https://apexapp.tech/app/client/pages/account/" +
+                "fund_transfer_result.php";
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
@@ -51,11 +56,17 @@ async function requestTransfer() {
                 return;
         }
         requestBody = new FormData();
-        url = "/app/client/backend/api/fund-transfer-external.php";
+/*
+        url = "http://localhost/app/client/backend/api/" +
+                "fund-transfer-external.php";
+*/
+        url = "https://apexapp.tech/app/client/backend/api/" +
+                "fund-transfer-external.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('recipient_bank_code', bankCode);
-        await postData(url, requestBody);
+        data = await postData(url, requestBody);
+        console.log(data);
 }
