@@ -4,9 +4,9 @@ let ADMIN_ID;
 const ID_LOGOUT_BUTTON = "#logout";
 //const ID_ADMIN_NAME = "#admin_name";
 const ID_ADMIN_NUMBER = "#display_admin_id";
-const ID_FIRST_NAME = "#display_admin_name";
+const ID_FIRST_NAME = "#admin_first_name";
 const HOME_URL = "/index.html";
-const ID_MINI_NAME = "#display_mini_admin_text";
+const ID_ADMIN_NAME = "#display_admin_name";
 
 main();
 
@@ -40,19 +40,19 @@ async function getAdminInfo() {
 }
 
 function showAdminData(data) {
-  let adminName, adminId, balance, firstName, name, miniName;
+  let adminName, adminId, balance, firstName, name;
 
   firstName = document.querySelector(ID_FIRST_NAME);
-  miniName = document.querySelector(ID_MINI_NAME);
+  adminName = document.querySelector(ID_ADMIN_NAME);
   //adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   //balance = document.querySelector(ID_BALANCE);
-  // if (firstName) {
-  firstName.innerHTML = data.data.firstName;
-  // }
-  // if (miniName) {
-  //   miniName.innerHTML = data.data.name;
-  // }
+  if (firstName) {
+    firstName.innerHTML = data.data.firstName;
+  }
+  if (adminName) {
+    adminName.innerHTML = data.data.name;
+  }
   if (adminId) {
     //adminName.innerHTML = data.data.name;
     adminId.innerHTML = data.data.adminId;
