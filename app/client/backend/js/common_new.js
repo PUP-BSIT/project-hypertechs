@@ -15,6 +15,7 @@ export async function postData(url, requestBody) {
                 window.location.href = redirectURL;
                 return;
         }
+        data.statusCode = statusCode;
         return data;
 }
 
@@ -170,7 +171,8 @@ export async function sendRequest() {
         for (let key in data) {
                 requestBody.append(key, data[key]);
         }
-        await postDataOTP(response.requestURL, requestBody);
+        response = await postDataOTP(response.requestURL, requestBody);
+        console.log(response);
         url = "/app/client/backend/php/request-destroy.php";
         await getData(url);
         return true;

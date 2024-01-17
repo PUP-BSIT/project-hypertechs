@@ -1,5 +1,5 @@
 import { 
-        getData, postData, sendRequest, destroyOTPSession
+        getData, postData, sendRequest, destroyOTPSession, clearFeedback
 } from "./common_new.js";
 
 const JS_SECOND = 1000;
@@ -23,6 +23,8 @@ const ID_OTP_CORRECT = "#otp_correct";
 const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
 const ID_CODE_RESEND = "#resend_code";
+const ID_BTN_BACK = "#btn_back";
+const ID_FEEDBACK = "#otp_feedback";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
@@ -31,11 +33,15 @@ main();
 
 async function main() {
         let otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6,
-                codeResend, btnGet, btnVerify, btnRetry;
+                codeResend, btnGet, btnVerify, btnRetry, btnBack;
 
         console.log("main");
         showText();
         checkSession(); 
+        btnBack = document.querySelector(ID_BTN_BACK);
+        btnBack.addEventListener("click", () => {
+                history.back()
+        });
         otp1 = document.querySelector(ID_OTP_1);
         otp2 = document.querySelector(ID_OTP_2);
         otp3 = document.querySelector(ID_OTP_3);
@@ -88,6 +94,7 @@ async function main() {
 async function resendCode() {
         setTimer(0);
         await destroyOTPSession("OTPOnly");
+        clearOTPInput();
         showText("OTP_GET");
 }
 
@@ -144,12 +151,15 @@ async function getOTP() {
 }
 
 async function checkOTPInput() {
-        let OTPInput;
+        let OTPInput, feedback;
 
+        feedback = document.querySelector(ID_FEEDBACK);
         OTPInput = getOTPInput();
         console.log(OTPInput, OTP);
         if(OTPInput !== OTP) {
-                alert("You have entered an incorrect OTP. Please try again.");
+                feedback.innerHTML = "You have entered an incorrect OTP. " + 
+                        "Please try again.";
+                clearFeedback(feedback);
                 return;
         }
         setTimer(0);
@@ -170,6 +180,16 @@ function getOTPInput() {
 
         otp = "" + num1 + num2 + num3 + num4 + num5 + num6
         return Number(otp);
+}
+
+function clearOTPInput() {
+
+        document.querySelector(ID_OTP_1).value = '';
+        document.querySelector(ID_OTP_2).value = '';
+        document.querySelector(ID_OTP_3).value = '';
+        document.querySelector(ID_OTP_4).value = '';
+        document.querySelector(ID_OTP_5).value = '';
+        document.querySelector(ID_OTP_6).value = '';
 }
 
 function setTimer(remainTime) {

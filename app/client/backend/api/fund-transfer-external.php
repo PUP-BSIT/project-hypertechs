@@ -1,6 +1,18 @@
 <?php
 require "../php/common.php";
+
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Methods:*");
+header("Access-Control-Allow-Headers:*");
+header("Access-Control-Allow-Credentials: true");
+
 connect_database();
+/*
+$redirect_error = "http://localhost/app/client/pages/account/" .
+        "fund_transfer_result.php";
+*/
+$redirect_error = "https://apexapp.tech/app/client/pages/account/" .
+        "fund_transfer_result.php";
 $params_complete = $_POST['redirect_url'] !== '' &&
         $_POST['transaction_amount'] !== '' &&
         $_POST['source_account_no'] !== '' &&
@@ -8,9 +20,8 @@ $params_complete = $_POST['redirect_url'] !== '' &&
         $_POST['recipient_bank_code'] !== '';
 if (!$params_complete) {
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" .
-                "account/fund_transfer_result.php?error_message=There " .
-                "is some missing parameters";
+        $response['location'] = $redirect_error . "?error_message=There is " .
+                "some missing parameters";
 
         echo json_encode($response);
         exit;
@@ -23,18 +34,16 @@ $bank_code = $_POST['recipient_bank_code'];
 if ($source === $recipient) {
         close_database();
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" .
-                "account/fund_transfer_result.php?error_message=Source and " .
-                "recipient account number cannot be the same";
+        $response['location'] = $redirect_error . "?error_message=Source " .
+                "and recipient account number cannot be the same";
         echo json_encode($response);
         exit;
 }
 if (!does_account_exist($source)) {
         close_database();
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" .
-                "account/fund_transfer_result.php?error_message=The source " .
-                "account does not exist in our records";
+        $response['location'] = $redirect_error . "?error_message=The " .
+                "source account does not exist in our records";
 
         echo json_encode($response);
         exit;
@@ -43,8 +52,7 @@ $phone_number = get_phone_number($source);
 if (!$phone_number) {
         close_database();
         http_response_code(302);
-        $response['location'] = "https://apexapp.tech/app/client/pages/" . 
-                "account/fund_transfer_result.php?error_message=Internal " .
+        $response['location'] = $redirect_error . "?error_message=Internal " .
                 "server error";
         echo json_encode($response);
         exit;
@@ -55,15 +63,19 @@ $request_body = array(
         'source_account_no' => $source,
         'recipient_account_no' => $recipient,
         'recipient_bank_code' => $bank_code
+
 );
 $query = array(
-        'request_url' => "https://apexapp.tech/app/client/backend/php/" .
-                "fund-transfer-external.php",
+        'request_url' => "/app/client/backend/php/fund-transfer-external.php",
         'request_body' => json_encode($request_body),
         'phone_number' => $phone_number
 );
 close_database();
 http_response_code(302);
+/*
+$response['location'] = "http://localhost/app/client/backend/api/request.php?" .
+        http_build_query($query); 
+*/
 $response['location'] = "https://apexapp.tech/app/client/backend/api/" .
         "request.php?" . http_build_query($query); 
 echo json_encode($response);
