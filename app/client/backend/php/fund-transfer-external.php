@@ -22,6 +22,9 @@ if (!$parameters_complete) {
         exit;
 }
 $redirect_url = $_POST['redirect_url'];
+/*
+$amount = $_POST['transaction_amount'];
+*/
 $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
@@ -58,13 +61,16 @@ if ($recipient == $source) {
 
         exit;
 }
-//$bank_api_url = get_bank_api_url($bank_code);
 /*
+$bank_api_url = get_bank_api_url($bank_code);
 $bank_api_url = "http://localhost/app/client/backend/php/" . 
         "receive-external-transfer.php";
-*/
 $bank_api_url = "https://apexapp.tech/app/client/backend/php/" . 
         "receive-external-transfer.php";
+*/
+$bank_api_url = "https://projectvrzn.online/vrzn-bank/app/database/" .
+                "receive-external-transfer.php";
+
 if (!$bank_api_url) {
         close_database();
         http_response_code(302);
@@ -77,17 +83,20 @@ if (!$bank_api_url) {
 $request_body = array(
         'transaction_amount' => $amount,
         'source_account_no' => $source,
-        'source_bank_code' => "VRZN",
+        'source_bank_code' => "APEX",
         'recipient_account_no' => $recipient
 );
 
-$response = post_data($bank_api_url, $request_body);
-if (isset($response['status_code']) && $response['status_code'] != 200) {
+$api_response = post_data($bank_api_url, $request_body);
+if (isset($api_response['status_code']) && $api_response['status_code'] != 200) {
         close_database();
         $error_message = get_error_message($response['status_code']);
+/*
         http_response_code(302);
         $response['location'] = $redirect_error . 
                 "?error_message=$error_message";
+*/
+        $response['api_response'] = $api_response;
         echo json_encode($response);
 
         exit;
@@ -100,7 +109,10 @@ if (!deduct_balance($source, $amount)) {
         echo json_encode($response);
         exit;
 }
+/*
 $transaction_id = $response['transaction_id'];
+*/
+$transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col, $time_col) 
         VALUES ($amount, '$source', '$recipient', 
@@ -115,9 +127,12 @@ if (!modify_database($sql_stmt)) {
         exit;
 } 
 close_database();
+/*
 http_response_code(302);
 $response['location'] = $redirect_url . "?fund_transfer_success=true&" .
         "transaction_id=" . $response['transaction_id'];
+*/
+$response['api_response'] = $api_response;
 echo json_encode($response);
 
 exit;
@@ -131,11 +146,14 @@ function post_data($url, $body) {
         $response = curl_exec($ch);
         $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+/*
         if ($status_code != 200) {
                 $data['status_code'] = $status_code;
                 return $data;
         }
+*/
         $data = json_decode($response, true);
+        $data['status_code'] = $status_code;
         return $data;
 }
 
