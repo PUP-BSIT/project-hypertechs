@@ -79,10 +79,6 @@ body {
   overflow: hidden;
 }
 
-#otp_image_container img {
-  width: 70%;
-}
-
 /* header styling */
 #header_container {
   padding-left: 3em;
@@ -392,6 +388,7 @@ body {
 
 svg {
   width: 100%;
+  padding-bottom: 5vw;
 }
 
 svg#freepik_stories-privacy-policy:not(.animated) .animable {
