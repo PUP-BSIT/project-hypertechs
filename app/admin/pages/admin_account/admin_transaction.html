@@ -82,7 +82,7 @@
             <div class="form-group">
               <label for="recipient-account-number">
                 <span class="material-icons">account_box</span> Account Number:</label>
-              <input type="text" id="recipient-account-number" name="recipient-account-number" required
+              <input type="text" id="deposit_account" name="recipient-account-number" required
                 placeholder="Enter a valid 12-digit Apex account number">
             </div>
 
@@ -90,7 +90,7 @@
               <label for="transfer-amount">
                 <span class="material-icons">payment</span>
                 Deposit Amount:</label>
-              <input type="text" id="transfer-amount" name="transfer-amount" required
+              <input type="text" id="deposit_amount" name="transfer-amount" required
                 placeholder="In Philippine Peso (&#8369;)">
             </div>
 
@@ -102,7 +102,7 @@
                 placeholder="Up to 40 characters (optional)"></input>
             </div>
             <div class="transaction-buttons">
-              <button type="submit" id="submit" onclick="confirmDeposit()">Confirm Deposit<span
+              <button type="button" id="deposit_submit">Confirm Deposit<span
                   class="material-icons">send</span></button>
               <button type="reset" id="reset">Clear</button>
             </div>
@@ -115,7 +115,7 @@
               <label for="recipient-account-number">
                 <span class="material-icons">account_box</span>
                 Account Number:</label>
-              <input type="text" id="recipient-account-number" name="recipient-account-number" required
+              <input type="text" id="withdraw_account" name="recipient-account-number" required
                 placeholder="Enter a valid 12-digit Apex account number">
             </div>
 
@@ -123,7 +123,7 @@
               <label for="transfer-amount">
                 <span class="material-icons">payment</span>
                 Withdraw Amount:</label>
-              <input type="text" id="transfer-amount" name="transfer-amount" required
+              <input type="text" id="withdraw_amount" name="transfer-amount" required
                 placeholder="In Philippine Peso (&#8369;)">
             </div>
 
@@ -135,7 +135,7 @@
                 placeholder="Up to 40 characters (optional)"></input>
             </div>
             <div class="transaction-buttons">
-              <button type="submit" id="submit" onclick="confirmWithdraw()">Confirm Withdraw<span
+              <button type="button" id="withdraw_submit">Confirm Withdraw<span
                   class="material-icons">send</span></button>
               <button type="reset" id="reset">Clear</button>
             </div>
@@ -615,6 +615,7 @@
     <script src="../../src/scripts/transaction.js"></script>
     <script src="../../backend/js/admin_logout.js" type="module"></script>
     <script src="../../backend/js/deposit.js" type="module"></script>
+    <script src="../../backend/js/withdraw.js" type="module"></script>
 </body>
 
 </html>
