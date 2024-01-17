@@ -302,6 +302,18 @@ form label {
   color: var(--accent);
 }
 
+.form-group #password_format {
+  color: var(--text);
+  font-size: 1.1vw;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-group:focus-within #password_format,
+.form-group:focus-within label,
+.form-group input:focus {
+  color: var(--accent);
+}
+
 .form-group input:focus {
   border-bottom: 2px solid var(--accent);
 }
