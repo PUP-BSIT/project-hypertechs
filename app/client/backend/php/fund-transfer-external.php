@@ -181,7 +181,7 @@ function get_error_message($status_code) {
                 return "Conflict";
                 break;
         default:
-                return "Internal Server error";
+                return "Something went wrong";
         }
 }
 ?>
