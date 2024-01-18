@@ -300,6 +300,10 @@ body {
   margin-right: 0.5em;
 }
 
+#overview_container_three {
+  margin: 5px;
+}
+
 #overview_card_info span {
   margin-left: 0.5em;
 }
@@ -465,7 +469,6 @@ body {
   background-color: var(--backdrop);
   border-radius: 0.5em;
 }
-
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
 #toggle_theme {
