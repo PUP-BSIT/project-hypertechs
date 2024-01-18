@@ -3,11 +3,11 @@
 :root {
   --font-family: "Inter", sans-serif;
   --title-size: 3vw;
-  --header-size: 3vw;
-  --subheader-size: 1.6vw;
+  --header-size: 2vw;
+  --subheader-size: 1.0vw;
   --button-size: 1.5vw;
-  --text-size: 1.5vw;
-  --subtext-size: 1.2vw;
+  --text-size: 0.90vw;
+  --subtext-size: 1.0vw;
   --link: 1vw;
 }
 
