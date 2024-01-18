@@ -358,8 +358,17 @@ function get_total_deposit($deposit_amount_col) {
         $deposit_table = "deposit";
         $sql_stmt = "SELECT SUM($deposit_amount_col) FROM $deposit_table";
         $result = extract_database($sql_stmt);
-        $row = mysqli_fetch_row($result);
-        return $row[0];
+        if (!$result) {
+                die('Error executing query: ' . mysqli_error($DB_CONN));
+            }
+        
+            $row = mysqli_fetch_row($result);
+        
+            if ($row === false) {
+                die('Error fetching result: ' . mysqli_error($DB_CONN));
+            }
+        
+            return $row[0];
 }    
     
 function clear_spaces($string) {
