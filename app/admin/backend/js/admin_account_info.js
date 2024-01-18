@@ -96,10 +96,11 @@ function showAdminData(data) {
     for (let i = 0; i < data.data.recentTransact.length; i++) {
       let transactionInfo = document.createElement("div");
       transactionInfo.innerHTML = `
-        <p>${data.data.recentTransact[i].account_number} " "
+        <p>${data.data.recentTransact[i].account_number}
         ${data.data.recentTransact[i].transaction_type} 
         PHP ${data.data.recentTransact[i].amount} on 
-        ${data.data.recentTransact[i].date}</p>
+        ${data.data.recentTransact[i].date}
+        ${data.data.recentTransact[i].time}</p>
         <hr>
       `;
       recentTransact.appendChild(transactionInfo);
