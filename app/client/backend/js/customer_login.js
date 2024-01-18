@@ -3,7 +3,7 @@ import {
 } from "./common_new.js";
 
 const ID_LOGIN_BUTTON = "#login_button";
-const ID_EMAIL = "#account_email";
+const ID_PHONE = "#account_phone";
 const ID_PASSWORD = "#account_password";
 const ACCOUNT_URL = "/app/client/pages/account/overview.html";
 
@@ -16,17 +16,17 @@ function main() {
 }
 
 async function validateLoginForm() {
-        let accountEmail, accountPassword;
+        let accountPhone, accountPassword;
     
-        accountEmail = document.querySelector(ID_EMAIL).value;
+        accountPhone = document.querySelector(ID_PHONE).value;
         accountPassword = document.querySelector(ID_PASSWORD).value;
         
-        if (!accountEmail || !accountPassword) {
-            showAlert("Please fill all the required fields.");
+        if (!accountPhone || !accountPassword) {
+            alert("Please fill all the required fields.");
             return;
         }
         if(!isPasswordValid(accountPassword)) {
-            showAlert("Invalid password. Please enter a valid password.");
+            alert("Invalid password. Please enter a valid password.");
             return;
         }
     
@@ -34,26 +34,20 @@ async function validateLoginForm() {
         loginCustomer();
 }
     
-function showAlert(message) {
-        window.alert(message);
-}
-
 async function loginCustomer() {
-        let accountEmail, password, requestBody, url, data,
+        let accountPhone, password, requestBody, url, data,
                 response, requestURL;
 
-        accountEmail = document.querySelector(ID_EMAIL).value;
+        accountPhone = document.querySelector(ID_PHONE).value;
         password = document.querySelector(ID_PASSWORD).value;
         requestBody = new FormData();
-        requestBody.append("email", accountEmail);
+        requestBody.append("phone_number", accountPhone);
         requestBody.append("password", password);
         requestBody.append("redirect_url", ACCOUNT_URL);
-        console.log(accountEmail);
-        //url = "../backend/php/customer-login.php";
         url = "../backend/php/customer-login-check.php";
         data = await postData(url, requestBody);
         if (!data.success) {
-                showAlert(data.errorMessage);
+                alert(data.errorMessage);
                 return;
         }
         requestURL = "../backend/php/customer-login.php";
