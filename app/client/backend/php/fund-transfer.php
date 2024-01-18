@@ -1,6 +1,9 @@
 <?php
 require "./common.php";
 
+// Set the timezone to Manila
+date_default_timezone_set('Asia/Manila');
+
 connect_database();
 $transfer_table = "fund_transfer";
 $amount_col = "amount";
@@ -16,9 +19,10 @@ $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = date("Y-m-d");
-$time = date("h:i");
+$time = date("H:i:s");
 $balance = get_balance($source);
 $redirect_error = "/app/client/pages/account/fund_transfer_result.php";
+
 if (!$balance) {
         close_database();
         http_response_code(302);
