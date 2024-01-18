@@ -27,7 +27,9 @@
   --accent: #3a7afb;
   --backdrop: #081023;
 }
-
+:root[data-theme="dark"] h3 {
+  color: #fff;
+}
 * {
   margin: 0;
   padding: 0;
