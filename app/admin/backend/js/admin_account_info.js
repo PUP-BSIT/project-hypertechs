@@ -9,6 +9,7 @@ const HOME_URL = "/index.html";
 const ID_ADMIN_NAME = "#display_admin_name";
 const ID_ADMIN_CONTACT = "#display_admin_contact";
 const ID_TOTAL_USER = "#display_total_users";
+const ID_TOTAL_ADMIN = "#display_total_admin";
 
 main();
 
@@ -42,13 +43,14 @@ async function getAdminInfo() {
 }
 
 function showAdminData(data) {
-  let adminName, adminId, phone, firstName, name, totalUser;
+  let adminName, adminId, phone, firstName, name, totalUser, totalAdmin;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   phone = document.querySelector(ID_ADMIN_CONTACT);
   totalUser = document.querySelector(ID_TOTAL_USER);
+  totalAdmin = document.querySelector(ID_TOTAL_ADMIN);
 
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
@@ -64,5 +66,8 @@ function showAdminData(data) {
   }
   if (totalUser) {
     totalUser.innerHTML = data.data.totalUser;
+  }
+  if (totalAdmin) {
+    totalAdmin.innerHTML = data.data.totalAdmin;
   }
 }

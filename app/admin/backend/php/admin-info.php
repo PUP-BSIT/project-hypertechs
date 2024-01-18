@@ -27,12 +27,15 @@ if(!$name) {
 
 $users = get_total_users($user_column);
 
+$total_admin = get_total_admin($admin_id_col);
+
 $response['data'] = array(
         'adminId' => $result[$admin_id_col],
         'name' => $name,
         'firstName' => $result[$first_name_col],
         'phone' => $result[$admin_contact_col],
-        'totalUser'=>$users
+        'totalUser'=>$users,
+        'totalAdmin'=>$total_admin
 );
 $response['success'] = true;
 close_database();
