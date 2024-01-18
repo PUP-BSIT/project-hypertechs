@@ -3,7 +3,7 @@
 :root {
   --font-family: "Inter", sans-serif;
   --title-size: 3vw;
-  --header-size: 3vw;
+  --header-size: 2vw;
   --subheader-size: 1.6vw;
   --button-size: 1.5vw;
   --text-size: 1vw;
@@ -21,11 +21,15 @@
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
+  --subheader-color:#eff1f5;
   --background: #0a0e18;
   --primary: #246af8;
   --secondary: #1d4492;
   --accent: #3a7afb;
   --backdrop: #081023;
+}
+:root[data-theme="dark"] h4 {
+  color: #fff;
 }
 
 * {
