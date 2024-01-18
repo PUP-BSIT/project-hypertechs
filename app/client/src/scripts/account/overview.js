@@ -36,8 +36,3 @@ window.addEventListener("load", function () {
   // Update balance font size
   updateBalanceFontSize();
 });
-
-// Periodically update the balance font size (you can adjust the interval as needed)
-setInterval(function () {
-  updateBalanceFontSize();
-}, 60000); // Update every minute
