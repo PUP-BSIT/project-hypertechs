@@ -10,6 +10,7 @@ $first_name_col = "first_name";
 $creation_date_col = "creation_date";
 $admin_contact_col = "phone_number";
 $user_column = "account_number";
+$deposit_amount_col = "amount";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];
@@ -26,8 +27,8 @@ if(!$name) {
 }
 
 $users = get_total_users($user_column);
-
 $total_admin = get_total_admin($admin_id_col);
+$total_deposit = get_total_deposit($deposit_amount_col);
 
 $response['data'] = array(
         'adminId' => $result[$admin_id_col],
@@ -35,7 +36,8 @@ $response['data'] = array(
         'firstName' => $result[$first_name_col],
         'phone' => $result[$admin_contact_col],
         'totalUser'=>$users,
-        'totalAdmin'=>$total_admin
+        'totalAdmin'=>$total_admin,
+        'totalDeposit'=>$total_deposit
 );
 $response['success'] = true;
 close_database();

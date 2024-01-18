@@ -10,6 +10,7 @@ const ID_ADMIN_NAME = "#display_admin_name";
 const ID_ADMIN_CONTACT = "#display_admin_contact";
 const ID_TOTAL_USER = "#display_total_users";
 const ID_TOTAL_ADMIN = "#display_total_admin";
+const ID_TOTAL_DEPOSIT = "display_total_deposit";
 
 main();
 
@@ -43,7 +44,14 @@ async function getAdminInfo() {
 }
 
 function showAdminData(data) {
-  let adminName, adminId, phone, firstName, name, totalUser, totalAdmin;
+  let adminName,
+    adminId,
+    phone,
+    firstName,
+    name,
+    totalUser,
+    totalAdmin,
+    totalDeposit;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
@@ -51,6 +59,7 @@ function showAdminData(data) {
   phone = document.querySelector(ID_ADMIN_CONTACT);
   totalUser = document.querySelector(ID_TOTAL_USER);
   totalAdmin = document.querySelector(ID_TOTAL_ADMIN);
+  totalDeposit = document.querySelector(ID_TOTAL_DEPOSIT);
 
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
@@ -69,5 +78,8 @@ function showAdminData(data) {
   }
   if (totalAdmin) {
     totalAdmin.innerHTML = data.data.totalAdmin;
+  }
+  if (totalDeposit) {
+    totalDeposit.innerHTML = data.data.totalDeposit;
   }
 }
