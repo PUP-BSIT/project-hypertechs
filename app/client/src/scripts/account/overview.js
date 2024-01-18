@@ -12,12 +12,16 @@ function calculateTimeSinceLastRefresh(currentTime) {
   if (lastRefreshTime) {
     lastRefreshTime = new Date(lastRefreshTime);
     var timeDifference = Math.floor((currentTime - lastRefreshTime) / 1000); // in seconds
-
-    if (timeDifference < 60) {
+    
+    if (timeDifference < 59) {
       return timeDifference + " seconds ago";
-    } else {
+    } 
+    else if (timeDifference >= 60 && timeDifference < 120) {
+      return "1 minute ago";
+    }
+    else if (timeDifference >= 120) {
       var minutes = Math.floor(timeDifference / 60);
-      return minutes + " minute(s) ago";
+      return minutes + " minutes ago";
     }
   } else {
     return "N/A";
@@ -53,13 +57,13 @@ function updateBalanceFontSize() {
   // Set the font size based on the number of digits
   var fontSize;
   if (digitsBeforeDecimal + digitsAfterDecimal <= 5) {
-    fontSize = "2.2vw";
-  } else if (digitsBeforeDecimal + digitsAfterDecimal <= 6) {
+    fontSize = "2.3vw";
+  } else if (digitsBeforeDecimal + digitsAfterDecimal <= 7) {
     fontSize = "2.2vw";
   } else if (digitsBeforeDecimal + digitsAfterDecimal <= 8) {
-    fontSize = "2vw";
+    fontSize = "2.1vw";
   } else if (digitsBeforeDecimal + digitsAfterDecimal <= 9) {
-    fontSize = "1.8vw";
+    fontSize = "1.9vw";
   } else if (digitsBeforeDecimal + digitsAfterDecimal <= 10) {
     fontSize = "1.7vw";
   } else {
