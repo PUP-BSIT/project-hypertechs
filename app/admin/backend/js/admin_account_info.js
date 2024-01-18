@@ -96,7 +96,9 @@ function showAdminData(data) {
     for (let i = 0; i < data.data.recentTransact.length; i++) {
       let transactionInfo = document.createElement("div");
       transactionInfo.innerHTML = `
-        <p>PHP: ${data.data.recentTransact[i].amount} Date: ${data.data.recentTransact[i].date}</p>
+        <p>${data.data.recentTransact[i].transaction_type} 
+        PHP: ${data.data.recentTransact[i].amount} on 
+        Date: ${data.data.recentTransact[i].date}</p>
         <hr>
       `;
       recentTransact.appendChild(transactionInfo);

@@ -374,14 +374,14 @@ function get_recent_transactions($amount_col, $date_col) {
         $deposit_table = "deposit";
         $withdraw_table = "withdraw";
         $sql_stmt = "(
-            SELECT '$deposit_table', $amount_col, $date_col 
+            SELECT '$deposit_table' AS transaction_type, $amount_col, $date_col 
             FROM $deposit_table 
             ORDER BY $date_col DESC 
             LIMIT 1
         ) 
         UNION 
         (
-            SELECT '$withdraw_table', $amount_col, $date_col 
+            SELECT '$withdraw_table' AS transaction_type, $amount_col, $date_col 
             FROM $withdraw_table 
             ORDER BY $date_col DESC 
             LIMIT 1
