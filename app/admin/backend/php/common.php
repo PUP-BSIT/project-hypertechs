@@ -338,6 +338,15 @@ function change_pass_via_phone($phone_number, $password) {
         return modify_database($sql_stmt);
 }
 
+function get_total_users($user_column){
+        $account_table = "account";
+        $sql_stmt = "SELECT COUNT($user_column) FROM $account_table";
+        $result = extract_database($sql_stmt);
+        $row = mysqli_fetch_row($result);
+        return $row[0];
+}
+    
+
 function clear_spaces($string) {
         return str_replace(' ', '', $string);
 }

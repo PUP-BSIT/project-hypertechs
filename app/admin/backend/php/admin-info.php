@@ -9,6 +9,7 @@ $name_col = "admin_name";
 $first_name_col = "first_name";
 $creation_date_col = "creation_date";
 $admin_contact_col = "phone_number";
+$user_column = "account_number";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];
@@ -17,16 +18,21 @@ if (!$result) {
         echo json_encode($response);
         exit;
 }
+
 $name = get_name($admin_id);
 if(!$name) {
         echo json_encode($response);
         exit;
 }
+
+$users = get_total_users($user_column);
+
 $response['data'] = array(
         'adminId' => $result[$admin_id_col],
         'name' => $name,
         'firstName' => $result[$first_name_col],
-        'phone' => $result[$admin_contact_col]
+        'phone' => $result[$admin_contact_col],
+        'totalUser'=>$users
 );
 $response['success'] = true;
 close_database();
