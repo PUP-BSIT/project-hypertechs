@@ -7,6 +7,7 @@ const ID_ADMIN_NUMBER = "#display_admin_id";
 const ID_FIRST_NAME = "#admin_first_name";
 const HOME_URL = "/index.html";
 const ID_ADMIN_NAME = "#display_admin_name";
+const ID_ADMIN_CONTACT = "#display_admin_contact";
 
 main();
 
@@ -40,11 +41,12 @@ async function getAdminInfo() {
 }
 
 function showAdminData(data) {
-  let adminName, adminId, balance, firstName, name;
+  let adminName, adminId, phone, firstName, name;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
+  phone = document.querySelector(ID_ADMIN_CONTACT);
 
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
@@ -54,5 +56,8 @@ function showAdminData(data) {
   }
   if (adminId) {
     adminId.innerHTML = data.data.adminId;
+  }
+  if (phone) {
+    phone.innerHTML = data.data.phone;
   }
 }

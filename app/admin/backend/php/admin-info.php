@@ -8,6 +8,7 @@ $admin_id_col = "admin_id";
 $name_col = "admin_name";
 $first_name_col = "first_name";
 $creation_date_col = "creation_date";
+$admin_contact_col = "phone_number";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];
@@ -24,7 +25,8 @@ if(!$name) {
 $response['data'] = array(
         'adminId' => $result[$admin_id_col],
         'name' => $name,
-        'firstName' => $result[$first_name_col]
+        'firstName' => $result[$first_name_col],
+        'phone' => $result[$admin_contact_col]
 );
 $response['success'] = true;
 close_database();
