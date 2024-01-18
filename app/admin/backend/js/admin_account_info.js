@@ -92,6 +92,15 @@ function showAdminData(data) {
     totalWithdraw.innerHTML = data.data.totalWithdraw;
   }
   if (recentTransact) {
-    recentTransact.innerHTML = data.data.recentTransact;
+    recentTransact.innerHTML = "";
+    for (let i = 0; i < data.data.recentTransact.length; i++) {
+      let transactionInfo = document.createElement("div");
+      transactionInfo.innerHTML = `
+        <p>Amount: ${data.data.recentTransact[i].amount}</p>
+        <p>Date: ${data.data.recentTransact[i].date}</p>
+        <hr>
+      `;
+      recentTransact.appendChild(transactionInfo);
+    }
   }
 }
