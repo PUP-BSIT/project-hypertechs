@@ -65,7 +65,7 @@ function validateAccountNumber(account) {
     
         // 12 digits and no other characters
         if (!/^\d{12}$/.test(account)) {
-            alert("Invalid input. Please enter a valid " +
+            alert("Invalid input. Please enter a valid" +
             " 12-digit Apex account number.");
             return false;
         }
