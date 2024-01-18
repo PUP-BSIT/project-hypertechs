@@ -10,7 +10,7 @@ const ID_ADMIN_NAME = "#display_admin_name";
 const ID_ADMIN_CONTACT = "#display_admin_contact";
 const ID_TOTAL_USER = "#display_total_users";
 const ID_TOTAL_ADMIN = "#display_total_admin";
-const ID_TOTAL_DEPOSIT = "display_total_deposit";
+const ID_TOTAL_DEPOSIT = "#display_total_deposit";
 
 main();
 
