@@ -25,10 +25,10 @@ if (!does_account_exist($account_number)) {
 }
 
 $current_balance = get_balance($account_number);
-if (!$current_balance < $amount) {
+if ($current_balance < $amount) {
         $response['errorMessage'] = "Insufficient balance.";
         echo json_encode($response);
-        exit; 
+        exit;
 }
 
 if (!deduct_balance($account_number, $amount)) {
