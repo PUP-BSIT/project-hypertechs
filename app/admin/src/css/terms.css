@@ -1,0 +1,886 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --title-size: 3vw;
+  --header-size: 3vw;
+  --subheader-size: 1.6vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --subtext-size: 1.2vw;
+  --link: 1vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #246af8;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #081023;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0em;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--background);
+}
+
+/* terms page grid layout */
+#terms_grid_container {
+  display: grid;
+  grid-template-areas:
+    "header image"
+    "back image"
+    "terms image";
+  grid-template-rows: 0.23fr 5% 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+#header_container {
+  grid-area: header;
+  outline: 0px dashed blue;
+}
+
+#back_container {
+  grid-area: back;
+  outline: 0px dashed red;
+}
+
+#terms_container {
+  grid-area: terms;
+  outline: 0px dashed green;
+}
+
+#terms_image_container {
+  height: 100vh;
+  grid-area: image;
+  background-color: var(--backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#terms_image_container img {
+  width: 90%;
+}
+
+/* header styling */
+#header_container {
+  padding-left: 3em;
+  padding-right: 3em;
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  justify-content: space-between;
+}
+
+#apex_logo {
+  display: flex;
+  align-items: center;
+}
+
+#apex_logo img {
+  width: 45px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#apex_logo h1 {
+  font-weight: 700;
+  font-size: var(--title-size);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 3s linear infinite;
+}
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#apex_logo sup {
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+
+/* back button styling */
+#back_container {
+  padding-left: 3em;
+}
+
+#back_container i {
+  font-size: 1.2vw;
+  margin-top: 0.05em;
+  margin-right: 0.5em;
+  color: var(--accent);
+}
+
+#back_container a {
+  font-size: 1.4vw;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+#back_container a:hover {
+  animation: backSlideLeft 1s infinite;
+}
+
+#back_container a:hover i,
+#back_container a:hover span {
+  animation: backSlideLeft 1s infinite;
+}
+
+@keyframes backSlideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* terms text styling */
+#terms_container {
+  padding-left: 3em;
+}
+
+#terms_container h1 {
+  padding-top: 0.1em;
+  color: var(--text);
+  font-size: var(--header-size);
+}
+
+#terms_container p {
+  padding-top: 0.5em;
+  color: var(--text);
+  font-size: var(--text-size);
+}
+
+/* terms form styling */
+.terms-form-container {
+  outline: 0px dotted blue;
+  max-width: 90%;
+  margin-top: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--subheader-size);
+  transition: color 0.3s ease-in-out;
+}
+
+input {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+input::placeholder {
+  color: var(--text);
+  opacity: 0.25;
+}
+
+.form-group:focus-within label,
+.form-group input:focus {
+  color: var(--accent);
+}
+
+.form-group input:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container #admin_password {
+  margin-bottom: 0.5em;
+}
+
+/* forgot password styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-group #forgot_password {
+  text-decoration: none;
+  font-size: 1.2vw;
+  color: var(--text);
+  align-self: flex-end;
+  transition: color 0.3s ease-in-out;
+}
+
+.form-group #forgot_password:hover {
+  color: var(--primary);
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group span {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+.terms-button {
+  margin-top: 1.5em;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--button-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.2s ease-in-out, transform 0.2s;
+}
+
+.terms-button:hover {
+  transform: scale(1);
+  box-shadow: 0 0 25px rgba(19, 91, 236, 0.5);
+}
+
+.terms-button:active {
+  transform: scale(0.95);
+}
+
+.terms-button i {
+  margin-left: 0.75em;
+}
+
+/* signup link styling */
+.signup-link {
+  margin-top: 0.25em;
+  text-align: center;
+  position: relative;
+  font-size: 1vw;
+}
+
+.signup-link a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.signup-link a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.signup-link a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  padding: 6px;
+  position: relative;
+  height: 1.6em;
+  width: 3.75em;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 1.1em;
+  width: 1.1em;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(33px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
+
+svg {
+  width: 100%;
+}
+
+svg#freepik_stories-control-panel:not(.animated) .animable {
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #freepik--Shadow--inject-151 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) fadeIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-control-panel.animated #elyuqz5czlnp {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-control-panel.animated #elaopbu2v2s3m {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.011235955056179775s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el4thdiaovkec {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.02247191011235955s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elflnhl7e9lgg {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.033707865168539325s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elon4opylschl {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.0449438202247191s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el03l2e3nj013 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.056179775280898875s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elvwnhh7ut1bc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.06741573033707865s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el6qwa7jvgsaw {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.07865168539325842s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elljghdhek7hh {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.0898876404494382s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elflaetk7zrr {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.10112359550561797s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elui0lu7lkbe {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.11235955056179775s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elbxpc35b8h1 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.12359550561797752s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eldq8jtrdjs9 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.1348314606741573s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elugl23fcsn6p {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.14606741573033707s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elxf6rllpb6xi {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.15730337078651685s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el9bdi4bx4nsa {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.16853932584269662s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el87alr9nk5z4 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.1797752808988764s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el9wiy6ydwy95 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.19101123595505617s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elnkdo2lp13ar {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.20224719101123595s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elg98lz3pnm78 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.21348314606741572s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elwtj6xfcew7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2247191011235955s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eliveiiwxuis {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.23595505617977527s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eldcxqmzdmdc9 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.24719101123595505s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elnjdqca9ogk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2584269662921348s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eltm3860kojk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2696629213483146s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elcxiswifsqas {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2808988764044944s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elkfxhck1lcg {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.29213483146067415s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elpswhau7nl1 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3033707865168539s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elmwsc49kx71b {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3146067415730337s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el5ka674eka9y {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3258426966292135s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eli0o4l0kl3p {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.33707865168539325s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elb8ezq84y1d {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.348314606741573s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elt26zgakaz9a {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3595505617977528s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el2brnrdk4dmg {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3707865168539326s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elcnu6exuglbm {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.38202247191011235s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elg2mgmvi9z7f {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3932584269662921s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elxie2rqw21hp {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4044943820224719s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elpkan1z1ta2q {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4157303370786517s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ela9u6tg723uc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.42696629213483145s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eljmja20y0tc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4382022471910112s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eltrv6e1zyrsm {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.449438202247191s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elh3u009gfpcw {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4606741573033708s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elyvdmhug3rvb {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.47191011235955055s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el192cs14ugcx {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4831460674157303s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elrhhsmadyky {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4943820224719101s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el7q72ug9j71j {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5056179775280899s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elbq2cob3xmrd {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5168539325842696s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el7ilivw8akyn {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5280898876404494s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eld48vgwhux5c {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5393258426966292s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elhhgsiwc3ha {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.550561797752809s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #els0xxs3400r {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5617977528089888s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ela3i0c3p1l8k {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5730337078651685s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ellbl1m98kxk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5842696629213483s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elwloj1ol4ble {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5955056179775281s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elj3rlx6ppsl {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6067415730337078s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elkj394ze99wi {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6179775280898876s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eltx83rgn6bge {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6292134831460674s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elgfydwzz5c5h {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6404494382022472s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ellnmd8mtlof {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.651685393258427s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elrvzvlqys6z {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6629213483146067s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elaek4ir8zjfo {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6741573033707865s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elkts9048medd {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6853932584269663s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elk075eejfd7e {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.696629213483146s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el5d1em8tdsfo {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7078651685393258s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eloiscstf788 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7191011235955056s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elaf94vcpw6r5 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7303370786516854s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elowpufago6xc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7415730337078652s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el583m4ia6cay {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7528089887640449s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elwbvmk9yx9w {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7640449438202247s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elnff0q60r4je {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7752808988764045s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elrbbau75ymfa {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7865168539325842s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elg4nndogc2u5 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.797752808988764s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ellfvlphanxee {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8089887640449438s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el2upxqxrpm94 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8202247191011236s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el0ud9p4znw3a {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8314606741573034s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elaase9f4eueb {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8426966292134831s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elm0vpc7b12hp {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8539325842696629s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elghjc45r7pgm {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8651685393258427s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elw5fqo339b8a {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8764044943820224s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el9kgzhohvkys {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8876404494382022s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #ellio8088sxrq {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.898876404494382s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elst9bekethpd {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9101123595505618s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el45n2shbu8d6 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9213483146067416s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elt68o6uu314 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9325842696629213s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elsas7lu9jm1 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9438202247191011s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #eluwjrtfzvolk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9550561797752809s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el3bnr4468gj8 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9662921348314606s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #elk7s62ms8u3e {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9775280898876404s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #el334xyoa0sz1 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.9887640449438202s;
+  opacity: 0;
+}
+svg#freepik_stories-control-panel.animated #freepik--control-panel--inject-151 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-control-panel.animated #freepik--Character--inject-151 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animator-hidden {
+  display: none;
+}
