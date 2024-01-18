@@ -72,12 +72,7 @@ function updateBalanceFontSize() {
 }
 
 // Event listener for page load or refresh
-window.addEventListener("load", function () {
-  // Update balance font size
+document.addEventListener("DOMContentLoaded", function () {
+  // Update balance font size immediately after page content has been loaded
   updateBalanceFontSize();
 });
-
-// Periodically update the balance font size (you can adjust the interval as needed)
-setInterval(function () {
-  updateBalanceFontSize();
-}, 1000); // Update every minute
