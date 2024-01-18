@@ -682,7 +682,7 @@ if (isset($_GET['error_message'])) {
                     <div id="transfer_failed">
                         <h1><i class="fa-solid fa-circle-xmark"></i>
                             Transfer Failed</h1>
-                        <p>$error_message</p>
+                        <p>$error_message.</p>
                         <button id="btn_try" type="button" 
                             onclick="history.back()">Try Again</button>
                         <p id="loading_get" hidden></p>
@@ -698,7 +698,7 @@ if (!isset($_GET['fund_transfer_success']) || !isset($_GET['transaction_id'])) {
                     <div id="transfer_failed">
                         <h1><i class="fa-solid fa-circle-xmark"></i>
                             Transfer Failed</h1>
-                        <p>Internal Server error</p>
+                        <p>Internal Server error.</p>
                         <button id="btn_try" type="button"
                             onclick="history.back()">Try Again</button>
                         <p id="loading_get" hidden></p>
@@ -721,7 +721,7 @@ if (!$data) {
                     <div id="transfer_failed">
                         <h1><i class="fa-solid fa-circle-xmark"></i>
                             Transfer Failed</h1>
-                        <p>The transaction ID was not found in our server</p>
+                        <p>The transaction ID was not found in our server.</p>
                         <button id="btn_try" type="button" 
                              onclick="history.back()">Try Again</button>
                         <p id="loading_get" hidden></p>
