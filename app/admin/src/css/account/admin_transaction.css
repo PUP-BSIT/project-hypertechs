@@ -364,7 +364,9 @@ body {
   gap: 1em;
 }
 
-.transaction-buttons #submit {
+.transaction-buttons #deposit_submit,
+.transaction-buttons #withdraw_submit
+ {
   width: 80%;
 }
 
