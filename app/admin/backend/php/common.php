@@ -6,17 +6,18 @@ $REGISTER_ERROR = "";
 function connect_database() {
         global $DB_CONN;
 
-/*
+
         $hostname = "127.0.0.1:3306";
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
-*/
 
+        /*
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
-        $database = "apex_bank";
+        $database = "apex_bank"; 
+        */
 
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
