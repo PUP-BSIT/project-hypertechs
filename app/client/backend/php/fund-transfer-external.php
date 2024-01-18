@@ -165,7 +165,7 @@ function get_error_message($status_code) {
                 return "Forbidden";
                 break;
         case 404:
-                return "Not Found";
+                return "Account does not exist";
                 break;
         case 405:
                 return "Method Not Allowed";
