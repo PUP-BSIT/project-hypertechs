@@ -1,6 +1,9 @@
 <?php
 require "./common.php";
 
+// Set the timezone to Manila
+date_default_timezone_set('Asia/Manila');
+
 connect_database();
 $transfer_table = "fund_transfer";
 $amount_col = "amount";
@@ -9,18 +12,17 @@ $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
 $time_col = "time";
-$timezone = new DateTimeZone('Asia/Manila');  // Set timezone to Manila
 
 $redirect_url = $_POST['redirect_url'];
 $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
-$date = new DateTime('now', new DateTimeZone('Asia/Manila'));
-$date->setTimezone($timezone);
-$time = $date->format('h:i:s A');
+$date = date("Y-m-d");
+$time = date("H:i:s");
 $balance = get_balance($source);
 $redirect_error = "/app/client/pages/account/fund_transfer_result.php";
+
 if (!$balance) {
         close_database();
         http_response_code(302);
@@ -75,8 +77,8 @@ if (!add_balance($recipient, $amount)) {
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col, $time_col) 
-        VALUES ($amount, '$source', '$recipient', '$transaction_id', '" . 
-                $date->format('Y-m-d') . "', '$time')"; 
+        VALUES ($amount, '$source', '$recipient', '$transaction_id', '$date',
+        '$time')"; 
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);
