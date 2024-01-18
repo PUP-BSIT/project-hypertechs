@@ -13,7 +13,7 @@ $user_column = "account_number";
 $deposit_amount_col = "amount";
 $withdraw_amount_col = "amount";
 $amount_col = "amount";
-$date_col = "date"
+$date_col = "date";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];
