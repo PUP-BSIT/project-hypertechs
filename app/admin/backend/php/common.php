@@ -378,7 +378,6 @@ function get_recent_transactions($amount_col, $date_col, $time_col) {
             SELECT '$deposit_table' AS transaction_type, $amount_col, 
             $date_col, $time_col, $account_col
             FROM $deposit_table 
-            ORDER BY $date_col DESC, $time_col DESC
             LIMIT 3
         ) 
         UNION 
@@ -386,9 +385,10 @@ function get_recent_transactions($amount_col, $date_col, $time_col) {
             SELECT '$withdraw_table' AS transaction_type, 
             $amount_col, $date_col, $time_col, $account_col
             FROM $withdraw_table 
-            ORDER BY $date_col DESC, $time_col DESC 
             LIMIT 3
-        )";
+        )
+        ORDER BY $date_col DESC, $time_col DESC
+        LIMIT 3";
     
         $result = extract_database($sql_stmt);
         $transactions = array();
