@@ -74,8 +74,8 @@ if (!add_balance($recipient, $amount)) {
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
         $recipient_col, $transaction_id_col, $date_col, $time_col) 
-        VALUES ($amount, '$source', '$recipient', '$transaction_id', '$date',
-        '$time')"; 
+        VALUES ($amount, '$source', '$recipient', '$transaction_id', '" . 
+                $date->format('Y-m-d') . "', '$time')"; 
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(302);

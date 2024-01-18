@@ -10,7 +10,6 @@ $transaction_id_col = "transaction_id";
 $bank_code_col = "bank_code";
 $date_col = "date";
 $time_col = "time";
-$timezone = new DateTimeZone('Asia/Manila');  // Set timezone to Manila
 
 $parameters_complete = isset($_POST['redirect_url']) && 
         isset($_POST['transaction_amount']) && 
@@ -31,8 +30,8 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $bank_code = $_POST['recipient_bank_code'];
-$date = new DateTime('now', $timezone);
-$time = $date->format('H:i:s A');
+$date = date("Y-m-d");
+$time = date("h:i");
 $balance = get_balance($source);
 $redirect_error = "/app/client/pages/account/fund_transfer_result.php";
 if (!$balance) {
