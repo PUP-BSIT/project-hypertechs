@@ -151,6 +151,7 @@ body {
   text-decoration: none;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 #back_container a:hover {
