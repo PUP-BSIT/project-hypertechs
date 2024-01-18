@@ -17,7 +17,7 @@ $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
 $date = new DateTime('now', $timezone);
-$time = $date->format('H:i:s A'); 
+$time = $date->format('h:i:s A');
 $balance = get_balance($source);
 $redirect_error = "/app/client/pages/account/fund_transfer_result.php";
 if (!$balance) {
