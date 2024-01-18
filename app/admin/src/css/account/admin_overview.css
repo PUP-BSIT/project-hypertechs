@@ -307,7 +307,7 @@ body {
 /* ----- ACC SUMMARY STYLE ----- */
 #overview_summary {
   height: 8vw;
-  width: 70%;
+  width: 75%;
   border-radius: 10px;
   padding: 1em 1.5em;
   display: flex;
@@ -358,9 +358,13 @@ body {
 }
 
 /* ----- ACC BALANCE STYLE ----- */
-#overview_cash_drawer {
+#overview_time_display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 8vw;
-  width: 30%;
+  width: 25%;
   border-radius: 10px;
   padding: 1em;
   background: linear-gradient(
@@ -370,21 +374,21 @@ body {
   );
 }
 
-#overview_cash_drawer h2 {
-  font-size: 1.5vw;
+#overview_time_display h1 {
+  font-size: 1.2vw;
   font-weight: 500;
+  opacity: 0.8;
   color: rgb(231, 240, 252);
 }
 
-#overview_cash_drawer h3 {
-  margin-top: 0.5em;
-  font-size: 2vw;
+#overview_time_display h2 {
+  font-size: 3.25vw;
   font-weight: 600;
   color: rgb(231, 240, 252);
 }
 
-/* ------------ TRANSACTIONS CARDS ------------- */
-#transaction_cards {
+/* ------------ BANK OVERVIRE ------------- */
+#bank_cards_overview {
   width: 100%;
   display: flex;
   align-items: center;
@@ -392,25 +396,22 @@ body {
   gap: 2%;
 }
 
-#transaction_cards > div {
+#bank_cards_overview > div {
   flex: 1; /*cards take up equal space */
 }
 
-#transaction_cards span {
-  font-size: 4vw;
+#bank_cards_overview span {
+  font-size: 3vw;
   margin-right: 0.35em;
   color: var(--primary);
 }
 
-#all_transactions_card,
-#successful_transactions_card,
-#pending_transactions_card,
-#unsuccessful_transactions_card {
+.bank-cards {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 1em;
-  height: 7vw;
+  height: 6vw;
   border-radius: 0.5em;
   background-color: var(--backdrop);
 }
@@ -431,26 +432,26 @@ body {
   background-color: rgb(88, 0, 112);
 } */
 
-#transactions_card_text {
+#bank_card_text {
   display: flex;
   flex-direction: column;
   gap: 0.1em;
 }
 
-#transactions_card_text h2 {
-  font-size: 1.1vw;
+#bank_card_text h2 {
+  font-size: 1vw;
   font-weight: 500;
 }
 
-#transactions_card_text h3 {
-  font-size: 2.25vw;
+#bank_card_text h3 {
+  font-size: 1.8vw;
   font-weight: 600;
 }
 
 /* ------------ TRANSACTIONS TABLE ------------- */
 #transactions_table {
   width: 100%;
-  height: 12vw;
+  height: 13vw;
   background-color: var(--backdrop);
   border-radius: 0.5em;
 }

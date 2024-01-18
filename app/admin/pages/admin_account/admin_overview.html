@@ -9,6 +9,7 @@
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Apex Bank – Account Overview</title>
 </head>
 
@@ -100,60 +101,67 @@
                         <!--Column Container for each info-->
                         <div id="summary_column_container">
                             <!--Account Status-->
-                            <div id="admin_status_title">
+                            <div id="admin_contact_title">
                                 <h3>
-                                    <span class="material-icons">info</span>
-                                    Admin Status
+                                    <span class="material-icons">contact_mail</span>
+                                    Admin Contact Info
                                 </h3>
                             </div>
                             <div id="admin_status">
-                                <span id="display_admin_status">Active</span>
+                                <span id="display_admin_contact">091234567890</span>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div id="overview_cash_drawer">
-                    <h2>
-                        <span class="material-icons">account_balance_wallet</span>
-                        Total Cash Drawer
-                    </h2>
-                    <h3>&#8369 <span id="display_cash_drawer">1,000,000.00</span></h3>
+                <div id="overview_time_display">
+                    <h1 id="display_date">Friday, January 18</h1>
+                    <h2 id="display_time">23:59:00</h2>
                 </div>
             </div>
 
-            <!--Transactions Card-->
+            <!--Bank Overview-->
             <div id="overview_container_two">
-                <h1><span class="material-icons">subject</span>Transactions Overview</h1>
-              <div id="transaction_cards">
-                  <div id="all_transactions_card">
-                    <span class="material-icons">receipt</span>
-                    <div id="transactions_card_text">
-                        <h2>All Transactions</h2>
+                <h1><span class="material-icons">subject</span>Bank Overview</h1>
+              <div id="bank_cards_overview">
+                  <div class="bank-cards" id="total_users_card">
+                    <span class="material-icons">group</span>
+                    <div id="bank_card_text">
+                        <h2>Total Users</h2>
                         <h3>0</h3>
                     </div>
                   </div>
 
-                  <div id="successful_transactions_card">
+                  <div class="bank-cards" id="total_deposit_card">
                     <span class="material-icons">check_circle</span>
-                    <div id="transactions_card_text">
-                        <h2>Successful</h2>
+                    <div id="bank_card_text">
+                        <h2>Total Deposit</h2>
                         <h3>0</h3>
                     </div>
                   </div>
 
-                  <div id="pending_transactions_card">
-                    <span class="material-icons">timer</span>
-                    <div id="transactions_card_text">
-                        <h2>Pending</h2>
+                  <div class="bank-cards" id="all_withdraw_card">
+                    <span class="material-icons">receipt</span>
+                    <div id="bank_card_text">
+                        <h2>All Withdraw</h2>
                         <h3>0</h3>
                     </div>
                   </div>
 
-                  <div id="unsuccessful_transactions_card">
-                    <span class="material-icons">cancel</span>
-                    <div id="transactions_card_text">
-                        <h2>Unsuccessful</h2>
+                  <div class="bank-cards" id="new_users_card">
+                    <span class="material-icons">group_add</span>
+                    <div id="bank_card_text">
+                        <h2>New Users</h2>
+                        <h3>0</h3>
+                    </div>
+                  </div>
+
+                  <div class="bank-cards" id="total_admin_card">
+                    <span class="material-symbols-outlined">
+                        shield_person
+                        </span>
+                    <div id="bank_card_text">
+                        <h2>Total Admin</h2>
                         <h3>0</h3>
                     </div>
                   </div>
@@ -173,7 +181,7 @@
     </div>
     </div>
     <script src="../../src/scripts/theme.js"></script>
-    <!-- <script src="../../src/scripts/admin_account/admin_overview.js"></script> -->
+    <script src="../../src/scripts/account/overview.js"></script>
     <script src="../../backend/js/admin_account_info.js" type="module"></script>
     <script src="../../backend/js/admin_logout.js" type="module"></script>
 </body>
