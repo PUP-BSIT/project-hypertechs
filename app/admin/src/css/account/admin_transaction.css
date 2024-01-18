@@ -365,8 +365,7 @@ body {
 }
 
 .transaction-buttons #deposit_submit,
-.transaction-buttons #withdraw_submit
- {
+.transaction-buttons #withdraw_submit {
   width: 80%;
 }
 
@@ -404,13 +403,10 @@ body {
 
 .transaction-form-wrapper button span {
   margin-left: 0.5em;
-  font-size: 1em;
+  font-size: 1.1em;
   transition: transform 0.3s ease-in-out;
 }
 
-.transaction-form-wrapper button:hover span {
-  transform: translateX(7px);
-}
 
 .transaction-option button {
   display: flex;
@@ -482,8 +478,8 @@ body {
 }
 
 #transfer_mini_account_image {
-  width: 10%;
-  margin-top: 0.5em;
+  width: 9%;
+  margin-top: 0.3em;
   margin-left: 1.45em;
 }
 
