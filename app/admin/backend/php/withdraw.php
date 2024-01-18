@@ -19,13 +19,20 @@ $time = date("h:i");
 
 $response['success'] = false;
 if (!does_account_exist($account_number)) {
-        $response['errorMessage'] = "Account does not exist";
+        $response['errorMessage'] = "Account does not exist.";
         echo json_encode($response);
         exit;
 }
 
+$current_balance = get_balance($account_number);
+if (!$current_balance < $amount) {
+        $response['errorMessage'] = "Insufficient balance.";
+        echo json_encode($response);
+        exit; 
+}
+
 if (!deduct_balance($account_number, $amount)) {
-        $response['errorMessage'] = "Something went wrong";
+        $response['errorMessage'] = "Something went wrong.";
         echo json_encode($response);
         exit;
 }
@@ -34,7 +41,7 @@ $sql_stmt = "INSERT INTO $withdraw_table ($transaction_id_col, $admin_col,
         VALUES ('$transaction_id', '$admin_id', $amount, '$account_number',
         '$date', '$time')"; 
 if (!modify_database($sql_stmt)) {
-        $response['errorMessage'] = "Something went wrong";
+        $response['errorMessage'] = "Something went wrong.";
         echo json_encode($response);
         exit;
 } 
