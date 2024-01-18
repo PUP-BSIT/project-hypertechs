@@ -28,15 +28,18 @@ async function requestDeposit() {
     
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
-                alert("Invalid account number. Please enter exactly 12 digits" +
-                " with no spaces or non-numeric characters.");
+                alert("Invalid input. Please enter a valid " +
+                " 12-digit Apex account number.");
                 return;
         }
 
         amount = document.querySelector(ID_AMOUNT).value;
         if (!isValidAmount(amount)) {
-                alert("Invalid amount. Please enter a valid numeric amount " + 
-                "maximum of up to 10 whole digits and no commas.");
+                alert("Invalid amount. Please enter a valid numeric amount" +
+                " with the following criteria:\n" +
+                "- Up to 10 whole digits\n" +
+                "- Two decimal places (optional)\n" +
+                "- No commas are allowed");
                 return;
         }
     

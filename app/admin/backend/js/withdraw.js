@@ -65,8 +65,8 @@ function validateAccountNumber(account) {
     
         // 12 digits and no other characters
         if (!/^\d{12}$/.test(account)) {
-            alert("Invalid account number. Please enter exactly 12 digits" +
-            " with no spaces or non-numeric characters.");
+            alert("Invalid input. Please enter a valid " +
+            " 12-digit Apex account number.");
             return false;
         }
     
@@ -83,8 +83,12 @@ function validateAmount(amount) {
     
         // 10 digits and exactly two decimal places
         if (!/^\d{1,10}(\.\d{2})?$/.test(amount)) {
-            alert("Invalid amount. Please enter a valid numeric amount " + 
-            "maximum of up to 10 whole digits and no commas.");
+                alert("Invalid amount. Please enter a valid numeric amount" +
+                " with the following criteria:\n" +
+                "- Up to 10 whole digits\n" +
+                "- Two decimal places (optional)\n" +
+                "- No commas are allowed");
+          
             return false;
         }
     
