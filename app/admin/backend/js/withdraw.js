@@ -65,8 +65,8 @@ function validateAccountNumber(account) {
     
         // 12 digits and no other characters
         if (!/^\d{12}$/.test(account)) {
-            alert("Invalid account number. It must contain exactly 12 digits"
-            + " and no other characters.");
+            alert("Invalid account number. Please enter exactly 12 digits" +
+            " with no spaces or non-numeric characters.");
             return false;
         }
     
@@ -82,9 +82,9 @@ function validateAmount(amount) {
         }
     
         // 10 digits and exactly two decimal places
-        if (!/^\d{1,10}(\.\d{0,2})?$/.test(amount)) {
-            alert("Invalid amount. It should be a number with up to 10 digits "
-            + "and exactly two decimal places.");
+        if (!/^\d{1,10}(\.\d{2})?$/.test(amount)) {
+            alert("Invalid amount. Please enter a valid numeric amount " + 
+            "maximum of up to 10 whole digits and no commas.");
             return false;
         }
     

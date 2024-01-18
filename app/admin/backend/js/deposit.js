@@ -36,7 +36,7 @@ async function requestDeposit() {
         amount = document.querySelector(ID_AMOUNT).value;
         if (!isValidAmount(amount)) {
                 alert("Invalid amount. Please enter a valid numeric amount " + 
-                "consisting of up to 10 whole digits and no commas.");
+                "maximum of up to 10 whole digits and no commas.");
                 return;
         }
     
@@ -66,6 +66,6 @@ function isValidAccountNumber(account) {
     
 function isValidAmount(amount) {
         // 10 digits and exactly two decimal places
-        const amountRegex = /^\d{1,10}(?:\.\d{1,2})?$/;
+        const amountRegex = /^\d{1,10}(?:\.\d{2})?$/;
         return amountRegex.test(amount);
 }
