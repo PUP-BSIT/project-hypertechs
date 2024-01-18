@@ -45,7 +45,7 @@ function close_database() {
 
 function get_transaction_data($table, $transaction_id) {
         $transaction_id_col = "transaction_id";
-        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%H:%i %p') AS timef FROM 
+        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%H:%i:%s %p') AS timef FROM 
                 $table WHERE $transaction_id_col='$transaction_id';";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);

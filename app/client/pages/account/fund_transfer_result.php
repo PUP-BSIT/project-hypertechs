@@ -737,7 +737,7 @@ $amount = htmlspecialchars($data['amount']);
 $dateTimeManila = new DateTime('now', new DateTimeZone('Asia/Manila'));
 */
 $date = htmlspecialchars($data['date']);
-$time = htmlspecialchars($data['time']);
+$time = htmlspecialchars($data['timef']);
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 if (!$recipient_name) {
         $recipient_name = $data['recipient'];
