@@ -14,6 +14,7 @@ $deposit_amount_col = "amount";
 $withdraw_amount_col = "amount";
 $amount_col = "amount";
 $date_col = "date";
+$time_col = "time";
 
 $response['success'] = false;
 $admin_id = $_SESSION['admin_id'];
@@ -33,7 +34,7 @@ $users = get_total_users($user_column);
 $total_admin = get_total_admin($admin_id_col);
 $total_deposit = get_total_deposit($deposit_amount_col);
 $total_withdraw = get_total_withdraw($withdraw_amount_col);
-$recent_transact = get_recent_transactions($amount_col, $date_col);
+$recent_transact = get_recent_transactions($amount_col, $date_col,$time_col);
 
 $response['data'] = array(
         'adminId' => $result[$admin_id_col],

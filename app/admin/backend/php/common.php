@@ -370,18 +370,19 @@ function get_total_withdraw($withdraw_amount_col) {
         return $row[0];
 }
 
-function get_recent_transactions($amount_col, $date_col) {
+function get_recent_transactions($amount_col, $date_col, $time_col) {
         $deposit_table = "deposit";
         $withdraw_table = "withdraw";
+        $account_col = "account_number";
         $sql_stmt = "(
-            SELECT '$deposit_table' AS transaction_type, $amount_col, $date_col 
+            SELECT '$deposit_table' AS transaction_type, $amount_col, $date_col, $time_col, $account_col
             FROM $deposit_table 
             ORDER BY $date_col DESC 
             LIMIT 1
         ) 
         UNION 
         (
-            SELECT '$withdraw_table' AS transaction_type, $amount_col, $date_col 
+            SELECT '$withdraw_table' AS transaction_type, $amount_col, $date_col, $time_col, $account_col
             FROM $withdraw_table 
             ORDER BY $date_col DESC 
             LIMIT 1
