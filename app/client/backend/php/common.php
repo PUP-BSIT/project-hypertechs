@@ -263,12 +263,12 @@ function does_transfer_id_exist($transaction_id) {
         return true;
 }
 
-function does_password_match($email, $password) {
+function does_password_match($phone, $password) {
         $account_table = "account";
-        $email_col = "email";
+        $phone_col = "phone_number";
         $password_col = "password";
-        $sql_stmt = "SELECT $email_col FROM $account_table WHERE
-                $email_col='$email' AND $password_col='$password'";
+        $sql_stmt = "SELECT $phone_col FROM $account_table WHERE
+                $phone_col='$phone' AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
