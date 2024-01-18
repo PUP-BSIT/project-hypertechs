@@ -22,7 +22,7 @@ $birth_table = "admin_birthdate";
 $birth_col = "birth_date";
 
 $response['success'] = false;
-$admin_id = "1899" . random_int(12345678, 87654321);
+$admin_id = "1011" . random_int(12345678, 87654321);
 $phone_number = $_POST['phone_number'];
 $password = $_POST['password'];
 $surname = $_POST['surname'];
