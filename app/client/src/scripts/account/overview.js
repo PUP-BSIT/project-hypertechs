@@ -39,7 +39,7 @@ setInterval(function () {
 }, 10000); // Update every 10 seconds
 
 
-// script for dynamic balance sizing
+/* ------ script for dynamic balance sizing ------ */
 function updateBalanceFontSize() {
   var balanceElement = document.getElementById("display_account_balance");
   var balanceValue = balanceElement.textContent;
@@ -76,8 +76,3 @@ window.addEventListener("load", function () {
   // Update balance font size
   updateBalanceFontSize();
 });
-
-// Periodically update the balance font size (you can adjust the interval as needed)
-setInterval(function () {
-  updateBalanceFontSize();
-}, 60000); // Update every minute
