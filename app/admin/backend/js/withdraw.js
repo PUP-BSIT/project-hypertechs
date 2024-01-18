@@ -20,24 +20,73 @@ async function main() {
         ACCOUNT_NUMBER = response.adminId;
         console.log(ACCOUNT_NUMBER);
         btnDeposit = document.querySelector(ID_BTN_SUBMIT);
-        btnDeposit.addEventListener("click", requestDeposit);
+        btnDeposit.addEventListener("click", requestWithdraw);
 }
 
-async function requestDeposit() {
+async function requestWithdraw() {
         let account, amount, requestBody, url, response;
-       
-        account = document.querySelector(ID_ACCOUNT).value; 
-        amount = document.querySelector(ID_AMOUNT).value; 
+    
+        // Validate Account Number
+        account = document.querySelector(ID_ACCOUNT).value;
+        if (!validateAccountNumber(account)) {
+            return;
+        }
+    
+        // Validate Amount
+        amount = document.querySelector(ID_AMOUNT).value;
+        if (!validateAmount(amount)) {
+            return;
+        }
+    
         requestBody = new FormData();
         requestBody.append('account_number', account);
         requestBody.append('amount', amount);
         requestBody.append('admin_id', ACCOUNT_NUMBER);
         url = "/app/admin/backend/php/withdraw.php";
+    
+        // Send request if all validations pass
         response = await postData(url, requestBody);
         console.log(response);
+        
         if (!response.success) {
-                alert(response.errorMessage);
-                return;
+            alert(response.errorMessage);
+            return;
         }
+        
         alert("Withdraw successful!");
+}
+    
+function validateAccountNumber(account) {
+        // Check if it's not empty
+        if (!account.trim()) {
+            alert("Account number cannot be empty.");
+            return false;
+        }
+    
+        // 12 digits and no other characters
+        if (!/^\d{12}$/.test(account)) {
+            alert("Invalid account number. It must contain exactly 12 digits"
+            + " and no other characters.");
+            return false;
+        }
+    
+        return true;
+}
+    
+    
+function validateAmount(amount) {
+        // Check if it's not empty
+        if (!amount.trim()) {
+            alert("Amount cannot be empty.");
+            return false;
+        }
+    
+        // 10 digits and exactly two decimal places
+        if (!/^\d{1,10}(\.\d{0,2})?$/.test(amount)) {
+            alert("Invalid amount. It should be a number with up to 10 digits "
+            + "and exactly two decimal places.");
+            return false;
+        }
+    
+        return true;
 }
