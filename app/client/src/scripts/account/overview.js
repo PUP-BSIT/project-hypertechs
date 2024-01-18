@@ -1,3 +1,43 @@
+// Function to update the last updated information
+function updateLastUpdatedInfo() {
+  var lastUpdatedElement = document.getElementById("last_updated_info");
+  var now = new Date();
+  lastUpdatedElement.textContent =
+    "Updated " + calculateTimeSinceLastRefresh(now);
+}
+
+// Function to calculate time since the last refresh
+function calculateTimeSinceLastRefresh(currentTime) {
+  var lastRefreshTime = localStorage.getItem("lastRefreshTime");
+  if (lastRefreshTime) {
+    lastRefreshTime = new Date(lastRefreshTime);
+    var timeDifference = Math.floor((currentTime - lastRefreshTime) / 1000); // in seconds
+
+    if (timeDifference < 60) {
+      return timeDifference + " seconds ago";
+    } else {
+      var minutes = Math.floor(timeDifference / 60);
+      return minutes + " minute(s) ago";
+    }
+  } else {
+    return "N/A";
+  }
+}
+
+// Event listener for page load or refresh
+window.addEventListener("load", function () {
+  // Store the current time in localStorage
+  localStorage.setItem("lastRefreshTime", new Date());
+
+  // Update last updated information
+  updateLastUpdatedInfo();
+});
+
+// Periodically update the last updated information
+setInterval(function () {
+  updateLastUpdatedInfo();
+}, 10000); // Update every 10 seconds
+
 
 // script for dynamic balance sizing
 function updateBalanceFontSize() {
@@ -24,7 +64,7 @@ function updateBalanceFontSize() {
     fontSize = "1.7vw";
   } else {
     // Set a default font size if the balance is very large
-    fontSize = "1.2vw";
+    fontSize = "1.6vw";
   }
 
   // Apply the font size to the balance display
@@ -36,3 +76,8 @@ window.addEventListener("load", function () {
   // Update balance font size
   updateBalanceFontSize();
 });
+
+
+setInterval(function () {
+  updateBalanceFontSize();
+}, 100); // Update every minute
