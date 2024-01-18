@@ -30,8 +30,9 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
+date_default_timezone_set("Asia/Manila");
 $date = date("Y-m-d");
-$time = date("h:i");
+$time = date("H:i");
 if ($recipient == $source) {
         close_database();
         http_response_code(403);

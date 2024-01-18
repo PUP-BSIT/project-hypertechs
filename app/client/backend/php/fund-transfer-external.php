@@ -30,8 +30,9 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $bank_code = $_POST['recipient_bank_code'];
+date_default_timezone_set("Asia/Manila");
 $date = date("Y-m-d");
-$time = date("h:i");
+$time = date("H:i");
 $balance = get_balance($source);
 $redirect_error = "/app/client/pages/account/fund_transfer_result.php";
 if (!$balance) {
@@ -165,7 +166,7 @@ function get_error_message($status_code) {
                 return "Forbidden";
                 break;
         case 404:
-                return "Not Found";
+                return "Account does not exist";
                 break;
         case 405:
                 return "Method Not Allowed";
