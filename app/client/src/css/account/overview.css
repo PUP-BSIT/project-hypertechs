@@ -302,21 +302,17 @@ body {
 }
 
 #account_name, #account_holder_title {
-  width: 120%;
+  width: 110%;
   margin-right: 9.5vw;
 }
 
-#account_name {
-  width: 110%;
-}
-
-#account_number_title, #account_number {
-  width: 120%;
-  margin-right: 3vw;
+#account_number_title {
+  width: 130%;
+  margin-right: 6vw;
 }
 
 #account_access_title, #account_last_access {
-  width: 500%;
+  width: 230%;
 }
 
 /* column container for summary */

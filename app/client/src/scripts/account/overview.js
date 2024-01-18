@@ -80,4 +80,4 @@ window.addEventListener("load", function () {
 
 setInterval(function () {
   updateBalanceFontSize();
-}, 100); // Update every minute
+}, 100);
