@@ -368,7 +368,32 @@ function get_total_withdraw($withdraw_amount_col) {
         $result = extract_database($sql_stmt);
         $row = mysqli_fetch_row($result);
         return $row[0];
-}    
+}
+
+function get_recent_transactions($amount_col, $date_col) {
+        $deposit_table = "deposit";
+        $withdraw_table = "withdraw";
+        $sql_stmt = "(
+            SELECT '$deposit_table', $amount_col, $date_col 
+            FROM $deposit_table 
+            ORDER BY $date_col DESC 
+            LIMIT 1
+        ) 
+        UNION 
+        (
+            SELECT '$withdraw_table', $amount_col, $date_col 
+            FROM $withdraw_table 
+            ORDER BY $date_col DESC 
+            LIMIT 1
+        )";
+    
+        $result = extract_database($sql_stmt);
+        $transactions = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $transactions[] = $row;
+        }
+        return $transactions;
+}
     
 function clear_spaces($string) {
         return str_replace(' ', '', $string);

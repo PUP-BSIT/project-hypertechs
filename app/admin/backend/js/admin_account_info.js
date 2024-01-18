@@ -12,6 +12,7 @@ const ID_TOTAL_USER = "#display_total_users";
 const ID_TOTAL_ADMIN = "#display_total_admin";
 const ID_TOTAL_DEPOSIT = "#display_total_deposit";
 const ID_TOTAL_WITHDRAW = "#display_total_withdraw";
+const ID_RECENT_TRANSACT = "#recent_transact";
 
 main();
 
@@ -53,7 +54,8 @@ function showAdminData(data) {
     totalUser,
     totalAdmin,
     totalDeposit,
-    totalWithdraw;
+    totalWithdraw,
+    recentTransact;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
@@ -63,6 +65,7 @@ function showAdminData(data) {
   totalAdmin = document.querySelector(ID_TOTAL_ADMIN);
   totalDeposit = document.querySelector(ID_TOTAL_DEPOSIT);
   totalWithdraw = document.querySelector(ID_TOTAL_WITHDRAW);
+  recentTransact = document.querySelector(ID_RECENT_TRANSACT);
 
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
@@ -87,5 +90,8 @@ function showAdminData(data) {
   }
   if (totalWithdraw) {
     totalWithdraw.innerHTML = data.data.totalWithdraw;
+  }
+  if (recentTransact) {
+    recentTransact.innerHTML = data.data.recentTransact;
   }
 }
