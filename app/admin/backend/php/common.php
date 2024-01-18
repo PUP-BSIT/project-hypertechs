@@ -360,6 +360,14 @@ function get_total_deposit($deposit_amount_col) {
         $result = extract_database($sql_stmt);
         $row = mysqli_fetch_row($result);
         return $row[0];
+} 
+
+function get_total_withdraw($withdraw_amount_col) {
+        $withdraw_table = "withdraw";
+        $sql_stmt = "SELECT SUM($withdraw_amount_col) FROM $withdraw_table";
+        $result = extract_database($sql_stmt);
+        $row = mysqli_fetch_row($result);
+        return $row[0];
 }    
     
 function clear_spaces($string) {

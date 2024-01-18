@@ -11,6 +11,7 @@ const ID_ADMIN_CONTACT = "#display_admin_contact";
 const ID_TOTAL_USER = "#display_total_users";
 const ID_TOTAL_ADMIN = "#display_total_admin";
 const ID_TOTAL_DEPOSIT = "#display_total_deposit";
+const ID_TOTAL_WITHDRAW = "#display_total_withdraw";
 
 main();
 
@@ -51,7 +52,8 @@ function showAdminData(data) {
     name,
     totalUser,
     totalAdmin,
-    totalDeposit;
+    totalDeposit,
+    totalWithdraw;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
@@ -60,6 +62,7 @@ function showAdminData(data) {
   totalUser = document.querySelector(ID_TOTAL_USER);
   totalAdmin = document.querySelector(ID_TOTAL_ADMIN);
   totalDeposit = document.querySelector(ID_TOTAL_DEPOSIT);
+  totalWithdraw = document.querySelector(ID_TOTAL_WITHDRAW);
 
   if (firstName) {
     firstName.innerHTML = data.data.firstName + "!";
@@ -81,5 +84,8 @@ function showAdminData(data) {
   }
   if (totalDeposit) {
     totalDeposit.innerHTML = data.data.totalDeposit;
+  }
+  if (totalWithdraw) {
+    totalWithdraw.innerHTML = data.data.totalWithdraw;
   }
 }
