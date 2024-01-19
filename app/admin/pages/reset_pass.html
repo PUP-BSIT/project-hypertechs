@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../src/css/reset_pass.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/reset_pass.css?v=1.0">
     <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Apex Bank – Reset Password</title>
@@ -46,13 +46,19 @@
             <div class="reset-pass-form-container">
                 <form action="#" method="post" id="reset_form">
                     <div class="form-group">
-                        <label for="new_password">Enter new password</label>
+                        <label for="new_password">
+                            <i class="fa-solid fa-lock"></i>
+                            Enter new password
+                        </label>
                         <input type="password" id="new_password" 
                         name="new_password" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="confirm_password">Confirm new password</label>
+                        <label for="confirm_password">
+                            <i class="fa-solid fa-lock-open"></i>
+                            Confirm new password
+                        </label>
                         <input type="password" id="confirm_password" 
                         name="confirm_password" required>
                     </div>

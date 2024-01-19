@@ -251,6 +251,16 @@ input::placeholder {
   font-size: var(--subtext-size);
 }
 
+.form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group i {
+  font-size: 0.85em;
+  margin-right: 0.75em;
+}
+
 .reset-button {
   margin-top: 0em;
   height: 2.5em;
