@@ -477,6 +477,7 @@ body {
   font-size: 1.2vw;
   font-weight: 600;
   text-align: left;
+  color: var(--primary);
 }
 #recent_transactions_table td {
   padding: 0.7vw;
