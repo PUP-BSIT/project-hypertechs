@@ -354,21 +354,22 @@ function get_total_admin($admin_column){
         return $row[0];
 }
 
-function get_total_deposit($deposit_amount_col) {
+function get_total_deposit() {
         $deposit_table = "deposit";
-        $sql_stmt = "SELECT SUM($deposit_amount_col) FROM $deposit_table";
+        $sql_stmt = "SELECT COUNT(*) FROM $deposit_table";
         $result = extract_database($sql_stmt);
         $row = mysqli_fetch_row($result);
         return $row[0];
 } 
-
-function get_total_withdraw($withdraw_amount_col) {
+    
+    function get_total_withdraw() {
         $withdraw_table = "withdraw";
-        $sql_stmt = "SELECT SUM($withdraw_amount_col) FROM $withdraw_table";
+        $sql_stmt = "SELECT COUNT(*) FROM $withdraw_table";
         $result = extract_database($sql_stmt);
         $row = mysqli_fetch_row($result);
         return $row[0];
 }
+    
 
 function get_recent_transactions($amount_col, $date_col, $time_col) {
         $deposit_table = "deposit";
