@@ -13,6 +13,7 @@ const ID_TOTAL_ADMIN = "#display_total_admin";
 const ID_TOTAL_DEPOSIT = "#display_total_deposit";
 const ID_TOTAL_WITHDRAW = "#display_total_withdraw";
 const ID_RECENT_TRANSACT = "#recent_transact";
+const ID_ADMIN_MINI_NAME = "#display_mini_account_text";
 
 main();
 
@@ -47,18 +48,20 @@ async function getAdminInfo() {
 
 function showAdminData(data) {
   let adminName,
-      adminId,
-      phone,
-      firstName,
-      name,
-      totalUser,
-      totalAdmin,
-      totalDeposit,
-      totalWithdraw,
-      recent_transact_body;
+    adminId,
+    phone,
+    firstName,
+    name,
+    miniAdminName,
+    totalUser,
+    totalAdmin,
+    totalDeposit,
+    totalWithdraw,
+    recent_transact_body;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
+  miniAdminName = document.querySelector(ID_ADMIN_MINI_NAME);
   adminId = document.querySelector(ID_ADMIN_NUMBER);
   phone = document.querySelector(ID_ADMIN_CONTACT);
   totalUser = document.querySelector(ID_TOTAL_USER);
@@ -68,52 +71,55 @@ function showAdminData(data) {
   recent_transact_body = document.getElementById("recent_transact_body");
 
   if (firstName) {
-      firstName.innerHTML = data.data.firstName + "!";
+    firstName.innerHTML = data.data.firstName + "!";
   }
   if (adminName) {
-      adminName.innerHTML = data.data.name;
+    adminName.innerHTML = data.data.name;
   }
   if (adminId) {
-      adminId.innerHTML = data.data.adminId;
+    adminId.innerHTML = data.data.adminId;
   }
   if (phone) {
-      phone.innerHTML = data.data.phone;
+    phone.innerHTML = data.data.phone;
   }
   if (totalUser) {
-      totalUser.innerHTML = data.data.totalUser;
+    totalUser.innerHTML = data.data.totalUser;
   }
   if (totalAdmin) {
-      totalAdmin.innerHTML = data.data.totalAdmin;
+    totalAdmin.innerHTML = data.data.totalAdmin;
   }
   if (totalDeposit) {
-      totalDeposit.innerHTML = data.data.totalDeposit;
+    totalDeposit.innerHTML = data.data.totalDeposit;
   }
   if (totalWithdraw) {
-      totalWithdraw.innerHTML = data.data.totalWithdraw;
+    totalWithdraw.innerHTML = data.data.totalWithdraw;
   }
   if (recent_transact_body) {
-      recent_transact_body.innerHTML = ""; // Clear previous data
+    recent_transact_body.innerHTML = ""; // Clear previous data
 
-      // Populate the table with data
-      for (let i = 0; i < data.data.recentTransact.length; i++) {
-          let transaction = data.data.recentTransact[i];
-          let row = document.createElement("tr");
+    // Populate the table with data
+    for (let i = 0; i < data.data.recentTransact.length; i++) {
+      let transaction = data.data.recentTransact[i];
+      let row = document.createElement("tr");
 
-          let cells = [
-              transaction.account_number,
-              transaction.transaction_type,
-              `&#8369; ${transaction.amount}`,
-              transaction.date,
-              transaction.time
-          ];
+      let cells = [
+        transaction.account_number,
+        transaction.transaction_type,
+        `&#8369; ${transaction.amount}`,
+        transaction.date,
+        transaction.time,
+      ];
 
-          for (let j = 0; j < cells.length; j++) {
-              let cell = document.createElement("td");
-              cell.innerHTML = cells[j];
-              row.appendChild(cell);
-          }
-
-          recent_transact_body.appendChild(row);
+      for (let j = 0; j < cells.length; j++) {
+        let cell = document.createElement("td");
+        cell.innerHTML = cells[j];
+        row.appendChild(cell);
       }
+
+      recent_transact_body.appendChild(row);
+    }
+  }
+  if (miniAdminName) {
+    miniAdminName.innerHTML = data.data.name;
   }
 }
