@@ -384,9 +384,10 @@ form label {
   text-align: center;
 }
 
-.terms-and-policy span {
-  cursor: pointer;
+.terms-and-policy a {
   color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */
