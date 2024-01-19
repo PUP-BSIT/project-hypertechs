@@ -389,7 +389,7 @@ function get_recent_transactions($amount_col, $date_col, $time_col) {
             LIMIT 3
         )
         ORDER BY $date_col DESC, $time_col DESC
-        LIMIT 6";
+        LIMIT 3";
     
         $result = extract_database($sql_stmt);
         $transactions = array();

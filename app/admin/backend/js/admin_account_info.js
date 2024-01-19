@@ -47,15 +47,15 @@ async function getAdminInfo() {
 
 function showAdminData(data) {
   let adminName,
-    adminId,
-    phone,
-    firstName,
-    name,
-    totalUser,
-    totalAdmin,
-    totalDeposit,
-    totalWithdraw,
-    recentTransact;
+      adminId,
+      phone,
+      firstName,
+      name,
+      totalUser,
+      totalAdmin,
+      totalDeposit,
+      totalWithdraw,
+      recent_transact_body;
 
   firstName = document.querySelector(ID_FIRST_NAME);
   adminName = document.querySelector(ID_ADMIN_NAME);
@@ -65,45 +65,55 @@ function showAdminData(data) {
   totalAdmin = document.querySelector(ID_TOTAL_ADMIN);
   totalDeposit = document.querySelector(ID_TOTAL_DEPOSIT);
   totalWithdraw = document.querySelector(ID_TOTAL_WITHDRAW);
-  recentTransact = document.querySelector(ID_RECENT_TRANSACT);
+  recent_transact_body = document.getElementById("recent_transact_body");
 
   if (firstName) {
-    firstName.innerHTML = data.data.firstName + "!";
+      firstName.innerHTML = data.data.firstName + "!";
   }
   if (adminName) {
-    adminName.innerHTML = data.data.name;
+      adminName.innerHTML = data.data.name;
   }
   if (adminId) {
-    adminId.innerHTML = data.data.adminId;
+      adminId.innerHTML = data.data.adminId;
   }
   if (phone) {
-    phone.innerHTML = data.data.phone;
+      phone.innerHTML = data.data.phone;
   }
   if (totalUser) {
-    totalUser.innerHTML = data.data.totalUser;
+      totalUser.innerHTML = data.data.totalUser;
   }
   if (totalAdmin) {
-    totalAdmin.innerHTML = data.data.totalAdmin;
+      totalAdmin.innerHTML = data.data.totalAdmin;
   }
   if (totalDeposit) {
-    totalDeposit.innerHTML = data.data.totalDeposit;
+      totalDeposit.innerHTML = data.data.totalDeposit;
   }
   if (totalWithdraw) {
-    totalWithdraw.innerHTML = data.data.totalWithdraw;
+      totalWithdraw.innerHTML = data.data.totalWithdraw;
   }
-  if (recentTransact) {
-    recentTransact.innerHTML = "";
-    for (let i = 0; i < data.data.recentTransact.length; i++) {
-      let transactionInfo = document.createElement("div");
-      transactionInfo.innerHTML = `
-        <p>${data.data.recentTransact[i].account_number}
-        ${data.data.recentTransact[i].transaction_type} 
-        PHP ${data.data.recentTransact[i].amount} on 
-        ${data.data.recentTransact[i].date} at
-        ${data.data.recentTransact[i].time}</p>
-        <hr>
-      `;
-      recentTransact.appendChild(transactionInfo);
-    }
+  if (recent_transact_body) {
+      recent_transact_body.innerHTML = ""; // Clear previous data
+
+      // Populate the table with data
+      for (let i = 0; i < data.data.recentTransact.length; i++) {
+          let transaction = data.data.recentTransact[i];
+          let row = document.createElement("tr");
+
+          let cells = [
+              transaction.account_number,
+              transaction.transaction_type,
+              `&#8369; ${transaction.amount}`,
+              transaction.date,
+              transaction.time
+          ];
+
+          for (let j = 0; j < cells.length; j++) {
+              let cell = document.createElement("td");
+              cell.innerHTML = cells[j];
+              row.appendChild(cell);
+          }
+
+          recent_transact_body.appendChild(row);
+      }
   }
 }

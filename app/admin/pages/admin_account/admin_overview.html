@@ -143,7 +143,7 @@
                   <div class="bank-cards" id="all_withdraw_card">
                     <span class="material-icons">receipt</span>
                     <div id="bank_card_text">
-                        <h2>All Withdraw</h2>
+                        <h2>Withdrawals</h2>
                         <h3  id="display_total_withdraw">0</h3>
                     </div>
                   </div>
@@ -172,13 +172,25 @@
 
             <!--Recent Transactions-->
             <div id="overview_container_three">
-                <h1><span class="material-icons">history</span>
-                    Recent Transactions
-                </h1>
-                <div id="transactions_table">
-                    <h4 id="recent_transact">History</h4>   
+                <h1><span class="material-icons">history</span> Recent Transactions</h1>
+                <div id="transactions_table_container">
+                    <table id="recent_transactions_table" border="1">
+                        <thead>
+                            <tr>
+                                <th class="account-number">Account Number</th>
+                                <th>Transaction Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent_transact_body">
+                            <!-- Data will be inserted here using JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            
         </div>
     </div>
     </div>
