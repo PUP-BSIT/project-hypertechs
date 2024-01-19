@@ -54,7 +54,7 @@ if (!add_balance($recipient, $amount)) {
         exit;
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
-        $recipient_col, $transaction_id_col, $date_col, $time_col 
+        $recipient_col, $transaction_id_col, $date_col, $time_col, 
         $bank_code_col) VALUES ($amount, '$source', '$recipient', 
         '$transaction_id', '$date', '$time', '$bank_code')"; 
 if (!modify_database($sql_stmt)) {
