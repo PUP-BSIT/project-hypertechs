@@ -30,7 +30,12 @@ async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
                 requestBody, redirectURL;
         
-        redirectURL = "/app/client/pages/account/fund_transfer_result.php";
+        redirectURL = "https://apexapp.tech/app/client/pages/account/" +
+                "fund_transfer_result.php";
+/*
+        redirectURL = "http://localhost/app/client/pages/account/" +
+                "fund_transfer_result.php";
+*/
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
@@ -47,12 +52,16 @@ async function requestTransfer() {
                 alert("Account number should contain exactly 12 digits.");
                 return;
         }
-        if (!/^\d{1,6}$/.test(amount)) {
-                alert("Amount should be limited to six digits only.");
+        if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
+                alert("Amount should be up to six digits " +
+                        "with exactly two decimal places.");
                 return;
         }
         requestBody = new FormData();
-        url = "/app/client/backend/api/fund-transfer.php";
+        url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
+/*
+        url = "http://localhost/app/client/backend/api/fund-transfer.php";
+*/
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);

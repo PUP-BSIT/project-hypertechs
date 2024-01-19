@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css?v=2.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -109,7 +109,7 @@
                             <div id="account_access_title">
                                 <h3>
                                     <span class="material-icons">assured_workload</span>
-                                    Last Verified Access
+                                    Last Activity
                                 </h3>
                             </div>
                             <div id="account_last_access">
@@ -125,7 +125,10 @@
                         <span class="material-icons">account_balance_wallet</span>
                         Total Balance
                     </h2>
-                    <h3>&#8369 <span id="display_account_balance">0.00</span></h3>
+                    <h3 id="balance_display">&#8369
+                        <span id="display_account_balance">0.00</span>
+                    </h3>
+                    <p id="last_updated_info"></p>
                 </div>
             </div>
             

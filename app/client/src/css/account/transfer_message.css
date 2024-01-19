@@ -3,7 +3,7 @@
 :root {
   --font-family: "Inter", sans-serif;
   --title-size: 3vw;
-  --header-size: 3.7vw;
+  --header-size: 3.5vw;
   --button-size: 1.5vw;
   --text-size: 1.4vw;
   --otp-size: 2.5vw;
@@ -294,20 +294,10 @@ body {
   transform: scale(0.95);
 }
 
-/* feedback_test */
-#feedback_test {
-  height: auto;
-  font-size: 0.5vw;
-}
-
-#transfer_failed {
-  padding-left: 3em;
-}
-
 /* button styling */
 #tranfer_message_text button {
   margin-top: 1em;
-  width: 20%;
+  width: 25%;
   height: 2.5em;
   border: none;
   cursor: pointer;
@@ -326,6 +316,7 @@ body {
 
 #tranfer_message_text button:active {
   transform: scale(0.95);
+
 }
 
 /* resend code link styling */
@@ -412,7 +403,7 @@ body {
   color: #042c8b;
 }
 
-svg {
+svg#freepik_stories-plain-credit-card {
   width: 85%;
 }
 
@@ -832,4 +823,503 @@ svg#freepik_stories-plain-credit-card.animated #freepik--Character--inject-47 {
 }
 .animator-hidden {
   display: none;
+}
+
+/* Error SVG */
+
+svg#freepik_stories-computer-troubleshooting {
+  width: 95%;
+  padding-bottom: 7vw;
+}
+
+svg#freepik_stories-computer-troubleshooting:not(.animated) .animable {
+    opacity: 0;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #freepik--Shadow--inject-409 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
+    animation-delay: 0s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #freepik--speech-bubble--inject-409 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) lightSpeedLeft;
+    animation-delay: 0s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #freepik--Character--inject-409 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomIn, 6s Infinite linear wind;
+    animation-delay: 0s, 1s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #ellfqinq138ld {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el3nfn14prum5 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.023255813953488372s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el9yj0mk5tvvg {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.046511627906976744s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elli5jyje5ms {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.06976744186046512s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el4fhkh9gkw7x {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.09302325581395349s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elibft3rncu1e {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.11627906976744186s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elufo46f7e6dl {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.13953488372093023s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el4ick06vouwh {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.16279069767441862s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #ellofpv2p8qd {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.18604651162790697s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eltzb759pwrxg {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.20930232558139533s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elulmtluy4gd9 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.23255813953488372s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #ela3v64r252hn {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.2558139534883721s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elzd0iohrh9oe {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.27906976744186046s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el9e8kt7djj4a {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.3023255813953488s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el42qk0pkxnif {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.32558139534883723s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elbmluarmlfy6 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.3488372093023256s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eluw8y4ep65kp {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.37209302325581395s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elrazgwzfisrr {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.3953488372093023s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elr7syz6j789 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.41860465116279066s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elzagk28j45gl {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.4418604651162791s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eljwkg65bt9w {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.46511627906976744s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el7wsxyuidgvo {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.4883720930232558s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elppv2yoezdmt {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.5116279069767442s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el8bnbcfji63h {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.5348837209302325s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el0dcdtfaqe20k {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.5581395348837209s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elkpkajmfq57 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.5813953488372093s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #ell3jpghvc5jc {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.6046511627906976s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elyydw0liv6ia {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.627906976744186s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elgeo2f105ugp {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.6511627906976745s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elaa5itft4cgl {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.6744186046511628s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elh8kicyio7z {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.6976744186046512s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elt36gaf84t2k {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.7209302325581395s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el6l04r7i14f9 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.7441860465116279s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eldhnz9fcnueh {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.7674418604651163s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elfg6pm6f9lya {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.7906976744186046s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elv1uzlfvktc {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.813953488372093s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el3vjyx9wunnb {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.8372093023255813s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elhtv3rximzqj {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.8604651162790697s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eltnwgbpqa8bg {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.8837209302325582s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eley3237g0x66 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.9069767441860465s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elcbmmunkuvam {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.9302325581395349s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #ell47751hrxfn {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.9534883720930233s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elr4mnkfxvkan {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0.9767441860465116s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #freepik--Device--inject-409 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+    animation-delay: 0s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elimc2m26qfd {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0s;
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elm3loq3664uk {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.05s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eldrtjg6bqb4 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.1s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elz9x9ostt51k {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.15000000000000002s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el42i620suynn {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.2s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elnvavxfv8yfo {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.25s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el7ibh8dskuta {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.30000000000000004s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elqghwx2i04os {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.35000000000000003s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eli29ox9qrqrc {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.4s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el4qfnr40p6sw {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.45s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el0l6d31app7cc {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.5s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elqo8pxk59sfs {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.55s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el5gj1722y6o9 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.6000000000000001s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elh95yjv1awc5 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.65s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #el4q35x59s4jx {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.7000000000000001s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elbqvnjhnbhyr {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.75s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elvoid148o9zb {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.8s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eleg08vhoxfkg {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.8500000000000001s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #eltgpaq5zxj7a {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.9s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #elvj39280rfui {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0.9500000000000001s;
+    opacity: 0
+}
+
+svg#freepik_stories-computer-troubleshooting.animated #freepik--tool-box--inject-409 {
+    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+    animation-delay: 0s;
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes lightSpeedLeft {
+    from {
+        transform: translate3d(-50%, 0, 0) skewX(20deg);
+        opacity: 0;
+    }
+
+    60% {
+        transform: skewX(-10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: skewX(2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes wind {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    75% {
+        transform: rotate(-1deg);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animator-hidden {
+    display: none;
 }

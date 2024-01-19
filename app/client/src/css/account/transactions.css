@@ -253,8 +253,8 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.7em;
-  padding: 4px;
+  gap: 0.95vw;
+  padding: 5px;
   position: relative;
   height: 1.3vw;
   width: 3vw;
@@ -265,22 +265,22 @@ body {
   background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
-  top: 0.1em;
-  left: 3px;
-  height: 0.95vw;
-  width: 0.95vw;
+  top: 0.2vw;
+  left: 0.2vw;
+  height: 0.9vw;
+  width: 0.9vw;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(1.65vw);
+  transform: translateX(1.6vw);
 }
 
 .fa-moon,
 .fa-sun {
-  margin-top: 1px;
-  font-size: 0.52em;
+  margin-top: 0vw;
+  font-size: 0.8vw;
 }
 
 .fa-moon {

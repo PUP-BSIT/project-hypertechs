@@ -1,9 +1,9 @@
 <?php
 require "./common.php";
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: *");
-header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Methods:*");
+header("Access-Control-Allow-Headers:*");
 header("Access-Control-Allow-Credentials: true");
 
 connect_database();
@@ -13,6 +13,7 @@ $source_col = "source";
 $recipient_col = "recipient";
 $transaction_id_col = "transaction_id";
 $date_col = "date";
+$time_col = "time";
 $bank_code_col = "bank_code";
 
 $parameters_complete = isset($_POST['source_bank_code']) && 
@@ -29,7 +30,9 @@ $amount = (float)$_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
 $transaction_id = "TID" . random_int(10000000, 99999999) . date("Ymd");
+date_default_timezone_set("Asia/Manila");
 $date = date("Y-m-d");
+$time = date("H:i");
 if ($recipient == $source) {
         close_database();
         http_response_code(403);
@@ -51,9 +54,9 @@ if (!add_balance($recipient, $amount)) {
         exit;
 }
 $sql_stmt = "INSERT INTO $transfer_table ($amount_col, $source_col, 
-        $recipient_col, $transaction_id_col, $date_col, 
+        $recipient_col, $transaction_id_col, $date_col, $time_col, 
         $bank_code_col) VALUES ($amount, '$source', '$recipient', 
-        '$transaction_id', '$date', '$bank_code')"; 
+        '$transaction_id', '$date', '$time', '$bank_code')"; 
 if (!modify_database($sql_stmt)) {
         close_database();
         http_response_code(404);

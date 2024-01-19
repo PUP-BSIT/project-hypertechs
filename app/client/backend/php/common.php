@@ -10,12 +10,14 @@ function connect_database() {
         $username = "u754510873_apex_user";
         $password = "Hypertechsnumber1";
         $database = "u754510873_apex_DB";
+
 /*
         $hostname = "localhost";
         $username = "calib";
         $password = "Hypertechsnumber1";
         $database = "apex_bank";
 */
+
         $conn =  mysqli_connect($hostname, $username, $password, $database);
         if (!$conn) {
                 exit("Error: ".mysqli_connect_error()); 
@@ -43,7 +45,7 @@ function close_database() {
 
 function get_transaction_data($table, $transaction_id) {
         $transaction_id_col = "transaction_id";
-        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%H:%i %p') AS timef FROM 
+        $sql_stmt = "SELECT *, TIME_FORMAT(time, '%h:%i %p') AS timef FROM 
                 $table WHERE $transaction_id_col='$transaction_id';";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
@@ -261,12 +263,12 @@ function does_transfer_id_exist($transaction_id) {
         return true;
 }
 
-function does_password_match($email, $password) {
+function does_password_match($phone, $password) {
         $account_table = "account";
-        $email_col = "email";
+        $phone_col = "phone_number";
         $password_col = "password";
-        $sql_stmt = "SELECT $email_col FROM $account_table WHERE
-                $email_col='$email' AND $password_col='$password'";
+        $sql_stmt = "SELECT $phone_col FROM $account_table WHERE
+                $phone_col='$phone' AND $password_col='$password'";
         $result = extract_database($sql_stmt);
         if (!mysqli_fetch_assoc($result)) return false;
         return true;
