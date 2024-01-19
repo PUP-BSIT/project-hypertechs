@@ -15,7 +15,7 @@ $account_number = $_POST['account_number'];
 $admin_id = $_POST['admin_id'];
 $transaction_id = "TID" . time() . uniqid ();
 $date = date("Y-m-d");
-$time = date("h:i");
+$time = date("H:i:s");
 
 $response['success'] = false;
 if (!does_account_exist($account_number)) {
