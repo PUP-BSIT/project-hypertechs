@@ -48,6 +48,10 @@ async function requestTransfer() {
                 alert("Please fill out all the required fields.");
                 return;
         }
+        if (parseFloat(amount) === 0) {
+                alert("Transfer amount cannot be 0.");
+                return;
+        }
         if (!/^\d{12}$/.test(recipient)) {
                 alert("Account number should contain exactly 12 digits.");
                 return;

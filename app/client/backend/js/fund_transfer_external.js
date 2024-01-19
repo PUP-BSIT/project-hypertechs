@@ -50,6 +50,10 @@ async function requestTransfer() {
                 alert("Please fill out all the required fields.");
                 return;
         }
+        if (parseFloat(amount) === 0) {
+                alert("Transfer amount cannot be 0.");
+                return;
+        }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
                 alert("Amount should be up to six digits " +
                         "with exactly two decimal places.");
