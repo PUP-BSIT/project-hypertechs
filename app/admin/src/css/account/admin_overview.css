@@ -473,15 +473,15 @@ body {
 }
 
 #recent_transactions_table th {
-    padding: 0.7vw;
-    font-size: 1.2vw;
-    font-weight: 600;
-    text-align: left;
+  padding: 0.7vw;
+  font-size: 1.2vw;
+  font-weight: 600;
+  text-align: left;
 }
 #recent_transactions_table td {
-    padding: 0.7vw;
-    text-align: left;
-    font-size: 1.1vw;
+  padding: 0.7vw;
+  text-align: left;
+  font-size: 1.1vw;
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

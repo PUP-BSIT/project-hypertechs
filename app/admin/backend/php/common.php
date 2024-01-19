@@ -377,6 +377,7 @@ function get_recent_transactions($amount_col, $date_col, $time_col) {
         $deposit_table = "deposit";
         $withdraw_table = "withdraw";
         $account_col = "account_number";
+        
         $sql_stmt = "(
             SELECT '$deposit_table' AS transaction_type, $amount_col, 
             $date_col, $time_col, $account_col
@@ -395,11 +396,15 @@ function get_recent_transactions($amount_col, $date_col, $time_col) {
     
         $result = extract_database($sql_stmt);
         $transactions = array();
+        
         while ($row = mysqli_fetch_assoc($result)) {
+            // Capitalize the first letter of the transaction type
+            $row['transaction_type'] = ucfirst($row['transaction_type']);
             $transactions[] = $row;
         }
+    
         return $transactions;
-}
+    }    
     
 function clear_spaces($string) {
         return str_replace(' ', '', $string);
