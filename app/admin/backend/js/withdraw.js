@@ -75,22 +75,28 @@ function validateAccountNumber(account) {
     
     
 function validateAmount(amount) {
-        // Check if it's not empty
-        if (!amount.trim()) {
-            alert("Amount cannot be empty.");
-            return false;
-        }
-    
-        // 10 digits and exactly two decimal places
-        if (!/^\d{1,10}(\.\d{2})?$/.test(amount)) {
-                alert("Invalid amount. Please enter a valid numeric amount" +
-                " with the following criteria:\n" +
-                "- Up to 10 whole digits\n" +
-                "- Two decimal places (optional)\n" +
-                "- No commas are allowed");
-          
-            return false;
-        }
-    
-        return true;
+    // Check if it's not empty
+    if (!amount.trim()) {
+        alert("Amount cannot be empty.");
+        return false;
+    }
+
+    // Check if it's greater than zero
+    if (parseFloat(amount) <= 0) {
+        alert("Amount must be at least 100 pesos.");
+        return false;
+    }
+
+    // Check if it's above 100 pesos and follows the format
+    if (!/^\d{1,10}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
+        alert("Invalid amount. Please enter a valid numeric amount" +
+            " with the following criteria:\n\n" +
+            "- Up to 10 figures only\n" +
+            "- Two decimal places, if present (optional)\n" +
+            "- No commas are allowed\n" +
+            "- Amount must be at least 100 pesos");
+        return false;
+    }
+
+    return true;
 }
