@@ -23,10 +23,12 @@ if (!$name) {
         exit;
 }
 $lastTransac = get_last_transaction_date($account_number);
+/*
 if (!$lastTransac) {
         echo json_encode($response);
         exit;
 }
+*/
 $response['data'] = array(
         'accountNumber' => $result[$account_number_col],
         'name' => $name,
