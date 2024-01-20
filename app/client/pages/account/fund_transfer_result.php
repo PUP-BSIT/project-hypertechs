@@ -740,7 +740,9 @@ $date = htmlspecialchars($data['date']);
 $time = htmlspecialchars($data['time']);
 $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 if (!$recipient_name) {
-        $recipient_name = $data['recipient'];
+    $recipient_name = $data['recipient'];
+} else {
+    $recipient_name .= '.'; // Adding a period after the name
 }
 
 echo $success_start;
@@ -761,7 +763,7 @@ echo <<<EOT
                         Your money has been successfully transferred to
                         <strong>
                             <span id="display_transfer_msg_recipient">
-                                $recipient_name</span>.
+                                $recipient_name</span>
                         </strong>
                         Thank you for using Apex Bank!
                     </p>

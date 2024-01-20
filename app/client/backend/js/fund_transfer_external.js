@@ -56,7 +56,7 @@ async function requestTransfer() {
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
                 alert("Amount should be up to six digits " +
-                        "with exactly two decimal places.");
+                        "with exactly two decimal digits.");
                 return;
         }
         requestBody = new FormData();
