@@ -13,6 +13,7 @@ const ID_MINI_NAME = "#display_mini_account_text";
 const ID_LAST_TRANSAC = "#account_last_access";
 const HOME_URL = "/index.html";
 
+console.log("Hello");
 main();
     
 async function main() {
@@ -40,6 +41,7 @@ async function getCustomerInfo() {
         requestBody = new FormData();
         requestBody.append('account_number', sessionAccount);
         response = await postData(url, requestBody);
+        console.log(response);
         if (!response.success) return;
                 customerData = response; // Store customer data globally
                 showCustomerData(customerData);
@@ -49,6 +51,7 @@ function showCustomerData(data) {
         let accountName, accountNumber, balance, firstName, name, miniName,
                 lastTransac;
 
+        console.log(data);
         firstName = document.querySelector(ID_FIRST_NAME);
         miniName = document.querySelector(ID_MINI_NAME);
         accountName = document.querySelector(ID_ACCOUNT_NAME);
@@ -66,7 +69,7 @@ function showCustomerData(data) {
                 accountName.innerHTML = data.data.name;
                 accountNumber.innerHTML = data.data.accountNumber;
                 balance.innerHTML = strToNum(data.data.balance);
-                lastTransac.innerHTML = data.data.lastTransac;
+                //lastTransac.innerHTML = data.data.lastTransac;
 
                 // Add event listener to toggle between partial and full display
                 document.getElementById("account_number")
