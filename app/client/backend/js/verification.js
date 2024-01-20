@@ -47,6 +47,14 @@ async function main() {
         otp4 = document.querySelector(ID_OTP_4);
         otp5 = document.querySelector(ID_OTP_5);
         otp6 = document.querySelector(ID_OTP_6);
+
+        otp1.addEventListener("focus", otp1.select);
+        otp2.addEventListener("focus", otp1.select);
+        otp3.addEventListener("focus", otp1.select);
+        otp4.addEventListener("focus", otp1.select);
+        otp5.addEventListener("focus", otp1.select);
+        otp6.addEventListener("focus", otp1.select);
+
         otp1.addEventListener("input", () => {
                 moveToNext(otp1, 'otp2'); 
         });
@@ -61,6 +69,9 @@ async function main() {
         });
         otp5.addEventListener("input", () => {
                 moveToNext(otp5, 'otp6'); 
+        });
+        otp6.addEventListener("input", () => {
+                moveToNext(otp6, 'button_submit'); 
         });
         const otpInputs = document.querySelectorAll(".otp-input");
         otpInputs.forEach(function (input) {
@@ -93,7 +104,6 @@ async function main() {
 async function resendCode() {
         setTimer(0);
         await destroyOTPSession("OTPOnly");
-        clearOTPInput();
         showText("OTP_GET");
 }
 
@@ -137,26 +147,31 @@ function renewOTP() {
 }
 
 async function getOTP() {
-        let url, data, OTPInput;
+        let url, data, OTPInput, otp1;
 
         console.log("getOTP");
         url = "../backend/php/otp.php";
         data = await getData(url);
         console.log(data);
+        clearOTPInput();
         showText("OTP_VERIFY");
+        otp1 = document.querySelector(ID_OTP_1);
+        otp1.focus();
         OTP = data.otp;
         setTimer(data.time);
         OTPInput = getOTPInput();
 }
 
 async function checkOTPInput() {
-        let OTPInput;
+        let OTPInput, otp1;
 
         OTPInput = getOTPInput();
+        otp1 = document.querySelector(ID_OTP_1);
         console.log(OTPInput, OTP);
         if(OTPInput !== OTP) {
                 alert("You have entered an incorrect OTP. " + 
                 "Please try again.");
+                otp1.focus();
                 return;
         }
         setTimer(0);
@@ -271,6 +286,7 @@ function moveToNext(currentInput, nextInputId) {
                 const nextInput = document.getElementById(nextInputId);
                 if (nextInput) {
                         nextInput.focus();
+                        //nextInput?.select?.();
                 }
         }
 }

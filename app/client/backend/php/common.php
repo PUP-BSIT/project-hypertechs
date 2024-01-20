@@ -75,6 +75,22 @@ function get_balance($account_number) {
         return $data[$balance_col];
 }
 
+function get_last_transaction_date($account_number) {
+        $sql_stmt = "SELECT transaction_id, date, 
+                DATE_FORMAT(time, '%h:%i %p') AS timef 
+                FROM fund_transfer WHERE source='$account_number'
+                UNION  
+                SELECT transaction_id, date, 
+                DATE_FORMAT(time, '%h:%i %p') AS timef 
+                FROM fund_transfer_external_send WHERE source='$account_number'
+                ORDER BY date DESC, timef DESC LIMIT 1";
+        $result = extract_database($sql_stmt);
+        $data = mysqli_fetch_assoc($result);
+        if (!$data) return false;
+        $date = $data['date'] . ' ' . $data['timef'];
+        return $date;
+}
+
 function get_name($account_number) {
         $surname_col = "surname";
         $first_name_col = "first_name";
