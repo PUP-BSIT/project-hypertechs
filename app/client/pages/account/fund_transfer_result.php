@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <script src="../src/scripts/preload.js"></script>
+    <script src="../../src/scripts/preload.js"></script>
     
 <?php
 // --------------------------------------------
