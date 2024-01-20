@@ -345,6 +345,10 @@ body {
   margin-right: 0.5em;
 }
 
+#display_account_number {
+  cursor: pointer;
+}
+
 /* ----- ACC BALANCE STYLE ----- */
 #overview_balance {
   height: 10vw;
