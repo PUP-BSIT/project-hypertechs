@@ -49,13 +49,12 @@ async function loginAdmin() {
   //url = "../backend/php/admin-login.php";
   url = "../backend/php/admin-login-check.php";
   data = await postData(url, requestBody);
-  console.log(data);
   if (!data.success) {
     showAlert(data.errorMessage);
     return;
   }
   requestURL = "../backend/php/admin-login.php";
-  /* await saveRequest(requestURL, requestBody); */
+  await saveRequest(requestURL, requestBody);
 }
 
 function isPasswordValid(password) {

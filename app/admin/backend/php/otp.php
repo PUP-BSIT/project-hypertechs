@@ -22,8 +22,10 @@ function get_fake_otp() {
 //echo get_otp();
 
 function get_otp() {
-        //session_start();
+        session_start();
         $phone_number = $_SESSION['phone_number'];
+        if (isset($_SESSION['otp_phone']))
+                $phone_number = $_SESSION['otp_phone']; 
         $ch = curl_init();
         $parameters = array(
                 'apikey' => "7dce37931f1bbe6f1dc105d481d83ccf",
