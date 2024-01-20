@@ -91,10 +91,10 @@ function validateAmount(amount) {
     if (!/^\d{1,10}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
         alert("Invalid amount. Please enter a valid numeric amount" +
             " with the following criteria:\n\n" +
-            "- Up to 10 figures only\n" +
-            "- Two decimal places, if present (optional)\n" +
-            "- No commas are allowed\n" +
-            "- Amount must be at least 100 pesos");
+            "&#8226; Up to 10 figures only\n" +
+            "&#8226; Two decimal places, if present (optional)\n" +
+            "&#8226; No commas are allowed\n" +
+            "&#8226; Amount must be at least 100 pesos");
         return false;
     }
 

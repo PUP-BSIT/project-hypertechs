@@ -36,10 +36,11 @@ async function requestDeposit() {
         amount = document.querySelector(ID_AMOUNT).value;
         if (!isValidAmount(amount)) {
                 alert("Invalid amount. Please enter a valid numeric amount" +
-                " with the following criteria:\n" +
-                "- Up to 10 whole digits\n" +
-                "- Two decimal places (optional)\n" +
-                "- No commas are allowed");
+                " with the following criteria:\n\n" +
+                "&#8226; Up to 10 figures only\n" +
+                "&#8226; Two decimal places, if present (optional)\n" +
+                "&#8226; No commas are allowed\n" +
+                "&#8226; Amount must be at least 100 pesos");
                 return;
         }
     
