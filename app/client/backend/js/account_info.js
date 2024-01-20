@@ -69,7 +69,9 @@ function showCustomerData(data) {
                 accountName.innerHTML = data.data.name;
                 accountNumber.innerHTML = data.data.accountNumber;
                 balance.innerHTML = strToNum(data.data.balance);
-                //lastTransac.innerHTML = data.data.lastTransac;
+                if (data.data.lastTransac) {
+                        lastTransac.innerHTML = data.data.lastTransac;
+                }
 
                 // Add event listener to toggle between partial and full display
                 document.getElementById("account_number")
