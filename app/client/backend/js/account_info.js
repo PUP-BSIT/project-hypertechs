@@ -20,16 +20,16 @@ async function main() {
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
-                window.location.href = HOME_URL;
-                return;
+        window.location.href = HOME_URL;
+        return;
         }
         url = "/app/client/backend/php/customer-session.php";
         response = await getData(url);
         if (!response.success) {
-                return;
+        return;
         }
         ACCOUNT_NUMBER = response.accountNumber;
-        getCustomerInfo();
+        await getCustomerInfo(); // Explicitly call getCustomerInfo
 }
     
 async function getCustomerInfo() {
