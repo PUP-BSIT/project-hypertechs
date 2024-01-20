@@ -30,6 +30,7 @@ async function validateLoginForm() {
 
   await destroyOTPSession();
   loginAdmin();
+  console.log(data);
 }
 
 function showAlert(message) {
@@ -54,7 +55,7 @@ async function loginAdmin() {
     return;
   }
   requestURL = "../backend/php/admin-login.php";
-  await saveRequest(requestURL, requestBody);
+  /* await saveRequest(requestURL, requestBody); */
 }
 
 function isPasswordValid(password) {
