@@ -21,9 +21,10 @@
   --backdrop: #d7e4fb;
   --sidebar: #d7e4fb;
   --destruct: #b60000;
-  --balance-one: #0642bb;
-  --balance-two: #009dff;
-  --bank-card: #1e51b8;
+  --balance-one: #1e51b8;
+  --balance-two: #006eff;
+  --apex-card-one: #1565cd;
+  --apex-card-two: #152f90;
   --active: #000897;
   --ball: #cee0ff;
 }
@@ -37,8 +38,9 @@
   --sidebar: #09132a;
   --destruct: #b30000;
   --balance-one: #003399;
-  --balance-two: #0095ff;
-  --bank-card: #114fcd;
+  --balance-two: #006eff;
+  --apex-card-one: #0069f1;
+  --apex-card-two: #021B79;
   --active: #0073ff;
   --ball: #2d73fe;
 }
@@ -388,7 +390,9 @@ body {
   padding: 1.25vw;
   height: 24vh;
   border-radius: 10px;
-  background-color: var(--bank-card);
+  background: linear-gradient(
+    to bottom right, var(--apex-card-one), 
+    var(--apex-card-two));
   color: #e7edfb;
 }
 
