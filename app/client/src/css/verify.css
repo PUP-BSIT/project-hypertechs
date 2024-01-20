@@ -146,6 +146,7 @@ body {
 }
 
 #back_container a {
+  width: 10%;
   font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
