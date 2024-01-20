@@ -742,7 +742,7 @@ $recipient_name = strtoupper(htmlspecialchars(get_name($data['recipient'])));
 if (!$recipient_name) {
     $recipient_name = $data['recipient'];
 } else {
-    $recipient_name .= '.'; // Adding a period after the name
+    $recipient_name.= '.'; // Adding a period after the name
 }
 
 echo $success_start;
