@@ -54,8 +54,8 @@ miniName = document.querySelector(ID_MINI_NAME);
 accountName = document.querySelector(ID_ACCOUNT_NAME);
 accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
 balance = document.querySelector(ID_BALANCE);
+lastTransac = document.querySelector(ID_LAST_TRANSAC);
 
-        lastTransac = document.querySelector(ID_LAST_TRANSAC); 
 if (firstName) {
         firstName.innerHTML = data.data.firstName + "!";
 }
@@ -66,6 +66,7 @@ if (accountName || accountNumber || balance || lastTransac) {
         accountName.innerHTML = data.data.name;
         accountNumber.innerHTML = data.data.accountNumber;
         balance.innerHTML = strToNum(data.data.balance);
+        lastTransac.innerHTML = data.data.lastTransac;
 
         // Add event listener to toggle between partial and full display
         document.getElementById("account_number").addEventListener("click", toggleAccountNumberDisplay);
@@ -91,6 +92,6 @@ if (accountNumberElement && partialDisplayElement) {
         } else {
         partialDisplayElement.innerHTML = fullAccountNumber;
         }
-                lastTransac.innerHTML = data.data.lastTransac; 
+        lastTransac.innerHTML = data.data.lastTransac; 
 }
 }
