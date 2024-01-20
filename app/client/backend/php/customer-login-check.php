@@ -7,8 +7,8 @@ $phone_number = $_POST["phone_number"];
 $password = $_POST["password"];
 $response['success'] = false;
 if (!does_phone_number_exist($phone_number)) {
-        $response['errorMessage'] = "Account not found. Please check your " .
-        "account phone_number.";
+        $response['errorMessage'] = "Account not found. Please check the " .
+        "entered phone number.";
         echo json_encode($response);
         exit;
 }
