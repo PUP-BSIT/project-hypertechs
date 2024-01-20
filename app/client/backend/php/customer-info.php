@@ -18,7 +18,12 @@ if (!$result) {
         exit;
 }
 $name = get_name($account_number);
-if(!$name) {
+if (!$name) {
+        echo json_encode($response);
+        exit;
+}
+$lastTransac = get_last_transaction_date($account_number);
+if (!$lastTransac) {
         echo json_encode($response);
         exit;
 }
@@ -26,7 +31,8 @@ $response['data'] = array(
         'accountNumber' => $result[$account_number_col],
         'name' => $name,
         'balance' => $result[$balance_col],
-        'firstName' => $result[$first_name_col]
+        'firstName' => $result[$first_name_col],
+        'lastTransac' => $lastTransac
 );
 $response['success'] = true;
 close_database();
