@@ -313,6 +313,10 @@ body {
   margin-right: 6vw;
 }
 
+#display_account_number {
+  letter-spacing: 0.1em;
+}
+
 #account_access_title, #account_last_access {
   width: 230%;
 }
