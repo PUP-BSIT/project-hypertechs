@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=2.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -93,7 +93,8 @@
                                 <span class="material-icons">payments</span>
                                 Transfer Amount:</label>
                             <input type="text" id="transfer-amount" name="transfer-amount" required pattern="^\d{1,6}(\.\d{2})?$" 
-                                placeholder="Enter amount (up to six whole digits only)">
+                            maxlength="9"    
+                            placeholder="Enter amount (up to six whole digits only)">
                          
                         </div>
 
@@ -133,7 +134,7 @@
                                 <span class="material-icons">group</span>
                                 Recipient Account Number:</label>
                             <input type="text" id="recipient-account-number-external" name="recipient-account-number"
-                                required placeholder="Enter a valid VRZN account number">
+                                required placeholder="Enter a valid bank account number">
                         </div>
 
                         <div class="form-group">
@@ -142,6 +143,7 @@
                                 Transfer Amount:</label>
                             <input type="text" id="transfer-amount-external" name="transfer-amount" required
                                 pattern="^\d{1,6}(\.\d{2})?$"
+                                maxlength="9"
                                 placeholder="Enter amount (up to six whole digits only)">
                         </div>
 

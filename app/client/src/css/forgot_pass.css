@@ -205,6 +205,8 @@ form {
 }
 
 form label {
+  display: flex;
+  align-items: center;
   font-weight: 600;
   color: var(--text);
   font-size: var(--subheader-size);
@@ -237,6 +239,11 @@ input::placeholder {
 
 .form-group input:focus {
   border-bottom: 2px solid var(--primary);
+}
+
+.form-group i {
+  font-size: 0.85em;
+  margin-right: 0.75em;
 }
 
 .password-container {

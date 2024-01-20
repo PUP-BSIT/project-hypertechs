@@ -146,6 +146,7 @@ body {
 }
 
 #back_container a {
+  width: 10%;
   font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
@@ -270,6 +271,7 @@ body {
 }
 
 #otp_text #otp_countdown {
+  font-size: 1.5vw;
   font-weight: 600;
   color: var(--primary);
 }
@@ -282,8 +284,9 @@ body {
 
 /* button styling */
 
-#otp_text button {
-  margin-top: 1em;
+#otp_text #btn_start,
+#otp_text #btn_renew {
+  margin-top: 2vw;
   width: 20%;
   height: 2.5em;
   border: none;
@@ -303,6 +306,10 @@ body {
 
 #otp_text button:active {
   transform: scale(0.95);
+}
+
+#otp_text #btn_renew {
+  width: 25%;
 }
 
 /* resend code link styling */

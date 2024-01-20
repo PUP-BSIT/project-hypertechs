@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../src/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/login.css?v=1.0">
     <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,15 +45,16 @@
                 <form action="#" method="post" id="login_form">
                     <div class="form-group">
                         <label for="account_phone">
-                            <span class="material-icons">call</span>
+                            <i class="fa-solid fa-phone"></i>
                             Phone Number</label>
-                        <input type="number" id="account_phone" name="account_phone" required
-                            placeholder="Enter your phone number">
+                        <input type="text" id="account_phone" name="account_phone" required
+                            maxlength="11"
+                            placeholder="Enter your 11-digit phone number">
                     </div>
 
                     <div class="form-group" id="password_group">
                         <label for="account_password">
-                            <span class="material-icons">lock</span>
+                            <i class="fa-solid fa-lock"></i>
                             Account Password </label>
                         <div class="password-container">
                             <input type="password" id="account_password" name="account_password" required
