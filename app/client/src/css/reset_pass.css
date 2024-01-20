@@ -142,32 +142,13 @@ body {
 }
 
 #back_container a {
+  width: 10%;
   font-size: 1.4vw;
   color: var(--accent);
   text-decoration: none;
   display: flex;
   align-items: center;
-}
-
-#back_container a:hover {
-  animation: backSlideLeft 1s infinite;
-}
-
-#back_container a:hover i,
-#back_container a:hover span {
-  animation: backSlideLeft 1s infinite;
-}
-
-@keyframes backSlideLeft {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-3px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  cursor:not-allowed;
 }
 
 /* reset text styling */
@@ -191,6 +172,11 @@ body {
   line-height: 1.5;
   color: var(--text);
   font-size: var(--text-size);
+}
+
+#reset_pass_text span {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* reset password form styling */
