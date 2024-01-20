@@ -30,7 +30,6 @@ async function validateLoginForm() {
 
   await destroyOTPSession();
   loginAdmin();
-  console.log(data);
 }
 
 function showAlert(message) {
@@ -50,6 +49,7 @@ async function loginAdmin() {
   //url = "../backend/php/admin-login.php";
   url = "../backend/php/admin-login-check.php";
   data = await postData(url, requestBody);
+  console.log(data);
   if (!data.success) {
     showAlert(data.errorMessage);
     return;
