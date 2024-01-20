@@ -88,7 +88,7 @@ function validateAmount(amount) {
     }
 
     // Check if it's above 100 pesos and follows the format
-    if (!/^\d{1,10}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
+    if (!/^\d{1,9}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
         alert("Invalid amount. Please enter a valid numeric amount with " +
             "the following criteria:\n\n" +
             "• Up to 10 figures only\n" +

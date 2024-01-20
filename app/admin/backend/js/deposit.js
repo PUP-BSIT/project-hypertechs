@@ -68,8 +68,8 @@ function isValidAccountNumber(account) {
 }
     
 function isValidAmount(amount) {
-        // 10 digits and exactly two decimal places
-        const amountRegex = /^\d{1,10}(?:\.\d{2})?$/;
+        // 9 digits and exactly two decimal places
+        const amountRegex = /^\d{1,9}(?:\.\d{2})?$/;
     
         // Check if the amount is not zero and is at least 100
         const isNonZero = parseFloat(amount) !== 0;
