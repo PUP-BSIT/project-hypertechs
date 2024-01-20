@@ -93,8 +93,7 @@ function validateAmount(amount) {
             "the following criteria:\n\n" +
             "• Up to 10 figures only\n" +
             "• Two decimal places (optional), if present\n" +
-            "• No commas are allowed\n" +
-            "• Amount must be at least 1 peso");
+            "• No commas are allowed\n");
         return false;
     }
 
