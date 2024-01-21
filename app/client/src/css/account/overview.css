@@ -317,11 +317,11 @@ body {
   letter-spacing: 0.1em;
 }
 
-#account_access_title, #account_last_access {
+#account_access_title {
   width: 230%;
 }
 
-#account_last_access_container {
+#account_last_access_span {
   width: 230%;
 }
 
