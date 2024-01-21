@@ -314,14 +314,10 @@ body {
 }
 
 #display_account_number {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 
-#account_access_title {
-  width: 230%;
-}
-
-#account_last_access_span {
+#account_last_access_span, #account_access_title {
   width: 230%;
 }
 
