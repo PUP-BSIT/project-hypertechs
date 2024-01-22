@@ -114,10 +114,10 @@
                 <div class="settings-form-wrapper" id="account_info_form">
                     <form>
                         <div class="form-group">
-                            <label for="confirm_acc_password">
+                            <label for="enter_current_password">
                                 <span class="material-icons">pin</span>
                                 Enter current password</label>
-                            <input type="password" id="confirm_acc_password" name="confirm_acc_password"
+                            <input type="password" id="enter_current_password" name="enter_current_password"
                             required>
                         </div>
 
@@ -139,12 +139,27 @@
 
                         <div class="settings-buttons">
                             <button type="button" id="update_account_info">Confirm Password</button>
-                            <button type="button" id="close_account">Close account</button>
+                            <button type="button" id="close_account" onclick="openConfirmationPopup()">Close account</button>
                         </div>
                     </form>
+                    <!-- Close Account Modal -->
+                    <div class="close-acc-modal" id="confirmationModal">
+                        <div class="modal-content">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p id="warning_text">WARNING</p>
+                            <p id="confirmation_text">This will permanently 
+                                delete your Apex account and all the details 
+                                associated with it. 
+                                Are you sure you want to proceed?
+                                <strong>This action cannot be undone.</strong>
+                            </p>
+                            <div class="close-acc-modal-buttons">
+                                <button id="cancel_button" onclick="closeConfirmationPopup()">Cancel</button>
+                                <button id="confirm_delete_button" onclick="confirmCloseAccount()">Yes, close my account</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
             <div class="settings-side"><!--Settings right side-->
                 <div id="transfer_mini_account">
