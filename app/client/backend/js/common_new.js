@@ -65,6 +65,7 @@ export function showFeedback(message, errMessage, result, area) {
 }
 
 export function strToNum(number) {
+        number = parseFloat(number).toFixed(2);
         number = parseFloat(number);
         return number.toLocaleString('en-US', {
                 style: 'decimal',

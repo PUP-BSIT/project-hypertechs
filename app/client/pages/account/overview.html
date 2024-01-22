@@ -157,18 +157,19 @@
                         </div>
                         <!--Apex Card Number-->
                         <div id="card_number">
-                            <h3 id="display_card_number">6928 3147 8902 5416</h3>
+                            <h3 id="display_card_number"></h3>
                         </div>
                         <!--Container Two-->
                         <div id="card_row_two">
                             <!--Card Validity-->
                             <div id="card_valid">
                                 <h4>EXP</h4>
-                                <span>01-2029</span>
+                                <span id="display_card_expiration">
+                                    </span>
                             </div>
                             <div id="card_cvv">
                                 <h4>CVV</h4>
-                                <span id="display_cvv">113</span>
+                                <span id="display_cvv"></span>
                             </div>
                         </div>
                     </div>
@@ -243,7 +244,7 @@
                         <div id="stats_wrapper">
                             <div id="stats_received">
                                 <h4>With an <strong>average</strong> amount of </h4>
-                                <h5>&#8369 <span id="display_received_transactions">0.00</span></h5>
+                                <h5>&#8369 <span id="display_average_transferred">0.00</span></h5>
                             </div>
                         </div>
                     </div>
@@ -295,7 +296,7 @@
     </div>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/overview.js"></script>
-    <script src="../../backend/js/account_info.js" type="module"></script>
+    <script src="../../backend/js/account_info.js?v=1.4" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 

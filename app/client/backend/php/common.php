@@ -53,10 +53,100 @@ function get_transaction_data($table, $transaction_id) {
         return $data;
 }
 
+function get_total_num_of_transac($days, $account_number) {
+        $sql_stmt = "SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer  
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+
+                UNION ALL  
+                SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer_external_send 
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+
+                UNION ALL
+                SELECT transaction_id, recipient, amount, date, time 
+                FROM fund_transfer_external_receive 
+                WHERE recipient='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+
+                UNION ALL
+                SELECT transaction_id, recipient, amount, date, time 
+                FROM fund_transfer 
+                WHERE recipient='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                ORDER BY date, time";
+        $result = extract_database($sql_stmt);
+        if (!$result) return 0;
+        return mysqli_num_rows($result);
+}
+
+function get_total_amount_received($days, $account_number) {
+        $sql_stmt = "SELECT transaction_id, recipient, amount, date, time 
+                FROM fund_transfer_external_receive 
+                WHERE recipient='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                UNION ALL
+                SELECT transaction_id, recipient, amount, date, time 
+                FROM fund_transfer 
+                WHERE recipient='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                ORDER BY date, time";
+        $result = extract_database($sql_stmt);
+        $total_amount = 0.00;
+        while ($data = mysqli_fetch_assoc($result)) {
+                $total_amount += $data['amount'];
+        }
+        return $total_amount;
+}
+
+function get_total_amount_transferred($days, $account_number) {
+        $sql_stmt = "SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer  
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                UNION ALL  
+                SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer_external_send 
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                ORDER BY date, time";
+        $result = extract_database($sql_stmt);
+        $total_amount = 0.00;
+        while ($data = mysqli_fetch_assoc($result)) {
+                $total_amount += $data['amount'];
+        }
+        return $total_amount;
+}
+
+function get_average_amount_transferred($days, $account_number) {
+        $sql_stmt = "SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer  
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                UNION ALL  
+                SELECT transaction_id, source, amount, date, time 
+                FROM fund_transfer_external_send 
+                WHERE source='$account_number' 
+                AND date >= CURDATE() - INTERVAL $days DAY 
+                ORDER BY date, time";
+        $result = extract_database($sql_stmt);
+        $num_transac = mysqli_num_rows($result);
+        if (!$num_transac) return 0;
+        $total_amount = 0.00;
+        while ($data = mysqli_fetch_assoc($result)) {
+                $total_amount += $data['amount'];
+        }
+        return $total_amount / $num_transac;
+}
+
 function get_account_data($table, $account_number) {
         $account_number_col = "account_number";
-        $sql_stmt = "SELECT * FROM $table WHERE
-                $account_number_col='$account_number'";
+        $sql_stmt = "SELECT *, 
+                UNIX_TIMESTAMP(card_expiration_date) AS card_expf 
+                FROM $table 
+                WHERE $account_number_col='$account_number'";
         $result = extract_database($sql_stmt);
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;

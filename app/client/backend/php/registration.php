@@ -3,6 +3,8 @@ require "./common.php";
 session_start();
 connect_database();
 
+$CARD_YEAR = 5;
+
 $account_table = "account";
 $account_number_col = "account_number";
 $password_col = "password";
@@ -18,6 +20,9 @@ $surname_col = "surname";
 $first_name_col = "first_name";
 $middle_name_col = "middle_name";
 $suffix_col = "suffix";
+$card_number_col = "card_number";
+$card_expiration_col = "card_expiration_date";
+$cvv_col = "cvv";
 
 $birth_table = "account_birthdate";
 $birth_col = "birth_date";
@@ -35,6 +40,10 @@ $address = $_POST['address'];
 $email = $_POST['email'];
 $suffix = $_POST['suffix'];
 
+$card_number = "1077" . random_int(123456789123, 987654321987);
+$card_expiration = date("Y-m-d", strtotime("+$CARD_YEAR years", time()));
+$cvv = random_int(123, 987);
+
 $sql = "INSERT INTO $account_table(
         $account_number_col, 
         $password_col, 
@@ -46,7 +55,10 @@ $sql = "INSERT INTO $account_table(
         $phone_number_col, 
         $address_col, 
         $email_col,
-        $birth_col
+        $birth_col,
+        $card_number_col,
+        $card_expiration_col,
+        $cvv_col
 ) VALUES(
         '$account_number', 
         '$password',
@@ -58,7 +70,10 @@ $sql = "INSERT INTO $account_table(
         '$phone_number', 
         '$address',
         '$email',
-        '$birth'
+        '$birth',
+        '$card_number',
+        '$card_expiration',
+        '$cvv'
 )";
 if (!modify_database($sql)) {
         echo json_encode($response);

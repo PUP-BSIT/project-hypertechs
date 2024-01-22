@@ -11,6 +11,13 @@ const ID_BALANCE = "#display_account_balance";
 const ID_FIRST_NAME = "#account_first_name";
 const ID_MINI_NAME = "#display_mini_account_text";
 const ID_LAST_TRANSAC = "#account_last_access";
+const ID_TOTAL_TRANSAC = "#display_times_transactions";
+const ID_TOTAL_TRANSFERRED  = "#display_transfer_transactions";
+const ID_TOTAL_RECEIVED  = "#display_received_transactions";
+const ID_AVERAGE_TRANSFERRED  = "#display_average_transferred";
+const ID_CARD_NUMBER = "#display_card_number";
+const ID_CARD_EXPIRATION = "#display_card_expiration";
+const ID_CVV = "#display_cvv";
 const HOME_URL = "/index.html";
 
 console.log("Hello");
@@ -49,7 +56,9 @@ async function getCustomerInfo() {
     
 function showCustomerData(data) {
         let accountName, accountNumber, balance, firstName, name, miniName,
-                lastTransac;
+                lastTransac, totalTransac, totalTransferred,
+                totalReceived, averageTransferred, cardNumber, cardExpiration,
+                cvv;
 
         console.log(data);
         firstName = document.querySelector(ID_FIRST_NAME);
@@ -58,6 +67,13 @@ function showCustomerData(data) {
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
         balance = document.querySelector(ID_BALANCE);
         lastTransac = document.querySelector(ID_LAST_TRANSAC);
+        totalTransac = document.querySelector(ID_TOTAL_TRANSAC);
+        totalTransferred = document.querySelector(ID_TOTAL_TRANSFERRED);
+        totalReceived = document.querySelector(ID_TOTAL_RECEIVED);
+        averageTransferred = document.querySelector(ID_AVERAGE_TRANSFERRED);
+        cardNumber = document.querySelector(ID_CARD_NUMBER);
+        cardExpiration = document.querySelector(ID_CARD_EXPIRATION);
+        cvv = document.querySelector(ID_CVV);
 
         if (firstName) {
                 firstName.innerHTML = data.data.firstName + "!";
@@ -69,6 +85,15 @@ function showCustomerData(data) {
                 accountName.innerHTML = data.data.name;
                 accountNumber.innerHTML = data.data.accountNumber;
                 balance.innerHTML = strToNum(data.data.balance);
+                totalTransac.innerHTML = data.data.totalTransac;
+                totalTransferred.innerHTML = 
+                        strToNum(data.data.totalTransferred);
+                totalReceived.innerHTML = strToNum(data.data.totalReceived);
+                averageTransferred.innerHTML = 
+                        strToNum(data.data.averageTransferred);
+                cardNumber.innerHTML = formatCardNumber(data.data.cardNumber);
+                cardExpiration.innerHTML = data.data.cardExpiration;
+                cvv.innerHTML = data.data.cvv;
                 if (data.data.lastTransac) {
                         lastTransac.innerHTML = data.data.lastTransac;
                 }
@@ -84,6 +109,19 @@ function showCustomerData(data) {
                         .substring(0, 4) + "••••••••";
                 partialDisplayElement.innerHTML = partialAccountNumber;
         }
+}
+
+let cardNumber = "1234567899991111";
+console.log(formatCardNumber(cardNumber));
+function formatCardNumber(number) {
+        let result, segment;
+
+        result = "";
+        for (let i = 0; i < number.length; i += 4) {
+                segment = number.substring(i, i+4); 
+                result += segment + " "; 
+        }
+        return result;
 }
     
     
