@@ -81,13 +81,13 @@
                     <div class="transaction-filter-by-type">
                         <label for="transaction-type">Filter by Type:</label>
                         <select id="transaction-type">
-                            <option value="all">All</option>
+                            <option value="all">All Transactions</option>
                             <option value="internal">Internal Transfer</option>
                             <option value="external">External Transfer</option>
                             <option value="received">Received Transfer</option>
                         </select>
                     </div>
-                    
+
                     <div class="transaction-filter-by-date">
                         <label for="start-date">Start Date:</label>
                         <input type="date" id="start-date" name="start-date">
@@ -96,7 +96,7 @@
                         <input type="date" id="end-date" name="end-date">
                     </div>
                 </div>
-                
+
             </div>
 
             <!-- Container Three-->
@@ -114,94 +114,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr>
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr> 
-                        <tr>
-                            <td>Apex User Account Name</td>
-                            <td>189912345678</td>
-                            <td>TID1899123456780123456</td>
-                            <td>Internal Transfer</td>
-                            <td>2024-01-22 09:30:00</td>
-                            <td>$500.00</td>
-                            <td>Initial deposit</td>
-                        </tr> 
                     </tbody>
                 </table>
             </div>
-            
-
         </div>
-        
+
     </div>
     </div>
     <!--Logout Modal-->
@@ -221,6 +138,28 @@
             </div>
         </div>
     </div>
+    <script>
+        let data = [
+            {
+                accountName: 'John Doe',
+                accountNumber: '123456789',
+                transactionID: 'T123',
+                transactionType: 'Credit',
+                dateTime: '2024-01-22 10:30:00',
+                amount: '$100.00',
+                description: 'Payment received'
+            },
+            // Add more data as needed
+        ];
+        let tableBody = document.querySelector('#transaction_table tbody');
+
+        data.forEach(function (transaction) {
+            var row = tableBody.insertRow();
+            for (var key in transaction) {
+                var cell = row.insertCell();
+                cell.textContent = transaction[key];
+            }
+        });
     </script>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../backend/js/account_info.js" type="module"></script>
