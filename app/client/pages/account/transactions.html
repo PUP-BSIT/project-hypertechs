@@ -49,7 +49,8 @@
                     </a>
                     <a href="./settings.html" class="tab-section" id="settings"><span
                             class="material-icons">settings</span>Settings</a>
-                    <a href="#" class="tab-section" id="logout"><span class="material-icons">logout</span>Log Out</a>
+                    <a href="#" class="tab-section" id="logout"
+                    onclick="openConfirmationPopup()"><span class="material-icons">logout</span>Log Out</a>
                 </div>
             </div>
         </div>
@@ -64,8 +65,28 @@
         </div>
     </div>
     </div>
+    <!--Logout Modal-->
+    <div class="logout-acc-modal" id="confirmationModal">
+        <div class="modal-content">
+            <div id="logout_heading_container">
+                <span class="material-icons">logout</span>
+                <p id="logout_text">Log Out Confirmation</p>
+            </div>
+            <p id="confirmation_text">Logging out will end the current session 
+                and require reauthentication to access your account again. 
+                Do you want to proceed?
+            </p>
+            <div class="logout-acc-modal-buttons">
+                <button id="cancel_button" 
+                    onclick="closeConfirmationPopup()">Cancel</button>
+                <button id="confirm_logout_button" 
+                    onclick="confirmLogoutAccount()">Yes, confirm log out</button>
+            </div>
+        </div>
+    </div>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/transactions.js"></script>
+    <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
 </html>
