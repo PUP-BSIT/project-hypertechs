@@ -228,12 +228,125 @@ body {
   height: 100vh;
 }
 
-/* ----- HEADING STYLE ----- */
+/* ----- CONTAINER ONE STYLE ----- */
+#transaction_container_one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 #transactions_heading h1 {
   color: var(--primary);
   font-size: var(--section-title);
 }
+
+/* Mini account */
+#transactions_mini_account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+}
+
+#transactions_mini_account_text {
+  text-align: end;
+  margin-bottom: 0.5vw;
+}
+
+#transactions_mini_account_text h3 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+#transactions_mini_account_text h4 {
+  font-size: 1.25vw;
+  font-weight: 400;
+}
+
+#transactions_mini_account_image {
+  width: 3.5vw;
+  margin-bottom: 0.5vw;
+  margin-left: 1.45em;
+}
+
+#transactions_mini_account_image img {
+  width: 100%;
+}
+
+/* ----- CONTAINER TWO STYLE ----- */
+#transaction_container_two {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2vh;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.transaction-type-options {
+  display: flex;
+  gap: 2vw
+}
+
+.transaction-type-options label {
+  margin-right: 0.5vw;
+}
+
+.transaction-type-options select,
+.transaction-type-options input {
+  height: 2.3vw;
+  padding: 0.3vw;
+  font-size: 1.2vw;
+  border-radius: 0.3em;
+  color: var(--text);
+  background-color: var(--backdrop);
+  cursor: pointer;
+}
+
+.transaction-filter-by-date span {
+  margin: 0vw 0.5vw;
+}
+
+/* ----- CONTAINER TWO THREE ----- */
+#transaction_container_three {
+  margin-top: 3vh;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  background-color: var(--backdrop);
+  max-height: 70vh;
+  overflow-x: auto; /* Corrected placement */
+}
+
+#transaction_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#transaction_table th {
+  padding: 0.75vw;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(224, 239, 255);
+  background-color: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#transaction_table td {
+  padding: 1.5vw 0.75vw;
+  text-align: center;
+}
+
+#transaction_table tr {
+  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2); /* Use border-bottom for row borders */
+}
+
+#transaction_table tr:last-child {
+  border-bottom: none; /* Remove border for the last row to prevent extra space */
+}
+
+
 
 /* ------- MODAL STYLING ------- */
 .logout-acc-modal {
