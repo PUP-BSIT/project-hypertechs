@@ -47,25 +47,185 @@
                             </label>
                         </div>
                     </a>
-                    <a href="#" class="tab-section" id="settings"><span
+                    <a href="./settings.html" class="tab-section" id="settings"><span
                             class="material-icons">settings</span>Settings</a>
-                    <a href="#" class="tab-section" id="logout"><span class="material-icons">logout</span>Log Out</a>
+                    <a href="#" class="tab-section" id="logout" onclick="openConfirmationPopup()"><span
+                            class="material-icons">logout</span>Log Out</a>
                 </div>
             </div>
         </div>
 
         <!-- Main section content goes here -->
         <div class="apex-transactions-section">
-            <!-- Heading-->
-            <div id="transactions_heading">
-                <h1>Transactions</h1>
+            <!-- Container One-->
+            <div id="transaction_container_one">
+                <!--Heading-->
+                <div id="transactions_heading">
+                    <h1>Transactions</h1>
+                </div>
+                <!--Mini account-->
+                <div id="transactions_mini_account">
+                    <div id="transactions_mini_account_text">
+                        <h3 id="display_mini_account_text">Apex User</h3>
+                        <h4> Account Holder</h4>
+                    </div>
+                    <div id="transactions_mini_account_image">
+                        <img src="../../assets/img/user.png">
+                    </div>
+                </div>
             </div>
 
+            <!-- Container Two-->
+            <div id="transaction_container_two">
+                <div class="transaction-type-options">
+                    <div class="transaction-filter-by-type">
+                        <label for="transaction-type">Filter by Type:</label>
+                        <select id="transaction-type">
+                            <option value="all">All</option>
+                            <option value="internal">Internal Transfer</option>
+                            <option value="external">External Transfer</option>
+                            <option value="received">Received Transfer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="transaction-filter-by-date">
+                        <label for="start-date">Start Date:</label>
+                        <input type="date" id="start-date" name="start-date">
+                        <span>to</span>
+                        <label for="end-date">End Date:</label>
+                        <input type="date" id="end-date" name="end-date">
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Container Three-->
+            <div id="transaction_container_three">
+                <table id="transaction_table">
+                    <thead>
+                        <tr>
+                            <th>Account Holder Name</th>
+                            <th>Account Num</th>
+                            <th>Transaction ID</th>
+                            <th>Type</th>
+                            <th>Date and Time</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr>
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr> 
+                        <tr>
+                            <td>Apex User Account Name</td>
+                            <td>189912345678</td>
+                            <td>TID1899123456780123456</td>
+                            <td>Internal Transfer</td>
+                            <td>2024-01-22 09:30:00</td>
+                            <td>$500.00</td>
+                            <td>Initial deposit</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+        
+    </div>
+    </div>
+    <!--Logout Modal-->
+    <div class="logout-acc-modal" id="confirmationModal">
+        <div class="modal-content">
+            <div id="logout_heading_container">
+                <span class="material-icons">logout</span>
+                <p id="logout_text">Log Out Confirmation</p>
+            </div>
+            <p id="confirmation_text">Logging out will end the current session
+                and require reauthentication to access your account again.
+                Do you want to proceed?
+            </p>
+            <div class="logout-acc-modal-buttons">
+                <button id="cancel_button" onclick="closeConfirmationPopup()">Cancel</button>
+                <button id="confirm_logout_button" onclick="confirmLogoutAccount()">Yes, confirm log out</button>
+            </div>
         </div>
     </div>
-    </div>
+    </script>
     <script src="../../src/scripts/theme.js"></script>
+    <script src="../../backend/js/account_info.js" type="module"></script>
     <script src="../../src/scripts/account/transactions.js"></script>
+    <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@
   --sidebar: #d7e4fb;
   --destruct: #b60000;
   --ball: #cee0ff;
+  --close: #a80404;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -33,6 +34,7 @@
   --sidebar: #09132a;
   --destruct: #b30000;
   --ball: #2d73fe;
+  --close: #b80000;
 }
 
 * {
@@ -226,11 +228,250 @@ body {
   height: 100vh;
 }
 
-/* ----- HEADING STYLE ----- */
+/* ----- CONTAINER ONE STYLE ----- */
+#transaction_container_one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 #transactions_heading h1 {
   color: var(--primary);
   font-size: var(--section-title);
+}
+
+/* Mini account */
+#transactions_mini_account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+}
+
+#transactions_mini_account_text {
+  text-align: end;
+  margin-bottom: 0.5vw;
+}
+
+#transactions_mini_account_text h3 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+#transactions_mini_account_text h4 {
+  font-size: 1.25vw;
+  font-weight: 400;
+}
+
+#transactions_mini_account_image {
+  width: 3.5vw;
+  margin-bottom: 0.5vw;
+  margin-left: 1.45em;
+}
+
+#transactions_mini_account_image img {
+  width: 100%;
+}
+
+/* ----- CONTAINER TWO STYLE ----- */
+#transaction_container_two {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2vh;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.transaction-type-options {
+  display: flex;
+  gap: 2vw
+}
+
+.transaction-type-options label {
+  margin-right: 0.5vw;
+}
+
+.transaction-type-options select,
+.transaction-type-options input {
+  height: 2.3vw;
+  padding: 0.3vw;
+  font-size: 1.2vw;
+  border-radius: 0.3em;
+  color: var(--text);
+  background-color: var(--backdrop);
+  cursor: pointer;
+}
+
+.transaction-filter-by-date span {
+  margin: 0vw 0.5vw;
+}
+
+/* ----- CONTAINER TWO THREE ----- */
+#transaction_container_three {
+  margin-top: 3vh;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  background-color: var(--backdrop);
+  max-height: 70vh;
+  overflow-x: auto; /* Corrected placement */
+}
+
+#transaction_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#transaction_table th {
+  padding: 0.75vw;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(224, 239, 255);
+  background-color: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#transaction_table td {
+  padding: 1.5vw 0.75vw;
+  text-align: center;
+}
+
+#transaction_table tr {
+  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2); /* Use border-bottom for row borders */
+}
+
+#transaction_table tr:last-child {
+  border-bottom: none; /* Remove border for the last row to prevent extra space */
+}
+
+
+
+/* ------- MODAL STYLING ------- */
+.logout-acc-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 45vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--backdrop);
+  padding: 4vh;
+  text-align: justify;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s;
+}
+
+#logout_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+.modal-content span {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#logout_text {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#confirmation_text {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 2vh;
+}
+
+.logout-acc-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.5vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-acc-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 7vh;
+}
+
+.logout-acc-modal-buttons #cancel_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 20%;
+}
+
+.logout-acc-modal-buttons #confirm_logout_button {
+  color: #fcf6f6;
+  background-color: var(--close);
+  width: 50%;
+}
+
+.logout-acc-modal-buttons #cancel_button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.logout-acc-modal-buttons #confirm_logout_button:hover {
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.5);
+}
+
+.logout-acc-modal-buttons button:active {
+  transform: scale(0.9);
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

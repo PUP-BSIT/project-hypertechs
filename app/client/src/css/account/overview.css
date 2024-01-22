@@ -25,8 +25,9 @@
   --balance-two: #006eff;
   --apex-card-one: #1565cd;
   --apex-card-two: #152f90;
-  --active: #000897;
+  --active: #002397;
   --ball: #cee0ff;
+  --close: #a80404;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -40,9 +41,10 @@
   --balance-one: #003399;
   --balance-two: #006eff;
   --apex-card-one: #0069f1;
-  --apex-card-two: #021B79;
-  --active: #0073ff;
+  --apex-card-two: #021b79;
+  --active: #0080ff;
   --ball: #2d73fe;
+  --close: #b80000;
 }
 
 * {
@@ -303,7 +305,8 @@ body {
   width: 100%;
 }
 
-#account_name, #account_holder_title {
+#account_name,
+#account_holder_title {
   width: 110%;
   margin-right: 9.5vw;
 }
@@ -313,7 +316,12 @@ body {
   margin-right: 6vw;
 }
 
-#account_access_title, #account_last_access {
+#display_account_number {
+  letter-spacing: 0.05em;
+}
+
+#account_last_access_span,
+#account_access_title {
   width: 230%;
 }
 
@@ -395,8 +403,10 @@ body {
   height: 24vh;
   border-radius: 10px;
   background: linear-gradient(
-    to bottom right, var(--apex-card-one), 
-    var(--apex-card-two));
+    to bottom right,
+    var(--apex-card-one),
+    var(--apex-card-two)
+  );
   color: #e7edfb;
 }
 
@@ -438,7 +448,7 @@ body {
 
 #card_row_two h4 {
   font-size: 1vw;
-  font-weight: 500;
+  font-weight: 400;
   opacity: 0.8;
 }
 
@@ -656,6 +666,132 @@ td {
 
 #logout {
   cursor: pointer;
+}
+
+/* ------- MODAL STYLING ------- */
+.logout-acc-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 45vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--backdrop);
+  padding: 4vh;
+  text-align: justify;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s;
+}
+
+#logout_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+.modal-content span {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#logout_text {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#confirmation_text {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 2vh;
+}
+
+.logout-acc-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.5vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-acc-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 7vh;
+}
+
+.logout-acc-modal-buttons #cancel_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 20%;
+}
+
+.logout-acc-modal-buttons #confirm_logout_button {
+  color: #fcf6f6;
+  background-color: var(--close);
+  width: 50%;
+}
+
+.logout-acc-modal-buttons #cancel_button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.logout-acc-modal-buttons #confirm_logout_button:hover {
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.5);
+}
+
+.logout-acc-modal-buttons button:active {
+  transform: scale(0.9);
 }
 
 /* ------- LIGHT & DARK TOGGLE STYLING ------- */

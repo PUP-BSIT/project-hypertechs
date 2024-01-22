@@ -3,7 +3,7 @@ import {
         checkCustomerSession
 } from "./common.js";
 
-const ID_LOGOUT_BUTTON = "#logout";
+const ID_LOGOUT_BUTTON = "#confirm_logout_button";
 
 main();
 

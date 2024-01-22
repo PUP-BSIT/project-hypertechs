@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/overview.css?v=7.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,13 +47,16 @@
                             </label>
                         </div>
                     </a>
-                    <a href="#" class="tab-section" id="settings"><span
-                            class="material-icons">settings</span>Settings</a>
-                    <a class="tab-section" id="logout"><span class="material-icons">logout</span>Log Out</a>
+                    <a href="./settings.html" class="tab-section" id="settings"><span
+                            class="material-icons">settings</span>Settings
+                    </a>
+                    <a class="tab-section" id="logout" 
+                        onclick="openConfirmationPopup()">
+                        <span class="material-icons">logout</span>Log Out
+                    </a>
                 </div>
             </div>
         </div>
-
         <!-- Main section content goes here -->
         <div class="apex-overview-section">
             <!-- Heading-->
@@ -112,8 +115,8 @@
                                     Last Transfer
                                 </h3>
                             </div>
-                            <div id="account_last_access">
-                                None
+                            <div id="account_last_access_span">
+                                <span id="account_last_access">None</span>
                             </div>
                         </div>
 
@@ -270,11 +273,11 @@
                                         Account Name
                                     </th>
                                     <th id="account_bank_heading">
-                                        <i class="fa-solid fa-building-columns"></i>
-                                        Bank
+                                        <i class="fa-solid fa-list-ul"></i>
+                                        Type
                                     </th>
                                     <th id="account_amount_heading">
-                                        <i class="fa-solid fa-money-bill"></i>
+                                        <i class="fa-solid fa-money-bill-wave"></i>
                                         Amount
                                     </th>
                                 </tr>
@@ -293,6 +296,25 @@
             </div>
         </div>
     </div>
+    </div>
+    <!--Logout Modal-->
+    <div class="logout-acc-modal" id="confirmationModal">
+        <div class="modal-content">
+            <div id="logout_heading_container">
+                <span class="material-icons">logout</span>
+                <p id="logout_text">Log Out Confirmation</p>
+            </div>
+            <p id="confirmation_text">Logging out will end the current session 
+                and require reauthentication to access your account again. 
+                Do you want to proceed?
+            </p>
+            <div class="logout-acc-modal-buttons">
+                <button id="cancel_button" 
+                    onclick="closeConfirmationPopup()">Cancel</button>
+                <button id="confirm_logout_button" 
+                    onclick="confirmLogoutAccount()">Yes, confirm log out</button>
+            </div>
+        </div>
     </div>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/overview.js"></script>

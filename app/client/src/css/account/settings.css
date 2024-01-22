@@ -1,0 +1,962 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --header-size: 3vw;
+  --subheader-size: 1.5vw;
+  --button-size: 1.5vw;
+  --text-size: 1.5vw;
+  --sidebar-header: 2.2vw;
+  --tab-size: 1.5vw;
+  --section-title: 3.5vw;
+}
+
+:root[data-theme="light"] {
+  --text: #0a0c10;
+  --background: #e7edfb;
+  --primary: #1e51b8;
+  --secondary: #7aa2f9;
+  --accent: #1f5cd6;
+  --backdrop: #d7e4fb;
+  --sidebar: #d7e4fb;
+  --destruct: #b60000;
+  --ball: #cee0ff;
+  --close: #a80404;
+}
+:root[data-theme="dark"] {
+  --text: #eff1f5;
+  --background: #0a0e18;
+  --primary: #246af8;
+  --secondary: #1d4492;
+  --accent: #3a7afb;
+  --backdrop: #081023;
+  --sidebar: #09132a;
+  --destruct: #b30000;
+  --ball: #2d73fe;
+  --close: #b80000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 2;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  background-color: var(--background);
+}
+
+/* positions the sidebar and main section side by side */
+.settings-page-container {
+  display: flex;
+}
+
+/* sidebar styling */
+.apex-user-sidebar {
+  width: 19vw;
+  top: 0;
+  position: sticky;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--sidebar);
+}
+
+/* sidebar layout */
+.apex-user-sidebar {
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "tab"
+    "config";
+  grid-template-rows: 16% 55% 29%;
+  grid-row-gap: 1%;
+}
+
+.apex-logo-container {
+  grid-area: logo;
+  outline: 0px solid red;
+}
+
+.apex-tab-container {
+  grid-area: tab;
+  outline: 0px solid hotpink;
+}
+
+.apex-config-container {
+  grid-area: config;
+  outline: 0px solid green;
+}
+
+/* apex-logo-container layout */
+.apex-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 12%;
+}
+
+.apex-logo-container img {
+  width: 2.1em;
+  height: auto;
+  margin-right: 10px;
+}
+
+.apex-logo-container h1 {
+  font-size: var(--sidebar-header);
+  background-image: linear-gradient(
+    to right,
+    #0038a8,
+    #246af8,
+    #0084ff,
+    #1f5cd6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: apexLogoAnimation 5s linear infinite;
+}
+
+@keyframes apexLogoAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* apex-tab-container layout */
+.apex-tab-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.apex-tab-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  outline: 0px solid saddlebrown;
+}
+
+.tab-section .material-icons {
+  font-size: 1.2em;
+}
+
+.tab-section {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 2em;
+  color: var(--text);
+  font-size: var(--tab-size);
+  font-weight: 500;
+  position: relative;
+  outline: 0px solid blue;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.tab-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-section:hover::before {
+  opacity: 0.5;
+}
+
+.tab-section:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* turns the current tab color to selected color */
+.apex-tab-wrapper #settings {
+  color: var(--primary);
+}
+
+/* removes the theme tab slide effect */
+.apex-tab-wrapper #theme:hover {
+  transform: translateX(0px);
+}
+
+/* modify the color of the logout tab */
+.apex-tab-wrapper #logout {
+  color: var(--destruct);
+}
+
+.apex-tab-wrapper #logout::before {
+  background-color: #ab0000;
+}
+
+.apex-tab-wrapper #logout:hover::before {
+  opacity: 0.2;
+}
+
+/*transfer main page */
+.apex-settings-container {
+  flex: 1;
+  display: grid;
+  grid-template-areas: "form side";
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  padding-left: 3em;
+  padding-right: 3em;
+  border: 0px dashed red;
+  grid-template-columns: 50% 50%;
+}
+
+.settings-form {
+  grid-area: form;
+  margin-right: 1em;
+  border: 0px dashed green;
+}
+
+.settings-side {
+  grid-area: side;
+  margin-left: 1em;
+  border: 0px dashed blueviolet;
+}
+
+/*transfer heading */
+#settings-heading {
+  border: 0px dashed orange;
+}
+
+#settings-heading h1 {
+  padding-bottom: 0.25em;
+  color: var(--primary);
+  font-size: var(--section-title);
+  border: 0px dashed blueviolet;
+}
+
+/*transfer option styling */
+.settings-option {
+  display: flex;
+  border: 0px dashed blueviolet;
+}
+
+.profile-info-desc,
+.account-info-desc {
+  border: 0px dashed black;
+  margin-top: 1em;
+  display: none;
+}
+
+.profile-info-desc h2,
+.account-info-desc h2 {
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1.4vw;
+  transition: color 0.3s ease-in-out;
+}
+
+/*transfer form general styling*/
+.settings-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  border: 0px dashed blue;
+}
+
+.settings-form-wrapper form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--subheader-size);
+  transition: color 0.3s ease-in-out;
+}
+
+.settings-form-wrapper input {
+  margin-bottom: 2.75vw;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.settings-form-wrapper input::placeholder {
+  color: var(--text);
+  opacity: 0.3;
+  font-size: 1.25vw;
+}
+
+/* Common styles for both light and dark themes */
+.settings-form-wrapper select {
+  margin-bottom: 2em;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-size);
+  color: var(--text);
+  caret-color: var(--text);
+  border-bottom: 2px solid var(--text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-group:focus-within label,
+.form-group input:focus,
+.form-group select:focus {
+  color: var(--accent);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+.form-group select option {
+  background-color: var(--backdrop);
+  color: var(--text); /* Set the desired text color for options */
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group label span {
+  font-size: 1.1em;
+  margin-right: 0.35em;
+}
+
+/* forms transition */
+.settings-form-wrapper {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.show-form {
+  display: block;
+  opacity: 1;
+}
+
+.settings-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.settings-buttons #update_personal_info {
+  width: 75%;
+}
+
+.settings-buttons #update_account_info {
+  width: 60%;
+}
+
+.settings-buttons #reset {
+  width: 25%;
+  background-color: #bdd3ff;
+  color: #183d87;
+}
+
+.settings-buttons #close_account {
+  width: 40%;
+  background-color: var(--close);
+  color: #fcf6f6;
+}
+
+.settings-buttons #close_account:hover {
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.5);
+}
+
+.settings-form-wrapper button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--button-size);
+  border-radius: 10px;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.settings-form-wrapper button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.settings-form-wrapper button:active {
+  transform: scale(0.95);
+}
+
+.settings-form-wrapper button span {
+  margin-left: 0.5em;
+  font-size: 1em;
+  transition: transform 0.3s ease-in-out;
+}
+
+.settings-form-wrapper button:hover span {
+  transform: translateX(7px);
+}
+
+.settings-option button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1.75em;
+  padding-bottom: 0.25em;
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--button-size);
+  transition: color 0.4s, text-decoration 0.4s;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.settings-option button.active,
+.settings-option button:hover {
+  color: var(--primary);
+}
+
+.settings-option button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--primary);
+  transition: width 0.4s;
+}
+
+.settings-option button.active::before {
+  width: 100%;
+}
+
+.settings-option #internal-transfer-btn {
+  margin-left: 0em;
+}
+
+.settings-option span {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+#internal-transfer-form {
+  display: none;
+}
+
+/* --------------- TRANSFER SIDE ------------*/
+#transfer_mini_account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+}
+
+#transfer_mini_account_text {
+  text-align: end;
+}
+
+#transfer_mini_account_text h3 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+#transfer_mini_account_text h4 {
+  font-size: 1.25vw;
+  font-weight: 400;
+}
+
+#transfer_mini_account_image {
+  width: 9%;
+  margin-top: 0.3em;
+  margin-left: 1.45em;
+}
+
+#transfer_mini_account_image img {
+  width: 100%;
+}
+
+/* transfer side image */
+#settings_image_container {
+  width: 100%;
+  border: 0px dashed black;
+}
+
+/* ------- MODAL STYLING ------- */
+.close-acc-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 60vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--backdrop);
+  padding: 2vw;
+  text-align: center;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s;
+}
+
+.modal-content i {
+  font-size: 7vw;
+  color: var(--close);
+  margin-bottom: 1vw;
+}
+
+#warning_text {
+  font-size: 2vw;
+  font-weight: 600;
+  margin-bottom: 1vw;
+  color: var(--close);
+}
+
+#confirmation_text {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 1vw;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-acc-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 3vw;
+}
+
+.close-acc-modal-buttons #cancel_button {
+  width: 25%;
+}
+
+.close-acc-modal-buttons #confirm_delete_button {
+  color: #fcf6f6;
+  background-color: var(--close);
+  width: 55%;
+}
+
+.close-acc-modal-buttons #confirm_delete_button:hover {
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.5);
+}
+
+/* ------- LIGHT & DARK TOGGLE STYLING ------- */
+#toggle_theme {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-left: 15%;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: var(--secondary);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.95vw;
+  padding: 5px;
+  position: relative;
+  height: 1.3vw;
+  width: 3vw;
+  transform: scale(1);
+}
+
+.label .ball {
+  background-color: var(--ball);
+  border-radius: 50%;
+  position: absolute;
+  top: 0.2vw;
+  left: 0.2vw;
+  height: 0.9vw;
+  width: 0.9vw;
+  transform: translateX(1px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(1.6vw);
+}
+
+.fa-moon,
+.fa-sun {
+  margin-top: 0vw;
+  font-size: 0.8vw;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #042c8b;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+svg {
+  width: 100%;
+}
+
+svg#freepik_stories-settings:not(.animated) .animable {
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #freepik--background-complete--inject-71 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+svg#freepik_stories-settings.animated #freepik--Shadow--inject-71 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-settings.animated #el3b3973plmdg {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-settings.animated #eljz64gp8r26k {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.02702702702702703s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #eljyf1jptron {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.05405405405405406s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elroyk1fyv3d {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.08108108108108109s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el67mg5m4wfk4 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.10810810810810811s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #eli0w3sa3alhk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.13513513513513514s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elaf1jzoeczxw {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.16216216216216217s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elxvpo4v7f9p {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.1891891891891892s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el9m9m28vkg2k {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.21621621621621623s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elbn4njh8hh3f {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.24324324324324326s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el5g2a11dxpiu {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2702702702702703s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elj1kzixq3j1f {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.2972972972972973s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elkke2agaj0f {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.32432432432432434s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elrj4dbgcxooj {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.35135135135135137s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elvk4mney60sk {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.3783783783783784s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elxvqy3tmyz8b {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.40540540540540543s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elazpe35mlxa8 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.43243243243243246s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elkit5ry8nhu {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4594594594594595s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el0zqqm5tz3xds {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.4864864864864865s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el97tk784ba4i {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5135135135135136s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elfom5cgmnkpw {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5405405405405406s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elwyjr5yev5j {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5675675675675675s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el4rz2b2iq2i6 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.5945945945945946s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #eli3e3m6xpsl9 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6216216216216217s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el70vpk0of658 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6486486486486487s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elc584vwfiaz6 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.6756756756756757s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #eli5r5e2wv2xf {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7027027027027027s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el0f4j9yumgv8q {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7297297297297298s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el5l6n0703zg7 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7567567567567568s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elp4jawksh2cc {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.7837837837837838s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elpmpu6unegof {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8108108108108109s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elfcpfsfbgant {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8378378378378379s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elquwk140yfai {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8648648648648649s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #elsilwuc39yzd {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.8918918918918919s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el7gw4aqknmx3 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.918918918918919s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #eldt08t8tsslu {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.945945945945946s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #el3yijkrugp2b {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0.972972972972973s;
+  opacity: 0;
+}
+svg#freepik_stories-settings.animated #freepik--Screen--inject-71 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+svg#freepik_stories-settings.animated #freepik--character-2--inject-71 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+svg#freepik_stories-settings.animated #freepik--character-1--inject-71 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+@keyframes lightSpeedLeft {
+  from {
+    transform: translate3d(-50%, 0, 0) skewX(20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: skewX(-10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: skewX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animator-hidden {
+  display: none;
+}
