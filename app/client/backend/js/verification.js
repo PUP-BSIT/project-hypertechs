@@ -193,32 +193,6 @@ async function checkOTPInput() {
         await sendRequest();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all OTP input fields and the submit button
-    const otpInputs = document.querySelectorAll('.otp-input');
-    const submitButton = document.getElementById('button_submit');
-
-    // Add input event listener to each OTP input
-    otpInputs.forEach(input => {
-        input.addEventListener('input', checkOTPFields);
-    });
-
-    // Function to check if all OTP fields are filled
-    function checkOTPFields() {
-        const allFilled = Array.from(otpInputs).every(input => input.value.trim() !== '');
-
-        // Enable or disable the submit button based on the check
-        submitButton.disabled = !allFilled;
-    }
-
-    // Add a click event listener to the submit button
-    submitButton.addEventListener('click', function() {
-        // Add your submission logic here
-        console.log('Submitting...');
-    });
-});
-
-
 function getOTPInput() {
         let num1, num2, num3, num4, num5, num6, otp;
 
