@@ -120,18 +120,13 @@ function showCustomerData(data) {
 }
 
 function formatCardNumber(number) {
-        let result, segment;
-
-        result = "";
-        for (let i = 0; i < number.length; i += 4) {
-                segment = number.substring(i, i + 4);
-                result += segment + " ";
-        }
-        return result.trim();
-}
+        // Remove any existing spaces and then add spaces every four digits
+        return number.replace(/\s/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+    }
+    
 
 function formatPartialCardNumber(number) {
-        return number.substring(0, 4) + " &nbsp •••• •••• " + number.substring(number.length - 4);
+        return number.substring(0, 4) + "&nbsp •••• •••• " + number.substring(number.length - 4);
 }
 
 function toggleAccountNumberDisplay() {
