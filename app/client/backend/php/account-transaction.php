@@ -119,9 +119,9 @@ for ($i = 0; $row = mysqli_fetch_assoc($result); $i++) {
                 'name' => $name,
                 'account' => $account,
                 'transactionID' => $row['transaction_id'],
+                'type' => $type,
                 'date' => $row['date'] . " " . $row['timef'],
                 'amount' => '&#8369 ' . $row['amount'],
-                'type' => $type,
                 'description' => $description
         );
 }
