@@ -193,14 +193,6 @@ async function checkOTPInput() {
         await sendRequest();
 }
 
-function clearFeedback() {
-        document.querySelectorAll('.otp-input').forEach(input => {
-            input.addEventListener('input', () => {
-                input.classList.remove('error');
-            });
-        });
-}
-
 function getOTPInput() {
         let num1, num2, num3, num4, num5, num6, otp;
 
