@@ -86,45 +86,54 @@ function showCustomerData(data) {
                 accountNumber.innerHTML = data.data.accountNumber;
                 balance.innerHTML = strToNum(data.data.balance);
                 totalTransac.innerHTML = data.data.totalTransac;
-                totalTransferred.innerHTML = 
-                        strToNum(data.data.totalTransferred);
+                totalTransferred.innerHTML =
+                strToNum(data.data.totalTransferred);
                 totalReceived.innerHTML = strToNum(data.data.totalReceived);
-                averageTransferred.innerHTML = 
-                        strToNum(data.data.averageTransferred);
+                averageTransferred.innerHTML =
+                strToNum(data.data.averageTransferred);
                 cardNumber.innerHTML = formatCardNumber(data.data.cardNumber);
                 cardExpiration.innerHTML = data.data.cardExpiration;
                 cvv.innerHTML = data.data.cvv;
                 if (data.data.lastTransac) {
-                        lastTransac.innerHTML = data.data.lastTransac;
+                lastTransac.innerHTML = data.data.lastTransac;
                 }
 
                 // Add event listener to toggle between partial and full display
                 document.getElementById("account_number")
-                        .addEventListener("click", toggleAccountNumberDisplay);
+                .addEventListener("click", toggleAccountNumberDisplay);
+
+                document.getElementById("card_number")
+                .addEventListener("click", toggleCardNumberDisplay);
 
                 // Show the first four characters immediately
-                const partialDisplayElement = document
-                        .querySelector("#display_account_number");
+                const partialDisplayElementAccount = document
+                .querySelector("#display_account_number");
                 const partialAccountNumber = data.data.accountNumber
-                        .substring(0, 4) + "••••••••";
-                partialDisplayElement.innerHTML = partialAccountNumber;
+                .substring(0, 4) + "••••••••";
+                partialDisplayElementAccount.innerHTML = partialAccountNumber;
+
+                const partialDisplayElementCard = document
+                .querySelector("#display_card_number");
+                const partialCardNumber = formatPartialCardNumber(data.data.cardNumber);
+                partialDisplayElementCard.innerHTML = partialCardNumber;
         }
 }
 
-let cardNumber = "1234567899991111";
-console.log(formatCardNumber(cardNumber));
 function formatCardNumber(number) {
         let result, segment;
 
         result = "";
         for (let i = 0; i < number.length; i += 4) {
-                segment = number.substring(i, i+4); 
-                result += segment + " "; 
+                segment = number.substring(i, i + 4);
+                result += segment + " ";
         }
-        return result;
+        return result.trim();
 }
-    
-    
+
+function formatPartialCardNumber(number) {
+        return number.substring(0, 4) + " •••• •••• " + number.substring(number.length - 4);
+}
+
 function toggleAccountNumberDisplay() {
         const accountNumberElement = document.querySelector(ID_ACCOUNT_NUMBER);
         const partialDisplayElement = document
@@ -133,14 +142,28 @@ function toggleAccountNumberDisplay() {
         if (accountNumberElement && partialDisplayElement) {
                 const fullAccountNumber = customerData.data.accountNumber;
                 const maskedPart = fullAccountNumber.substring(4)
-                        .replace(/./g, "•");
+                .replace(/./g, "•");
 
                 if (accountNumberElement.innerHTML === fullAccountNumber) {
-                        partialDisplayElement.innerHTML = 
-                                partialDisplayElement
-                                .innerHTML.substring(0, 4) + maskedPart;
+                partialDisplayElement.innerHTML =
+                        partialDisplayElement
+                        .innerHTML.substring(0, 4) + maskedPart;
                 } else {
-                        partialDisplayElement.innerHTML = fullAccountNumber;
+                partialDisplayElement.innerHTML = fullAccountNumber;
+                }
+        }
+}
+
+function toggleCardNumberDisplay() {
+        const fullCardNumber = customerData.data.cardNumber;
+        const partialDisplayElement = document.querySelector("#display_card_number");
+
+        if (partialDisplayElement) {
+                const maskedPart = formatPartialCardNumber(fullCardNumber).substring(5);
+                if (partialDisplayElement.innerHTML === fullCardNumber) {
+                partialDisplayElement.innerHTML = partialDisplayElement.innerHTML.substring(0, 4) + maskedPart;
+                } else {
+                partialDisplayElement.innerHTML = fullCardNumber;
                 }
         }
 }

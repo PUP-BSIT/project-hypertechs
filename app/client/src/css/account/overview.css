@@ -379,7 +379,7 @@ body {
 }
 
 #overview_balance h3 {
-  margin-top: 0.5em;
+  margin-top: 1.5vh;
   font-size: 2vw;
   font-weight: 600;
   color: rgb(231, 240, 252);
@@ -387,7 +387,7 @@ body {
 
 #last_updated_info {
   font-size: 1.1vw;
-  margin-top: 0.5em;
+  margin-top: 1.5vh;
   opacity: 0.8;
   color: rgb(231, 240, 252);
 }
@@ -434,6 +434,10 @@ body {
 
 #card_chip img {
   width: 13%;
+}
+
+#card_number {
+  cursor: pointer;
 }
 
 #card_number h3 {
