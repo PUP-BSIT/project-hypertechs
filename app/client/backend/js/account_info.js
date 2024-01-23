@@ -91,7 +91,7 @@ function showCustomerData(data) {
                 totalReceived.innerHTML = strToNum(data.data.totalReceived);
                 averageTransferred.innerHTML =
                 strToNum(data.data.averageTransferred);
-                cardNumber.innerHTML = insertSpacesEveryFourDigits(data.data.cardNumber);
+                cardNumber.innerHTML = formatCardNumber(data.data.cardNumber);
                 cardExpiration.innerHTML = data.data.cardExpiration;
                 cvv.innerHTML = data.data.cvv;
                 if (data.data.lastTransac) {
@@ -127,17 +127,12 @@ function formatCardNumber(number) {
                 segment = number.substring(i, i + 4);
                 result += segment + " ";
         }
-        return result.trim();
+        return result;
 }
 
 function formatPartialCardNumber(number) {
         return number.substring(0, 4) + " •••• •••• " + number.substring(number.length - 4);
 }
-
-function insertSpacesEveryFourDigits(number) {
-        // Insert spaces every four digits manually
-        return `${number.substring(0, 4)} ${number.substring(4, 8)} ${number.substring(8, 12)} ${number.substring(12)}`;
-    }
 
 function toggleAccountNumberDisplay() {
         const accountNumberElement = document.querySelector(ID_ACCOUNT_NUMBER);
