@@ -25,30 +25,30 @@ $sql_stmt = "";
 switch ($transac_type) {
 case 'all':
 $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
-                NULL AS bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+                NULL AS bank_code , DATE_FORMAT(time, '%h:%i %p') AS timef,
+                description
         FROM fund_transfer
         WHERE source='$account_number'
         $date_condition
 
         UNION ALL
         SELECT transaction_id, source, recipient, amount, date, time, bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+                , DATE_FORMAT(time, '%h:%i %p') AS timef, NULL AS description
         FROM fund_transfer_external_send
         WHERE source='$account_number'
         $date_condition
 
         UNION ALL
         SELECT transaction_id, source, recipient, amount, date, time, bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+                , DATE_FORMAT(time, '%h:%i %p') AS timef, NULL AS description
         FROM fund_transfer_external_receive
         WHERE recipient='$account_number'
         $date_condition
 
         UNION ALL
         SELECT transaction_id, source, recipient, amount, date, time, 
-                NULL AS bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+                NULL AS bank_code, DATE_FORMAT(time, '%h:%i %p') AS timef,
+                description
         FROM fund_transfer
         WHERE recipient='$account_number'
         $date_condition
@@ -58,8 +58,8 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
         break;
 case 'internal':
 $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
-                NULL AS bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+                NULL AS bank_code, DATE_FORMAT(time, '%h:%i %p') AS timef,
+                description
         FROM fund_transfer
         WHERE source='$account_number'
         $date_condition
@@ -78,8 +78,8 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
         LIMIT 10";
         break;
 case 'received':
-$sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time, bank_code
-                , DATE_FORMAT(time, '%h:%i %p') AS timef
+$sql_stmt = "SELECT transaction_id, source, recipient, amount, date, 
+                time, bank_code , DATE_FORMAT(time, '%h:%i %p') AS timef 
         FROM fund_transfer_external_receive
         WHERE recipient='$account_number'
         $date_condition
@@ -101,9 +101,11 @@ $data = array();
 for ($i = 0; $row = mysqli_fetch_assoc($result); $i++) {
         $type = "External Transfer";
         $account = $row['recipient'];
+        $description = "";
 
         if ($row['bank_code'] == NULL) {
                 $type = "Internal Transfer"; 
+                $description = $row['description'];
         }
         if ($row['recipient'] == $account_number) {
                 $type = "Received Transfer";
@@ -119,7 +121,8 @@ for ($i = 0; $row = mysqli_fetch_assoc($result); $i++) {
                 'transactionID' => $row['transaction_id'],
                 'date' => $row['date'] . " " . $row['timef'],
                 'amount' => '&#8369 ' . $row['amount'],
-                'type' => $type
+                'type' => $type,
+                'description' => $description
         );
 }
 close_database();

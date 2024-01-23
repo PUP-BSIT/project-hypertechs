@@ -35,6 +35,10 @@ async function filterResult() {
         response = await postData(url, requestBody);
         console.log(response);
         tableBody = document.querySelector('#transaction_table tbody');
+        if (response.data.length == 0) {
+                tableBody.innerHTML = "No transaction found";
+                return;
+        }
         tableBody.innerHTML = "";
         for (let transaction of response.data) {
                 tableRow = tableBody.insertRow();

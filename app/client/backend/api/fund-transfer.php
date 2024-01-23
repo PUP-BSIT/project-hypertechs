@@ -29,6 +29,7 @@ $redirect_url = $_POST['redirect_url'];
 $amount = $_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
+$description = $_POST['description'];
 if ($source === $recipient) {
         close_database();
         http_response_code(302);
@@ -59,7 +60,8 @@ $request_body = array(
         'redirect_url' => $redirect_url,
         'transaction_amount' => (float)$amount,
         'source_account_no' => $source,
-        'recipient_account_no' => $recipient
+        'recipient_account_no' => $recipient,
+        'description' => $description
 );
 $query = array(
         'request_url' => "/app/client/backend/php/fund-transfer.php",
