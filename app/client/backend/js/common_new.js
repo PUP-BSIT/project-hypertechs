@@ -122,7 +122,13 @@ export function genErrorMessage(statusCode) {
 export function clearFeedback(area) {
         setTimeout(() => {
                 area.innerHTML = "&nbsp";
-        }, 3000);
+        }, 5000);
+
+        document.querySelectorAll('.otp-input').forEach(input => {
+                input.addEventListener('input', () => {
+                    input.classList.remove('error');
+                });
+        });
 }
 
 export async function isLoggedIn() {
