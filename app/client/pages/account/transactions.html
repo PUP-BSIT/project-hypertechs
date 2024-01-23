@@ -95,6 +95,7 @@
                         <label for="end-date">End Date:</label>
                         <input type="date" id="end-date" name="end-date">
                     </div>
+                    <button id="btn_filter" type="button">Go</button>
                 </div>
 
             </div>
@@ -138,33 +139,11 @@
             </div>
         </div>
     </div>
-    <script>
-        let data = [
-            {
-                accountName: 'John Doe',
-                accountNumber: '123456789',
-                transactionID: 'T123',
-                transactionType: 'Credit',
-                dateTime: '2024-01-22 10:30:00',
-                amount: '$100.00',
-                description: 'Payment received'
-            },
-            // Add more data as needed
-        ];
-        let tableBody = document.querySelector('#transaction_table tbody');
-
-        data.forEach(function (transaction) {
-            var row = tableBody.insertRow();
-            for (var key in transaction) {
-                var cell = row.insertCell();
-                cell.textContent = transaction[key];
-            }
-        });
-    </script>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../backend/js/account_info.js" type="module"></script>
     <script src="../../src/scripts/account/transactions.js"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
+    <script src="../../backend/js/account_transaction.js" type="module"></script>
 </body>
 
 </html>
