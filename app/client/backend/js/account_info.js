@@ -160,10 +160,10 @@ function toggleCardNumberDisplay() {
     
         if (partialDisplayElement) {
             const maskedPart = formatPartialCardNumber(fullCardNumber).substring(5);
-            if (partialDisplayElement.innerHTML === fullCardNumber) {
-                partialDisplayElement.innerHTML = formatCardNumber(fullCardNumber);
+            if (partialDisplayElement.innerHTML === formatCardNumber(fullCardNumber)) {
+                partialDisplayElement.innerHTML = partialDisplayElement.innerHTML.substring(0, 4) + maskedPart;
             } else {
-                partialDisplayElement.innerHTML = fullCardNumber;
+                partialDisplayElement.innerHTML = formatCardNumber(fullCardNumber);
             }
         }
     }
