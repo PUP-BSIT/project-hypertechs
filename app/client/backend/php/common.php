@@ -195,14 +195,17 @@ function get_name($account_number) {
         $data = mysqli_fetch_assoc($result);
         if (!$data) return false;
         $name = "";
-        if ($data[$middle_name_col] === NULL && $data[$suffix_col] === NULL)
+        if (trim($data[$middle_name_col]) == '' && 
+                trim($data[$suffix_col]) == '')
                 return $data[$first_name_col] . " " . 
                         $data[$surname_col];
-        if ($data[$middle_name_col] === NULL && $data[$suffix_col] !== NULL)
+        if (trim($data[$middle_name_col]) === '' && 
+                trim($data[$suffix_col]) !== '')
                 return $data[$first_name_col] . " " . 
                         $data[$surname_col] . " " . 
                         $data[$suffix_col];
-        if ($data[$middle_name_col] !== NULL && $data[$suffix_col] === NULL)
+        if (trim($data[$middle_name_col]) !== '' && 
+                trim($data[$suffix_col]) === '')
                 return $data[$first_name_col] . " " . 
                         $data[$middle_name_col] . " " . 
                         $data[$surname_col];
