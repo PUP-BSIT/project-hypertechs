@@ -125,7 +125,7 @@ function formatCardNumber(number) {
         result = "";
         for (let i = 0; i < number.length; i += 4) {
                 segment = number.substring(i, i + 4);
-                result += segment + " ";
+                result += segment + "&nbsp";
         }
         return result;
 }
