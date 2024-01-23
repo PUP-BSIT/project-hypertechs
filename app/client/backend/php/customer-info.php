@@ -14,6 +14,7 @@ $creation_date_col = "creation_date";
 $card_number_col = "card_number";
 $card_expiration_col = "card_expiration_date";
 $cvv_col = "cvv";
+$acc_address_col = "address";
 
 $response['success'] = false;
 $account_number = $_SESSION['account_number'];
@@ -50,7 +51,8 @@ $response['data'] = array(
                 $account_number),
         'cardNumber' => $result[$card_number_col],
         'cardExpiration' => $card_expiration,
-        'cvv' => $result[$cvv_col]
+        'cvv' => $result[$cvv_col],
+        'accAddress' => $result[$acc_address_col]
 );
 $response['success'] = true;
 close_database();
