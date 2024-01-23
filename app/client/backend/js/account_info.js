@@ -131,7 +131,7 @@ function formatCardNumber(number) {
 }
 
 function formatPartialCardNumber(number) {
-        return number.substring(0, 4) + " •••• •••• " + number.substring(number.length - 4);
+        return number.substring(0, 4) + " &nbsp •••• •••• " + number.substring(number.length - 4);
 }
 
 function toggleAccountNumberDisplay() {
