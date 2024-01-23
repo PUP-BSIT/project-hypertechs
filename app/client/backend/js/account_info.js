@@ -161,7 +161,7 @@ function toggleCardNumberDisplay() {
         if (partialDisplayElement) {
             const maskedPart = formatPartialCardNumber(fullCardNumber).substring(5);
             if (partialDisplayElement.innerHTML === formatCardNumber(fullCardNumber)) {
-                partialDisplayElement.innerHTML = partialDisplayElement.innerHTML.substring(0, 4) + maskedPart;
+                partialDisplayElement.innerHTML = partialDisplayElement.innerHTML.substring(0, 4) + " " + maskedPart;
             } else {
                 partialDisplayElement.innerHTML = formatCardNumber(fullCardNumber);
             }
