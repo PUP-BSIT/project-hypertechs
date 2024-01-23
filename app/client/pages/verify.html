@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../src/css/verify.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="../src/css/verify.css?v=4.0">
     <link rel="icon" href="../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Apex Bank – Verify</title>
@@ -59,7 +59,7 @@
                         <input type="text" class="otp-input" id="otp6" name="otp6" maxlength="1" pattern="[0-9]"
                             required>
                     </div>
-                    <p id="otp_feedback">&nbsp</p>
+                    <p id="otp_feedback">You have entered an incorrect OTP code. Please try again.</p>
                     <div class="verify-section">
                         <button type="button" id="button_submit" class="verify-button">Submit</button>
                     </div>
@@ -101,7 +101,7 @@
     
     <script src="../src/scripts/theme.js"></script>
     <script src="../src/scripts/cursor.js"></script>
-    <script src="../backend/js/verification.js?v=1.11" type="module"></script>
+    <script src="../backend/js/verification.js?v=1.12" type="module"></script>
 </body>
 
 </html>
