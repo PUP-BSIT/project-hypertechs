@@ -23,6 +23,7 @@
   --destruct: #b60000;
   --ball: #cee0ff;
   --close: #a80404;
+  --modal: #d7e4fb;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -35,6 +36,7 @@
   --destruct: #b30000;
   --ball: #2d73fe;
   --close: #b80000;
+  --modal: #0d1c3f;
 }
 
 * {
@@ -330,7 +332,6 @@ body {
   background-color: var(--primary);
   position: sticky;
   top: 0;
-  z-index: 2;
 }
 
 #transaction_table td {
@@ -345,8 +346,6 @@ body {
 #transaction_table tr:last-child {
   border-bottom: none; /* Remove border for the last row to prevent extra space */
 }
-
-
 
 /* ------- MODAL STYLING ------- */
 .logout-acc-modal {
@@ -368,8 +367,8 @@ body {
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
-  background-color: var(--backdrop);
-  padding: 4vh;
+  background-color: var(--modal);
+  padding: 5vh;
   text-align: justify;
   animation: zoomIn 0.5s;
 }
@@ -414,7 +413,7 @@ body {
 }
 
 #logout_text {
-  font-size: 2.5vw;
+  font-size: 2.75vw;
   font-weight: 700;
   color: var(--text);
 }
@@ -433,7 +432,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   border-radius: 0.5vw;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -447,7 +446,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 7vh;
+  margin-top: 6vh;
 }
 
 .logout-acc-modal-buttons #cancel_button {
@@ -459,7 +458,7 @@ body {
 .logout-acc-modal-buttons #confirm_logout_button {
   color: #fcf6f6;
   background-color: var(--close);
-  width: 50%;
+  width: 40%;
 }
 
 .logout-acc-modal-buttons #cancel_button:hover {

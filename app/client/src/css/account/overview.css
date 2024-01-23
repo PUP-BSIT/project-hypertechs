@@ -28,6 +28,7 @@
   --active: #002397;
   --ball: #cee0ff;
   --close: #a80404;
+  --modal: #d7e4fb;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -45,6 +46,7 @@
   --active: #0080ff;
   --ball: #2d73fe;
   --close: #b80000;
+  --modal: #0d1c3f;
 }
 
 * {
@@ -688,8 +690,8 @@ td {
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
-  background-color: var(--backdrop);
-  padding: 4vh;
+  background-color: var(--modal);
+  padding: 5vh;
   text-align: justify;
   animation: zoomIn 0.5s;
 }
@@ -734,7 +736,7 @@ td {
 }
 
 #logout_text {
-  font-size: 2.5vw;
+  font-size: 2.75vw;
   font-weight: 700;
   color: var(--text);
 }
@@ -753,7 +755,7 @@ td {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   border-radius: 0.5vw;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -767,7 +769,7 @@ td {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 7vh;
+  margin-top: 6vh;
 }
 
 .logout-acc-modal-buttons #cancel_button {
@@ -779,7 +781,7 @@ td {
 .logout-acc-modal-buttons #confirm_logout_button {
   color: #fcf6f6;
   background-color: var(--close);
-  width: 50%;
+  width: 40%;
 }
 
 .logout-acc-modal-buttons #cancel_button:hover {
