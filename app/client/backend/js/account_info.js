@@ -125,9 +125,9 @@ function formatCardNumber(number) {
         result = "";
         for (let i = 0; i < number.length; i += 4) {
                 segment = number.substring(i, i + 4);
-                result += segment + "&nbsp";
+                result += segment + " ";
         }
-        return result;
+        return result.trim();
 }
 
 function formatPartialCardNumber(number) {
@@ -157,13 +157,14 @@ function toggleAccountNumberDisplay() {
 function toggleCardNumberDisplay() {
         const fullCardNumber = customerData.data.cardNumber;
         const partialDisplayElement = document.querySelector("#display_card_number");
-
+    
         if (partialDisplayElement) {
-                const maskedPart = formatPartialCardNumber(fullCardNumber).substring(5);
-                if (partialDisplayElement.innerHTML === fullCardNumber) {
-                partialDisplayElement.innerHTML = partialDisplayElement.innerHTML.substring(0, 4) + maskedPart;
-                } else {
+            const maskedPart = formatPartialCardNumber(fullCardNumber).substring(5);
+            if (partialDisplayElement.innerHTML === fullCardNumber) {
+                partialDisplayElement.innerHTML = formatCardNumber(fullCardNumber);
+            } else {
                 partialDisplayElement.innerHTML = fullCardNumber;
-                }
+            }
         }
-}
+    }
+    
