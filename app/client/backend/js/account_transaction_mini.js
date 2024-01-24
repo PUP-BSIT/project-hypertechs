@@ -1,17 +1,11 @@
 import { postData } from "./common_new.js";
 
-const ID_BTN_FILTER = "#btn_filter";
 const TABLE_BODY_SELECTOR = '#recent_transactions_table tbody';
 
-main();
-
-async function main() {
-    let filterButton;
-
-    filterButton = document.querySelector(ID_BTN_FILTER);
-    filterButton.addEventListener("click", loadTransactions);
-    loadTransactions();  // Load transactions initially
-}
+// Wait for the HTML document to fully load
+document.addEventListener('DOMContentLoaded', () => {
+    loadTransactions();
+});
 
 async function loadTransactions() {
     let tableBody, tableRow, tableCell, url, response, requestBody;
@@ -22,7 +16,7 @@ async function loadTransactions() {
     response = await postData(url, requestBody);
     tableBody = document.querySelector(TABLE_BODY_SELECTOR);
 
-    if (response.data.length == 0) {
+    if (response.data.length === 0) {
         tableBody.innerHTML = "No transactions found";
         return;
     }
