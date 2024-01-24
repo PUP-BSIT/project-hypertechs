@@ -349,6 +349,7 @@ input:focus, select:focus {
 #transaction_table {
   width: 100%;
   border-collapse: collapse;
+  overflow: hidden;
 }
 
 #transaction_table th {
@@ -359,6 +360,10 @@ input:focus, select:focus {
   background-color: var(--primary);
   position: sticky;
   top: 0;
+}
+
+#transaction_table tbody {
+  overflow-y: scroll; /* Enable vertical scrolling for the tbody */
 }
 
 #transaction_table td {
@@ -556,22 +561,4 @@ input:focus, select:focus {
 
 .fa-sun {
   color: #042c8b;
-}
-
-/* Hide scrollbar for Chrome, Safari, and Opera */
-body::-webkit-scrollbar {
-  width: 0px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
-
-/* Hide scrollbar for Firefox */
-body {
-  scrollbar-width: thin;
-}
-
-body::-webkit-scrollbar-track {
-  background-color: transparent;
 }
