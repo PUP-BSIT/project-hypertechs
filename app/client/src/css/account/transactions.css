@@ -291,6 +291,7 @@ body {
 }
 
 .transaction-type-options label {
+  font-size: 1.3vw;
   margin-right: 0.5vw;
 }
 
@@ -315,7 +316,7 @@ body {
   width: 4vw;
   cursor: pointer;
   color: #e1e9fa;
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   font-weight: 600;
   border-radius: 0.5em;
   background-color: var(--primary);
