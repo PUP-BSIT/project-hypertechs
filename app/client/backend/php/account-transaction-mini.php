@@ -65,7 +65,7 @@ if (!$result) {
         if ($row['type'] == 'Received Transfer') {
             $name = get_name($row['account']);
             if (!$name) {
-                $name = " VRZN Account";
+                $name = " VRZN Bank Account";
             }
         }
         $data[$i] = array(
