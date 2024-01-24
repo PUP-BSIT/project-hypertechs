@@ -471,6 +471,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   color: var(--text);
+  margin-top: 0.5vh;
 }
 
 #transfer_mini_account_text {

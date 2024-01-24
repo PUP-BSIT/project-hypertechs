@@ -252,7 +252,6 @@ body {
 
 #transactions_mini_account_text {
   text-align: end;
-  margin-bottom: 0.5vw;
 }
 
 #transactions_mini_account_text h3 {
@@ -267,7 +266,6 @@ body {
 
 #transactions_mini_account_image {
   width: 3.5vw;
-  margin-bottom: 0.5vw;
   margin-left: 1.45em;
 }
 
