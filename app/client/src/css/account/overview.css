@@ -543,7 +543,7 @@ body {
   font-weight: 500;
   font-size: 1.1vw;
   color: var(--primary);
-  margin-bottom: 0.5em;
+  margin-bottom: 1vh;
 }
 
 #stats_week h5 {
@@ -554,7 +554,7 @@ body {
 #stats_transferred h5,
 #stats_average h5,
 #stats_received h5 {
-  font-size: 1.7vw;
+  font-size: 1.75vw;
   font-weight: 500;
 }
 
