@@ -54,7 +54,7 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
         $date_condition
 
         ORDER BY date DESC, time DESC 
-        LIMIT 10";
+        LIMIT 25";
         break;
 case 'internal':
 $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
@@ -65,7 +65,7 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
         $date_condition
 
         ORDER BY date DESC, time DESC 
-        LIMIT 10";
+        LIMIT 25";
         break;
 case 'external':
 $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time, 
@@ -75,7 +75,7 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, time,
         $date_condition
 
         ORDER BY date DESC, time DESC 
-        LIMIT 10";
+        LIMIT 25";
         break;
 case 'received':
 $sql_stmt = "SELECT transaction_id, source, recipient, amount, date, 
@@ -93,7 +93,7 @@ $sql_stmt = "SELECT transaction_id, source, recipient, amount, date,
         $date_condition
 
         ORDER BY date DESC, time DESC 
-        LIMIT 10";
+        LIMIT 25";
         break;
 }
 $result = extract_database($sql_stmt);
