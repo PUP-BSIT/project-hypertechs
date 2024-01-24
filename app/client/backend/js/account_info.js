@@ -10,6 +10,7 @@ const ID_ACCOUNT_NUMBER = "#display_account_number";
 const ID_BALANCE = "#display_account_balance";
 const ID_FIRST_NAME = "#account_first_name";
 const ID_MINI_NAME = "#display_mini_account_text";
+const ID_MINI_BALANCE = "#display_mini_account_balance";
 const ID_LAST_TRANSAC = "#account_last_access";
 const ID_TOTAL_TRANSAC = "#display_times_transactions";
 const ID_TOTAL_TRANSFERRED  = "#display_transfer_transactions";
@@ -56,6 +57,7 @@ async function getCustomerInfo() {
     
 function showCustomerData(data) {
         let accountName, accountNumber, balance, firstName, name, miniName,
+                miniBalance,
                 lastTransac, totalTransac, totalTransferred,
                 totalReceived, averageTransferred, cardNumber, cardExpiration,
                 cvv;
@@ -63,6 +65,7 @@ function showCustomerData(data) {
         console.log(data);
         firstName = document.querySelector(ID_FIRST_NAME);
         miniName = document.querySelector(ID_MINI_NAME);
+        miniBalance = document.querySelector(ID_MINI_BALANCE);
         accountName = document.querySelector(ID_ACCOUNT_NAME);
         accountNumber = document.querySelector(ID_ACCOUNT_NUMBER);
         balance = document.querySelector(ID_BALANCE);
@@ -80,6 +83,9 @@ function showCustomerData(data) {
         }
         if (miniName) {
                 miniName.innerHTML = data.data.name;
+        }
+        if (miniBalance) {
+                miniBalance.innerHTML = strToNum(data.data.balance);
         }
         if (accountName || accountNumber || balance || lastTransac) {
                 accountName.innerHTML = data.data.name;
