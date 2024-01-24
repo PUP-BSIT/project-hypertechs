@@ -87,9 +87,6 @@ function showConfirmDetailsPopUp() {
       
 function closeConfirmationDetailsPopup() {
         document.getElementById('confirm_details_modal').style.display = 'none';
-}
-      
-function closeConfirmationDetailsPopup() {
         let confirmationDetailsModal = document.getElementById("confirm_details_modal");
         let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
       
