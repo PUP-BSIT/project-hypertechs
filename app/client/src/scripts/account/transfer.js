@@ -89,3 +89,20 @@ function closeConfirmationDetailsPopup() {
     confirmDetailsModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
+
+/* Close Transfer Error Modal */
+function closeTransferError() {
+  document.getElementById('transfer_error_modal').style.display = 'none';
+}
+
+function closeTransferError() {
+  let transferErrorModal = document.getElementById("transfer_error_modal");
+  let transferErrorModalContent = document.querySelector(".transfer-error-modal-content");
+
+  transferErrorModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    transferErrorModal.style.display = "none";
+    transferErrorModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}

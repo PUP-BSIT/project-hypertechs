@@ -31,7 +31,7 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, description, confirmButton;
+                requestBody, redirectURL, description, confirmButton, errorMsg;
         
         redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
