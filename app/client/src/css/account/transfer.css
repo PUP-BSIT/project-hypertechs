@@ -1265,7 +1265,6 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   transform: translate(-50%, -50%);
   background-color: var(--modal);
   padding: 5vh;
-  text-align: justify;
   animation: zoomIn 0.5s;
 }
 
@@ -1298,6 +1297,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 #transfer_error_heading_container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1vw;
   margin-bottom: 3vh;
 }
@@ -1317,6 +1317,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   font-size: 1.4vw;
   line-height: 1.5;
   margin-bottom: 5vh;
+  text-align: center;
 }
 
 .transfer-error-modal-buttons button {
@@ -1348,7 +1349,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 .transfer-error-modal-buttons #try_again_button {
   color: #e1e9fa;
   background-color: var(--primary);
-  width: 30%;
+  width: 25%;
 }
 
 .transfer-error-modal-buttons #try_again_button:hover {
