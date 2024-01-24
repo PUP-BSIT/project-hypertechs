@@ -66,7 +66,17 @@ async function requestTransfer() {
 
         // If all validations pass, show the confirmation popup
         showConfirmDetailsPopUp();
+}
 
+/* Confirm Details Modal settings */
+function showConfirmDetailsPopUp() {
+        document.getElementById('confirm_details_modal').style.display = 'block';
+        let confirmTransferButton = document.getElementById("confirm_transfer_button");
+        confirmTransferButton.addEventListener("click", handleConfirmTransfer);
+}
+
+async function handleConfirmTransfer() {
+        
         requestBody = new FormData();
         url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
 /*
@@ -78,11 +88,6 @@ async function requestTransfer() {
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('description', description);
         await postData(url, requestBody);
-}
-
-/* Confirm Details Modal settings */
-function showConfirmDetailsPopUp() {
-        document.getElementById('confirm_details_modal').style.display = 'block';
 }
       
 function closeConfirmationDetailsPopup() {
