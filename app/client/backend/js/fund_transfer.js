@@ -8,6 +8,7 @@ const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
+const ID_DESCRIPTION = "#transfer-description";
 
 main();
 
@@ -28,7 +29,7 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL;
+                requestBody, redirectURL, description;
         
         redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
@@ -38,6 +39,7 @@ async function requestTransfer() {
 */
         amount = document.querySelector(ID_AMOUNT).value;
         recipient = document.querySelector(ID_RECIPIENT).value;
+        description = document.querySelector(ID_DESCRIPTION).value;
         source = ACCOUNT_NUMBER;
         console.log(source, recipient);
         if (recipient === source) {
@@ -70,5 +72,6 @@ async function requestTransfer() {
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
+        requestBody.append('description', description);
         await postData(url, requestBody);
 }
