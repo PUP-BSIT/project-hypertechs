@@ -36,6 +36,8 @@ $sql_stmt = "SELECT
 
 $result = extract_database($sql_stmt);
 
+$response = array();
+
 if (!$result) {
     // Add error handling here
     $response['error'] = mysqli_error($connection);
