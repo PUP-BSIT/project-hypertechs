@@ -57,7 +57,7 @@ if (!$result) {
         $name = "";
         $type = $row['type'];
         if ($row['type'] == 'External Transfer') {
-            $name = "VRZN Account";
+            $name = "VRZN Bank Account";
         }
         if ($row['type'] == 'Internal Transfer') {
             $name = get_name($row['account']);
