@@ -7,7 +7,7 @@ let ACCOUNT_NUMBER;
 const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
-const ID_TRANSFER_BUTTON = "#confirm_transfer_button";
+const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
 const ID_DESCRIPTION = "#transfer-description";
 
 main();
@@ -66,7 +66,7 @@ async function requestTransfer() {
 
         // If all validations pass, show the confirmation popup
         showConfirmDetailsPopUp();
-        
+
         requestBody = new FormData();
         url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
 /*
