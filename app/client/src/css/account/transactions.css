@@ -24,6 +24,7 @@
   --ball: #cee0ff;
   --close: #a80404;
   --modal: #d7e4fb;
+  --filter: #ccddfb;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -37,6 +38,7 @@
   --ball: #2d73fe;
   --close: #b80000;
   --modal: #0d1c3f;
+  --filter: #0e2250;
 }
 
 * {
@@ -278,7 +280,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2vh;
+  margin-top: 3vh;
   font-size: 1.2vw;
   font-weight: 500;
 }
@@ -296,10 +298,11 @@ body {
 .transaction-type-options input {
   height: 2.3vw;
   padding: 0.3vw;
+  padding-left: 0.5vw;
   font-size: 1.2vw;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   color: var(--text);
-  background-color: var(--backdrop);
+  background-color: var(--filter);
   cursor: pointer;
 }
 
@@ -307,13 +310,39 @@ body {
   margin: 0vw 0.5vw;
 }
 
+.transaction_filter_activate button {
+  height: 2.3vw;
+  width: 4vw;
+  cursor: pointer;
+  color: #e1e9fa;
+  font-size: 1.2vw;
+  font-weight: 600;
+  border-radius: 0.5em;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.transaction_filter_activate button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.transaction_filter_activate button:active {
+  transform: scale(0.9);
+}
+
+/* Remove the black border on focus */
+input:focus, select:focus {
+  outline: 2px solid var(--primary);
+}
+
 /* ----- CONTAINER TWO THREE ----- */
 #transaction_container_three {
-  margin-top: 3vh;
+  margin-top: 3.5vh;
   font-size: 1.1vw;
   border-radius: 0.5em;
   background-color: var(--backdrop);
-  max-height: 70vh;
+  max-height: 67vh;
   overflow-x: auto; /* Corrected placement */
 }
 
@@ -338,11 +367,11 @@ body {
 }
 
 #transaction_table tr {
-  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2); /* Use border-bottom for row borders */
+  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2);
 }
 
 #transaction_table tr:last-child {
-  border-bottom: none; /* Remove border for the last row to prevent extra space */
+  border-bottom: none; /* Remove border for the last row */
 }
 
 /* ------- MODAL STYLING ------- */
