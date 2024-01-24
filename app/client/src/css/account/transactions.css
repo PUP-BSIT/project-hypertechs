@@ -343,13 +343,12 @@ input:focus, select:focus {
   border-radius: 0.5em;
   background-color: var(--backdrop);
   max-height: 67vh;
-  overflow-x: auto; /* Corrected placement */
+  overflow-x: auto;
 }
 
 #transaction_table {
   width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
 }
 
 #transaction_table th {
@@ -360,10 +359,6 @@ input:focus, select:focus {
   background-color: var(--primary);
   position: sticky;
   top: 0;
-}
-
-#transaction_table tbody {
-  overflow-y: scroll; /* Enable vertical scrolling for the tbody */
 }
 
 #transaction_table td {
@@ -377,6 +372,11 @@ input:focus, select:focus {
 
 #transaction_table tr:last-child {
   border-bottom: none; /* Remove border for the last row */
+}
+
+/* Style the scrollbar */
+#transaction_container_three::-webkit-scrollbar {
+  width: 0px;
 }
 
 /* ------- MODAL STYLING ------- */
@@ -562,3 +562,4 @@ input:focus, select:focus {
 .fa-sun {
   color: #042c8b;
 }
+
