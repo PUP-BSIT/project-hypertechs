@@ -10,6 +10,7 @@ const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
 const ID_DESCRIPTION = "#transfer-description";
 const ID_CONFIRM_BUTTON = "#confirm_transfer_button";
+const ID_ERROR_DESC = "#transfer_error_desc";
 
 main();
 
@@ -44,7 +45,9 @@ async function requestTransfer() {
         source = ACCOUNT_NUMBER;
         console.log(source, recipient);
         if (recipient === source) {
-                alert("Invalid account number.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Invalid Apex Account Number";
                 return;
         }
         if (!recipient || !amount) {

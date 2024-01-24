@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=7.0">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=8.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -879,10 +879,25 @@
             </div>
         </div>
     </div>
+
+    <!-- Transfer Error Modal-->
+    <div class="transfer-error-modal" id="transfer_error_modal">
+        <div class="transfer-error-modal-content">
+            <div id="transfer_error_heading_container">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p id="transfer_error_text">Review Details</p>
+            </div>
+            <p id="transfer_error_desc">Error Message</p>
+            <div class="transfer-error-modal-buttons">
+                <button id="try_again_button"
+                    onclick="closeConfirmationDetailsPopup()">Try Again</button>
+            </div>
+        </div>
+    </div>
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/transfer.js?v=1.1"></script>
     <script src="../../backend/js/account_info.js?v=1.0" type="module"></script>
-    <script src="../../backend/js/fund_transfer.js?v=1.8" type="module"></script>
+    <script src="../../backend/js/fund_transfer.js?v=1.9" type="module"></script>
     <script src="../../backend/js/fund_transfer_external.js?v=1.1" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
