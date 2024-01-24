@@ -8,7 +8,7 @@ const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number-external";
 const ID_AMOUNT = "#transfer-amount-external";
 const ID_BANK_CODE= "#external-bank-code";
-const ID_TRANSFER_BUTTON = "#submit_external";
+const ID_TRANSFER_BUTTON = "#confirm_transfer_button";
 
 main();
 

@@ -7,7 +7,7 @@ let ACCOUNT_NUMBER;
 const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
-const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
+const ID_TRANSFER_BUTTON = "#confirm_transfer_button";
 const ID_DESCRIPTION = "#transfer-description";
 
 main();
