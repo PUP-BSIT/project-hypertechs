@@ -8,7 +8,7 @@ const URL_HOME = "/index.html";
 const ID_RECIPIENT = "#recipient-account-number-external";
 const ID_AMOUNT = "#transfer-amount-external";
 const ID_BANK_CODE= "#external-bank-code";
-const ID_TRANSFER_BUTTON = "#confirm_transfer_button";
+const ID_TRANSFER_BUTTON = "#submit_external";
 
 main();
 
@@ -59,6 +59,10 @@ async function requestTransfer() {
                         "with exactly two decimal digits  and no commas.");
                 return;
         }
+
+        // If all validations pass, show the confirmation popup
+        showConfirmDetailsPopUp();
+        
         requestBody = new FormData();
 /*
         url = "http://localhost/app/client/backend/api/" +
@@ -73,4 +77,9 @@ async function requestTransfer() {
         requestBody.append('recipient_bank_code', bankCode);
         data = await postData(url, requestBody);
         console.log(data);
+}
+
+/* Confirm Details Modal settings */
+function showConfirmDetailsPopUp() {
+        document.getElementById('confirm_details_modal').style.display = 'block';
 }
