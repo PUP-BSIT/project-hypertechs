@@ -6,14 +6,19 @@ const ID_TRANSAC_TYPE = "#transaction-type";
 const ID_START_DATE = "#start-date";
 const ID_END_DATE = "#end-date";
 const ID_BTN_FILTER = "#btn_filter";
+const ID_BTN_RESET = "#btn_reset";
 
 main();
 
 async function main() {
-        let filterButton;
+        let filterButton, resetButton;
 
         filterButton = document.querySelector(ID_BTN_FILTER);
         filterButton.addEventListener("click", filterResult);
+
+        resetButton = document.querySelector(ID_BTN_RESET);
+        resetButton.addEventListener("click", resetFilter); 
+
         filterResult();
 }
 
@@ -49,4 +54,9 @@ async function filterResult() {
         }
 }
 
-
+async function resetFilter() {
+        document.querySelector(ID_TRANSAC_TYPE).value = "all";
+        document.querySelector(ID_START_DATE).value = "";
+        document.querySelector(ID_END_DATE).value = "";
+        filterResult();
+}
