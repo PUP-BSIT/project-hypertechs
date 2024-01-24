@@ -1,6 +1,7 @@
 <?php
 require "./common.php";
 session_start();
+global $connection;
 connect_database();
 
 $start_date = $_POST['start_date'];
@@ -83,20 +84,28 @@ switch ($transac_type) {
 }
 
 $result = extract_database($sql_stmt);
-$data = array();
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $data[] = array(
-        'account' => $row['account'],
-        'type' => $row['type'],
-        'amount' => '&#8369 ' . $row['amount'],
-    );
+if (!$result) {
+    // Add error handling here
+    $response['error'] = mysqli_error($connection);
+    $response['success'] = false;
+} else {
+    $data = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'account' => $row['account'],
+            'type' => $row['type'],
+            'amount' => '&#8369 ' . $row['amount'],
+        );
+    }
+
+    close_database();
+    $response['data'] = $data;
+    $response['success'] = true;
+    $response['start_date'] = $start_date;
+    $response['end_date'] = $end_date;
 }
 
-close_database();
-$response['data'] = $data;
-$response['success'] = true;
-$response['start_date'] = $start_date;
-$response['end_date'] = $end_date;
 echo json_encode($response);
 ?>
