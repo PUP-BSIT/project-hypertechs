@@ -1341,14 +1341,14 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 7vh;
+  margin-top: 8vh;
 }
 
 
 .transfer-error-modal-buttons #try_again_button {
-  color: rgb(0, 61, 166);
-  background-color: #bdd3ff;
-  width: 20%;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 30%;
 }
 
 .transfer-error-modal-buttons #try_again_button:hover {
