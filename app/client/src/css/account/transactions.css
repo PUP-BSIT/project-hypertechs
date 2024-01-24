@@ -289,7 +289,7 @@ body {
 
 .transaction-type-options {
   display: flex;
-  gap: 2vw
+  gap: 1.5vw
 }
 
 .transaction-type-options label {
@@ -300,9 +300,9 @@ body {
 .transaction-type-options select,
 .transaction-type-options input {
   height: 2.3vw;
-  width: 11.5vw;
+  width: 12vw;
   padding: 0.3vw;
-  padding-left: 0.5vw;
+  padding-left: 0.2vw;
   font-size: 1.2vw;
   border-radius: 0.5em;
   color: var(--text);
@@ -310,19 +310,20 @@ body {
   cursor: pointer;
 }
 
-.transaction-filter-by-date span {
-  margin: 0vw 0.5vw;
-}
 
 .transaction-filter-buttons {
   display: flex;
   gap: 1vw;
 }
 
+.transaction-filter-by-date input {
+  margin-right: 0.5vw;
+}
+
 .transaction-reset-filter button,
 .transaction_filter_activate button {
   height: 2.3vw;
-  width: 4vw;
+  width: 5vw;
   cursor: pointer;
   color: #e1e9fa;
   font-size: 1.3vw;
