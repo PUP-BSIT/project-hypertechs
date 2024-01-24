@@ -299,7 +299,7 @@ body {
 
 .transaction-type-options select,
 .transaction-type-options input {
-  height: 2.3vw;
+  height: 2.5vw;
   width: 12vw;
   padding: 0.3vw;
   padding-left: 0.2vw;
@@ -310,20 +310,20 @@ body {
   cursor: pointer;
 }
 
-
 .transaction-filter-buttons {
   display: flex;
   gap: 1vw;
 }
 
 .transaction-filter-by-date input {
-  margin-right: 0.5vw;
+  margin-right: 0.75vw;
+  width: 11vw;
 }
 
 .transaction-reset-filter button,
 .transaction_filter_activate button {
-  height: 2.3vw;
-  width: 5vw;
+  height: 2.5vw;
+  width: 5.75vw;
   cursor: pointer;
   color: #e1e9fa;
   font-size: 1.3vw;
