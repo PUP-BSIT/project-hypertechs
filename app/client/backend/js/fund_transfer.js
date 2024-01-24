@@ -9,6 +9,7 @@ const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
 const ID_DESCRIPTION = "#transfer-description";
+const ID_CONFIRM_BUTTON = "#confirm_transfer_button";
 
 main();
 
@@ -29,7 +30,7 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, description;
+                requestBody, redirectURL, description, confirmButton;
         
         redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
@@ -60,27 +61,23 @@ async function requestTransfer() {
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
                 alert("Amount should be up to six digits " +
-                        "with exactly two decimal digits and no commas.");
+                        "with exactly two decimals and no commas.");
                 return;
         }
 
-        // If all validations pass, show the confirmation popup
-        showConfirmDetailsPopUp();
-
-        requestBody = new FormData();
-        url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
-/*
-        url = "http://localhost/app/client/backend/api/fund-transfer.php";
-*/
-        requestBody.append('redirect_url', redirectURL); 
-        requestBody.append('transaction_amount', amount);
-        requestBody.append('source_account_no', source);
-        requestBody.append('recipient_account_no', recipient);
-        requestBody.append('description', description);
-        await postData(url, requestBody);
-}
-
-/* Confirm Details Modal settings */
-function showConfirmDetailsPopUp() {
         document.getElementById('confirm_details_modal').style.display = 'block';
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", async () => {
+                requestBody = new FormData();
+                url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
+                /*
+                url = "http://localhost/app/client/backend/api/fund-transfer.php";
+                */
+                requestBody.append('redirect_url', redirectURL); 
+                requestBody.append('transaction_amount', amount);
+                requestBody.append('source_account_no', source);
+                requestBody.append('recipient_account_no', recipient);
+                requestBody.append('description', description);
+                await postData(url, requestBody);
+        });
 }
