@@ -638,6 +638,7 @@ body {
   border-radius: 10px;
   background-color: var(--backdrop);
   padding: 1em;
+  overflow: hidden;
 }
 
 table {
@@ -646,12 +647,8 @@ table {
   margin-top: 5px;
 }
 
-#account_name_heading {
-  width: 45%;
-}
-
 th {
-  padding-left: 10px;
+  padding-left: 0.25vw;
   font-size: 1.1vw;
   text-align: left;
   font-weight: 600;
@@ -665,9 +662,19 @@ th i {
   margin-right: 0.25em;
 }
 
+#account_name_heading,
+#recent_transactions_table tbody td:first-child {
+  width: 11vw;
+}
+
+#account_bank_heading,
+#recent_transactions_table tbody td:nth-child(2) {
+  width: 11vw;
+}
+
 td {
   font-size: 1.1vw;
-  padding: 10px;
+  padding: 1vh;
   text-align: left;
 }
 
