@@ -419,7 +419,7 @@ body {
 }
 
 #card_brand_text h3 {
-  font-size: 1.4vw;
+  font-size: 1.5vw;
   font-weight: 600;
 }
 
@@ -551,9 +551,10 @@ body {
   font-weight: 500;
 }
 
+#stats_transferred h5,
 #stats_average h5,
 #stats_received h5 {
-  font-size: 1.5vw;
+  font-size: 1.7vw;
   font-weight: 500;
 }
 
