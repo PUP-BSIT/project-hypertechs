@@ -73,29 +73,3 @@ function closeConfirmationPopup() {
     modalContent.classList.remove("zoom-out");
   }, 500); // 500ms should match the animation duration
 }
-
-/* Confirm Details Modal settings */
-function showConfirmDetailsPopUp() {
-  // Display the modal
-  document.getElementById('confirm_details_modal').style.display = 'block';
-}
-
-function closeConfirmationDetailsPopup() {
-  // Close the modal
-  document.getElementById('confirm_details_modal').style.display = 'none';
-}
-
-function closeConfirmationDetailsPopup() {
-  let confirmationDetailsModal = document.getElementById("confirm_details_modal");
-  let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
-
-  // Add the zoom-out class
-  confirmDetailsModalContent.classList.add("zoom-out-confirm");
-
-  // Wait for the animation to finish before hiding the modal
-  setTimeout(function () {
-    confirmationDetailsModal.style.display = "none";
-    // Remove the zoom-out class to reset for the next time
-    confirmDetailsModalContent.classList.remove("zoom-out-confirm");
-  }, 500); // 500ms should match the animation duration
-}

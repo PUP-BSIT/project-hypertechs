@@ -63,6 +63,10 @@ async function requestTransfer() {
                         "with exactly two decimal digits and no commas.");
                 return;
         }
+
+        // If all validations pass, show the confirmation popup
+        showConfirmDetailsPopUp();
+        
         requestBody = new FormData();
         url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
 /*
@@ -74,4 +78,25 @@ async function requestTransfer() {
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('description', description);
         await postData(url, requestBody);
+}
+
+/* Confirm Details Modal settings */
+function showConfirmDetailsPopUp() {
+        document.getElementById('confirm_details_modal').style.display = 'block';
+}
+      
+function closeConfirmationDetailsPopup() {
+        document.getElementById('confirm_details_modal').style.display = 'none';
+}
+      
+function closeConfirmationDetailsPopup() {
+        let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+        let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
+      
+        confirmDetailsModalContent.classList.add("zoom-out-confirm");
+      
+        setTimeout(function () {
+          confirmationDetailsModal.style.display = "none";
+          confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+        }, 500);
 }
