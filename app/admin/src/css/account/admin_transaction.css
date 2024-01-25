@@ -21,6 +21,8 @@
   --sidebar: #d7e4fb;
   --destruct: #b60000;
   --ball: #cee0ff;
+  --close: #a80404;
+  --modal: #d7e4fb;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -32,6 +34,8 @@
   --sidebar: #09132a;
   --destruct: #b30000;
   --ball: #2d73fe;
+  --close: #b80000;
+  --modal: #0d1c3f;
 }
 
 * {
@@ -796,4 +800,130 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 }
 .animator-hidden {
   display: none;
+}
+
+/* ------- MODAL STYLING ------- */
+.logout-acc-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 45vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--modal);
+  padding: 5vh;
+  text-align: justify;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s;
+}
+
+#logout_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+.modal-content span {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#logout_text {
+  font-size: 2.75vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#confirmation_text {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 2vh;
+}
+
+.logout-acc-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-acc-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 5vh;
+}
+
+.logout-acc-modal-buttons #cancel_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 20%;
+}
+
+.logout-acc-modal-buttons #confirm_logout_button {
+  color: #fcf6f6;
+  background-color: var(--close);
+  width: 40%;
+}
+
+.logout-acc-modal-buttons #cancel_button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.logout-acc-modal-buttons #confirm_logout_button:hover {
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.5);
+}
+
+.logout-acc-modal-buttons button:active {
+  transform: scale(0.9);
 }
