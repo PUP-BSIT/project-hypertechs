@@ -1033,7 +1033,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   overflow: hidden;
 }
 
-#confirm_transfer_button span {
+#confirm_transaction_button span {
   font-size: 1.3vw;
   margin-left: 0.75vw;
   transition: transform 0.3s ease-in-out;
@@ -1049,7 +1049,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 .confirm-details-modal-buttons #confirm_transaction_button {
   color: #e1e9fa;
   background-color: var(--primary);
-  width: 35%;
+  width: 30%;
 }
 
 .confirm-details-modal-buttons #cancel_confirm_button {
