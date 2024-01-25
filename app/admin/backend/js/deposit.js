@@ -5,6 +5,7 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
 const ID_BTN_SUBMIT  = "#deposit_submit";
+const ID_CONFIRM_BUTTON ="#confirm_transaction_button";
 
 main();
 
@@ -24,7 +25,7 @@ async function main() {
 }
 
 async function requestDeposit() {
-        let account, amount, requestBody, url, response;
+        let account, amount, requestBody, url, response, confirmButton;
     
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
@@ -42,24 +43,28 @@ async function requestDeposit() {
                 "• No commas are allowed\n");
                 return;
         }
-    
-        // Prepare request body
-        requestBody = new FormData();
-        requestBody.append('account_number', account);
-        requestBody.append('amount', amount);
-        requestBody.append('admin_id', ACCOUNT_NUMBER);
-    
-        // Make deposit request
-        url = "/app/admin/backend/php/deposit.php";
-        response = await postData(url, requestBody);
-        console.log(response);
-    
-        // Handle response
-        if (!response.success) {
-            alert(response.errorMessage);
-            return;
-        }
-        alert("Deposit successful!");
+
+        document.getElementById('confirm_details_modal').style.display = 'block';
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", async () => {
+                // Prepare request body
+                requestBody = new FormData();
+                requestBody.append('account_number', account);
+                requestBody.append('amount', amount);
+                requestBody.append('admin_id', ACCOUNT_NUMBER);
+
+                // Make deposit request
+                url = "/app/admin/backend/php/deposit.php";
+                response = await postData(url, requestBody);
+                console.log(response);
+
+                // Handle response
+                if (!response.success) {
+                alert(response.errorMessage);
+                return;
+                }
+                alert("Deposit successful!");
+        });
 }
     
 function isValidAccountNumber(account) {
