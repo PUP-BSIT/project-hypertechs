@@ -5,6 +5,8 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
+const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
+const ID_SUCCESS_DESC = "#success_details_text";
 
 main();
 
@@ -24,7 +26,7 @@ async function main() {
 }
 
 async function requestWithdraw() {
-        let account, amount, requestBody, url, response;
+        let account, amount, requestBody, url, response, confirmButton, successMsg;
     
         // Validate Account Number
         account = document.querySelector(ID_ACCOUNT).value;
@@ -37,23 +39,42 @@ async function requestWithdraw() {
         if (!validateAmount(amount)) {
             return;
         }
+
+        document.getElementById('confirm_details_modal').style.display = 'block';
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", async () => { 
     
-        requestBody = new FormData();
-        requestBody.append('account_number', account);
-        requestBody.append('amount', amount);
-        requestBody.append('admin_id', ACCOUNT_NUMBER);
-        url = "/app/admin/backend/php/withdraw.php";
-    
-        // Send request if all validations pass
-        response = await postData(url, requestBody);
-        console.log(response);
+            requestBody = new FormData();
+            requestBody.append('account_number', account);
+            requestBody.append('amount', amount);
+            requestBody.append('admin_id', ACCOUNT_NUMBER);
+            url = "/app/admin/backend/php/withdraw.php";
         
-        if (!response.success) {
-            alert(response.errorMessage);
-            return;
-        }
-        
-        alert("Withdraw successful!");
+            // Send request if all validations pass
+            response = await postData(url, requestBody);
+            console.log(response);
+            
+            if (!response.success) {
+                alert(response.errorMessage);
+                return;
+            }
+            
+            document.getElementById('confirm_details_modal').style.display = 'none';
+            let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+            let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
+
+            confirmDetailsModalContent.classList.add("zoom-out-confirm");
+
+            setTimeout(function () {
+            confirmationDetailsModal.style.display = "none";
+            confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+            }, 500);
+
+            document.getElementById('transaction_success_modal').style.display = 'block';
+            successMsg = document.querySelector(ID_SUCCESS_DESC);
+            successMsg.innerHTML = "Withdraw Successful!";
+
+        });
 }
     
 function validateAccountNumber(account) {
