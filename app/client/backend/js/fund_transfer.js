@@ -80,7 +80,7 @@ async function requestTransfer() {
                 errorMsg.innerHTML = "The transfer amount must be up to six"
                 + " whole digits only, two decimals (if present), and no commas.";
                 
-                modalResize.style.height = '50vh';
+                modalResize.style.height = '45vh';
 
                 return;
         }
