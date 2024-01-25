@@ -6,7 +6,7 @@ const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
 const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
-const ID_SUCCESS_DESC = "#success_details_text";
+const ID_SUCCESS_DESC = "#withdraw_success_text";
 
 main();
 
@@ -70,7 +70,7 @@ async function requestWithdraw() {
             confirmDetailsModalContent.classList.remove("zoom-out-confirm");
             }, 500);
 
-            document.getElementById('transaction_success_modal').style.display = 'block';
+            document.getElementById('withdraw_success_modal').style.display = 'block';
             successMsg = document.querySelector(ID_SUCCESS_DESC);
             successMsg.innerHTML = "Withdraw Successful!";
 
