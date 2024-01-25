@@ -5,6 +5,7 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
 const ID_BTN_SUBMIT  = "#deposit_submit";
+const ID_CONFIRM_BUTTON = "#confirm_transfer_button";
 
 main();
 

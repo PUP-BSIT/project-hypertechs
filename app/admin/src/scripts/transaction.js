@@ -93,3 +93,18 @@ function closeConfirmationPopup() {
   }, 500); // 500ms should match the animation duration
 }
 
+function closeConfirmationDetailsPopup() {
+  document.getElementById('confirm_details_modal').style.display = 'none';
+}
+
+function closeConfirmationDetailsPopup() {
+  let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+  let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
+
+  confirmDetailsModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    confirmationDetailsModal.style.display = "none";
+    confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}
