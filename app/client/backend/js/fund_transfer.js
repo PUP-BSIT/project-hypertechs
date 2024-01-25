@@ -62,8 +62,7 @@ async function requestTransfer() {
         if (parseFloat(amount) === 0) {
                 document.getElementById('transfer_error_modal').style.display = 'block';
                 errorMsg = document.querySelector(ID_ERROR_DESC);
-                errorMsg.innerHTML = "The transfer amount cannot be zero."
-                + " Please try again.";
+                errorMsg.innerHTML = "The transfer amount cannot be zero.";
                 return;
         }
         if (!/^\d{12}$/.test(recipient)) {
