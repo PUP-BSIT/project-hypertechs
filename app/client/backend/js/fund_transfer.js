@@ -31,7 +31,8 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, description, confirmButton, errorMsg;
+                requestBody, redirectURL, description, confirmButton, errorMsg,
+                modalResize;
         
         redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
@@ -48,7 +49,7 @@ async function requestTransfer() {
                 document.getElementById('transfer_error_modal').style.display = 'block';
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "You have entered an invalid Apex Account"
-                + " Number";
+                + " Number.";
                 return;
         }
         if (!recipient || !amount) {
@@ -74,9 +75,13 @@ async function requestTransfer() {
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
                 document.getElementById('transfer_error_modal').style.display = 'block';
+                modalResize = document.querySelector('.transfer-error-modal-content');
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "The transfer amount must be up to six"
-                + " whole digits, two decimals, and no commas.";
+                + " whole digits only, two decimals (if present), and no commas.";
+                
+                modalResize.style.height = '50vh';
+
                 return;
         }
 
