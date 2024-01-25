@@ -5,7 +5,6 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
 const ID_BTN_SUBMIT  = "#deposit_submit";
-const ID_SUCCESS_DESC = "#success_details_text";
 
 main();
 
@@ -25,8 +24,7 @@ async function main() {
 }
 
 async function requestDeposit() {
-        let account, amount, requestBody, url, response, successMsg;
-        const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
+        let account, amount, requestBody, url, response;
     
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
@@ -44,43 +42,24 @@ async function requestDeposit() {
                 "• No commas are allowed\n");
                 return;
         }
-
-        document.getElementById('confirm_details_modal').style.display = 'block';
-        const confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
-        confirmButton.addEventListener("click", async () => {
-
-                document.getElementById('confirm_details_modal').style.display = 'none';
-                let confirmationDetailsModal = document.getElementById("confirm_details_modal");
-                let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
-
-                confirmDetailsModalContent.classList.add("zoom-out-confirm");
-
-                setTimeout(function () {
-                confirmationDetailsModal.style.display = "none";
-                confirmDetailsModalContent.classList.remove("zoom-out-confirm");
-                }, 500);
     
-                // Prepare request body
-                requestBody = new FormData();
-                requestBody.append('account_number', account);
-                requestBody.append('amount', amount);
-                requestBody.append('admin_id', ACCOUNT_NUMBER);
-        
-                // Make deposit request
-                url = "/app/admin/backend/php/deposit.php";
-                response = await postData(url, requestBody);
-                console.log(response);
-        
-                // Handle response
-                if (!response.success) {
-                alert(response.errorMessage);
-                return;
-                }
-
-                document.getElementById('transaction_success_modal').style.display = 'block';
-                successMsg = document.querySelector(ID_SUCCESS_DESC);
-                successMsg.innerHTML = "Deposit Successful!";
-        });
+        // Prepare request body
+        requestBody = new FormData();
+        requestBody.append('account_number', account);
+        requestBody.append('amount', amount);
+        requestBody.append('admin_id', ACCOUNT_NUMBER);
+    
+        // Make deposit request
+        url = "/app/admin/backend/php/deposit.php";
+        response = await postData(url, requestBody);
+        console.log(response);
+    
+        // Handle response
+        if (!response.success) {
+            alert(response.errorMessage);
+            return;
+        }
+        alert("Deposit successful!");
 }
     
 function isValidAccountNumber(account) {
