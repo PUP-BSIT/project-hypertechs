@@ -1046,7 +1046,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   margin-top: 6vh;
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button {
+.confirm-details-modal-buttons #confirm_transaction_button {
   color: #e1e9fa;
   background-color: var(--primary);
   width: 35%;
@@ -1058,11 +1058,11 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   width: 20%;
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button:hover {
+.confirm-details-modal-buttons #confirm_transaction_button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button:hover span {
+.confirm-details-modal-buttons #confirm_transaction_button:hover span {
   transform: translateX(5px);
 }
 
