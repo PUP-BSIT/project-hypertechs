@@ -588,7 +588,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 6vh;
+  margin-top: 5vh;
 }
 
 .logout-acc-modal-buttons #cancel_button {
