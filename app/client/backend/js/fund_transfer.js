@@ -67,9 +67,13 @@ async function requestTransfer() {
         }
         if (!/^\d{12}$/.test(recipient)) {
                 document.getElementById('transfer_error_modal').style.display = 'block';
+                modalResize = document.querySelector('.transfer-error-modal-content');
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "The recipient account number must be"
-                + " exactly 12-digit Apex account number.";
+                + " exactly a valid 12-digit Apex account number.";
+
+                modalResize.style.height = '45vh';
+
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
