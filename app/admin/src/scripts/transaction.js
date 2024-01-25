@@ -93,6 +93,8 @@ function closeConfirmationPopup() {
   }, 500); // 500ms should match the animation duration
 }
 
+/* Close Confirmation Modal */
+
 function closeConfirmationDetailsPopup() {
   document.getElementById('confirm_details_modal').style.display = 'none';
 }
@@ -106,5 +108,23 @@ function closeConfirmationDetailsPopup() {
   setTimeout(function () {
     confirmationDetailsModal.style.display = "none";
     confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}
+
+/* Close Success Modal */
+
+function closeSuccessPopup() {
+  document.getElementById('transaction_success_modal').style.display = 'none';
+}
+
+function closeSuccessPopup() {
+  let transactionSuccessModal = document.getElementById("transaction_success_modal");
+  let transactionSuccessModalContent = document.querySelector(".success-modal-content");
+
+  transactionSuccessModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    transactionSuccessModal.style.display = "none";
+    transactionSuccessModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
