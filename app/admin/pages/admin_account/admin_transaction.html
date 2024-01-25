@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="../../src/css/account/admin_transaction.css?v=5.0" />
+  <link rel="stylesheet" type="text/css" href="../../src/css/account/admin_transaction.css?v=7.0" />
   <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"  />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -652,7 +652,7 @@
               <strong>Account Holder Name: </strong>
                   <span id="display_modal_acc_name"></span><br>
               <strong>Transfer Amount: </strong>
-                  <span id="display_modal_transfer-amount"></span>
+                  <span id="display_modal_transfer_amount"></span>
           </p>
           <div class="confirm-details-modal-buttons">
               <button id="cancel_confirm_button" 
@@ -671,7 +671,15 @@
             <i class="fa-solid fa-circle-check"></i>
             <p id="success_details_text">Transaction Successful!</p>
         </div>
-        <p id="transaction_success_desc"></p>
+
+        <p id="transaction_success_desc">You have successfully
+          <span id="display_transaction_type">deposit/withdrawn</span>
+          an amount of 
+          <strong><span id="display_modal_transfer_amount">0.00</span></strong>
+          to <span id="display_modal_acc_name">Apex User</span>
+          <span id="display_modal_acc_number"> (189912345678)</span>
+        </p>
+
         <div class="transaction-success-modal-buttons">
             <button id="close_success_button" 
                 onclick="closeSuccessPopup()">Close</button>

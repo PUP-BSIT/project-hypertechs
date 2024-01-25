@@ -1090,7 +1090,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   top: 50%;
   left: 50%;
   width: 40vw;
-  height: 25vh;
+  height: 40vh;
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
@@ -1138,6 +1138,13 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   font-weight: 700;
   color: var(--primary);
 }
+
+#transaction_success_desc {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 3vh;
+}
+
 
 .success-modal-content i {
   font-size: 2.3vw;
