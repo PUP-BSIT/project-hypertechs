@@ -47,7 +47,18 @@ async function requestDeposit() {
 
         document.getElementById('confirm_details_modal').style.display = 'block';
         const confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
-        confirmButton.addEventListener("click", async () => { 
+        confirmButton.addEventListener("click", async () => {
+
+                document.getElementById('confirm_details_modal').style.display = 'none';
+                let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+                let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
+
+                confirmDetailsModalContent.classList.add("zoom-out-confirm");
+
+                setTimeout(function () {
+                confirmationDetailsModal.style.display = "none";
+                confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+                }, 500);
     
                 // Prepare request body
                 requestBody = new FormData();
@@ -65,16 +76,6 @@ async function requestDeposit() {
                 alert(response.errorMessage);
                 return;
                 }
-                document.getElementById('confirm_details_modal').style.display = 'none';
-                let confirmationDetailsModal = document.getElementById("confirm_details_modal");
-                let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
-
-                confirmDetailsModalContent.classList.add("zoom-out-confirm");
-
-                setTimeout(function () {
-                confirmationDetailsModal.style.display = "none";
-                confirmDetailsModalContent.classList.remove("zoom-out-confirm");
-                }, 500);
 
                 document.getElementById('transaction_success_modal').style.display = 'block';
                 successMsg = document.querySelector(ID_SUCCESS_DESC);
