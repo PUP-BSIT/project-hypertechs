@@ -1,6 +1,6 @@
 import { 
         postData, getData, getExtBankUrl, genErrorMessage,
-        isLoggedIn, saveRequest
+        isLoggedIn, saveRequest, strToNum 
 } from "./common_new.js";
 
 let ACCOUNT_NUMBER;
