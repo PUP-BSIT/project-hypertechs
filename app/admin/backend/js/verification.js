@@ -3,6 +3,7 @@ import {
   postData,
   sendRequest,
   destroyOTPSession,
+  clearFeedback
 } from "./common_new.js";
 
 const JS_SECOND = 1000;
@@ -27,6 +28,7 @@ const ID_LOADING_EXPIRED = "#loading_expired";
 const ID_LOADING_GET = "#loading_get";
 const ID_CODE_RESEND = "#resend_code";
 const ID_BTN_BACK = "#btn_back";
+const ID_FEEDBACK = "#otp_feedback";
 let TIMEOUT_ID;
 let INTERVAL_ID;
 let OTP;
@@ -163,14 +165,28 @@ async function getOTP() {
 }
 
 async function checkOTPInput() {
-  let OTPInput;
+  let OTPInput, otp1, feedback;
 
   OTPInput = getOTPInput();
   console.log(OTPInput, OTP);
+  feedback = document.querySelector(ID_FEEDBACK);
   if (OTPInput !== OTP) {
-    alert("You have entered an incorrect OTP. Please try again.");
+    feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i>'
+    + 'You have entered an incorrect OTP code. Please try again.';
+
+    document.querySelectorAll('.otp-input').forEach(input => {
+      input.classList.add('error');
+    });
+
+    clearFeedback(feedback);
+    otp1.focus();
     return;
   }
+
+  document.querySelectorAll('.otp-input').forEach(input => {
+    input.classList.remove('error');
+  }); 
+
   setTimer(0);
   await destroyOTPSession();
   showText("OTP_SUCCESS");
