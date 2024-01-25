@@ -5,7 +5,6 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
-const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
 const ID_SUCCESS_DESC = "#success_details_text";
 
 main();
@@ -26,7 +25,8 @@ async function main() {
 }
 
 async function requestWithdraw() {
-        let account, amount, requestBody, url, response, confirmButton, successMsg;
+        let account, amount, requestBody, url, response, successMsg;
+        const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
     
         // Validate Account Number
         account = document.querySelector(ID_ACCOUNT).value;
@@ -41,7 +41,7 @@ async function requestWithdraw() {
         }
 
         document.getElementById('confirm_details_modal').style.display = 'block';
-        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        const confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
         confirmButton.addEventListener("click", async () => { 
     
             requestBody = new FormData();

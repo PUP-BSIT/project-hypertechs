@@ -5,7 +5,6 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
 const ID_BTN_SUBMIT  = "#deposit_submit";
-const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
 const ID_SUCCESS_DESC = "#success_details_text";
 
 main();
@@ -26,7 +25,8 @@ async function main() {
 }
 
 async function requestDeposit() {
-        let account, amount, requestBody, url, response, confirmButton, successMsg;
+        let account, amount, requestBody, url, response, successMsg;
+        const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
     
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
@@ -46,7 +46,7 @@ async function requestDeposit() {
         }
 
         document.getElementById('confirm_details_modal').style.display = 'block';
-        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        const confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
         confirmButton.addEventListener("click", async () => { 
     
                 // Prepare request body
