@@ -1033,7 +1033,8 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   overflow: hidden;
 }
 
-#confirm_transaction_button span {
+#confirm_deposit_button span,
+#confirm_withdraw_button span {
   font-size: 1.3vw;
   margin-left: 0.75vw;
   transition: transform 0.3s ease-in-out;
@@ -1046,7 +1047,8 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   margin-top: 6vh;
 }
 
-.confirm-details-modal-buttons #confirm_transaction_button {
+.confirm-details-modal-buttons #confirm_withdraw_button,
+.confirm-details-modal-buttons #confirm_deposit_button {
   color: #e1e9fa;
   background-color: var(--primary);
   width: 30%;
@@ -1057,12 +1059,13 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   background-color: #bdd3ff;
   width: 20%;
 }
-
-.confirm-details-modal-buttons #confirm_transaction_button:hover {
+.confirm-details-modal-buttons #confirm_withdraw_button:hover,
+.confirm-details-modal-buttons #confirm_deposit_button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.confirm-details-modal-buttons #confirm_transaction_button:hover span {
+.confirm-details-modal-buttons #confirm_withdraw_button:hover span,
+.confirm-details-modal-buttons #confirm_deposit_button:hover span {
   transform: translateX(5px);
 }
 

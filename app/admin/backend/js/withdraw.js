@@ -5,7 +5,7 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
-const ID_CONFIRM_BUTTON ="#confirm_transaction_button";
+const ID_CONFIRM_BUTTON ="#confirm_withdraw_button";
 
 main();
 
