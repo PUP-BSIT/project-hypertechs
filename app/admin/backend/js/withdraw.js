@@ -5,8 +5,8 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
-const ID_CONFIRM_BUTTON = "#confirm_withdraw_button";
-const ID_SUCCESS_DESC = "#withdraw_success_text";
+const ID_CONFIRM_BUTTON = "#confirm_transaction_button";
+const ID_SUCCESS_DESC = "#success_details_text";
 
 main();
 
@@ -59,18 +59,18 @@ async function requestWithdraw() {
                 return;
             }
             
-            document.getElementById('confirm_withdraw_modal').style.display = 'none';
-            let withdrawDetailsModal = document.getElementById("confirm_withdraw_modal");
-            let withdrawDetailsModalContent = document.querySelector(".confirm-withdraw-modal-content");
+            document.getElementById('confirm_details_modal').style.display = 'none';
+            let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+            let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
 
             confirmDetailsModalContent.classList.add("zoom-out-confirm");
 
             setTimeout(function () {
-                withdrawDetailsModal.style.display = "none";
-                withdrawDetailsModalContent.classList.remove("zoom-out-confirm");
+            confirmationDetailsModal.style.display = "none";
+            confirmDetailsModalContent.classList.remove("zoom-out-confirm");
             }, 500);
 
-            document.getElementById('withdraw_success_modal').style.display = 'block';
+            document.getElementById('transaction_success_modal').style.display = 'block';
             successMsg = document.querySelector(ID_SUCCESS_DESC);
             successMsg.innerHTML = "Withdraw Successful!";
 

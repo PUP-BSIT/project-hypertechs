@@ -128,21 +128,3 @@ function closeSuccessPopup() {
     transactionSuccessModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
-
-/* Close Withdraw Success Modal */
-
-function closeWithdrawSuccessPopup() {
-  document.getElementById('withdraw_success_modal').style.display = 'none';
-}
-
-function closeWithdrawSuccessPopup() {
-  let withdrawSuccessModal = document.getElementById("withdraw_success_modal");
-  let withdrawSuccessModalContent = document.querySelector(".withdraw-success-modal-content");
-
-  withdrawSuccessModalContent.classList.add("zoom-out-confirm");
-
-  setTimeout(function () {
-    withdrawSuccessModal.style.display = "none";
-    withdrawSuccessModalContent.classList.remove("zoom-out-confirm");
-  }, 500);
-}

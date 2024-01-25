@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="../../src/css/account/admin_transaction.css?v=13.0" />
+  <link rel="stylesheet" type="text/css" href="../../src/css/account/admin_transaction.css?v=1.1" />
   <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"  />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -636,7 +636,7 @@
           </div>
       </div>
     </div>
-    <!--Confirm Deposit Details Modal-->
+    <!--Confirm Details Modal-->
     <div class="confirm-details-modal" id="confirm_details_modal">
       <div class="confirm-modal-content">
           <div id="confirm_details_heading_container">
@@ -664,35 +664,7 @@
       </div>
   </div>
 
-    <!--Confirm Deposit Details Modal-->
-    <div class="confirm-withdraw-modal" id="confirm_withdraw_modal">
-      <div class="confirm-withdraw-modal-content">
-          <div id="confirm_withdraw_heading_container">
-              <i class="fa-solid fa-circle-check"></i>
-              <p id="withdraw_details_text">Review Details</p>
-          </div>
-          <p id="withdraw_details_desc">Please review the transaction
-              details carefully before proceeding.
-          </p>
-          <p id="withdraw_details_display">
-              <strong>Account Number: </strong>
-                  <span id="display_modal_acc_number"></span><br>
-              <strong>Account Holder Name: </strong>
-                  <span id="display_modal_acc_name"></span><br>
-              <strong>Transfer Amount: </strong>
-                  <span id="display_modal_transfer_amount"></span>
-          </p>
-          <div class="confirm-withdraw-modal-buttons">
-              <button id="cancel_withdraw_button" 
-                  onclick="closeConfirmationDetailsPopup()">Cancel</button>
-              <button id="confirm_withdraw_button">Confirm
-                  <span class="material-icons">send</span>
-              </button>
-          </div>
-      </div>
-  </div>
-
-  <!--Deposit Successful Modal-->
+  <!--Transaction Successful Modal-->
   <div class="transaction-success-modal" id="transaction_success_modal">
     <div class="success-modal-content">
         <div id="transaction_success_heading_container">
@@ -717,36 +689,10 @@
         </div>
     </div>
   </div>
-
-    <!--Withdraw Successful Modal-->
-    <div class="withdraw-success-modal" id="withdraw_success_modal">
-      <div class="withdraw-success-modal-content">
-          <div id="withdraw_success_heading_container">
-              <i class="fa-solid fa-circle-check"></i>
-              <p id="withdraw_success_text">Transaction Successful!</p>
-          </div>
-  
-          <p id="withdraw_success_desc">You have successfully
-            <span id="display_transaction_type">deposit/withdrawn</span>
-            an amount of <strong>&#8369;</strong>
-            <strong><span id="display_modal_transfer_amount">0.00</span></strong>
-            to 
-            <strong>
-              <span id="display_modal_acc_name">Apex User</span>
-              <span id="display_modal_acc_number"> (189912345678)</span>
-            </strong>
-          </p>
-  
-          <div class="withdraw-success-modal-buttons">
-              <button id="close_success_button" 
-                  onclick="closeWithdrawSuccessPopup()">Close</button>
-          </div>
-      </div>
-    </div>
     <script src="../../src/scripts/transaction.js?v=1.5"></script>
     <script src="../../backend/js/admin_logout.js" type="module"></script>
-    <script src="../../backend/js/deposit.js?v=1.4" type="module"></script>
-    <script src="../../backend/js/withdraw.js?v=1.7" type="module"></script>
+    <script src="../../backend/js/deposit.js?v=1.5" type="module"></script>
+    <script src="../../backend/js/withdraw.js?v=1.5" type="module"></script>
     <script src="../../backend/js/admin_account_info.js" type="module"></script>
 </body>
 
