@@ -1238,17 +1238,17 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   width: 20%;
 }
 
-.confirm-details-modal-buttons #confirm_internal_button:hover
+.confirm-details-modal-buttons #confirm_internal_button:hover,
 .external-details-modal-buttons #confirm_external_button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.confirm-details-modal-buttons #confirm_internal_button:hover span
+.confirm-details-modal-buttons #confirm_internal_button:hover span,
 .external-details-modal-buttons #confirm_external_button:hover span {
   transform: translateX(5px);
 }
 
-.confirm-details-modal-buttons #cancel_confirm_button:hover
+.confirm-details-modal-buttons #cancel_confirm_button:hover,
 .external-details-modal-buttons #cancel_confirm_button:hover {
   box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
 }

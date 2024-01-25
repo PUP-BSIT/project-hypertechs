@@ -20,7 +20,7 @@ main();
 
 async function main() {
         let url, loggedIn, btnTransfer, chkExternal, 
-                bankSelect, response;
+                bankSelect, response, confirmButton;
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
