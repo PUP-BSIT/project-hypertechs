@@ -92,3 +92,4 @@ function closeConfirmationPopup() {
     modalContent.classList.remove("zoom-out");
   }, 500); // 500ms should match the animation duration
 }
+
