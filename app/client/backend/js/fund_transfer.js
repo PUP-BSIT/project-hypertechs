@@ -49,7 +49,7 @@ async function requestTransfer() {
                 document.getElementById('transfer_error_modal').style.display = 'block';
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "You have entered an invalid Apex Account"
-                + " Number.";
+                + " number.";
                 return;
         }
         if (!recipient || !amount) {
