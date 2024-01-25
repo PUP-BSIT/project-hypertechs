@@ -96,7 +96,7 @@ async function validateTransfer() {
                 return;
         }
 
-        document.querySelector('#confirm_details_modal').hidden = false;
+        document.querySelector('#external_details_modal').hidden = false;
         confirmAccount = document.querySelector(ID_CONFIRM_ACCOUNT);
         confirmName = document.querySelector(ID_CONFIRM_NAME);
         confirmAmount = document.querySelector(ID_CONFIRM_AMOUNT);

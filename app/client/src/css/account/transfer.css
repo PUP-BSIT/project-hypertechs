@@ -1098,6 +1098,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 }
 
 /* ------- CONFIRM DETAILS STYLING ------- */
+.external-details-modal,
 .confirm-details-modal {
   position: fixed;
   top: 0;
@@ -1107,6 +1108,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.external-modal-content,
 .confirm-modal-content {
   position: absolute;
   top: 50%;
@@ -1148,6 +1150,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   animation: zoomOut 0.5s;
 }
 
+#external_details_heading_container,
 #confirm_details_heading_container {
   display: flex;
   align-items: center;
@@ -1155,34 +1158,39 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   margin-bottom: 3vh;
 }
 
+#external_details_text,
 #confirm_details_text {
   font-size: 2.75vw;
   font-weight: 700;
   color: var(--primary);
 }
 
+.external-modal-content i,
 .confirm-modal-content i {
   font-size: 2.3vw;
   color: var(--primary);
 }
 
+#external_details_desc,
 #confirmation_details_desc {
   font-size: 1.4vw;
   line-height: 1.5;
   margin-bottom: 3vh;
 }
 
+#external_details_display,
 #confirmation_details_display {
   font-size: 1.4vw;
   font-weight: 500;
   line-height: 1.5;
 }
 
+#external_details_display strong,
 #confirmation_details_display strong {
   font-weight: 600;
 }
 
-
+.external-details-modal-buttons button,
 .confirm-details-modal-buttons button {
   display: flex;
   align-items: center;
@@ -1201,44 +1209,45 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   overflow: hidden;
 }
 
+#confirm_external_button span,
 #confirm_transfer_button span {
   font-size: 1.3vw;
   margin-left: 0.75vw;
   transition: transform 0.3s ease-in-out;
 }
 
-.confirm-details-modal-buttons {
+.external-details-modal-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
   margin-top: 6vh;
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button {
+.external-details-modal-buttons #confirm_external_button {
   color: #e1e9fa;
   background-color: var(--primary);
   width: 45%;
 }
 
-.confirm-details-modal-buttons #cancel_confirm_button {
+.external-details-modal-buttons #cancel_confirm_button {
   color: rgb(0, 61, 166);
   background-color: #bdd3ff;
   width: 20%;
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button:hover {
+.external-details-modal-buttons #confirm_external_button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.confirm-details-modal-buttons #confirm_transfer_button:hover span {
+.external-details-modal-buttons #confirm_external_button:hover span {
   transform: translateX(5px);
 }
 
-.confirm-details-modal-buttons #cancel_confirm_button:hover {
+.external-details-modal-buttons #cancel_confirm_button:hover {
   box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
 }
 
-.confirm-details-modal-buttons button:active {
+.external-details-modal-buttons button:active {
   transform: scale(0.9);
 }
 

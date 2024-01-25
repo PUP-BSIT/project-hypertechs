@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=2.1">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=2.2">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -881,16 +881,16 @@
     </div>
 
         <!--Confirm Details Modal-->
-    <div class="confirm-details-modal" id="confirm_details_modal" hidden>
-        <div class="confirm-modal-content" >
-            <div id="confirm_details_heading_container">
+    <div class="external-details-modal" id="external_details_modal" hidden>
+        <div class="external-modal-content" >
+            <div id="external_details_heading_container">
                 <i class="fa-solid fa-circle-check"></i>
-                <p id="confirm_details_text">Review Details</p>
+                <p id="external_details_text">Review Details</p>
             </div>
-            <p id="confirmation_details_desc" >Please review the transfer
+            <p id="external_details_desc" >Please review the transfer
                 details carefully before proceeding with the bank transfer.
             </p>
-            <p id="confirmation_details_display">
+            <p id="external_details_display">
                 <strong>Account Number: </strong>
                     <span id="display_modal_acc_number"></span><br>
                 <strong>Account Holder Name: </strong>
@@ -898,7 +898,7 @@
                 <strong>Transfer Amount: </strong>
                     <span id="display_modal_transfer_amount"></span>
             </p>
-            <div class="confirm-details-modal-buttons">
+            <div class="external-details-modal-buttons">
                 <button id="cancel_confirm_button" 
                     onclick="closeConfirmationDetailsPopup()">Cancel</button>
                 <button id="confirm_external_button">Confirm transfer 2
@@ -926,7 +926,7 @@
     <script src="../../src/scripts/account/transfer.js?v=1.2"></script>
     <script src="../../backend/js/account_info.js?v=1.0" type="module"></script>
     <script src="../../backend/js/fund_transfer.js?v=2.18" type="module"></script>
-    <script src="../../backend/js/fund_transfer_external.js?v=1.61" type="module"></script>
+    <script src="../../backend/js/fund_transfer_external.js?v=1.62" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 
