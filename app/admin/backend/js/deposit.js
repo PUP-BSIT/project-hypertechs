@@ -53,6 +53,8 @@ function validateDeposit() {
 async function requestDeposit() {
 
         let account, amount, requestBody, url, response, confirmButton;
+        account = document.querySelector(ID_ACCOUNT).value;
+        amount = document.querySelector(ID_AMOUNT).value;
 
         // Prepare request body
         requestBody = new FormData();
