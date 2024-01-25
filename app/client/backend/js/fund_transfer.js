@@ -72,7 +72,6 @@ async function validateTransfer() {
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "The recipient account number must be"
                         + " exactly a valid 12-digit Apex account number.";
-                //modalResize.style.height = '80vh';
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
@@ -83,7 +82,6 @@ async function validateTransfer() {
                 errorMsg.innerHTML = "The transfer amount must be up to six" + 
                         " whole digits only, two decimals (if present), " +
                         "and no commas.";
-                modalResize.style.height = '45vh';
                 return;
         }
 
