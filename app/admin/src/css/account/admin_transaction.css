@@ -1073,3 +1073,112 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 .confirm-details-modal-buttons button:active {
   transform: scale(0.9);
 }
+
+/* ------- TRANSACTION SUCCESS STYLING ------- */
+.transaction-success-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.success-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 58vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--modal);
+  padding: 5vh;
+  text-align: justify;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out-confirm {
+  animation: zoomOut 0.5s;
+}
+
+#transaction_success_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+#success_details_text {
+  font-size: 2.75vw;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.success-modal-content i {
+  font-size: 2.3vw;
+  color: var(--primary);
+}
+
+.transaction-success-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.transaction-success-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 6vh;
+}
+
+.transaction-success-modal-buttons #close_success_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 20%;
+}
+
+.transaction-success-modal-buttons #close_success_button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.transaction-success-modal-buttons button:active {
+  transform: scale(0.9);
+}
