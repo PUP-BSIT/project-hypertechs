@@ -10,7 +10,7 @@ const ID_CONFIRM_BUTTON ="#confirm_transaction_button";
 main();
 
 async function main() {
-        let url, loggedIn, btnDeposit, response;
+        let url, loggedIn, btnDeposit, response, confirmButton;
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
@@ -21,12 +21,15 @@ async function main() {
         ACCOUNT_NUMBER = response.adminId;
         console.log(ACCOUNT_NUMBER);
         btnDeposit = document.querySelector(ID_BTN_SUBMIT);
-        btnDeposit.addEventListener("click", requestDeposit);
+        btnDeposit.addEventListener("click", validateDeposit);
+
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", requestDeposit);
 }
 
-async function requestDeposit() {
+function validateDeposit() {
         let account, amount, requestBody, url, response, confirmButton;
-    
+
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
                 alert("Invalid input. Please enter a valid " +
@@ -45,28 +48,31 @@ async function requestDeposit() {
         }
 
         document.getElementById('confirm_details_modal').style.display = 'block';
-        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
-        confirmButton.addEventListener("click", async () => {
-                // Prepare request body
-                requestBody = new FormData();
-                requestBody.append('account_number', account);
-                requestBody.append('amount', amount);
-                requestBody.append('admin_id', ACCOUNT_NUMBER);
+}
 
-                // Make deposit request
-                url = "/app/admin/backend/php/deposit.php";
-                response = await postData(url, requestBody);
-                console.log(response);
+async function requestDeposit() {
 
-                // Handle response
-                if (!response.success) {
+        let account, amount, requestBody, url, response, confirmButton;
+
+        // Prepare request body
+        requestBody = new FormData();
+        requestBody.append('account_number', account);
+        requestBody.append('amount', amount);
+        requestBody.append('admin_id', ACCOUNT_NUMBER);
+
+        // Make deposit request
+        url = "/app/admin/backend/php/deposit.php";
+        response = await postData(url, requestBody);
+        console.log(response);
+
+        // Handle response
+        if (!response.success) {
                 alert(response.errorMessage);
                 return;
-                }
-                alert("Deposit successful!");
-        });
+        }
+        alert("Deposit successful!");
 }
-    
+ 
 function isValidAccountNumber(account) {
         // 12 digits with no spaces or non-numeric characters
         return /^\d{12}$/.test(account);
