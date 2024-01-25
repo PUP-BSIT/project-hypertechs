@@ -10,6 +10,7 @@ const ID_AMOUNT = "#transfer-amount-external";
 const ID_BANK_CODE= "#external-bank-code";
 const ID_TRANSFER_BUTTON = "#submit_external";
 const ID_CONFIRM_BUTTON = "#confirm_transfer_button";
+const ID_ERROR_DESC = "#transfer_error_desc";
 
 main();
 
@@ -30,7 +31,8 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, data, confirmButton;
+                requestBody, redirectURL, data, confirmButton,  errorMsg,
+                modalResize;
         
 /*
         redirectURL = "http://localhost/app/client/pages/account/" +
@@ -44,20 +46,35 @@ async function requestTransfer() {
         bankCode = document.querySelector(ID_BANK_CODE).value;
         console.log(source, recipient);
         if (recipient === source) {
-                alert("Invalid account number.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "You have entered an invalid account"
+                + " Number.";
                 return;
         }
         if (!recipient || !amount || !bankCode) {
-                alert("Please fill out all the required fields.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Please fill out all the required fields"
+                + " to proceed.";
                 return;
         }
         if (parseFloat(amount) === 0) {
-                alert("Transfer amount cannot be 0.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount cannot be zero."
+                + " Please try again.";
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
-                alert("Amount should be up to six digits " +
-                        "with exactly two decimals and no commas.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                modalResize = document.querySelector('.transfer-error-modal-content');
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount must be up to six"
+                + " whole digits only, two decimals (if present), and no commas.";
+                
+                modalResize.style.height = '45vh';
+
                 return;
         }
 
