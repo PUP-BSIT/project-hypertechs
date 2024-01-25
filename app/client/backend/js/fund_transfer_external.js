@@ -11,9 +11,9 @@ const ID_BANK_CODE= "#external-bank-code";
 const ID_TRANSFER_BUTTON = "#submit_external";
 const ID_CONFIRM_BUTTON = "#confirm_external_button";
 const ID_ERROR_DESC = "#transfer_error_desc";
-const ID_CONFIRM_ACCOUNT = "#display_modal_acc_number";
-const ID_CONFIRM_NAME = "#display_modal_acc_name";
-const ID_CONFIRM_AMOUNT = "#display_modal_transfer_amount";
+const ID_CONFIRM_ACCOUNT = "#display_modal_acc_number_external";
+const ID_CONFIRM_NAME = "#display_modal_acc_name_external";
+const ID_CONFIRM_AMOUNT = "#display_modal_transfer_amount_external";
 
 
 main();
