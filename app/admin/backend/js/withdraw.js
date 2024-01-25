@@ -5,11 +5,12 @@ const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
+const ID_CONFIRM_BUTTON ="#confirm_transaction_button";
 
 main();
 
 async function main() {
-        let url, loggedIn, btnDeposit, response;
+        let url, loggedIn, btnDeposit, response, confirmButton;
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
@@ -20,10 +21,13 @@ async function main() {
         ACCOUNT_NUMBER = response.adminId;
         console.log(ACCOUNT_NUMBER);
         btnDeposit = document.querySelector(ID_BTN_SUBMIT);
-        btnDeposit.addEventListener("click", requestWithdraw);
+        btnDeposit.addEventListener("click", validateWithdraw);
+
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", requestWithdraw);
 }
 
-async function requestWithdraw() {
+function validateWithdraw() {
         let account, amount, requestBody, url, response;
     
         // Validate Account Number
@@ -31,19 +35,30 @@ async function requestWithdraw() {
         if (!validateAccountNumber(account)) {
             return;
         }
-    
-        // Validate Amount
+
+           // Validate Amount
         amount = document.querySelector(ID_AMOUNT).value;
         if (!validateAmount(amount)) {
             return;
         }
-    
+        
+        document.getElementById('confirm_details_modal').style.display = 'block';
+
+}
+
+async function requestWithdraw() {
+
+        let account, amount, requestBody, url, response, confirmButton;
+        
+        account = document.querySelector(ID_ACCOUNT).value;
+        amount = document.querySelector(ID_AMOUNT).value;
+
         requestBody = new FormData();
         requestBody.append('account_number', account);
         requestBody.append('amount', amount);
         requestBody.append('admin_id', ACCOUNT_NUMBER);
         url = "/app/admin/backend/php/withdraw.php";
-    
+
         // Send request if all validations pass
         response = await postData(url, requestBody);
         console.log(response);
@@ -54,6 +69,7 @@ async function requestWithdraw() {
         }
         
         alert("Withdraw successful!");
+
 }
     
 function validateAccountNumber(account) {
