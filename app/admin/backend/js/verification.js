@@ -152,13 +152,15 @@ function renewOTP() {
 }
 
 async function getOTP() {
-  let url, data, OTPInput;
+  let url, data, OTPInput, otp1;
 
   console.log("getOTP");
   url = "../backend/php/otp.php";
   data = await getData(url);
   console.log(data);
   showText("OTP_VERIFY");
+  otp1 = document.querySelector(ID_OTP_1);
+  otp1.focus();
   OTP = data.otp;
   setTimer(data.time);
   OTPInput = getOTPInput();
@@ -179,6 +181,7 @@ async function checkOTPInput() {
     });
 
     clearFeedback(feedback);
+    otp1 = document.querySelector(ID_OTP_1);
     otp1.focus();
     return;
   }
