@@ -1210,7 +1210,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 }
 
 #confirm_external_button span,
-#confirm_transfer_button span {
+#confirm_internal_button span {
   font-size: 1.3vw;
   margin-left: 0.75vw;
   transition: transform 0.3s ease-in-out;
