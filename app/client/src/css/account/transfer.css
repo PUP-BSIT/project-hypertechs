@@ -1099,7 +1099,6 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 
 /* ------- CONFIRM DETAILS STYLING ------- */
 .confirm-details-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1245,7 +1244,6 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 
 /* ------- TRANSFER ERROR MODAL STYLING ------- */
 .transfer-error-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1259,7 +1257,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   top: 50%;
   left: 50%;
   width: 40vw;
-  height: 40vh;
+  min-height: 40vh;
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);

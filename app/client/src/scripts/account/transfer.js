@@ -74,10 +74,11 @@ function closeConfirmationPopup() {
   }, 500); // 500ms should match the animation duration
 }
 
+/*
 function closeConfirmationDetailsPopup() {
   document.getElementById('confirm_details_modal').style.display = 'none';
 }
-
+*/
 function closeConfirmationDetailsPopup() {
   let confirmationDetailsModal = document.getElementById("confirm_details_modal");
   let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
@@ -85,15 +86,17 @@ function closeConfirmationDetailsPopup() {
   confirmDetailsModalContent.classList.add("zoom-out-confirm");
 
   setTimeout(function () {
-    confirmationDetailsModal.style.display = "none";
+    confirmationDetailsModal.hidden = true;
     confirmDetailsModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
 
 /* Close Transfer Error Modal */
+/*
 function closeTransferError() {
   document.getElementById('transfer_error_modal').style.display = 'none';
 }
+*/
 
 function closeTransferError() {
   let transferErrorModal = document.getElementById("transfer_error_modal");
@@ -102,7 +105,7 @@ function closeTransferError() {
   transferErrorModalContent.classList.add("zoom-out-confirm");
 
   setTimeout(function () {
-    transferErrorModal.style.display = "none";
+    transferErrorModal.hidden = true; 
     transferErrorModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }

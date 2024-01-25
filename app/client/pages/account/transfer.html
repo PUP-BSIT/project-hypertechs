@@ -853,13 +853,13 @@
     </div>
 
     <!--Confirm Details Modal-->
-    <div class="confirm-details-modal" id="confirm_details_modal">
-        <div class="confirm-modal-content">
+    <div class="confirm-details-modal" id="confirm_details_modal" hidden>
+        <div class="confirm-modal-content" >
             <div id="confirm_details_heading_container">
                 <i class="fa-solid fa-circle-check"></i>
                 <p id="confirm_details_text">Review Details</p>
             </div>
-            <p id="confirmation_details_desc">Please review the transfer
+            <p id="confirmation_details_desc" >Please review the transfer
                 details carefully before proceeding with the bank transfer.
             </p>
             <p id="confirmation_details_display">
@@ -868,7 +868,7 @@
                 <strong>Account Holder Name: </strong>
                     <span id="display_modal_acc_name"></span><br>
                 <strong>Transfer Amount: </strong>
-                    <span id="display_modal_transfer-amount"></span>
+                    <span id="display_modal_transfer_amount"></span>
             </p>
             <div class="confirm-details-modal-buttons">
                 <button id="cancel_confirm_button" 
@@ -881,7 +881,7 @@
     </div>
 
     <!-- Transfer Error Modal-->
-    <div class="transfer-error-modal" id="transfer_error_modal">
+    <div class="transfer-error-modal" id="transfer_error_modal" hidden>
         <div class="transfer-error-modal-content">
             <div id="transfer_error_heading_container">
                 <i class="fa-solid fa-circle-exclamation"></i>
@@ -897,7 +897,7 @@
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/transfer.js?v=1.2"></script>
     <script src="../../backend/js/account_info.js?v=1.0" type="module"></script>
-    <script src="../../backend/js/fund_transfer.js?v=2.6" type="module"></script>
+    <script src="../../backend/js/fund_transfer.js?v=2.14" type="module"></script>
     <script src="../../backend/js/fund_transfer_external.js?v=1.4" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
