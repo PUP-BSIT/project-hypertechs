@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transfer.css?v=13.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -95,7 +95,7 @@
                                 Transfer Amount:</label>
                             <input type="text" id="transfer-amount" name="transfer-amount" required pattern="^\d{1,6}(\.\d{2})?$" 
                             maxlength="9"    
-                            placeholder="Enter amount (up to six whole digits only)">
+                            placeholder="Up to six whole digits only, no commas">
                          
                         </div>
 
@@ -108,8 +108,7 @@
                         </div>
 
                         <div class="transfer-buttons">
-                            <button type="button" id="submit_fund_transfer">Confirm Transfer<span
-                                    class="material-icons">send</span></button>
+                            <button type="button" id="submit_fund_transfer">Submit</button>
                             <button type="reset" id="reset">Clear</button>
                         </div>
 
@@ -145,13 +144,12 @@
                             <input type="text" id="transfer-amount-external" name="transfer-amount" required
                                 pattern="^\d{1,6}(\.\d{2})?$"
                                 maxlength="9"
-                                placeholder="Enter amount (up to six whole digits only)">
+                                placeholder="Up to six whole digits only, no commas">
                         </div>
 
                         <div class="transfer-buttons">
-                            <button type="button" id="submit_external">Confirm Transfer<span
-                                    class="material-icons">send</span></button>
-                            <button type="reset" id="reset">Reset</button>
+                            <button type="button" id="submit_external">Submit</button>
+                            <button type="reset" id="reset">Clear</button>
                         </div>
                     </form>
                 </div>
@@ -161,8 +159,8 @@
             <div class="transfer-side"><!--Transfer right side-->
                 <div id="transfer_mini_account">
                     <div id="transfer_mini_account_text">
-                        <h3 id="display_mini_account_text">Apex User</h3>
-                        <h4> Account Holder</h4>
+                        <h3 id="display_mini_account_text">Apex Bank User</h3>
+                        <h4>Account Balance: &#8369 <span id="display_mini_account_balance">0.00</span></h4>
                     </div>
                     <div id="transfer_mini_account_image">
                         <img src="../../assets/img/user.png">
@@ -839,7 +837,7 @@
         <div class="modal-content">
             <div id="logout_heading_container">
                 <span class="material-icons">logout</span>
-                <p id="logout_text">Log Out Confirmation</p>
+                <p id="logout_text">Log Out</p>
             </div>
             <p id="confirmation_text">Logging out will end the current session 
                 and require reauthentication to access your account again. 
@@ -853,11 +851,54 @@
             </div>
         </div>
     </div>
+
+    <!--Confirm Details Modal-->
+    <div class="confirm-details-modal" id="confirm_details_modal">
+        <div class="confirm-modal-content">
+            <div id="confirm_details_heading_container">
+                <i class="fa-solid fa-circle-check"></i>
+                <p id="confirm_details_text">Review Details</p>
+            </div>
+            <p id="confirmation_details_desc">Please review the transfer
+                details carefully before proceeding with the bank transfer.
+            </p>
+            <p id="confirmation_details_display">
+                <strong>Account Number: </strong>
+                    <span id="display_modal_acc_number"></span><br>
+                <strong>Account Holder Name: </strong>
+                    <span id="display_modal_acc_name"></span><br>
+                <strong>Transfer Amount: </strong>
+                    <span id="display_modal_transfer-amount"></span>
+            </p>
+            <div class="confirm-details-modal-buttons">
+                <button id="cancel_confirm_button" 
+                    onclick="closeConfirmationDetailsPopup()">Cancel</button>
+                <button id="confirm_transfer_button">Confirm transfer
+                    <span class="material-icons">send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transfer Error Modal-->
+    <div class="transfer-error-modal" id="transfer_error_modal">
+        <div class="transfer-error-modal-content">
+            <div id="transfer_error_heading_container">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p id="transfer_error_text">Warning</p>
+            </div>
+            <p id="transfer_error_desc">This is a sample warning message from Apex Bank.</p>
+            <div class="transfer-error-modal-buttons">
+                <button id="try_again_button"
+                    onclick="closeTransferError()">Try Again</button>
+            </div>
+        </div>
+    </div>
     <script src="../../src/scripts/theme.js"></script>
-    <script src="../../src/scripts/account/transfer.js"></script>
-    <script src="../../backend/js/account_info.js" type="module"></script>
-    <script src="../../backend/js/fund_transfer.js?v=1.0" type="module"></script>
-    <script src="../../backend/js/fund_transfer_external.js" type="module"></script>
+    <script src="../../src/scripts/account/transfer.js?v=1.2"></script>
+    <script src="../../backend/js/account_info.js?v=1.0" type="module"></script>
+    <script src="../../backend/js/fund_transfer.js?v=2.6" type="module"></script>
+    <script src="../../backend/js/fund_transfer_external.js?v=1.4" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 

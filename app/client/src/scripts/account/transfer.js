@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   transferContainer.classList.add("fade-in");
 });
 
-/* Modal settings */
+/* Logout Modal settings */
 function openConfirmationPopup() {
   // Display the modal
   document.getElementById('confirmationModal').style.display = 'block';
@@ -60,8 +60,8 @@ function closeConfirmationPopup() {
 }
 
 function closeConfirmationPopup() {
-  var confirmationModal = document.getElementById("confirmationModal");
-  var modalContent = document.querySelector(".modal-content");
+  let confirmationModal = document.getElementById("confirmationModal");
+  let modalContent = document.querySelector(".modal-content");
 
   // Add the zoom-out class
   modalContent.classList.add("zoom-out");
@@ -72,4 +72,37 @@ function closeConfirmationPopup() {
     // Remove the zoom-out class to reset for the next time
     modalContent.classList.remove("zoom-out");
   }, 500); // 500ms should match the animation duration
+}
+
+function closeConfirmationDetailsPopup() {
+  document.getElementById('confirm_details_modal').style.display = 'none';
+}
+
+function closeConfirmationDetailsPopup() {
+  let confirmationDetailsModal = document.getElementById("confirm_details_modal");
+  let confirmDetailsModalContent = document.querySelector(".confirm-modal-content");
+
+  confirmDetailsModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    confirmationDetailsModal.style.display = "none";
+    confirmDetailsModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}
+
+/* Close Transfer Error Modal */
+function closeTransferError() {
+  document.getElementById('transfer_error_modal').style.display = 'none';
+}
+
+function closeTransferError() {
+  let transferErrorModal = document.getElementById("transfer_error_modal");
+  let transferErrorModalContent = document.querySelector(".transfer-error-modal-content");
+
+  transferErrorModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    transferErrorModal.style.display = "none";
+    transferErrorModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
 }

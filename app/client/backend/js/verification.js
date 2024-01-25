@@ -171,12 +171,22 @@ async function checkOTPInput() {
         console.log(OTPInput, OTP);
         feedback = document.querySelector(ID_FEEDBACK);
         if(OTPInput !== OTP) {
-                feedback.innerHTML = "You have entered an incorrect OTP. " + 
-                "Please try again.";
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i>'
+                + 'You have entered an incorrect OTP code. Please try again.';
+
+                document.querySelectorAll('.otp-input').forEach(input => {
+                        input.classList.add('error');
+                });
+
                 clearFeedback(feedback);
                 otp1.focus();
                 return;
         }
+
+        document.querySelectorAll('.otp-input').forEach(input => {
+                input.classList.remove('error');
+        });
+
         setTimer(0);
         await destroyOTPSession();
         showText("OTP_SUCCESS");

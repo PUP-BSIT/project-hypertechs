@@ -22,6 +22,7 @@
   --destruct: #b60000;
   --ball: #cee0ff;
   --close: #a80404;
+  --modal: #d7e4fb;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -34,6 +35,7 @@
   --destruct: #b30000;
   --ball: #2d73fe;
   --close: #b80000;
+  --modal: #0d1c3f;
 }
 
 * {
@@ -469,6 +471,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   color: var(--text);
+  margin-top: 0.5vh;
 }
 
 #transfer_mini_account_text {
@@ -481,7 +484,7 @@ body {
 }
 
 #transfer_mini_account_text h4 {
-  font-size: 1.25vw;
+  font-size: 1.3vw;
   font-weight: 400;
 }
 
@@ -968,7 +971,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   display: none;
 }
 
-/* ------- MODAL STYLING ------- */
+/* ------- LOGOUT STYLING ------- */
 .logout-acc-modal {
   display: none;
   position: fixed;
@@ -988,8 +991,8 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
-  background-color: var(--backdrop);
-  padding: 4vh;
+  background-color: var(--modal);
+  padding: 5vh;
   text-align: justify;
   animation: zoomIn 0.5s;
 }
@@ -1034,7 +1037,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 }
 
 #logout_text {
-  font-size: 2.5vw;
+  font-size: 2.75vw;
   font-weight: 700;
   color: var(--text);
 }
@@ -1053,7 +1056,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   border-radius: 0.5vw;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -1067,7 +1070,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 7vh;
+  margin-top: 6vh;
 }
 
 .logout-acc-modal-buttons #cancel_button {
@@ -1079,7 +1082,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 .logout-acc-modal-buttons #confirm_logout_button {
   color: #fcf6f6;
   background-color: var(--close);
-  width: 50%;
+  width: 40%;
 }
 
 .logout-acc-modal-buttons #cancel_button:hover {
@@ -1091,5 +1094,267 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 }
 
 .logout-acc-modal-buttons button:active {
+  transform: scale(0.9);
+}
+
+/* ------- CONFIRM DETAILS STYLING ------- */
+.confirm-details-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.confirm-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 58vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--modal);
+  padding: 5vh;
+  text-align: justify;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out-confirm {
+  animation: zoomOut 0.5s;
+}
+
+#confirm_details_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+#confirm_details_text {
+  font-size: 2.75vw;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.confirm-modal-content i {
+  font-size: 2.3vw;
+  color: var(--primary);
+}
+
+#confirmation_details_desc {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 3vh;
+}
+
+#confirmation_details_display {
+  font-size: 1.4vw;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#confirmation_details_display strong {
+  font-weight: 600;
+}
+
+
+.confirm-details-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+#confirm_transfer_button span {
+  font-size: 1.3vw;
+  margin-left: 0.75vw;
+  transition: transform 0.3s ease-in-out;
+}
+
+.confirm-details-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 6vh;
+}
+
+.confirm-details-modal-buttons #confirm_transfer_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 45%;
+}
+
+.confirm-details-modal-buttons #cancel_confirm_button {
+  color: rgb(0, 61, 166);
+  background-color: #bdd3ff;
+  width: 20%;
+}
+
+.confirm-details-modal-buttons #confirm_transfer_button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.confirm-details-modal-buttons #confirm_transfer_button:hover span {
+  transform: translateX(5px);
+}
+
+.confirm-details-modal-buttons #cancel_confirm_button:hover {
+  box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
+}
+
+.confirm-details-modal-buttons button:active {
+  transform: scale(0.9);
+}
+
+/* ------- TRANSFER ERROR MODAL STYLING ------- */
+.transfer-error-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.transfer-error-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 40vh;
+  border-radius: 1em;
+  color: var(--text);
+  transform: translate(-50%, -50%);
+  background-color: var(--modal);
+  padding: 5vh;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+.zoom-out-confirm {
+  animation: zoomOut 0.5s;
+}
+
+#transfer_error_heading_container {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+
+#transfer_error_text {
+  font-size: 2.75vw;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.transfer-error-modal-content i {
+  font-size: 2.3vw;
+  color: var(--primary);
+}
+
+#transfer_error_desc {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  margin-bottom: 5vh;
+  text-align: justify;
+}
+
+.transfer-error-modal-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3vw;
+  border-radius: 0.5vw;
+  color: #e1e9fa;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.transfer-error-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5vw;
+  margin-top: 8vh;
+}
+
+
+.transfer-error-modal-buttons #try_again_button {
+  color: #e1e9fa;
+  background-color: var(--primary);
+  width: 25%;
+}
+
+.transfer-error-modal-buttons #try_again_button:hover {
+  box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
+}
+
+.transfer-error-modal-buttons button:active {
   transform: scale(0.9);
 }

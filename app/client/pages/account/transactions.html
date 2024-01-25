@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../../src/css/account/transactions.css?v=2.0">
+    <link rel="stylesheet" type="text/css" href="../../src/css/account/transactions.css?v=15.0">
     <link rel="icon" href="../../assets/img/apex_brand.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -66,8 +66,8 @@
                 <!--Mini account-->
                 <div id="transactions_mini_account">
                     <div id="transactions_mini_account_text">
-                        <h3 id="display_mini_account_text">Apex User</h3>
-                        <h4> Account Holder</h4>
+                        <h3 id="display_mini_account_text">Apex Bank User</h3>
+                        <h4>Account Balance: &#8369 <span id="display_mini_account_balance">0.00</span></h4>
                     </div>
                     <div id="transactions_mini_account_image">
                         <img src="../../assets/img/user.png">
@@ -79,7 +79,7 @@
             <div id="transaction_container_two">
                 <div class="transaction-type-options">
                     <div class="transaction-filter-by-type">
-                        <label for="transaction-type">Filter by Type:</label>
+                        <label for="transaction-type">Filter by:</label>
                         <select id="transaction-type">
                             <option value="all">All Transactions</option>
                             <option value="internal">Internal Transfer</option>
@@ -91,13 +91,20 @@
                     <div class="transaction-filter-by-date">
                         <label for="start-date">Start Date:</label>
                         <input type="date" id="start-date" name="start-date">
-                        <span>to</span>
                         <label for="end-date">End Date:</label>
                         <input type="date" id="end-date" name="end-date">
                     </div>
-                    <button id="btn_filter" type="button">Go</button>
-                </div>
 
+                    <div class="transaction-filter-buttons">
+                        <div class="transaction_filter_activate">
+                            <button id="btn_filter" type="button">Apply</button>
+                        </div>
+                        <div class="transaction-reset-filter">
+                            <button id="btn_reset" type="button">Clear</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Container Three-->
@@ -105,7 +112,7 @@
                 <table id="transaction_table">
                     <thead>
                         <tr>
-                            <th>Account Holder Name</th>
+                            <th>Account Name</th>
                             <th>Account Num</th>
                             <th>Transaction ID</th>
                             <th>Type</th>
@@ -127,7 +134,7 @@
         <div class="modal-content">
             <div id="logout_heading_container">
                 <span class="material-icons">logout</span>
-                <p id="logout_text">Log Out Confirmation</p>
+                <p id="logout_text">Log Out</p>
             </div>
             <p id="confirmation_text">Logging out will end the current session
                 and require reauthentication to access your account again.
@@ -143,7 +150,7 @@
     <script src="../../backend/js/account_info.js" type="module"></script>
     <script src="../../src/scripts/account/transactions.js"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
-    <script src="../../backend/js/account_transaction.js" type="module"></script>
+    <script src="../../backend/js/account_transaction.js?v=1.0" type="module"></script>
 </body>
 
 </html>

@@ -23,6 +23,9 @@
   --destruct: #b60000;
   --ball: #cee0ff;
   --close: #a80404;
+  --modal: #d7e4fb;
+  --filter: #ccddfb;
+  --clear: #008000;
 }
 :root[data-theme="dark"] {
   --text: #eff1f5;
@@ -35,6 +38,9 @@
   --destruct: #b30000;
   --ball: #2d73fe;
   --close: #b80000;
+  --modal: #0d1c3f;
+  --filter: #0e2250;
+  --clear: #009500;
 }
 
 * {
@@ -250,7 +256,6 @@ body {
 
 #transactions_mini_account_text {
   text-align: end;
-  margin-bottom: 0.5vw;
 }
 
 #transactions_mini_account_text h3 {
@@ -259,13 +264,12 @@ body {
 }
 
 #transactions_mini_account_text h4 {
-  font-size: 1.25vw;
+  font-size: 1.3vw;
   font-weight: 400;
 }
 
 #transactions_mini_account_image {
   width: 3.5vw;
-  margin-bottom: 0.5vw;
   margin-left: 1.45em;
 }
 
@@ -278,43 +282,88 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2vh;
+  margin-top: 3vh;
   font-size: 1.2vw;
   font-weight: 500;
 }
 
 .transaction-type-options {
   display: flex;
-  gap: 2vw
+  gap: 1.5vw
 }
 
 .transaction-type-options label {
+  font-size: 1.3vw;
   margin-right: 0.5vw;
 }
 
 .transaction-type-options select,
 .transaction-type-options input {
-  height: 2.3vw;
+  height: 2.5vw;
+  width: 12vw;
   padding: 0.3vw;
+  padding-left: 0.2vw;
   font-size: 1.2vw;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   color: var(--text);
-  background-color: var(--backdrop);
+  background-color: var(--filter);
   cursor: pointer;
 }
 
-.transaction-filter-by-date span {
-  margin: 0vw 0.5vw;
+.transaction-filter-buttons {
+  display: flex;
+  gap: 1vw;
+}
+
+.transaction-filter-by-date input {
+  margin-right: 0.75vw;
+  width: 11vw;
+}
+
+.transaction-reset-filter button,
+.transaction_filter_activate button {
+  height: 2.5vw;
+  width: 5.75vw;
+  cursor: pointer;
+  color: #e1e9fa;
+  font-size: 1.3vw;
+  font-weight: 500;
+  border-radius: 0.5em;
+  background-color: var(--primary);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.transaction-reset-filter button {
+  width: 5vw;
+  background-color: var(--clear);
+}
+
+.transaction_filter_activate button:hover {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
+}
+
+.transaction-reset-filter button:hover {
+  box-shadow: 0 0 15px rgba(0, 165, 14, 0.5);
+}
+
+.transaction_filter_activate button:active {
+  transform: scale(0.9);
+}
+
+/* Remove the black border on focus */
+input:focus, select:focus {
+  outline: 2px solid var(--primary);
 }
 
 /* ----- CONTAINER TWO THREE ----- */
 #transaction_container_three {
-  margin-top: 3vh;
+  margin-top: 3.5vh;
   font-size: 1.1vw;
   border-radius: 0.5em;
   background-color: var(--backdrop);
-  max-height: 70vh;
-  overflow-x: auto; /* Corrected placement */
+  max-height: 67vh;
+  overflow-x: auto;
 }
 
 #transaction_table {
@@ -330,7 +379,10 @@ body {
   background-color: var(--primary);
   position: sticky;
   top: 0;
-  z-index: 2;
+}
+
+#transaction_table td:nth-child(6) {
+  width: 15%;
 }
 
 #transaction_table td {
@@ -339,14 +391,17 @@ body {
 }
 
 #transaction_table tr {
-  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2); /* Use border-bottom for row borders */
+  border-bottom: 0.05em solid rgba(0, 89, 255, 0.2);
 }
 
 #transaction_table tr:last-child {
-  border-bottom: none; /* Remove border for the last row to prevent extra space */
+  border-bottom: none; /* Remove border for the last row */
 }
 
-
+/* Style the scrollbar */
+#transaction_container_three::-webkit-scrollbar {
+  width: 0px;
+}
 
 /* ------- MODAL STYLING ------- */
 .logout-acc-modal {
@@ -368,8 +423,8 @@ body {
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
-  background-color: var(--backdrop);
-  padding: 4vh;
+  background-color: var(--modal);
+  padding: 5vh;
   text-align: justify;
   animation: zoomIn 0.5s;
 }
@@ -414,7 +469,7 @@ body {
 }
 
 #logout_text {
-  font-size: 2.5vw;
+  font-size: 2.75vw;
   font-weight: 700;
   color: var(--text);
 }
@@ -433,7 +488,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   border-radius: 0.5vw;
   color: #e1e9fa;
   background-color: var(--primary);
@@ -447,7 +502,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 1.5vw;
-  margin-top: 7vh;
+  margin-top: 6vh;
 }
 
 .logout-acc-modal-buttons #cancel_button {
@@ -459,7 +514,7 @@ body {
 .logout-acc-modal-buttons #confirm_logout_button {
   color: #fcf6f6;
   background-color: var(--close);
-  width: 50%;
+  width: 40%;
 }
 
 .logout-acc-modal-buttons #cancel_button:hover {
@@ -531,3 +586,4 @@ body {
 .fa-sun {
   color: #042c8b;
 }
+

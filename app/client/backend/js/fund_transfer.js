@@ -9,6 +9,8 @@ const ID_RECIPIENT = "#recipient-account-number";
 const ID_AMOUNT = "#transfer-amount";
 const ID_TRANSFER_BUTTON = "#submit_fund_transfer";
 const ID_DESCRIPTION = "#transfer-description";
+const ID_CONFIRM_BUTTON = "#confirm_transfer_button";
+const ID_ERROR_DESC = "#transfer_error_desc";
 
 main();
 
@@ -29,7 +31,8 @@ async function main() {
 
 async function requestTransfer() {
         let amount, recipient, source, url, bankCode, chkExternal, bankSelect,
-                requestBody, redirectURL, description;
+                requestBody, redirectURL, description, confirmButton, errorMsg,
+                modalResize;
         
         redirectURL = "https://apexapp.tech/app/client/pages/account/" +
                 "fund_transfer_result.php";
@@ -43,35 +46,61 @@ async function requestTransfer() {
         source = ACCOUNT_NUMBER;
         console.log(source, recipient);
         if (recipient === source) {
-                alert("Invalid account number.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "You have entered an invalid Apex Account"
+                + " number.";
                 return;
         }
         if (!recipient || !amount) {
-                alert("Please fill out all the required fields.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Please fill out all the required fields"
+                + " to proceed.";
                 return;
         }
         if (parseFloat(amount) === 0) {
-                alert("Transfer amount cannot be 0.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount cannot be zero.";
                 return;
         }
         if (!/^\d{12}$/.test(recipient)) {
-                alert("Account number should contain exactly 12 digits.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                modalResize = document.querySelector('.transfer-error-modal-content');
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The recipient account number must be"
+                + " exactly a valid 12-digit Apex account number.";
+
+                modalResize.style.height = '45vh';
+
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
-                alert("Amount should be up to six digits " +
-                        "with exactly two decimal digits and no commas.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                modalResize = document.querySelector('.transfer-error-modal-content');
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount must be up to six"
+                + " whole digits only, two decimals (if present), and no commas.";
+                
+                modalResize.style.height = '45vh';
+
                 return;
         }
-        requestBody = new FormData();
-        url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
-/*
-        url = "http://localhost/app/client/backend/api/fund-transfer.php";
-*/
-        requestBody.append('redirect_url', redirectURL); 
-        requestBody.append('transaction_amount', amount);
-        requestBody.append('source_account_no', source);
-        requestBody.append('recipient_account_no', recipient);
-        requestBody.append('description', description);
-        await postData(url, requestBody);
+
+        document.getElementById('confirm_details_modal').style.display = 'block';
+        confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
+        confirmButton.addEventListener("click", async () => {
+                requestBody = new FormData();
+                url = "https://apexapp.tech/app/client/backend/api/fund-transfer.php";
+                /*
+                url = "http://localhost/app/client/backend/api/fund-transfer.php";
+                */
+                requestBody.append('redirect_url', redirectURL); 
+                requestBody.append('transaction_amount', amount);
+                requestBody.append('source_account_no', source);
+                requestBody.append('recipient_account_no', recipient);
+                requestBody.append('description', description);
+                await postData(url, requestBody);
+        });
 }
