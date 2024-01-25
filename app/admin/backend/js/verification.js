@@ -181,8 +181,6 @@ async function checkOTPInput() {
     });
 
     clearFeedback(feedback);
-    otp1 = document.querySelector(ID_OTP_1);
-    otp1.focus();
     return;
   }
 
