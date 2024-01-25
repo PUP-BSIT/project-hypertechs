@@ -1297,7 +1297,6 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 #transfer_error_heading_container {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1vw;
   margin-bottom: 3vh;
 }
@@ -1317,7 +1316,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   font-size: 1.4vw;
   line-height: 1.5;
   margin-bottom: 5vh;
-  text-align: center;
+  text-align: justify;
 }
 
 .transfer-error-modal-buttons button {

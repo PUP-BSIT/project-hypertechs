@@ -47,24 +47,36 @@ async function requestTransfer() {
         if (recipient === source) {
                 document.getElementById('transfer_error_modal').style.display = 'block';
                 errorMsg = document.querySelector(ID_ERROR_DESC);
-                errorMsg.innerHTML = "Invalid Apex Account Number";
+                errorMsg.innerHTML = "You have entered an invalid Apex Account"
+                + " Number";
                 return;
         }
         if (!recipient || !amount) {
-                alert("Please fill out all the required fields.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Please fill out all the required fields"
+                + " to proceed.";
                 return;
         }
         if (parseFloat(amount) === 0) {
-                alert("Transfer amount cannot be 0.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount cannot be zero."
+                + " Please try again.";
                 return;
         }
         if (!/^\d{12}$/.test(recipient)) {
-                alert("Account number should contain exactly 12 digits.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The recipient account number must be"
+                + " exactly 12-digit Apex account number.";
                 return;
         }
         if (!/^\d{1,6}(\.\d{2})?$/.test(amount)) {
-                alert("Amount should be up to six digits " +
-                        "with exactly two decimals and no commas.");
+                document.getElementById('transfer_error_modal').style.display = 'block';
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "The transfer amount must be up to six"
+                + " whole digits, two decimals, and no commas.";
                 return;
         }
 
