@@ -31,7 +31,6 @@ async function main() {
         url = "../../backend/php/admin-session.php";
         response = await getData(url);
         ACCOUNT_NUMBER = response.adminId;
-        console.log(ACCOUNT_NUMBER);
         account = document.querySelector(ID_ACCOUNT);
         account.addEventListener("input", getBalance);
         btnDeposit = document.querySelector(ID_BTN_SUBMIT);
@@ -58,7 +57,6 @@ async function getBalance() {
         requestBody.append('admin_id', ACCOUNT_NUMBER);
         url = "/app/admin/backend/php/deposit-check.php";
         response = await postData(url, requestBody);
-        console.log(response);
         if (!response.success) {
                 balance.value = response.accountBalance;
                 return;
@@ -132,7 +130,6 @@ async function requestDeposit() {
         requestBody.append('admin_id', ACCOUNT_NUMBER);
         url = "/app/admin/backend/php/deposit.php";
         response = await postData(url, requestBody);
-        console.log(response);
         if (!response.success) {
                 alert(response.errorMessage);
                 return;
