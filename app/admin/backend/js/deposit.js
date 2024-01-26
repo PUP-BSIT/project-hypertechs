@@ -29,34 +29,28 @@ async function main() {
 }
 
 function validateDeposit() {
-        let account, amount, requestBody, url, response, confirmButton, errorMsg;
-    
+        let account, amount, requestBody, url, response, confirmButton, 
+        errorMsg;
+
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
                 document.getElementById('transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "Invalid input. Please enter a valid " +
-                "12-digit Apex account number to proceed.";
+                " 12-digit Apex account number to proceed.";
 
-            return;
+                return;
         }
-    
+
         amount = document.querySelector(ID_AMOUNT).value;
         if (!isValidAmount(amount)) {
-            document.getElementById('transfer_error_modal').hidden = false;
-            errorMsg = document.querySelector(ID_ERROR_DESC);
-    
-            if (amount === "" || parseFloat(amount) === 0) {
-                errorMsg.innerHTML = "Invalid input. Amount cannot be zero.";
-            } else if (parseFloat(amount) < 100) {
-                errorMsg.innerHTML = "Invalid input. The amount must be at least &#8369;100.";
-            } else if (!isValidAmountFormat(amount)) {
-                errorMsg.innerHTML = "Invalid input. The amount must be up to 10 digits maximum with no commas.";
-            }
-    
-            return;
+                document.getElementById('transfer_error_modal').hidden = false;
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Invalid input. The amount must be at " + 
+                "least &#8369;100 up to 10 digits maximum with no commas.";
+                return;
         }
-    
+
         document.getElementById('confirm_details_modal').style.display = 'block';
 }
 
@@ -93,5 +87,10 @@ function isValidAccountNumber(account) {
 function isValidAmount(amount) {
         // 9 digits and exactly two decimal places
         const amountRegex = /^\d{1,9}(?:\.\d{2})?$/;
-        return amountRegex.test(amount);
+    
+        // Check if the amount is not zero and is at least 100
+        const isNonZero = parseFloat(amount) !== 0;
+        const isAtLeast100 = parseFloat(amount) >= 100;
+    
+        return amountRegex.test(amount) && isNonZero && isAtLeast100;
 }
