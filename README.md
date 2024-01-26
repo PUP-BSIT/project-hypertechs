@@ -24,9 +24,9 @@ For our daring bank teller/admin pioneers, APEX BANK unveils a powerful platform
 - **Email:** pupiska
 - **Password:** [Insert Teller Password Here]
 
-## The Hypertechs™ Team from PUP Taguig 🌈👩‍💻👨‍💻
+## The Hypertechs™ from PUP Taguig 👩‍💻👨‍💻
 
-Now, let's unveil the masterminds behind this technological marvel - the **HYPERTECHS Team** from Polytechnic University of the Philippines, Taguig. These trailblazers are the driving force behind APEX BANK's innovation:
+Now, let's unveil the masterminds behind this technological marvel - the **HYPERTECHS Team** from Polytechnic University of the Philippines - Taguig Branch. These trailblazers are the driving force behind APEX BANK's innovation:
 
 ### 1. Emmanuel Martinez 🚀
 
