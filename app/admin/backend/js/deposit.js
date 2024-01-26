@@ -37,7 +37,7 @@ function validateDeposit() {
                 document.getElementById('transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "Invalid input. Please enter a valid " +
-                " 12-digit Apex account number.";
+                " 12-digit Apex account number to proceed.";
 
                 return;
         }
@@ -46,11 +46,8 @@ function validateDeposit() {
         if (!isValidAmount(amount)) {
                 document.getElementById('transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
-                errorMsg.innerHTML = "Invalid amount. Please enter a valid numeric amount " +
-                "with the following criteria:\n\n" +
-                "• Up to 10 figures only\n" +
-                "• Two decimal places (optional), if present\n" +
-                "• No commas are allowed\n";
+                errorMsg.innerHTML = "Invalid input. The amount must be at " + 
+                "least &#8369; 100 up to 10 digits maximum with no commas.";
                 return;
         }
 
