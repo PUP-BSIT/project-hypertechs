@@ -419,7 +419,7 @@ input:focus, select:focus {
   top: 50%;
   left: 50%;
   width: 40vw;
-  height: 45vh;
+  height: 47vh;
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
@@ -587,3 +587,7 @@ input:focus, select:focus {
   color: #042c8b;
 }
 
+#settings {
+  opacity: 0;
+  pointer-events: none;
+}

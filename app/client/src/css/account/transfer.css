@@ -987,7 +987,7 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   top: 50%;
   left: 50%;
   width: 40vw;
-  height: 45vh;
+  height: 47vh;
   border-radius: 1em;
   color: var(--text);
   transform: translate(-50%, -50%);
@@ -1358,7 +1358,6 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   margin-top: 8vh;
 }
 
-
 .transfer-error-modal-buttons #try_again_button {
   color: #e1e9fa;
   background-color: var(--primary);
@@ -1371,4 +1370,9 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
 
 .transfer-error-modal-buttons button:active {
   transform: scale(0.9);
+}
+
+#settings {
+  opacity: 0;
+  pointer-events: none;
 }
