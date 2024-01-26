@@ -1060,7 +1060,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 .confirm-details-modal-buttons #confirm_deposit_button {
   color: #e1e9fa;
   background-color: var(--primary);
-  width: 50%;
+  width: 45%;
 }
 
 .confirm-withdraw-modal-buttons #cancel_withdraw_button, 
