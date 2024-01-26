@@ -26,6 +26,7 @@ function connect_database() {
 }
 
 function cleanstr($variable) {
+        global $DB_CONN;
         return mysqli_real_escape_string($DB_CONN, $variable);
 }
 
