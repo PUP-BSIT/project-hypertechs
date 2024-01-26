@@ -161,6 +161,7 @@ async function getOTP() {
 async function checkOTPInput() {
   let OTPInput, otp1, feedback;
 
+  console.log(OTP);
   OTPInput = getOTPInput();
   feedback = document.querySelector(ID_FEEDBACK);
   if (OTPInput !== OTP) {
