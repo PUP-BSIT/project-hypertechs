@@ -4,7 +4,7 @@ $DURATION_SEC = 5 * 60;
 $response = array();
 if (isset($_POST['renew']) || !isset($_SESSION['otp'])) {
         //$response['otp'] = $_SESSION['otp'] = $otp = get_otp();
-        $response['otp'] = $_SESSION['otp'] = $otp = get_otp();
+        $response['otp'] = $_SESSION['otp'] = $otp = get_fake_otp();
         $response['time'] = ($_SESSION['otp_time'] = time() +
                 $DURATION_SEC) - time(); 
         echo json_encode($response);
@@ -28,7 +28,7 @@ function get_otp() {
                 $phone_number = $_SESSION['otp_phone']; 
         $ch = curl_init();
         $parameters = array(
-                'apikey'  => getenv('API_KEY'),
+                'apikey' => "7dce37931f1bbe6f1dc105d481d83ccf",
                 'number' => $phone_number,
                 // 'number' => "09550266782",
                 'message' => "This is a message from Apex Bank. " .
