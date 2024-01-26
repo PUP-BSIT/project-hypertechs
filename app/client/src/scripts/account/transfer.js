@@ -91,6 +91,18 @@ function closeConfirmationDetailsPopup() {
   }, 500);
 }
 
+function closeExternalDetailsPopup() {
+  let externalDetailsModal = document.getElementById("external_details_modal");
+  let externalDetailsModalContent = document.querySelector(".external-modal-content");
+
+  externalDetailsModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    externalDetailsModal.hidden = true;
+    externalDetailsModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}
+
 /* Close Transfer Error Modal */
 /*
 function closeTransferError() {
