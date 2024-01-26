@@ -21,8 +21,8 @@ For our daring bank teller/admin pioneers, APEX BANK unveils a powerful platform
 
 **Demo Credentials:**
 
-- **Email:** pupiska
-- **Password:** [Insert Teller Password Here]
+- **Email:** pupiska@gmail.com
+- **Password:** PUPTApex2
 
 ## The Hypertechs™ from PUP Taguig 👩‍💻👨‍💻
 
