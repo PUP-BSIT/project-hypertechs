@@ -1,4 +1,4 @@
-# <img src="app/admin/assets/img/apex_brand.png" alt="Project Logo" width="35" height="35"> APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
+# Apex Bank - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
 
 Welcome to the world of APEX BANK, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
 
