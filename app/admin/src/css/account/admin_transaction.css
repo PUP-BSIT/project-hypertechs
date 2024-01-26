@@ -459,7 +459,8 @@ body {
   display: none;
 }
 
-#account_balance {
+#account_balance_deposit,
+#account_balance_withdraw {
   pointer-events: none;
 }
 
