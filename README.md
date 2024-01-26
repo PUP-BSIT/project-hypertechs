@@ -1,34 +1,3 @@
-<!-- Dark Mode README.md -->
-
-<style>
-  body {
-    background-color: #1E1E1E;
-    color: #FFFFFF;
-  }
-
-  a {
-    color: #58A6FF;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #58A6FF;
-  }
-
-  code {
-    background-color: #2D2D2D;
-    color: #D4D4D4;
-    border-radius: 4px;
-    padding: 2px 4px;
-  }
-
-  pre {
-    background-color: #2D2D2D;
-    color: #D4D4D4;
-    border-radius: 8px;
-    padding: 16px;
-  }
-</style>
-
 # APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
 
 Welcome to the world of APEX BANK, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
