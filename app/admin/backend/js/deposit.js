@@ -33,6 +33,13 @@ function validateDeposit() {
         errorMsg;
 
         account = document.querySelector(ID_ACCOUNT).value;
+        if (!account.trim()) {
+                document.getElementById('transfer_error_modal').hidden = false;
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Account number cannot be empty."
+                return;
+        }
+
         if (!isValidAccountNumber(account)) {
                 document.getElementById('transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
