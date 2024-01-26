@@ -37,7 +37,6 @@ function startOperation() {
 
 function setAdminId(data) {
   if (!data.success) {
-    console.log(data);
     return;
   }
   ADMIN_ID = data.adminId;
@@ -54,7 +53,6 @@ function getAdminInfo() {
   sendData(url, requestBody, showAdminData);
 }
 function showAdminData(data) {
-  console.log(data);
   if (!data.success) return;
   let adminName, adminId, firstName;
 

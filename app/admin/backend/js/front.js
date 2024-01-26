@@ -17,7 +17,6 @@ async function checkSession() {
   let loggedIn;
 
   loggedIn = await isLoggedIn();
-  console.log(loggedIn);
   if (loggedIn) {
     window.location.href = URL_ACCOUNT;
     return;

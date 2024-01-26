@@ -45,7 +45,6 @@ async function loginAdmin() {
   requestBody.append("email", adminEmail);
   requestBody.append("password", password);
   requestBody.append("redirect_url", ADMIN_URL);
-  console.log(adminEmail);
   //url = "../backend/php/admin-login.php";
   url = "../backend/php/admin-login-check.php";
   data = await postData(url, requestBody);

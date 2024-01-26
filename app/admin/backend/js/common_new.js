@@ -29,7 +29,6 @@ export async function postDataOTP(url, requestBody) {
   data = await response.json();
   if (statusCode === 302) {
     setTimeout(async () => {
-      console.log(redirectURL);
       redirectURL = data.location;
       window.location.replace(redirectURL);
     }, 4000);
@@ -150,7 +149,6 @@ export async function saveRequest(requestURL, requestBody) {
   data.append("request_url", requestURL);
   data.append("request_body", formToJSON(requestBody));
   response = await postData(url, data);
-  console.log(response.success);
   if (!response.success) return false;
   startVerify();
 }
@@ -170,11 +168,8 @@ export async function sendRequest() {
 
   url = "/app/admin/backend/php/" + "request-retrieve.php";
   response = await getData(url);
-  console.log(response);
   if (!response.success) return false;
-  console.log(response.requestBody);
   data = JSON.parse(response.requestBody);
-  console.log(data);
   requestBody = new FormData();
   for (let key in data) {
     requestBody.append(key, data[key]);
@@ -197,14 +192,12 @@ export function formToJSON(formData) {
   formData.forEach((value, key) => {
     form[key] = value;
   });
-  console.log(JSON.stringify(form));
   return JSON.stringify(form);
 }
 
 export async function destroyOTPSession(option) {
   let url, data, requestBody;
 
-  console.log("destroySession");
   url = "/app/admin/backend/php/otp-session.php";
   requestBody = new FormData();
   if (option === "OTPOnly") {
