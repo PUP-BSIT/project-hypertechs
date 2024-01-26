@@ -93,7 +93,7 @@ function closeConfirmationPopup() {
   }, 500); // 500ms should match the animation duration
 }
 
-/* Close Confirmation Modal */
+/* Close Deposit Modal */
 
 function closeConfirmationDetailsPopup() {
   document.getElementById('confirm_details_modal').style.display = 'none';
@@ -110,6 +110,24 @@ function closeConfirmationDetailsPopup() {
     confirmDetailsModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
+
+/* Close Withdraw Modal */
+function closeWithdrawDetailsPopup() {
+  document.getElementById('confirm_withdraw_modal').style.display = 'none';
+}
+
+function closeWithdrawDetailsPopup() {
+  let withdrawDetailsModal = document.getElementById("confirm-withdraw-modal-content");
+  let withdrawDetailsModalContent = document.querySelector(".confirm-modal-content");
+
+  withdrawDetailsModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    withdrawDetailsModal.style.display = "none";
+    withdrawDetailsModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}
+
 
 /* Close Success Modal */
 

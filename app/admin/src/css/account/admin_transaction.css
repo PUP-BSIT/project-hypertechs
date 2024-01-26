@@ -802,7 +802,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   display: none;
 }
 
-/* ------- MODAL STYLING ------- */
+/* ------- LOGOUT MODAL STYLING ------- */
 .logout-acc-modal {
   display: none;
   position: fixed;
@@ -929,6 +929,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 }
 
 /* ------- CONFIRM DETAILS STYLING ------- */
+.confirm-withdraw-modal,
 .confirm-details-modal {
   display: none;
   position: fixed;
@@ -939,6 +940,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.confirm-withdraw-modal-content,
 .confirm-modal-content {
   position: absolute;
   top: 50%;
@@ -980,6 +982,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   animation: zoomOut 0.5s;
 }
 
+#confirm_withdraw_heading_container,
 #confirm_details_heading_container {
   display: flex;
   align-items: center;
@@ -987,34 +990,36 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   margin-bottom: 3vh;
 }
 
+#confirm_withdraw_text,
 #confirm_details_text {
   font-size: 2.75vw;
   font-weight: 700;
   color: var(--primary);
 }
 
+.confirm-withdraw-modal-content i,
 .confirm-modal-content i {
   font-size: 2.3vw;
   color: var(--primary);
 }
 
-#confirmation_details_desc {
+#confirmation_withdraw_desc {
   font-size: 1.4vw;
   line-height: 1.5;
   margin-bottom: 3vh;
 }
 
-#confirmation_details_display {
+#confirmation_withdraw_display {
   font-size: 1.4vw;
   font-weight: 500;
   line-height: 1.5;
 }
 
-#confirmation_details_display strong {
+#confirmation_withdraw_display strong {
   font-weight: 600;
 }
 
-
+.confirm-withdraw-modal-buttons button,
 .confirm-details-modal-buttons button {
   display: flex;
   align-items: center;
@@ -1040,6 +1045,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   transition: transform 0.3s ease-in-out;
 }
 
+.confirm-withdraw-modal-buttons,
 .confirm-details-modal-buttons {
   display: flex;
   justify-content: flex-end;
@@ -1054,6 +1060,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   width: 30%;
 }
 
+.confirm-details-modal-buttons #cancel_withdraw_button, 
 .confirm-details-modal-buttons #cancel_confirm_button {
   color: rgb(0, 61, 166);
   background-color: #bdd3ff;
@@ -1069,6 +1076,7 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   transform: translateX(5px);
 }
 
+.confirm-details-modal-buttons #cancel_withdraw_button:hover,
 .confirm-details-modal-buttons #cancel_confirm_button:hover {
   box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
 }

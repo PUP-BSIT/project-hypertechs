@@ -42,7 +42,7 @@ function validateWithdraw() {
             return;
         }
         
-        document.getElementById('confirm_details_modal').style.display = 'block';
+        document.getElementById('confirm_withdraw_modal').style.display = 'block';
 
 }
 
