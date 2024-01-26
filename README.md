@@ -1,4 +1,4 @@
-# APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
+# <img src="app/admin/assets/img/apex_brand.png" alt="Project Logo" width="35" height="35"> APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
 
 Welcome to the world of APEX BANK, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
 
@@ -56,7 +56,7 @@ Now, let's unveil the masterminds behind this technological marvel - the **HYPER
 ### 6. Angel Rose Casabuena 🌟
 
 - **Role:** Testing Visionary/Developer 🧪💻
-- **GitHub:** [@casabuena-angelrose](https://github.com/casabuena-angelrose)
+- **GitHub:** [@casabuenangel](https://github.com/casabuenangel)
 
 This is our inaugural flight into the realm of banking technology, and your feedback is invaluable as we chart new territories together! 🌐🚀
 
