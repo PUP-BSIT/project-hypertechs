@@ -81,8 +81,7 @@ async function validateTransfer() {
         }
 
         requestBody = new FormData();
-        url = "https://apexapp.tech/app/client/backend/php/" +
-                "fund-transfer-external-check.php";
+        url = "/app/client/backend/php/fund-transfer-external-check.php";
         requestBody.append('redirect_url', redirectURL); 
         requestBody.append('transaction_amount', amount);
         requestBody.append('source_account_no', source);
