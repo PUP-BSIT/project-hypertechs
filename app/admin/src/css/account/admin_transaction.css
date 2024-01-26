@@ -459,6 +459,10 @@ body {
   display: none;
 }
 
+#account_balance {
+  pointer-events: none;
+}
+
 /* --------------- TRANSFER SIDE ------------*/
 #transfer_mini_account {
   display: flex;
