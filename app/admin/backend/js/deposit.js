@@ -149,7 +149,7 @@ async function requestDeposit() {
         successName = document.querySelector(ID_SUCCESS_NAME);
         successDetails = document.querySelector(ID_SUCCESS_DETAILS);
         successType.innerHTML = "deposit";
-        successAmount.innerHTML = amount;
+        successAmount.innerHTML = "&#8369;" + amount;
         successAccount.innerHTML = account;
         successName.innerHTML = ACCOUNT_NAME;
         successDetails.innerHTML = "Deposit Successful!"
