@@ -1,6 +1,6 @@
-# <img src="app/admin/assets/img/apex_brand.png" alt="Project Logo" width="35" height="35"> APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
+# <img src="app/admin/assets/img/apex_brand.png" alt="Project Logo" width="35" height="35"> <span style="color: #3498db;">APEX BANK</span> - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
 
-Welcome to the world of APEX BANK, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
+Welcome to the world of _APEX BANK_, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
 
 ## APEX BANK for Fast and Easy Account Holders 🌐💳
 
@@ -24,7 +24,7 @@ For our daring bank teller/admin pioneers, APEX BANK unveils a powerful platform
 - **Email:** pupiska@gmail.com
 - **Password:** PUPTApex2
 
-## The Hypertechs™ from PUP Taguig 👩‍💻👨‍💻
+## <span style="color: #00008B;">The Hypertechs™ </span>from PUP Taguig 👩‍💻👨‍💻</h1>
 
 Now, let's unveil the masterminds behind this technological marvel - the **HYPERTECHS Team** from Polytechnic University of the Philippines - Taguig Branch. These trailblazers are the driving force behind APEX BANK's innovation:
 
