@@ -144,3 +144,16 @@ function closeSuccessPopup() {
     transactionSuccessModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
+
+/* Close Transfer Error Modal */
+function closeTransferError() {
+  let transferErrorModal = document.getElementById("transfer_error_modal");
+  let transferErrorModalContent = document.querySelector(".transfer-error-modal-content");
+
+  transferErrorModalContent.classList.add("zoom-out-confirm");
+
+  setTimeout(function () {
+    transferErrorModal.hidden = true; 
+    transferErrorModalContent.classList.remove("zoom-out-confirm");
+  }, 500);
+}

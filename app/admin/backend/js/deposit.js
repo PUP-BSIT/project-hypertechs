@@ -6,6 +6,7 @@ const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
 const ID_BTN_SUBMIT  = "#deposit_submit";
 const ID_CONFIRM_BUTTON ="#confirm_deposit_button";
+const ID_ERROR_DESC = "#transfer_error_desc";
 
 main();
 
@@ -32,18 +33,23 @@ function validateDeposit() {
 
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
-                alert("Invalid input. Please enter a valid " +
-                " 12-digit Apex account number.");
+                document.getElementById('transfer_error_modal').hidden = false;
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Invalid input. Please enter a valid " +
+                " 12-digit Apex account number.";
+
                 return;
         }
 
         amount = document.querySelector(ID_AMOUNT).value;
         if (!isValidAmount(amount)) {
-                alert("Invalid amount. Please enter a valid numeric amount " +
+                document.getElementById('transfer_error_modal').hidden = false;
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = "Invalid amount. Please enter a valid numeric amount " +
                 "with the following criteria:\n\n" +
                 "• Up to 10 figures only\n" +
                 "• Two decimal places (optional), if present\n" +
-                "• No commas are allowed\n");
+                "• No commas are allowed\n";
                 return;
         }
 
