@@ -94,7 +94,6 @@ function closeConfirmationPopup() {
 }
 
 /* Close Deposit Modal */
-
 function closeConfirmationDetailsPopup() {
   document.getElementById('confirm_details_modal').style.display = 'none';
 }
@@ -118,7 +117,7 @@ function closeWithdrawDetailsPopup() {
 
 function closeWithdrawDetailsPopup() {
   let withdrawDetailsModal = document.getElementById("confirm_withdraw_modal");
-  let withdrawDetailsModalContent = document.querySelector(".confirm-modal-content");
+  let withdrawDetailsModalContent = document.querySelector(".confirm-withdraw-modal-content");
 
   withdrawDetailsModalContent.classList.add("zoom-out-confirm");
 
@@ -130,7 +129,6 @@ function closeWithdrawDetailsPopup() {
 
 
 /* Close Success Modal */
-
 function closeSuccessPopup() {
   document.getElementById('transaction_success_modal').style.display = 'none';
 }
