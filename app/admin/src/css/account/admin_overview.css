@@ -672,3 +672,8 @@ body {
 .fa-sun {
   color: #042c8b;
 }
+
+#settings {
+  opacity: 0;
+  pointer-events: none;
+}

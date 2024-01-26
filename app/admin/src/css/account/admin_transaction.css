@@ -1192,3 +1192,8 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 .transaction-success-modal-buttons button:active {
   transform: scale(0.9);
 }
+
+#settings {
+  opacity: 0;
+  pointer-events: none;
+}
