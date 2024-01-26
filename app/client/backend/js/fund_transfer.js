@@ -136,5 +136,9 @@ async function requestTransfer() {
         url = "http://localhost/app/client/backend/api/" +
                 "fund-transfer.php";
         */
+        document.querySelector('#confirm_details_modal').hidden = true;
+        document.querySelector(ID_AMOUNT).value = "";
+        document.querySelector(ID_RECIPIENT).value = "";
+        document.querySelector(ID_DESCRIPTION).value = "";
         await postData(url, requestBody);
 }

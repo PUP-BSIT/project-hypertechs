@@ -129,6 +129,11 @@ async function requestTransfer() {
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('recipient_bank_code', bankCode);
+
+        document.querySelector('#external_details_modal').hidden = true;
+        document.querySelector(ID_AMOUNT).value = "";
+        document.querySelector(ID_RECIPIENT).value = "";
+        document.querySelector(ID_BANK_CODE).value = "";
         data = await postData(url, requestBody);
         console.log(data);
 }
