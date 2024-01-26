@@ -52,6 +52,14 @@ if ($amount > $balance) {
         exit;
 }
 
+if ($amount < 1) {
+        close_database();
+        $response['errorMessage'] = "The transfer amount cannot be less " .
+                "than 1 peso";
+        echo json_encode($response);
+        exit;
+}
+
 if ($recipient == $source) {
         close_database();
         $response['errorMessage'] = "The account number is not valid";

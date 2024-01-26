@@ -43,6 +43,15 @@ if ($amount > $balance) {
         exit;
 }
 
+if ($amount < 1) {
+        close_database();
+        http_response_code(302);
+        $response['location'] = $redirect_error .
+                "?error_message=The transfer amount cannot be less than 1 peso";
+        echo json_encode($response);
+        exit;
+}
+
 if ($recipient == $source) {
         close_database();
         http_response_code(302);
