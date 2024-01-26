@@ -29,7 +29,8 @@ async function main() {
 }
 
 function validateDeposit() {
-        let account, amount, requestBody, url, response, confirmButton;
+        let account, amount, requestBody, url, response, confirmButton, 
+        errorMsg;
 
         account = document.querySelector(ID_ACCOUNT).value;
         if (!isValidAccountNumber(account)) {
