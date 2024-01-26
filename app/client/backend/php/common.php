@@ -25,6 +25,11 @@ function connect_database() {
         $DB_CONN = $conn;
 }
 
+function cleanstr($variable) {
+        global $DB_CONN;
+        return mysqli_real_escape_string($DB_CONN, $variable);
+}
+
 function modify_database($statement) {
         global $DB_CONN;
         if (!mysqli_query($DB_CONN, $statement)) return false;
@@ -408,6 +413,7 @@ function is_register_valid() {
 }
 
 function does_email_exist($email) {
+        $email = cleanstr($email);
         $account_table = "account";
         $email_col = "email";
         $sql_stmt = "SELECT $email_col FROM $account_table WHERE 
@@ -418,6 +424,7 @@ function does_email_exist($email) {
 }
 
 function does_phone_number_exist($phone_number) {
+        $phone_number = cleanstr($phone_number);
         $account_table = "account";
         $phone_number_col = "phone_number";
         $sql_stmt = "SELECT $phone_number_col FROM $account_table WHERE 
