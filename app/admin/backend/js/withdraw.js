@@ -14,7 +14,7 @@ async function main() {
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
-                window.location.href = URL_HOME;
+            window.location.href = URL_HOME;
         }
         url = "../../backend/php/admin-session.php";
         response = await getData(url);
@@ -27,29 +27,51 @@ async function main() {
         confirmButton.addEventListener("click", requestWithdraw);
 }
 
-function validateWithdraw() {
+    function validateWithdraw() {
         let account, amount, requestBody, url, response;
-    
+
         // Validate Account Number
         account = document.querySelector(ID_ACCOUNT).value;
-        if (!validateAccountNumber(account)) {
+        if (!account.trim()) {
+            alert("Account number cannot be empty.");
             return;
         }
 
-           // Validate Amount
+        // 12 digits and no other characters
+        if (!/^\d{12}$/.test(account)) {
+            alert("Invalid input. Please enter a valid 12-digit Apex account number.");
+            return;
+        }
+
+        // Validate Amount
         amount = document.querySelector(ID_AMOUNT).value;
-        if (!validateAmount(amount)) {
+        if (!amount.trim()) {
+            alert("Amount cannot be empty.");
             return;
         }
-        
-        document.getElementById('confirm_withdraw_modal').style.display = 'block';
 
+        // Check if it's greater than zero
+        if (parseFloat(amount) <= 0) {
+            alert("Amount must be at least 100 pesos.");
+            return;
+        }
+
+        // Check if it's above 100 pesos and follows the format
+        if (!/^\d{1,9}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
+            alert("Invalid amount. Please enter a valid numeric amount with " +
+                "the following criteria:\n\n" +
+                "• Up to 10 figures only\n" +
+                "• Two decimal places (optional), if present\n" +
+                "• No commas are allowed\n");
+            return;
+        }
+
+        document.getElementById('confirm_withdraw_modal').style.display = 'block';
 }
 
 async function requestWithdraw() {
-
         let account, amount, requestBody, url, response, confirmButton;
-        
+
         account = document.querySelector(ID_ACCOUNT).value;
         amount = document.querySelector(ID_AMOUNT).value;
 
@@ -62,56 +84,11 @@ async function requestWithdraw() {
         // Send request if all validations pass
         response = await postData(url, requestBody);
         console.log(response);
-        
+
         if (!response.success) {
             alert(response.errorMessage);
             return;
         }
-        
+
         alert("Withdraw successful!");
-
-}
-    
-function validateAccountNumber(account) {
-        // Check if it's not empty
-        if (!account.trim()) {
-            alert("Account number cannot be empty.");
-            return false;
-        }
-    
-        // 12 digits and no other characters
-        if (!/^\d{12}$/.test(account)) {
-            alert("Invalid input. Please enter a valid" +
-            " 12-digit Apex account number.");
-            return false;
-        }
-    
-        return true;
-}
-    
-    
-function validateAmount(amount) {
-    // Check if it's not empty
-    if (!amount.trim()) {
-        alert("Amount cannot be empty.");
-        return false;
-    }
-
-    // Check if it's greater than zero
-    if (parseFloat(amount) <= 0) {
-        alert("Amount must be at least 100 pesos.");
-        return false;
-    }
-
-    // Check if it's above 100 pesos and follows the format
-    if (!/^\d{1,9}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
-        alert("Invalid amount. Please enter a valid numeric amount with " +
-            "the following criteria:\n\n" +
-            "• Up to 10 figures only\n" +
-            "• Two decimal places (optional), if present\n" +
-            "• No commas are allowed\n");
-        return false;
-    }
-
-    return true;
 }
