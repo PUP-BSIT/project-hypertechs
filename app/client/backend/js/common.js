@@ -34,7 +34,6 @@ export function logSend(url, data, processData) {
                         window.location.href = data.url;
                         return;
                 }
-                console.log(data);
         });
 }
 
@@ -57,7 +56,6 @@ export function logFetch(url, processData) {
                 statusCode = response.status;
                 return response.text();
         }).then((data) => {
-                console.log(data);
         });
 }
 

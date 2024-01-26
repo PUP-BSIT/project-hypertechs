@@ -30,7 +30,6 @@ async function filterResult() {
         filterType = document.querySelector(ID_TRANSAC_TYPE).value;
         filterStartDate = document.querySelector(ID_START_DATE).value;
         filterEndDate = document.querySelector(ID_END_DATE).value;
-        console.log(filterType, filterStartDate, filterEndDate);
 
         url = "/app/client/backend/php/account-transaction.php";
         requestBody = new FormData();
@@ -38,7 +37,6 @@ async function filterResult() {
         requestBody.append('end_date', filterEndDate);
         requestBody.append('transac_type', filterType);
         response = await postData(url, requestBody);
-        console.log(response);
         tableBody = document.querySelector('#transaction_table tbody');
         if (response.data.length == 0) {
                 tableBody.innerHTML = "No transaction found";

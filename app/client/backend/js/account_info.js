@@ -21,7 +21,6 @@ const ID_CARD_EXPIRATION = "#display_card_expiration";
 const ID_CVV = "#display_cvv";
 const HOME_URL = "/index.html";
 
-console.log("Hello");
 main();
     
 async function main() {
@@ -49,7 +48,6 @@ async function getCustomerInfo() {
         requestBody = new FormData();
         requestBody.append('account_number', sessionAccount);
         response = await postData(url, requestBody);
-        console.log(response);
         if (!response.success) return;
                 customerData = response; // Store customer data globally
                 showCustomerData(customerData);
@@ -62,7 +60,6 @@ function showCustomerData(data) {
                 totalReceived, averageTransferred, cardNumber, cardExpiration,
                 cvv;
 
-        console.log(data);
         firstName = document.querySelector(ID_FIRST_NAME);
         miniName = document.querySelector(ID_MINI_NAME);
         miniBalance = document.querySelector(ID_MINI_BALANCE);
