@@ -1,45 +1,63 @@
-# Hypertechs™ Project Repository
+# <img src="app/admin/assets/img/apex_brand.png" alt="Project Logo" width="35" height="35"> APEX BANK - Fast, Easy, and Secure Tomorrow's Banking! 🚀✨
 
-🚀 Welcome to the Hypertechs™ Project repository! Here, you can find the documents, source code, and resources for our banking web application.
+Welcome to the world of APEX BANK, where every transaction is an expedition, and every tap is an adventure! Our groundbreaking bank system introduces you to two distinct realms:
 
-## Apex Bank Web App 
-🌐 [Visit our webhost domain here.](https://apexapp.tech/)
+## APEX BANK for Fast and Easy Account Holders 🌐💳
 
-🚧 Under Development: Welcome to the early stages of Apex Bank Web App! Our web domain is actively under development as we strive to bring you an exceptional online experience. Exciting features and improvements are in the works, so stay tuned for updates. We appreciate your patience and look forward to unveiling the full potential of Apex bank **soon.**
+👉 [Experience APEX BANK for Account Holders](https://apexapp.tech/)
 
-## The Hypertechs™ Team
+Unleash the financial superhero within you! APEX BANK for Account Holders empowers you to command your finances with **ease**. Effortlessly make transactions, check balances, and enjoy a plethora of banking services at your fingertips.
 
-Meet the brilliant minds behind this project.
+**Demo Credentials:**
 
-### 1. Emmanuel Martinez 👨‍💻
+- **Phone Number:** 09690227888
+- **Password:** PUPTApex1
 
-- Role: Project Manager/Lead Developer
-- GitHub: [@martinez-emmanuel](https://github.com/martinez-emmanuel)
+## APEX BANK for Streamlined and Secure Teller/Admin Pioneers 🌐🔧
 
-### 2. Mary Joy Danay 📖
+👉 [Embark on APEX BANK for Teller/Admin](https://admin.apexapp.tech/)
 
-- Role: Technical Lead/Developer
-- Superpower: Bringing pixels to life
-- GitHub: [@danay-maryjoy](https://github.com/danay-maryjoy)
+For our daring bank teller/admin pioneers, APEX BANK unveils a powerful platform designed to revolutionize the way you navigate banking administration. Streamline tasks, manage accounts seamlessly, and craft an unparalleled banking experience for our esteemed customers.
 
-### 3. Calib Serrano 🐛
+**Demo Credentials:**
 
-- Role: Technical Lead/Developer
-- GitHub: [@serrano-calib](https://github.com/serrano-calib)
+- **Email:** pupiska@gmail.com
+- **Password:** PUPTApex2
 
-### 4. Michelle Via Rediga 🎨
+## The Hypertechs™ from PUP Taguig 👩‍💻👨
 
-- Role: UI/UX Designer/Developer
-- GitHub: [@MVRediga](https://github.com/MVRediga)
+Now, let's unveil the masterminds behind this technological marvel - the **HYPERTECHS Team** from Polytechnic University of the Philippines - Taguig Branch. These trailblazers are the driving force behind APEX BANK's innovation:
 
-### 5. Judy Ann Dupo 🧪
+### 1. Emmanuel Martinez 🚀
 
-- Role: Tester/Developer
-- GitHub: [dupo-judyann](https://github.com/dupo-judyann)
+- **Role:** The Project Pioneer/Lead Developer 🎩💻
+- **GitHub:** [@martinez-emmanuel](https://github.com/martinez-emmanuel)
 
-### 6. Angel Rose Casabuena 🧪
+### 2. Calib Serrano 🚀
 
-- Role: Tester/Developer
-- GitHub: [casabuena-angelrose](https://github.com/casabuena-angelrose)
+- **Role:** The Trailblazer Technical Lead/Developer 🐛💻
+- **GitHub:** [@serrano-calib](https://github.com/serrano-calib)
 
-Join us on this exciting journey as we redefine the future of banking technology! 🚀✨
+### 3. Mary Joy Danay 🌟
+
+- **Role:** The Innovator Technical Lead/Developer 📖💻
+- **GitHub:** [@danay-maryjoy](https://github.com/danay-maryjoy)
+
+### 4. Michelle Via Rediga 🖌️
+
+- **Role:** UI/UX Maestro/Developer 🎨💻
+- **GitHub:** [@MVRediga](https://github.com/MVRediga)
+
+### 5. Judy Ann Dupo 🔍
+
+- **Role:** Testing Explorer/Developer 🧪💻
+- **GitHub:** [@dupo-judyann](https://github.com/dupo-judyann)
+
+### 6. Angel Rose Casabuena 🌟
+
+- **Role:** Testing Visionary/Developer 🧪💻
+- **GitHub:** [@casabuenangel](https://github.com/casabuenangel)
+
+This is our inaugural flight into the realm of banking technology, and your feedback is invaluable as we chart new territories together! 🌐🚀
+
+Embark on this fast, easy, and secure adventure, experience the magic of APEX BANK, and be a part of shaping the future of banking! 💼🌟
