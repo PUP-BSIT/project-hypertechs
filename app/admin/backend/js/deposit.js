@@ -90,7 +90,7 @@ function isValidAccountNumber(account) {
         return /^\d{12}$/.test(account);
 }
     
-function isValidAmountFormat(amount) {
+function isValidAmount(amount) {
         // 9 digits and exactly two decimal places
         const amountRegex = /^\d{1,9}(?:\.\d{2})?$/;
         return amountRegex.test(amount);
