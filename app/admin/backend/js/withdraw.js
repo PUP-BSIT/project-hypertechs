@@ -6,6 +6,7 @@ const ID_ACCOUNT = "#withdraw_account";
 const ID_AMOUNT = "#withdraw_amount";
 const ID_BTN_SUBMIT  = "#withdraw_submit";
 const ID_CONFIRM_BUTTON ="#confirm_withdraw_button";
+const ID_ERROR_DESC = "#transfer_error_desc";
 
 main();
 
@@ -27,42 +28,49 @@ async function main() {
         confirmButton.addEventListener("click", requestWithdraw);
 }
 
-    function validateWithdraw() {
-        let account, amount, requestBody, url, response;
+function validateWithdraw() {
+        let account, amount, requestBody, url, response, errorMsg;
 
         // Validate Account Number
         account = document.querySelector(ID_ACCOUNT).value;
         if (!account.trim()) {
-            alert("Account number cannot be empty.");
+            document.getElementById('transfer_error_modal').hidden = false;
+            errorMsg = document.querySelector(ID_ERROR_DESC);
+            errorMsg.innerHTML = "Account number cannot be empty."
             return;
         }
 
         // 12 digits and no other characters
         if (!/^\d{12}$/.test(account)) {
-            alert("Invalid input. Please enter a valid 12-digit Apex account number.");
+            document.getElementById('transfer_error_modal').hidden = false;
+            errorMsg = document.querySelector(ID_ERROR_DESC);
+            errorMsg.innerHTML = "Invalid input. Please enter a valid 12-digit Apex account number.";
             return;
         }
 
         // Validate Amount
         amount = document.querySelector(ID_AMOUNT).value;
         if (!amount.trim()) {
-            alert("Amount cannot be empty.");
+            document.getElementById('transfer_error_modal').hidden = false;
+            errorMsg = document.querySelector(ID_ERROR_DESC);
+            errorMsg.innerHTML = "Amount cannot be empty.";
             return;
         }
 
         // Check if it's greater than zero
         if (parseFloat(amount) <= 0) {
-            alert("Amount must be at least 100 pesos.");
+            document.getElementById('transfer_error_modal').hidden = false;
+            errorMsg = document.querySelector(ID_ERROR_DESC);
+            errorMsg.innerHTML = "Amount must be at least 100 pesos.";
             return;
         }
 
         // Check if it's above 100 pesos and follows the format
         if (!/^\d{1,9}(\.\d{2})?$/.test(amount) || parseFloat(amount) < 100) {
-            alert("Invalid amount. Please enter a valid numeric amount with " +
-                "the following criteria:\n\n" +
-                "• Up to 10 figures only\n" +
-                "• Two decimal places (optional), if present\n" +
-                "• No commas are allowed\n");
+            document.getElementById('transfer_error_modal').hidden = false;
+            errorMsg = document.querySelector(ID_ERROR_DESC);
+            errorMsg.innerHTML = "Invalid input. The amount must be at " + 
+            "least &#8369;100 up to 9 digits maximum with no commas.";
             return;
         }
 
