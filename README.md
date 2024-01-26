@@ -30,7 +30,7 @@ Now, let's unveil the masterminds behind this technological marvel - the **HYPER
 
 ### 1. Emmanuel Martinez 🚀
 
-- **Role:** Project Pioneer/Lead Developer 🎩💻
+- **Role:** The Project Pioneer/Lead Developer 🎩💻
 - **GitHub:** [@martinez-emmanuel](https://github.com/martinez-emmanuel)
 
 ### 2. Calib Serrano 🚀
