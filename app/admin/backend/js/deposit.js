@@ -116,7 +116,7 @@ async function validateDeposit() {
         confirmAmount = document.querySelector(ID_CONFIRM_AMOUNT);
         confirmAccount.innerHTML = account;
         confirmName.innerHTML = ACCOUNT_NAME = response.accountName;
-        confirmAmount.innerHTML = amount;
+        confirmAmount.innerHTML = "&#8369;" + amount;
 }
 
 async function requestDeposit() {
@@ -148,7 +148,7 @@ async function requestDeposit() {
         successAccount = document.querySelector(ID_SUCCESS_ACCOUNT);
         successName = document.querySelector(ID_SUCCESS_NAME);
         successDetails = document.querySelector(ID_SUCCESS_DETAILS);
-        successType.innerHTML = "deposit";
+        successType.innerHTML = "deposited";
         successAmount.innerHTML = "&#8369;" + amount;
         successAccount.innerHTML = account;
         successName.innerHTML = ACCOUNT_NAME;

@@ -15,6 +15,7 @@ const ID_SUCCESS_TYPE = "#success_type";
 const ID_SUCCESS_AMOUNT = "#success_amount";
 const ID_SUCCESS_ACCOUNT = "#success_acc_number";
 const ID_SUCCESS_NAME = "#success_acc_name";
+const ID_SUCCESS_DETAILS = "#success_details_text";
 let ACCOUNT_NUMBER;
 let ACCOUNT_NAME;
 
@@ -136,13 +137,14 @@ async function validateWithdraw() {
         confirmAmount = document.querySelector(ID_CONFIRM_AMOUNT);
         confirmAccount.innerHTML = account;
         confirmName.innerHTML = ACCOUNT_NAME = response.accountName;
-        confirmAmount.innerHTML = amount;
+        confirmAmount.innerHTML = "&#8369;" + amount;
 
 }
 
 async function requestWithdraw() {
         let account, amount, requestBody, url, response, confirmButton, 
-                successType, successAccount, successName, successAmount;
+                successType, successAccount, successName, successAmount,
+                successDetails;
 
         account = document.querySelector(ID_ACCOUNT).value;
         amount = document.querySelector(ID_AMOUNT).value;
@@ -172,9 +174,11 @@ async function requestWithdraw() {
         successAmount = document.querySelector(ID_SUCCESS_AMOUNT);
         successAccount = document.querySelector(ID_SUCCESS_ACCOUNT);
         successName = document.querySelector(ID_SUCCESS_NAME);
-        successType.innerHTML = "withdraw";
-        successAmount.innerHTML = amount;
+        successDetails = document.querySelector(ID_SUCCESS_DETAILS);
+        successType.innerHTML = "withdrawn";
+        successAmount.innerHTML = "&#8369;" + amount;
         successAccount.innerHTML = account;
         successName.innerHTML = ACCOUNT_NAME;
+        successDetails.innerHTML = "Withdraw Successful!"
 
 }
