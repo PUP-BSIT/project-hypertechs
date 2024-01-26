@@ -647,10 +647,10 @@ body {
   background-color: var(--ball);
   border-radius: 50%;
   position: absolute;
-  top: 0.1em;
-  left: 3px;
-  height: 0.95vw;
-  width: 0.95vw;
+  top: 0.4vh;
+  left: 0.2vw;
+  height: 0.9vw;
+  width: 0.9vw;
   transform: translateX(1px);
   transition: transform 0.2s linear;
 }
