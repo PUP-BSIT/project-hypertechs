@@ -148,7 +148,6 @@ export async function saveRequest(requestURL, requestBody) {
         data.append('request_url', requestURL);
         data.append('request_body', formToJSON(requestBody));
         response = await postData(url, data)
-        console.log(response.success);
         if (!response.success) return false;
         startVerify();
 }
@@ -169,17 +168,13 @@ export async function sendRequest() {
         url = "/app/client/backend/php/" +
                 "request-retrieve.php";
         response = await getData(url);
-        console.log(response);
         if (!response.success) return false;
-        console.log(response.requestBody);
         data = JSON.parse(response.requestBody);
-        console.log(data);
         requestBody = new FormData();
         for (let key in data) {
                 requestBody.append(key, data[key]);
         }
         response = await postDataOTP(response.requestURL, requestBody);
-        console.log(response);
         url = "/app/client/backend/php/request-destroy.php";
         await getData(url);
         return true;
@@ -197,14 +192,12 @@ export function formToJSON(formData) {
         formData.forEach((value, key) => {
                 form[key] = value;
         });
-        console.log(JSON.stringify(form));
         return JSON.stringify(form);
 }
 
 export async function destroyOTPSession(option) {
         let url, data, requestBody;
 
-        console.log("destroySession");
         url = "/app/client/backend/php/otp-session.php";
         requestBody = new FormData();
         if (option === "OTPOnly") {

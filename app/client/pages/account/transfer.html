@@ -43,7 +43,7 @@
                         <!--dark/light mode toggle-->
                         <div id="toggle_theme">
                             <input type="checkbox" class="checkbox" id="theme_mode" />
-                            <label class="label" for="theme_mode" onclick="toggleTheme()">
+                            <label class="label" for="theme_mode">
                                 <i class="fas fa-moon"></i>
                                 <i class="fas fa-sun"></i>
                                 <div class="ball"></div>
@@ -847,8 +847,7 @@
             <div class="logout-acc-modal-buttons">
                 <button id="cancel_button" 
                     onclick="closeConfirmationPopup()">Cancel</button>
-                <button id="confirm_logout_button" 
-                    onclick="confirmLogoutAccount()">Yes, confirm log out</button>
+                <button id="confirm_logout_button">Yes, confirm log out</button>
             </div>
         </div>
     </div>
@@ -926,8 +925,8 @@
     <script src="../../src/scripts/theme.js"></script>
     <script src="../../src/scripts/account/transfer.js?v=1.3"></script>
     <script src="../../backend/js/account_info.js?v=1.0" type="module"></script>
-    <script src="../../backend/js/fund_transfer.js?v=2.18" type="module"></script>
-    <script src="../../backend/js/fund_transfer_external.js?v=1.65" type="module"></script>
+    <script src="../../backend/js/fund_transfer.js?v=1.21" type="module"></script>
+    <script src="../../backend/js/fund_transfer_external.js?v=1.41" type="module"></script>
     <script src="../../backend/js/customer_logout.js" type="module"></script>
 </body>
 

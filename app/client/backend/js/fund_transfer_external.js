@@ -47,7 +47,6 @@ async function validateTransfer() {
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
         bankCode = document.querySelector(ID_BANK_CODE).value;
-        console.log(source, recipient);
         if (recipient === source) {
                 document.querySelector('#transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
@@ -116,7 +115,6 @@ async function requestTransfer() {
         recipient = document.querySelector(ID_RECIPIENT).value;
         source = ACCOUNT_NUMBER;
         bankCode = document.querySelector(ID_BANK_CODE).value;
-        console.log(source, recipient);
         requestBody = new FormData();
         /*
         url = "http://localhost/app/client/backend/api/" +
@@ -129,6 +127,10 @@ async function requestTransfer() {
         requestBody.append('source_account_no', source);
         requestBody.append('recipient_account_no', recipient);
         requestBody.append('recipient_bank_code', bankCode);
+
+        document.querySelector('#external_details_modal').hidden = true;
+        document.querySelector(ID_AMOUNT).value = "";
+        document.querySelector(ID_RECIPIENT).value = "";
+        document.querySelector(ID_BANK_CODE).value = "";
         data = await postData(url, requestBody);
-        console.log(data);
 }

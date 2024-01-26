@@ -29,7 +29,7 @@ $redirect_url = $_POST['redirect_url'];
 $amount = $_POST['transaction_amount'];
 $source = $_POST['source_account_no'];
 $recipient = $_POST['recipient_account_no'];
-$description = $_POST['description'];
+$description = cleanstr($_POST['description']);
 if ($source === $recipient) {
         close_database();
         http_response_code(302);

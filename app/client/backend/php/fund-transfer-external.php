@@ -54,6 +54,16 @@ if ($amount > $balance) {
         exit;
 }
 
+if ($amount < 1) {
+        close_database();
+        http_response_code(302);
+        $response['location'] = $redirect_error . 
+                "?error_message=The transfer amount cannot be less than 1 peso";
+        echo json_encode($response);
+
+        exit;
+}
+
 if ($recipient == $source) {
         close_database();
         http_response_code(302);
@@ -92,7 +102,7 @@ $request_body = array(
 $api_response = post_data($bank_api_url, $request_body);
 if (isset($api_response['status_code']) && $api_response['status_code'] != 200) {
         close_database();
-        $error_message = get_error_message($response['status_code']);
+        $error_message = get_error_message($api_response['status_code']);
         http_response_code(302);
         $response['location'] = $redirect_error . 
                 "?error_message=$error_message";

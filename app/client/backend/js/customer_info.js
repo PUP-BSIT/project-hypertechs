@@ -36,7 +36,6 @@ function startOperation() {
 
 function setAccountNumber(data) {
         if (!data.success) {
-                console.log(data);
                 return;
         }
         ACCOUNT_NUMBER = data.accountNumber;
@@ -53,7 +52,6 @@ function getCustomerInfo() {
         sendData(url, requestBody, showCustomerData);
 }
 function showCustomerData(data) {
-        console.log(data);
         if (!data.success) return;
         let accountName, accountNumber, balance;
 

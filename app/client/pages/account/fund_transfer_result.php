@@ -31,7 +31,7 @@ $success_start = <<<EOT
             <nav>
                 <div id="toggle_theme">
                     <input type="checkbox" class="checkbox" id="theme_mode" />
-                    <label class="label" for="theme_mode" onclick="toggleTheme()">
+                    <label class="label" for="theme_mode">
                         <i class="fas fa-moon"></i>
                         <i class="fas fa-sun"></i>
                         <div class="ball"></div>
@@ -60,7 +60,7 @@ $error_start = <<<EOT
             <nav>
                 <div id="toggle_theme">
                     <input type="checkbox" class="checkbox" id="theme_mode" />
-                    <label class="label" for="theme_mode" onclick="toggleTheme()">
+                    <label class="label" for="theme_mode">
                         <i class="fas fa-moon"></i>
                         <i class="fas fa-sun"></i>
                         <div class="ball"></div>
@@ -657,6 +657,10 @@ $error_end = <<<EOT
             </svg>
         </div>
     </section>
+    <script src="../../src/scripts/theme.js"></script>
+</body>
+
+</html>
 
 EOT;
 
@@ -1717,13 +1721,13 @@ echo <<<EOT
             </svg>
         </div>
     </section>
+    <script src="../../src/scripts/theme.js"></script>
+</body>
+
+</html>
 
 EOT;
 
 // --------------------------------------------
 ?>
                 
-    <script src="../../src/scripts/theme.js"></script>
-</body>
-
-</html>

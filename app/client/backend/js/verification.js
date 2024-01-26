@@ -35,7 +35,6 @@ async function main() {
         let otpTest, expired, otp1, otp2, otp3, otp4, otp5, otp6,
                 codeResend, btnGet, btnVerify, btnRetry, btnBack;
 
-        console.log("main");
         showText();
         checkSession(); 
         btnBack = document.querySelector(ID_BTN_BACK);
@@ -111,10 +110,8 @@ async function resendCode() {
 async function checkSession() {
         let url, startButton, otpTest, expired, data;
 
-        console.log("checkSession");
         url = "../backend/php/otp-session.php";
         data = await getData(url);
-        console.log(data);
         if (!data.hasSession) {
                 window.location.href = URL_HOME;
         }
@@ -130,19 +127,16 @@ async function checkSession() {
 function startVerify() {
         let btnStart;
 
-        console.log("start");
         showText("OTP_GET");
 }
 
 function renewOTP() {
         let expired, btnStart;
 
-        console.log("renewOTP");
         showText("OTP_EXPIRED");
         btnStart = document.querySelector(ID_BTN_RENEW);
         btnStart.addEventListener("click", (event) => {
                 event.stopPropagation();
-                console.log("Hello");
                 getOTP();
         });
 }
@@ -150,10 +144,8 @@ function renewOTP() {
 async function getOTP() {
         let url, data, OTPInput, otp1;
 
-        console.log("getOTP");
         url = "../backend/php/otp.php";
         data = await getData(url);
-        console.log(data);
         clearOTPInput();
         showText("OTP_VERIFY");
         otp1 = document.querySelector(ID_OTP_1);
@@ -166,9 +158,9 @@ async function getOTP() {
 async function checkOTPInput() {
         let OTPInput, otp1, feedback;
 
+        console.log(OTP);
         OTPInput = getOTPInput();
         otp1 = document.querySelector(ID_OTP_1);
-        console.log(OTPInput, OTP);
         feedback = document.querySelector(ID_FEEDBACK);
         if(OTPInput !== OTP) {
                 feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i>'
@@ -221,8 +213,6 @@ function setTimer(remainTime) {
         let timerMinute, timerSecond, minute, second;
 
         if (!remainTime) {
-                console.log("Cancelled");
-                console.log(TIMEOUT_ID, INTERVAL_ID);
                 clearTimeout(TIMEOUT_ID);
                 clearInterval(INTERVAL_ID);
                 return;
@@ -247,7 +237,6 @@ function setTimer(remainTime) {
                 timerMinute.innerHTML = numToTime(minute);
                 timerSecond.innerHTML = numToTime(second);
         }, JS_SECOND);
-        console.log(TIMEOUT_ID, INTERVAL_ID);
 }
 
 function numToTime(num) {
