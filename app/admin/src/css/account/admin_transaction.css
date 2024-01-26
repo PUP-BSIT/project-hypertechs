@@ -397,6 +397,10 @@ body {
   overflow: hidden;
 }
 
+.transaction-form-wrapper button:disabled {
+  background-color: #9bbcff;
+}
+
 .transaction-form-wrapper button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
@@ -936,7 +940,6 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 /* ------- CONFIRM DETAILS STYLING ------- */
 .confirm-withdraw-modal,
 .confirm-details-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1096,7 +1099,6 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
 
 /* ------- TRANSACTION SUCCESS STYLING ------- */
 .transaction-success-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;

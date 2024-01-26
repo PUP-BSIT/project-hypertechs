@@ -94,9 +94,11 @@ function closeConfirmationPopup() {
 }
 
 /* Close Deposit Modal */
+/*
 function closeConfirmationDetailsPopup() {
   document.getElementById('confirm_details_modal').style.display = 'none';
 }
+*/
 
 function closeConfirmationDetailsPopup() {
   let confirmationDetailsModal = document.getElementById("confirm_details_modal");
@@ -105,15 +107,17 @@ function closeConfirmationDetailsPopup() {
   confirmDetailsModalContent.classList.add("zoom-out-confirm");
 
   setTimeout(function () {
-    confirmationDetailsModal.style.display = "none";
+    confirmationDetailsModal.hidden = true;
     confirmDetailsModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
 
 /* Close Withdraw Modal */
+/*
 function closeWithdrawDetailsPopup() {
   document.getElementById('confirm_withdraw_modal').style.display = 'none';
 }
+*/
 
 function closeWithdrawDetailsPopup() {
   let withdrawDetailsModal = document.getElementById("confirm_withdraw_modal");
@@ -122,16 +126,18 @@ function closeWithdrawDetailsPopup() {
   withdrawDetailsModalContent.classList.add("zoom-out-confirm");
 
   setTimeout(function () {
-    withdrawDetailsModal.style.display = "none";
+    withdrawDetailsModal.hidden = true;
     withdrawDetailsModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }
 
 
 /* Close Success Modal */
+/*
 function closeSuccessPopup() {
   document.getElementById('transaction_success_modal').style.display = 'none';
 }
+*/
 
 function closeSuccessPopup() {
   let transactionSuccessModal = document.getElementById("transaction_success_modal");
@@ -140,7 +146,7 @@ function closeSuccessPopup() {
   transactionSuccessModalContent.classList.add("zoom-out-confirm");
 
   setTimeout(function () {
-    transactionSuccessModal.style.display = "none";
+    transactionSuccessModal.hidden = true;
     transactionSuccessModalContent.classList.remove("zoom-out-confirm");
   }, 500);
 }

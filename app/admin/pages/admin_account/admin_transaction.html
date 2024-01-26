@@ -95,7 +95,7 @@
                 <span class="material-icons">account_balance_wallet</span>
                 Account Balance</label>
               <input type="text" id="account_balance_deposit" 
-              name="recipient-account-balance" value="" readonly
+              name="recipient-account-balance" 
               placeholder="Account balance will show up here">
             </div>
 
@@ -643,7 +643,7 @@
     </div>
 
     <!--Confirm Deposit Modal-->
-    <div class="confirm-details-modal" id="confirm_details_modal">
+    <div class="confirm-details-modal" id="confirm_details_modal" hidden>
       <div class="confirm-modal-content">
           <div id="confirm_details_heading_container">
               <i class="fa-solid fa-circle-check"></i>
@@ -654,11 +654,11 @@
           </p>
           <p id="confirmation_details_display">
               <strong>Account Number: </strong>
-                  <span id="display_modal_acc_number"></span><br>
+                  <span id="confirm_deposit_acc_number"></span><br>
               <strong>Account Holder Name: </strong>
-                  <span id="display_modal_acc_name"></span><br>
+                  <span id="confirm_deposit_acc_name"></span><br>
               <strong>Deposit Amount: </strong>
-                  <span id="display_modal_transfer_amount"></span>
+                  <span id="confirm_deposit_amount"></span>
           </p>
           <div class="confirm-details-modal-buttons">
               <button id="cancel_confirm_button" 
@@ -671,7 +671,7 @@
   </div>
 
   <!--Confirm Withdraw Modal-->
-  <div class="confirm-withdraw-modal" id="confirm_withdraw_modal">
+  <div class="confirm-withdraw-modal" id="confirm_withdraw_modal" hidden>
     <div class="confirm-withdraw-modal-content">
         <div id="confirm_withdraw_heading_container">
             <i class="fa-solid fa-circle-check"></i>
@@ -682,11 +682,11 @@
         </p>
         <p id="confirmation_withdraw_display">
             <strong>Account Number: </strong>
-                <span id="display_modal_acc_number"></span><br>
+                <span id="confirm_withdraw_acc_number"></span><br>
             <strong>Account Holder Name: </strong>
-                <span id="display_modal_acc_name"></span><br>
+                <span id="confirm_withdraw_acc_name"></span><br>
             <strong>Withdraw Amount: </strong>
-                <span id="display_modal_transfer_amount"></span>
+                <span id="confirm_withdraw_amount"></span>
         </p>
         <div class="confirm-withdraw-modal-buttons">
             <button id="cancel_withdraw_button" 
@@ -699,7 +699,7 @@
 </div>
 
   <!--Transaction Successful Modal-->
-  <div class="transaction-success-modal" id="transaction_success_modal">
+  <div class="transaction-success-modal" id="transaction_success_modal" hidden>
     <div class="success-modal-content">
         <div id="transaction_success_heading_container">
             <i class="fa-solid fa-circle-check"></i>
@@ -707,13 +707,13 @@
         </div>
 
         <p id="transaction_success_desc">You have successfully
-          <span id="display_transaction_type">deposit/withdrawn</span>
+          <span id="success_type">deposit/withdrawn</span>
           an amount of <strong>&#8369;</strong>
-          <strong><span id="display_modal_transfer_amount">0.00</span></strong>
+          <strong><span id="success_amount"></span></strong>
           to 
           <strong>
-            <span id="display_modal_acc_name">Apex User</span>
-            <span id="display_modal_acc_number"> (189912345678)</span>
+            <span id="success_acc_name"></span>
+            (<span id="success_acc_number"></span>)
           </strong>
         </p>
 

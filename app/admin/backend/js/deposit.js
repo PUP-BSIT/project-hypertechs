@@ -1,17 +1,27 @@
 import { postData, getData, isLoggedIn } from "./common_new.js";
 
-let ACCOUNT_NUMBER;
 const URL_HOME = "/index.html";
 const ID_ACCOUNT = "#deposit_account";
 const ID_AMOUNT = "#deposit_amount";
+const ID_BALANCE = "#account_balance_deposit";
 const ID_BTN_SUBMIT  = "#deposit_submit";
 const ID_CONFIRM_BUTTON ="#confirm_deposit_button";
 const ID_ERROR_DESC = "#transfer_error_desc";
+const ID_CONFIRM_ACCOUNT = "#confirm_deposit_acc_number";
+const ID_CONFIRM_NAME = "#confirm_deposit_acc_name";
+const ID_CONFIRM_AMOUNT  = "#confirm_deposit_amount";
+const ID_SUCCESS = "#transaction_success_modal";
+const ID_SUCCESS_TYPE = "#success_type";
+const ID_SUCCESS_AMOUNT = "#success_amount";
+const ID_SUCCESS_ACCOUNT = "#success_acc_number";
+const ID_SUCCESS_NAME = "#success_acc_name";
+let ACCOUNT_NUMBER;
+let ACCOUNT_NAME;
 
 main();
 
 async function main() {
-        let url, loggedIn, btnDeposit, response, confirmButton;
+        let url, loggedIn, btnDeposit, response, confirmButton, account, balance;
 
         loggedIn = await isLoggedIn();
         if (!loggedIn) {
@@ -21,16 +31,44 @@ async function main() {
         response = await getData(url);
         ACCOUNT_NUMBER = response.adminId;
         console.log(ACCOUNT_NUMBER);
+        account = document.querySelector(ID_ACCOUNT);
+        account.addEventListener("input", getBalance);
         btnDeposit = document.querySelector(ID_BTN_SUBMIT);
         btnDeposit.addEventListener("click", validateDeposit);
-
         confirmButton = document.querySelector(ID_CONFIRM_BUTTON);
         confirmButton.addEventListener("click", requestDeposit);
 }
 
-function validateDeposit() {
+async function getBalance() {
+        let account, balance, requestBody, url, btnDeposit, amount, response; 
+
+        btnDeposit = document.querySelector(ID_BTN_SUBMIT);
+        btnDeposit.disabled = false;
+        balance = document.querySelector(ID_BALANCE);
+        balance.value = "";
+        account = document.querySelector(ID_ACCOUNT).value;
+        account = document.querySelector(ID_ACCOUNT).value;
+        amount = document.querySelector(ID_AMOUNT).value;
+        if (account.length != 12) return;
+        btnDeposit.disabled = true;
+        requestBody = new FormData();
+        requestBody.append('account_number', account);
+        requestBody.append('amount', amount);
+        requestBody.append('admin_id', ACCOUNT_NUMBER);
+        url = "/app/admin/backend/php/deposit-check.php";
+        response = await postData(url, requestBody);
+        console.log(response);
+        if (!response.success) {
+                balance.value = response.accountBalance;
+                return;
+        }
+        balance.value = response.accountBalance;
+        btnDeposit.disabled = false;
+}
+
+async function validateDeposit() {
         let account, amount, requestBody, url, response, confirmButton, 
-        errorMsg;
+        errorMsg, confirmAccount, confirmName, confirmAmount;
 
         account = document.querySelector(ID_ACCOUNT).value;
         if (!account.trim()) {
@@ -58,32 +96,59 @@ function validateDeposit() {
                 return;
         }
 
-        document.getElementById('confirm_details_modal').style.display = 'block';
-}
-
-async function requestDeposit() {
-
-        let account, amount, requestBody, url, response, confirmButton;
-        account = document.querySelector(ID_ACCOUNT).value;
-        amount = document.querySelector(ID_AMOUNT).value;
-
-        // Prepare request body
         requestBody = new FormData();
         requestBody.append('account_number', account);
         requestBody.append('amount', amount);
         requestBody.append('admin_id', ACCOUNT_NUMBER);
+        url = "/app/admin/backend/php/deposit-check.php";
+        response = await postData(url, requestBody);
+        if (!response.success) {
+                document.getElementById('transfer_error_modal').hidden = false;
+                errorMsg = document.querySelector(ID_ERROR_DESC);
+                errorMsg.innerHTML = response.errorMessage;
+                return;
+        }
 
-        // Make deposit request
+        document.getElementById('confirm_details_modal').hidden = false;
+        confirmAccount = document.querySelector(ID_CONFIRM_ACCOUNT);
+        confirmName = document.querySelector(ID_CONFIRM_NAME);
+        confirmAmount = document.querySelector(ID_CONFIRM_AMOUNT);
+        confirmAccount.innerHTML = account;
+        confirmName.innerHTML = ACCOUNT_NAME = response.accountName;
+        confirmAmount.innerHTML = amount;
+}
+
+async function requestDeposit() {
+        let account, amount, requestBody, url, response, confirmButton, 
+                successType, successAmount, successAccount, successName;
+
+        account = document.querySelector(ID_ACCOUNT).value;
+        amount = document.querySelector(ID_AMOUNT).value;
+        requestBody = new FormData();
+        requestBody.append('account_number', account);
+        requestBody.append('amount', amount);
+        requestBody.append('admin_id', ACCOUNT_NUMBER);
         url = "/app/admin/backend/php/deposit.php";
         response = await postData(url, requestBody);
         console.log(response);
-
-        // Handle response
         if (!response.success) {
                 alert(response.errorMessage);
                 return;
         }
-        alert("Deposit successful!");
+        document.querySelector(ID_ACCOUNT).value = "";
+        document.querySelector(ID_AMOUNT).value = "";
+        document.querySelector(ID_BALANCE).value = "";
+        document.getElementById('confirm_details_modal').hidden = true;
+
+        document.querySelector(ID_SUCCESS).hidden = false;
+        successType = document.querySelector(ID_SUCCESS_TYPE);
+        successAmount = document.querySelector(ID_SUCCESS_AMOUNT);
+        successAccount = document.querySelector(ID_SUCCESS_ACCOUNT);
+        successName = document.querySelector(ID_SUCCESS_NAME);
+        successType.innerHTML = "deposit";
+        successAmount.innerHTML = amount;
+        successAccount.innerHTML = account;
+        successName.innerHTML = ACCOUNT_NAME;
 }
  
 function isValidAccountNumber(account) {
