@@ -1003,18 +1003,21 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   color: var(--primary);
 }
 
+#confirmation_details_desc,
 #confirmation_withdraw_desc {
   font-size: 1.4vw;
   line-height: 1.5;
   margin-bottom: 3vh;
 }
 
+#confirmation_details_display,
 #confirmation_withdraw_display {
   font-size: 1.4vw;
   font-weight: 500;
   line-height: 1.5;
 }
 
+#confirmation_details_display strong,
 #confirmation_withdraw_display strong {
   font-weight: 600;
 }
@@ -1053,34 +1056,35 @@ svg#freepik_stories-atm-machine.animated #freepik--Character--inject-244 {
   margin-top: 6vh;
 }
 
-.confirm-details-modal-buttons #confirm_withdraw_button,
+.confirm-withdraw-modal-buttons #confirm_withdraw_button,
 .confirm-details-modal-buttons #confirm_deposit_button {
   color: #e1e9fa;
   background-color: var(--primary);
   width: 30%;
 }
 
-.confirm-details-modal-buttons #cancel_withdraw_button, 
+.confirm-withdraw-modal-buttons #cancel_withdraw_button, 
 .confirm-details-modal-buttons #cancel_confirm_button {
   color: rgb(0, 61, 166);
   background-color: #bdd3ff;
   width: 20%;
 }
-.confirm-details-modal-buttons #confirm_withdraw_button:hover,
+.confirm-withdraw-modal-buttons #confirm_withdraw_button:hover,
 .confirm-details-modal-buttons #confirm_deposit_button:hover {
   box-shadow: 0 0 15px rgba(19, 91, 236, 0.5);
 }
 
-.confirm-details-modal-buttons #confirm_withdraw_button:hover span,
+.confirm-withdraw-modal-buttons #confirm_withdraw_button:hover span,
 .confirm-details-modal-buttons #confirm_deposit_button:hover span {
   transform: translateX(5px);
 }
 
-.confirm-details-modal-buttons #cancel_withdraw_button:hover,
+.confirm-withdraw-modal-buttons #cancel_withdraw_button:hover,
 .confirm-details-modal-buttons #cancel_confirm_button:hover {
   box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
 }
 
+.confirm-withdraw-modal-buttons button:active,
 .confirm-details-modal-buttons button:active {
   transform: scale(0.9);
 }
