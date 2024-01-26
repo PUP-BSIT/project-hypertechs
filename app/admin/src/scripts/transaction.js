@@ -117,7 +117,7 @@ function closeWithdrawDetailsPopup() {
 }
 
 function closeWithdrawDetailsPopup() {
-  let withdrawDetailsModal = document.getElementById("confirm-withdraw-modal-content");
+  let withdrawDetailsModal = document.getElementById("confirm_withdraw_modal");
   let withdrawDetailsModalContent = document.querySelector(".confirm-modal-content");
 
   withdrawDetailsModalContent.classList.add("zoom-out-confirm");
