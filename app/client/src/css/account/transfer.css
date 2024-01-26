@@ -1231,8 +1231,8 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   width: 45%;
 }
 
-.confirm-details-modal-buttons #cancel_confirm_button,
-.external-details-modal-buttons #cancel_confirm_button {
+.confirm-details-modal-buttons #cancel_internal_button,
+.external-details-modal-buttons #cancel_external_button {
   color: rgb(0, 61, 166);
   background-color: #bdd3ff;
   width: 20%;
@@ -1248,8 +1248,8 @@ svg#freepik_stories-credit-card.animated #freepik--Character--inject-17 {
   transform: translateX(5px);
 }
 
-.confirm-details-modal-buttons #cancel_confirm_button:hover,
-.external-details-modal-buttons #cancel_confirm_button:hover {
+.confirm-details-modal-buttons #cancel_internal_button:hover,
+.external-details-modal-buttons #cancel_external_button:hover {
   box-shadow: 0 0 15px rgba(102, 168, 255, 0.5);
 }
 
