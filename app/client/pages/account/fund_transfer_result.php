@@ -657,6 +657,10 @@ $error_end = <<<EOT
             </svg>
         </div>
     </section>
+    <script src="../../src/scripts/theme.js"></script>
+</body>
+
+</html>
 
 EOT;
 
@@ -1717,13 +1721,13 @@ echo <<<EOT
             </svg>
         </div>
     </section>
+    <script src="../../src/scripts/theme.js"></script>
+</body>
+
+</html>
 
 EOT;
 
 // --------------------------------------------
 ?>
                 
-    <script src="../../src/scripts/theme.js"></script>
-</body>
-
-</html>
