@@ -47,7 +47,7 @@ function validateDeposit() {
                 document.getElementById('transfer_error_modal').hidden = false;
                 errorMsg = document.querySelector(ID_ERROR_DESC);
                 errorMsg.innerHTML = "Invalid input. The amount must be at " + 
-                "least &#8369;100 up to 10 digits maximum with no commas.";
+                "least &#8369;100 up to 9 digits maximum with no commas.";
                 return;
         }
 
